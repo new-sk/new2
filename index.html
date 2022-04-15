@@ -7,19 +7,23 @@
 </head>
 <body>
     <header> 
-        <h2>header(비전공자를 위한 첫 코딩 챌린지) : z-index 조정으로 header 고정 나오게 : flex를 이용한 정가운데 정렬</H2>
+        <h2>header(비전공자를 위한 첫 코딩 챌린지)</H2>
     </header>
+
     <div> 
         <h3>99. 여기저기서</h3>
         <p> body:flex를 사용하여 아래쪽 div 정렬중 </p>
         <p> header 고정 <span class="sk_r">(fixed)</span>, div를 <span class="sk_r">relative</span> header 높이</p>
+        <p> z-index의 조정으로 div 스크롤시 밑으로 지나가도록 설정</p>
         <p> F12 : 박스 확인 : body의 margin 0로 변경</p>
         <p> div:<span class="sk_r">nth-child(2n+1)</span>을 활용하여 백그라운드 색깔 지정</p>      
         <p> div 용량 많으면 스크롤 생기게 <span class="sk_r">overflow</span>:scroll</p>
         <p> 화면 사이즈<span class="sk_r">(@media)</span>에 따라 하단 div의 갯수가 달라짐 : 색깔 패턴도 달라져야 겠네 (nth-child 조정)</p>
         <p> style의 코멘트는 html과 다르다 : /* ... */  vs  < !-- ... --></p>
         <p> div에 마진 또는 패딩을 주니깐 div가 다음줄로 넘어가 버린다 : <span class="sk_r">이게뭐꼬</span></p>
+        <p> header도 flex하여 텍스트를 가운데 정렬 간단히 조정함</p>
     </div>
+    
     <div> 
         <h3>02. 웹, HTML이 뭐지</h3>
         <p>네트워크 : 컴퓨터와 컴퓨터를 연결해주는 망</p>
@@ -33,11 +37,18 @@
         <p>웹페이지 vs 웹사이트 : URL기반으로 인터넷에서 서비스되는 웹페이지의 집합이 웹사이트</p>
         <p>URL : 웹페이지 주소 (web address)</p>
     </div>
+    
     <div> 
         <h3>01. 나만의 코딩 목표 세우기</h3>
         <p> <span class="sk_b">HTML</span>(웹사이트구조),  <span class="sk_b">CSS</span>(서식, 레이아웃),  자바스크립트(요소의 동작제어) </p>
         <p>프로젝트 기획</p>
+        <br>
+        <br>
+        <h3>03. 첫 코딩 도전하기</h3>
+        <p>에디터  vs  통합개발환경(IDE) (코딩, 디버거, 컴파일, 배포 등 개발과 관련된 기능 통합 제공)</p>
+        <p>컴파일(전처리,컴파일,어셈블러,링커,,,)  vs  인터프리터 (기계어 변환 없이 바로 실행)</p>
     </div>
+    
     <div> 
         <h3>11. 가상 선택자와 클래스</h3>
         <p>동적 가상 클래스</p>
@@ -52,19 +63,16 @@
         <li> nth-of-type()</li> 
         <li> only-of-type </li>
     </div>
-    <div> 
-        <h3>03. 첫 코딩 도전하기</h3>
-        <p>에디터  vs  통합개발환경(IDE) (코딩, 디버거, 컴파일, 배포 등 개발과 관련된 기능 통합 제공)</p>
-        <p>컴파일(전처리,컴파일,어셈블러,링커,,,)  vs  인터프리터 (기계어 변환 없이 바로 실행)</p>
-    </div>
+    
     <div> 
         <h3>05. HTML 특징 분석하기</h3>
         <p>태그 사이에 부모/자식 관계가 있다. (CSS 등 영향 미침)</p>
         <p>검색엔진은 텍스트를 좋아한다</p>
-        <p>SEO : Search Engine Optimization : 검색이 잘 되도록 설계 (메타/시맨틱태그 활용)</p>
+        <p><span class="sk_r">SEO</span> : Search Engine Optimization : 검색이 잘 되도록 설계 (메타/시맨틱태그 활용)</p>
         <p>. 메타태그 : 검색 엔진에 정보를 제공할 목적의 태그</p> 
         <p>. 시맨틱태그 : 웹 페이지 구조를 구성하는 태그</p>    
     </div>
+    
     <div> 
         <h3>10. CSS 레이아웃 : 위치 지정</h3>
         <p><span class="sk_b">static</span>(기본값)     position : static;</p>
@@ -72,32 +80,145 @@
         <p><span class="sk_b">relative</span> (자신의 기본 위치 기준 상대적인 위치)</p>
         <p><span class="sk_b">absolute</span> : static이 아닌 가장 가까운 조상 기준 상대적 위치 (언제 사용하는지 모르겠음)</p>  
     </div>
+    
     <div> 
-        <h1>H1 : 제목 6단계</h1>
-        <h2 style="color:rgb(0, 255, 76)"> H2</h2>
-        <h3 style="color:green">  H3</h3>
-        <h4 style="color:gold">   H4</h4>
-        <h5 style="color:pink">    H5</h5>
-        <h6 style="color:chocolate">     H6</h6>
-        <br> br : 줄바꿈 br 열리는 태그만 존재
+        <h3>04. 태그로 웹페이지 만들기 (1)</h3>
+        <p>- 시작/종료 태그 : &lt;태그명>  요소  &lt;/태그명></p>    
+        <p>- 시작 태그만   :  &lt;태그명  요소></p>
+        <br>
+        <p>h,  br/p/div/span,  link,  img,  form,  button,  ol/ul</p>
+        <p>- h1 ~ h6 : &lt:h1>&lt;/h1>, 6단계, 1은 하나만</p>
+        <P>- br : &lt;br> : 문단 내 줄바꿈 : 시작태그만</P>
+        <p>- p : 문단 나누기 : &lt:p>&lt;/p> </p>
+        <p>- div : 영역 나누기 : &lt:div>&lt;/div> </p> 
+        <p>- span : 줄바꾸지 않고 속성 바꿀 영역 지정 : &lt:span>&lt;/span> </p>
+        <p>- oi, ui : 순서 유무에 따라 : &lt;ol></ol>  /  &lt;ul> </ul> </p>
+        <br>
+        <p>- link : &lt;link rel="속성" href="파일 경로"> CSS나 PNG 파일 등과 현재 HTML 문서와의 관계 정의 </p>
+        <p>- a : &lt;a href="https://www.google.com">visit google&lt;/a> </p>
+        <p>- img : &lt;img src="경로" alt="설명" width="폭" height="높이">  원본의 축소보다는 썸네일 활용후 필요시 고화질 사용 : alt 스크린리더가 화면 글 읽을 때 사용 </p>
     </div>
+
     <div> 
-        <p> p1 태그 내에서 작성
-            다음줄에 적어도 줄바꿈 안 일어남 : p이후 줄바꿈 2b</p>
-        <p> p2 br을 사용하면 <br> p내에서도 줄바꿈이 일어남</p>
-        <p> p3 span 사용하여 일부 내역에만 속성 변경 <span style="color:red">span 빨간색</span> 여긴 빨강 아니여</p>
+        <h3>04. 태그로 웹페이지 만들기 (2)</h3>
+        <p> <span class="sk_b">form</span> 사용자 입력 양식 </p>
+          index.html
+          <br>&lt;form action="myform.html> 
+          <br>&lt;label for="fname">First Name</label> 
+          <br>&lt;input type="text" id="fname">
+          <br>&lt;input type="submit">
+          <form action="myform.html> 
+          <label for="fname">First Name</label> 
+          <input type="text" id="fname">
+          <input type="submit">
+          <br>
+          <br>myform.html
+          <br>&lt;p>제출되었습니다</p>
+          <br>
+        <p><span class="sk_b">button</span></p>
+        <p>  . type : button(누를 수 있는 버튼),  submit(form을 제출하는 버튼),  reset(form의 입력값을 초기화) </p>
+        <p>  . (submit 기능 유사하나) button 태그가 input 태그보다 스타일링에 더 자유로움 </p>
+            &lt;button type="submit" value="submit">Submit&lt;/button>
+        
     </div>
-    <div> 
-        <p>label의 for와 input id 동일하게  /  label에 input을 중첩시키지 for/id 사용하지 않아도 됨</p>
-        <form action="myform.html>
-            <label for="fname">First Name</label>
-            <input type="text" id="fname">
-            <input type="submit">
-            </form>    
-    </div>
+
     <div> 
         <h3>12. CSS 애니메이션 만들기</h3>
         <p>정리 필요</p>
+    </div>
+
+    <div>
+        <h3>07. CSS가 뭐지?</h3>
+        <p>HTML과 CSS를 분리하는 이유 : 가동성과 효율성 높이기 위해서 </p>
+        <p>CSS 만들기</p>
+        <p>- 간단할 경우 : &lt;style> &lt;/style> 태그로 꾸미기 할 영역 지정</p>    
+        <p>- 대부분 별도 CSS 파일 만듦 : &lt;link rel="stylesheet" href="style.css"></p>
+        <br>
+        <p>&lt;style>  p { color: red; } &lt;/style></p>
+        <p>&lt;p style="color:red">난 빨간색이야 &lt;/p></p>   <!-- 이렇게 지정할 수도 있지만, 100개 라면, 1000개라면,,, -->
+        <br>
+        <p>구글링을 통해서 찾아서 하세요.</p>
+h1 {
+     font-size: 100px;
+     font-align: center;
+}   <!-- h1의 글자는 크기가 100px인 가운데정렬 -->
+ 
+CSS 선택자 
+전체(*),  유형(태그명칭),  아이디(#),  클래스(.),  복합(태그명칭 태그명칭)
+전체 선택자 (*)
+    * { color: red; }  <!-- 모든 내용을 빨간색으로 만듦 -->
+유형 선택자 (태그명칭) : 일반적으로 사용하는 것 
+    h1 { color: red; }  <!-- h1만 빨간 글자로 -->
+아이디(#) vs 클래스(.) : 아이디는 고유한 값을 가짐 vs  하나의 클래스에 여러 태그 지정 가능, 하나의 태그에 여러 클래스 지정 가능
+    .my_class1 { color: red; }
+    <p class="my_class1 my_class2">여러 태그를 하나의 클래스로 묶을 수 있고,  태그 하나에 여러 클래스 적용 가능</p>
+복합 선택자
+    조상자손선택자 (조상태그명칭 자손태그명칭)
+    div p { color: red }   <!-- div 태그의 자손인 p 태그의 색깔을 빨간색으로 지정 -->
+ 
+    </div>
+
+    <div> 
+        <h3>08. CSS 배치 속성과 반응형 웹</h3>
+        block  vs  inline-level element  
+        h1, span { border : 3px solid red; }    <!-- h1, span 태그에서 경계선을 지정함 -->
+        h1 : block (block은 줄바꿈 일어남,  inline은 요소 크기만큼 공간 차지하여 가로 줄 차면 줄바꿈 이루어짐)
+        span : inline (속성만 잠시 바꿀 때)
+        display 속성을 변경하여 강제로 변경할 수도 있음  { display: inline; }
+         
+        박스 모델
+        모든 HTML 요소에서 적용됨
+        요소(element),  패딩(padding),  테두리(border),  마진(margin)  : 패딩과 마진은 투명색
+         
+        브라우저 검사 기능을 통하여 속성 확인 가능함  (F12,  도구더보기-개발자도구)
+         
+        반응형 페이지 : 미디어쿼리 사용 : 접속하는 기기 해상도에 따라서 HTML과 CSS가 바뀌는 웹을 반응형 웹이라고 함
+        @media (max-width: 1280px) { body { background-color: pink } }  <!-- 너비가 1280px 이하인 경우 배경색이 핑크 -->
+        @media (max-width: 600px) { body { background-color: pink } }  <!-- 위에서부터 적용, 위는 600~1280, 여기는 600이하 -->
+    </div>
+
+    <div> 
+        <h3>09. CSS 레이아웃 : 플렉스박스</h3>
+        display 3번째 속성 : flex  (더 다양한 레이아웃 만들고자 고안된 것으로 레이아웃을 유연하게, 자유자재로 배치 가능)
+        inline은 단순히 여백을 없애는데 사용  vs  축변경, 자식 간의 정렬 등 유연하게 박스 레이아웃 변경 처리
+        부모만이 플렉스할 수 있다. 
+        <body>
+        <div></div>   <div id="second"></div>   <div></div>    <!-- 오른쪽에 숨은 마진이 있다 -->
+        </body>
+         
+        부모인 body에 플렉스 적용
+        1. display : flex;    <!-- 가로 길이에 맞추어서 div 배치 -->
+         
+        flex-start,  flex-end,  center 등 3개는 공통으로 있는 속성값
+        2. (주축 정렬) justify-content : (5종류) space-between (등간격)  space-around (가장자리 포함 등간격)
+        3. (교차축 정렬) align-items : (4종류)  strech (긴 것에 맞추어 늘어뜨림)
+         
+        body height 100%
+          --> 그렇지 않다면 요소 중에서 가장 큰 것을 기준으로 작업됨.
+            --> 화면 정중앙 위치하려고 하나, 요소중 제일 큰 것 기준으로 정렬되어 원하는 모양이 안 나올 수 있음
+         
+        flex 축 바꾸기
+        기본적으로 주축은 가로, 교차죽은 세로를 의미하나 변경 가능
+        flex-direction : column;
+        <!-- row-reverse, column-reverse도 있으나, 언제(???) 사용하는지 모르겠음 -->
+    </div>
+
+    <div> 
+        <h3>13. 깃/깃허브 배우기</h3>
+        버전관리시스템,  깃의 클라우드 서비스 버전 깃허브,  2018년 MS에 인수
+        SaaS 형태로 서비스 제공 : 깃은 코드 버전 관리 프로그램 : 깃허브는 깃 소프트웨어 기반으로 구축된 클라우드 서비스
+         
+        저장소(repository) : 저장하는 공간
+        브랜치(branch) : 버전별 저장소  (메인 브랜치 / 서브 브랜치)  (용어변경 '20.10 마스터->메인)
+        클론(clone) : 깃허브 저장소에 있는 파일들을 로컬 컴퓨터로 복사본 만드는 것
+        애드(add) - 커밋(commit) - 푸시(push) : 저장소로 변경된 파일을 보내는 방식
+        풀(pull) : 클론은 처음, 그 이후에는 풀
+         
+        1. 저장소 만들기
+        2. 클론하기  (처음 전체 소스를 받을 때)
+        3. 파일 추가하기
+        4. 커밋 및 푸시하기
+        5. 풀하기  (클론한 이후 변경된 내용만 받을 때)
     </div>
 </body>
 </html>

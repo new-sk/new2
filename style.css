@@ -1,6 +1,6 @@
     body {
         display: flex;
-        /* justify-content: space-between;  이것으로 100% 안하고 해서 div 사이 여백 만들려고 했으나 의도하지 않은 모양 22.04.14 */
+        justify-content: space-evenly; /* 이것으로 100% 안하고 해서 div 사이 여백 만들려고 했으나 의도하지 않은 모양 22.04.14 */
         flex-wrap: wrap;
         margin: 0;
     }
@@ -12,7 +12,7 @@
             background-color: lightcyan;
             position:fixed;
             z-index: 999;
-    }
+        }
 
     h3 { color: blue;}
 
@@ -22,6 +22,9 @@
           top: 100px;
           z-index: 1;
           overflow: scroll;
+          padding: 1px;
+          border: solid 1px red;
+          margin: 1px;
           /* padding: 3px;  이거하면 flex된 div가 다음줄로 넘어감 22.04.14 */
     }
     
@@ -30,16 +33,24 @@
     
 
     @media (min-width: 1280px) { 
-        div { width:33.3%; }
-        div:nth-child(2n+1) {background-color: rgb(217, 255, 205);}
+        div { width:32.5%; }
+        div:nth-child(2n+1) {
+            background-color: rgb(217, 255, 205);
+        }
     }
     @media (max-width: 1280px) { 
-        div { width: 50%; }
-        div:nth-child(4n+1) {background-color: rgb(217, 255, 205);}
-        div:nth-child(4n+2) {background-color: rgb(217, 255, 205);}      
+        div { width: 49%; }
+        div:nth-child(4n+1) {
+            background-color: rgb(217, 255, 205);
+        }
+        div:nth-child(4n+2) {
+            background-color: rgb(217, 255, 205);
+        }
     }  <!-- 너비가 1280px 이하인 경우 배경색이 핑크 -->
     @media (max-width: 600px) { 
-        div { width:100%; } 
-        div:nth-child(2n+1) {background-color: rgb(217, 255, 205);}
+        div { width:99%; } 
+        div:nth-child(2n+1) {
+            background-color: rgb(217, 255, 205);
+        }
     } 
 
