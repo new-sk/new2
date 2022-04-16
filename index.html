@@ -104,10 +104,11 @@
         <p> <span class="sk_b">form</span> 사용자 입력 양식 </p>
           index.html
           <br>&lt;form action="myform.html> 
-          <br>&lt;label for="fname">First Name</label> 
+          <br>&lt;label for="fname">First Name &lt;/label> 
           <br>&lt;input type="text" id="fname">
           <br>&lt;input type="submit">
-          <form action="myform.html> 
+          <!-- 실제 코드 -->
+          <form action="myform.html"> 
           <label for="fname">First Name</label> 
           <input type="text" id="fname">
           <input type="submit">
@@ -119,6 +120,8 @@
         <p>  . type : button(누를 수 있는 버튼),  submit(form을 제출하는 버튼),  reset(form의 입력값을 초기화) </p>
         <p>  . (submit 기능 유사하나) button 태그가 input 태그보다 스타일링에 더 자유로움 </p>
             &lt;button type="submit" value="submit">Submit&lt;/button>
+          <!-- 실제 코드 -->
+          <br><button type="submit" value="submit">Submit</button>
         
     </div>
 
@@ -138,87 +141,82 @@
         <p>&lt;p style="color:red">난 빨간색이야 &lt;/p></p>   <!-- 이렇게 지정할 수도 있지만, 100개 라면, 1000개라면,,, -->
         <br>
         <p>구글링을 통해서 찾아서 하세요.</p>
-h1 {
-     font-size: 100px;
-     font-align: center;
-}   <!-- h1의 글자는 크기가 100px인 가운데정렬 -->
+        <p> h1 {
+        <br>    font-size: 100px;
+        <br>    font-align: center;
+        <br>}   &lt;!-- h1의 글자는 크기가 100px인 가운데정렬 --> </p>
  
-CSS 선택자 
-전체(*),  유형(태그명칭),  아이디(#),  클래스(.),  복합(태그명칭 태그명칭)
-전체 선택자 (*)
-    * { color: red; }  <!-- 모든 내용을 빨간색으로 만듦 -->
-유형 선택자 (태그명칭) : 일반적으로 사용하는 것 
-    h1 { color: red; }  <!-- h1만 빨간 글자로 -->
-아이디(#) vs 클래스(.) : 아이디는 고유한 값을 가짐 vs  하나의 클래스에 여러 태그 지정 가능, 하나의 태그에 여러 클래스 지정 가능
-    .my_class1 { color: red; }
-    <p class="my_class1 my_class2">여러 태그를 하나의 클래스로 묶을 수 있고,  태그 하나에 여러 클래스 적용 가능</p>
-복합 선택자
-    조상자손선택자 (조상태그명칭 자손태그명칭)
-    div p { color: red }   <!-- div 태그의 자손인 p 태그의 색깔을 빨간색으로 지정 -->
- 
+        <br>
+        <p>CSS 선택자 </p>
+        <p><span class="sk_r">전체</span> 선택자 (*)
+        <br>   * { color: red; }  &lt;!-- 모든 내용을 빨간색으로 만듦 --> </p>
+        <p><span class="sk_r">유형</span> 선택자 (태그명칭) : 일반적으로 사용하는 것 
+        <br>    h1 { color: red; }  &lt;!-- h1만 빨간 글자로 --> </p>
+        <p><span class="sk_r">아이디(#) vs 클래스(.)</span> : 아이디는 고유한 값을 가짐 vs  하나의 클래스에 여러 태그 지정 가능, 하나의 태그에 여러 클래스 지정 가능
+        <br>    .my_class1 { color: red; }
+        <br>    &lt;p class="my_class1 my_class2">여러 태그를 하나의 클래스로 묶을 수 있고,  태그 하나에 여러 클래스 적용 가능&lt;/p> </p>
+        <p><span class="sk_r">복합</span> 선택자
+        <br>    조상자손선택자 (조상태그명칭 자손태그명칭)
+        <br>    div p { color: red }   &lt;!-- div 태그의 자손인 p 태그의 색깔을 빨간색으로 지정 --> </p>
     </div>
 
     <div> 
         <h3>08. CSS 배치 속성과 반응형 웹</h3>
-        block  vs  inline-level element  
-        h1, span { border : 3px solid red; }    <!-- h1, span 태그에서 경계선을 지정함 -->
-        h1 : block (block은 줄바꿈 일어남,  inline은 요소 크기만큼 공간 차지하여 가로 줄 차면 줄바꿈 이루어짐)
-        span : inline (속성만 잠시 바꿀 때)
-        display 속성을 변경하여 강제로 변경할 수도 있음  { display: inline; }
+        <p>block  vs  inline-level element  </p>
+        <p>h1, span { border : 3px solid red; }    &lt;!-- h1, span 태그에서 경계선을 지정함 --> </p>
+        <p>h1 : block (block은 줄바꿈 일어남,  inline은 요소 크기만큼 공간 차지하여 가로 줄 차면 줄바꿈 이루어짐) </p>
+        <p>span : inline (속성만 잠시 바꿀 때) </p>
+        <p>display 속성을 변경하여 강제로 변경할 수도 있음  { display: inline; } </p>
          
-        박스 모델
-        모든 HTML 요소에서 적용됨
-        요소(element),  패딩(padding),  테두리(border),  마진(margin)  : 패딩과 마진은 투명색
+        <p>박스 모델 </p>
+        <p>모든 HTML 요소에서 적용됨 </p>
+        <p>요소(element),  패딩(padding),  테두리(border),  마진(margin)  : 패딩과 마진은 투명색 </p>
          
-        브라우저 검사 기능을 통하여 속성 확인 가능함  (F12,  도구더보기-개발자도구)
+        <p>브라우저 검사 기능을 통하여 속성 확인 가능함  (F12,  도구더보기-개발자도구) </p>
          
-        반응형 페이지 : 미디어쿼리 사용 : 접속하는 기기 해상도에 따라서 HTML과 CSS가 바뀌는 웹을 반응형 웹이라고 함
-        @media (max-width: 1280px) { body { background-color: pink } }  <!-- 너비가 1280px 이하인 경우 배경색이 핑크 -->
-        @media (max-width: 600px) { body { background-color: pink } }  <!-- 위에서부터 적용, 위는 600~1280, 여기는 600이하 -->
+        <p>반응형 페이지 : 미디어쿼리 사용 : 접속하는 기기 해상도에 따라서 HTML과 CSS가 바뀌는 웹을 반응형 웹이라고 함 </p>
+        <p>@media (max-width: 1280px) { body { background-color: pink } }  &lt;!-- 너비가 1280px 이하인 경우 배경색이 핑크 --> </p>
+        <p>@media (max-width: 600px) { body { background-color: pink } }  &lt;!-- 위에서부터 적용, 위는 600~1280, 여기는 600이하 --> </p>
     </div>
 
     <div> 
         <h3>09. CSS 레이아웃 : 플렉스박스</h3>
-        display 3번째 속성 : flex  (더 다양한 레이아웃 만들고자 고안된 것으로 레이아웃을 유연하게, 자유자재로 배치 가능)
-        inline은 단순히 여백을 없애는데 사용  vs  축변경, 자식 간의 정렬 등 유연하게 박스 레이아웃 변경 처리
-        부모만이 플렉스할 수 있다. 
-        <body>
-        <div></div>   <div id="second"></div>   <div></div>    <!-- 오른쪽에 숨은 마진이 있다 -->
-        </body>
+        <p>display 3번째 속성 : flex  (더 다양한 레이아웃 만들고자 고안된 것으로 레이아웃을 유연하게, 자유자재로 배치 가능)
+        <br>inline은 단순히 여백을 없애는데 사용  vs  축변경, 자식 간의 정렬 등 유연하게 박스 레이아웃 변경 처리
+        <br>부모만이 플렉스할 수 있다. </p>
          
-        부모인 body에 플렉스 적용
-        1. display : flex;    <!-- 가로 길이에 맞추어서 div 배치 -->
+        <p>부모인 body에 플렉스 적용</p>
+        <p>1. display : flex;    &lt;!-- 가로 길이에 맞추어서 div 배치 -->  </p>
+        <p>flex-start,  flex-end,  center 등 3개는 공통으로 있는 속성값</p>
+        <p>2. (주축 정렬) justify-content : (5종류) space-between (등간격)  space-around (가장자리 포함 등간격)</p>
+        <p>3. (교차축 정렬) align-items : (4종류)  strech (긴 것에 맞추어 늘어뜨림)</p>
          
-        flex-start,  flex-end,  center 등 3개는 공통으로 있는 속성값
-        2. (주축 정렬) justify-content : (5종류) space-between (등간격)  space-around (가장자리 포함 등간격)
-        3. (교차축 정렬) align-items : (4종류)  strech (긴 것에 맞추어 늘어뜨림)
+        <p>body height 100%</p>
+        <p>  --> 그렇지 않다면 요소 중에서 가장 큰 것을 기준으로 작업됨.</p>
+        <p>    --> 화면 정중앙 위치하려고 하나, 요소중 제일 큰 것 기준으로 정렬되어 원하는 모양이 안 나올 수 있음</p>
          
-        body height 100%
-          --> 그렇지 않다면 요소 중에서 가장 큰 것을 기준으로 작업됨.
-            --> 화면 정중앙 위치하려고 하나, 요소중 제일 큰 것 기준으로 정렬되어 원하는 모양이 안 나올 수 있음
-         
-        flex 축 바꾸기
-        기본적으로 주축은 가로, 교차죽은 세로를 의미하나 변경 가능
-        flex-direction : column;
-        <!-- row-reverse, column-reverse도 있으나, 언제(???) 사용하는지 모르겠음 -->
+        <p>flex 축 바꾸기</p>
+        <p>기본적으로 주축은 가로, 교차죽은 세로를 의미하나 변경 가능</p>
+        <p>flex-direction : column;</p>
+        <p> row-reverse, column-reverse도 있으나, 언제(???) 사용하는지 모르겠음  </p>
     </div>
 
     <div> 
         <h3>13. 깃/깃허브 배우기</h3>
-        버전관리시스템,  깃의 클라우드 서비스 버전 깃허브,  2018년 MS에 인수
-        SaaS 형태로 서비스 제공 : 깃은 코드 버전 관리 프로그램 : 깃허브는 깃 소프트웨어 기반으로 구축된 클라우드 서비스
+        <p>버전관리시스템,  깃의 클라우드 서비스 버전 깃허브,  2018년 MS에 인수</p>
+        <p>SaaS 형태로 서비스 제공 : 깃은 코드 버전 관리 프로그램 : 깃허브는 깃 소프트웨어 기반으로 구축된 클라우드 서비스</p>
          
-        저장소(repository) : 저장하는 공간
-        브랜치(branch) : 버전별 저장소  (메인 브랜치 / 서브 브랜치)  (용어변경 '20.10 마스터->메인)
-        클론(clone) : 깃허브 저장소에 있는 파일들을 로컬 컴퓨터로 복사본 만드는 것
-        애드(add) - 커밋(commit) - 푸시(push) : 저장소로 변경된 파일을 보내는 방식
-        풀(pull) : 클론은 처음, 그 이후에는 풀
+        <p>저장소(repository) : 저장하는 공간</p>
+        <p>브랜치(branch) : 버전별 저장소  (메인 브랜치 / 서브 브랜치)  (용어변경 '20.10 마스터->메인)</p>
+        <p>클론(clone) : 깃허브 저장소에 있는 파일들을 로컬 컴퓨터로 복사본 만드는 것</p>
+        <p>애드(add) - 커밋(commit) - 푸시(push) : 저장소로 변경된 파일을 보내는 방식</p>
+        <p>풀(pull) : 클론은 처음, 그 이후에는 풀</p>
          
-        1. 저장소 만들기
-        2. 클론하기  (처음 전체 소스를 받을 때)
-        3. 파일 추가하기
-        4. 커밋 및 푸시하기
-        5. 풀하기  (클론한 이후 변경된 내용만 받을 때)
+        <p>1. 저장소 만들기</p>
+        <p>2. 클론하기  (처음 전체 소스를 받을 때)</p>
+        <p>3. 파일 추가하기</p>
+        <p>4. 커밋 및 푸시하기</p>
+        <p>5. 풀하기  (클론한 이후 변경된 내용만 받을 때)</p>
     </div>
 </body>
 </html>
