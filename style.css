@@ -21,7 +21,7 @@
           position: relative;
           top: 100px;
           z-index: 1;
-          overflow: scroll;
+          overflow-y: auto;   /* 22.04.07 : edge에서 스크롤 항상 나타나는 문제점, scrolL -> auto로 변경 */
           padding: 1px;
           border: solid 1px red;
           margin: 1px;
