@@ -31,13 +31,15 @@
     .sk_b { color:blue; }
     .sk_r { color:red; }
     
-
+    
+    /* 1280 픽셀 이상 */
     @media (min-width: 1280px) { 
         div { width:32.5%; }
         div:nth-child(2n+1) {
             background-color: rgb(217, 255, 205);
         }
     }
+    /* 600 ~ 1280 픽셀 */
     @media (max-width: 1280px) { 
         div { width: 49%; }
         div:nth-child(4n+1) {
@@ -46,7 +48,8 @@
         div:nth-child(4n+2) {
             background-color: rgb(217, 255, 205);
         }
-    }  <!-- 너비가 1280px 이하인 경우 배경색이 핑크 -->
+    }  
+    /* 600 픽셀 이하 */
     @media (max-width: 600px) { 
         div { width:99%; } 
         div:nth-child(2n+1) {
