@@ -33,13 +33,14 @@
     
     
     /* 1280 픽셀 이상 */
-    @media (min-width: 1280px) { 
+    /* 600 ~ 1280 픽셀 */
+    /* 600 픽셀 이하 */
+/*    @media (min-width: 1280px) { 
         div { width:32.5%; }
         div:nth-child(2n+1) {
             background-color: rgb(217, 255, 205);
         }
     }
-    /* 600 ~ 1280 픽셀 */
     @media (max-width: 1280px) { 
         div { width: 49%; }
         div:nth-child(4n+1) {
@@ -49,11 +50,27 @@
             background-color: rgb(217, 255, 205);
         }
     }  
-    /* 600 픽셀 이하 */
     @media (max-width: 600px) { 
         div { width:99%; } 
         div:nth-child(2n+1) {
             background-color: rgb(217, 255, 205);
         }
     } 
+*/
 
+    @media not (hover)  { 
+        div { width:99%; } 
+        div:nth-child(2n+1) {
+            background-color: rgb(217, 255, 205);
+        }
+    } 
+
+    @media  (hover) { 
+        div { width: 49%; }
+        div:nth-child(4n+1) {
+            background-color: rgb(217, 255, 205);
+        }
+        div:nth-child(4n+2) {
+            background-color: rgb(217, 255, 205);
+        }
+    } 
