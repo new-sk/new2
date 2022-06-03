@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>나는 프로그래머다</title>
+    <link rel="stylesheet" href="book_style.css" />
+</head>
+<body>
+    <header><h2>나는 프로그래머다 (19.12.12)</h2></header>
+
+    <p class="myclass">#AWS, #JAVA, #MS, #SI</p>
+
+    <p data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><span style="font-family: 돋움, dotum, verdana, sans-serif; color: #555555; font-size: 9pt;">지은이 임백준/정도현/김호광, 출판사 한빛미디어, 출판년도 2015, 추천 ★☆☆, 다시 ★☆☆</span></p>
+    <p class="p1" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">2015년 팟캐스트 방송을 책으로 엮다&nbsp; /&nbsp; 나를 잠시 되돌아보게 되다</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">1장 Java : 첫 방송 그리고 자바의 현재와 미래</span></b></p>
+    <p class="p1" data-ke-size="size16">타프나 멘탈 : 한 일븐 금융회사 프로젝트 PM 광고에 강인한 멘탈이 자격요건으로 들어가 있음</p>
+    <p class="p1" data-ke-size="size16">보안전문가가 은행들에게 DDoS 공격을 하다 (2014.9) : 리플렉션 공격 : 변조된 데이터 받은 은행서버들이 해당 IP로 대량의 데이터 보냄</p>
+    <p class="p1" data-ke-size="size16">소프트웨어 개발 윤리 (도덕적, 법적 하자가 있는 개발을 요구할 때?) : 다크패턴 : 겉과 실제 URL 다르게, 광고 링크 누르도록, 스파이웨어 설치 등</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">정부와 공공기관 쪽에서 기술을 너무 여러가지를 사용하면 호환성 문제가 발생하여 표준 마련 -&gt; 전자정부 프레임워크 -&gt; 일반기업들도 이쪽 방향으로 이동</p>
+    <p class="p1" data-ke-size="size16">표준이 무려 129개 : 정부가 아키텍트 역할을 함</p>
+    <p class="p1" data-ke-size="size16">2013.6 자바 업그레이드 됨 (1.5 -&gt; 1.6) : 7이 2011년에 나왔는데 (보수적인 환경 구축)</p>
+    <p class="p1" data-ke-size="size16">모바일, 벤처기업, 중소기업에서 일하는 경우를 제외하면 전자정부프레임워크가 곧 자바</p>
+    <p class="p1" data-ke-size="size16">프레임워크는 시간이 지나면 족쇄로 변함<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p1" data-ke-size="size16">오류도 많고, 성능도 최신이 아닌</p>
+    <p class="p1" data-ke-size="size16">요즘은 스프링 개발자를 찾는 경우도 있음</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">자바 8 : 람다 구현 (다른 언어에서 이미 구현된 기능) : 이름이 존재하지 않는 함수 (극단적인 추상화)</p>
+    <p class="p1" data-ke-size="size16">자바의 봄날은 갔다 그러나 현재 1천만 이상 개발자가 있다 그리 쉽게 끝나지 않는다</p>
+    <p class="p1" data-ke-size="size16">모바일(안드로이드)의 자바와 윈도우/리눅스의 자바는 다른 것이다</p>
+    <p class="p1" data-ke-size="size16">JVM (스택머신). Vs<span class="Apple-converted-space">&nbsp; </span>DVM (레지스터리 기반 아키텍처, 메모리가 적어서)</p>
+    <p class="p1" data-ke-size="size16">Class 파일 읽이서 실행<span class="Apple-converted-space">&nbsp; </span>vs<span class="Apple-converted-space">&nbsp; </span>dex 파일 읽어서 실행 (작은 메모리와 약한 CPU 파워를 위해서 최적화)</p>
+    <p class="p1" data-ke-size="size16">구글은 자바 개발자를 위해서 자바와 비슷한 자바 변종을 개발</p>
+    <p class="p1" data-ke-size="size16">자바라는 언어는 늙어가지만 JVM이라는 가상기계는 나날이 회춘. (스칼라나 클로저 같은 차세대 언어도 JVM 기반임)</p>
+    <p class="p1" data-ke-size="size16">성능 때문에 자바를 안 쓰는 시기는 지났다. (GC로 인한 일시적인 지연 : 일관성 있는 빠른 속도 필요한 경우는 제외) : 가비지 컬렉션</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">2장 Go : 프로그래밍 언어계의 슈퍼 루키 Go 언어</span></b></p>
+    <p class="p1" data-ke-size="size16">익스플로러 암호기술 수출제한 (40비트 암호화키) &mdash;&gt; Active-X로 자체 개발 (다른 나라들도) &mdash;&gt; 1년여만에 수출 제한 폐지</p>
+    <p class="p1" data-ke-size="size16">정부에서 제시한 가이드라인만 준수하면 수많은 보안사고에 대한 면죄부 주어짐</p>
+    <p class="p1" data-ke-size="size16">SEED 기반 기술을 사용하기 위해서는 Active-X를 사용할 수 밖에 없음</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">튜링테스트 통과(13세 남자아이)</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">Go언어 : 구글에서 시스템 프로그래밍을 위해 개발 &mdash;&gt; 범용언어로도 확산 (2009년 발표)</p>
+    <p class="p1" data-ke-size="size16">정적 타이핑 언어임 : 처음 값의 타입이 설정될 때 타입이 자동적으로 설정</p>
+    <p class="p1" data-ke-size="size16">덕 타이핑 (파이썬은 생행타임, 고언어는 컴파일 타임에 인터페이스 있는지 확인)</p>
+    <p class="p1" data-ke-size="size16">리팩토링을 진행할 때 정적 체크가 되는 것이 중요함</p>
+    <p class="p1" data-ke-size="size16">VM은 없고 가비지컬렉션만 있음</p>
+    <p class="p1" data-ke-size="size16">문법적으로 쓰기가 편해서 생산성이 높다고 함</p>
+    <p class="p1" data-ke-size="size16">(파이썬은 스트링이 이터러블하다는 것 때문에 곤혹을 치르기도 함 &mdash;&gt; 고언어는 해결?)</p>
+    <p class="p1" data-ke-size="size16">concurrency(논리적 병렬처리), parallel(물리적 병렬처리)</p>
+    <p class="p1" data-ke-size="size16">Go 루틴 활용해 동시성 처리 (여래 개의 go루틴이 한 개의 OS스레드 사용 : 여러 개 사용하는 다른 것들 보다 속도 향상)<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p1" data-ke-size="size16">쉐어드 메모리 사용(lock, mutex) : 채널을 통해서 구현.<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p1" data-ke-size="size16">Go go : C# async : java SynchronousQueue</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">3장 스칼라 : 스칼라, 객체지향과 함수형 프로그래밍의 절묘한 만남</span></b></p>
+    <p class="p1" data-ke-size="size16">코세라에서 진행되는 스칼라 강의</p>
+    <p class="p1" data-ke-size="size16">함수 프로그래밍의 원리</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">4장 개발자에게 다가가려는 MS의 눈물 나는 노력</span></b></p>
+    <p class="p1" data-ke-size="size16">윈도우 매월 14일 보안업데이트 실시 : 자동업데이트 권장</p>
+    <p class="p1" data-ke-size="size16">UTM (United Threat Management) : 통합 보안 장비 (방화벽, 웹보안, 안티 바이러스 등)</p>
+    <p class="p1" data-ke-size="size16">러시아와 동구권 해킹 조직과 중국의 해킹 조직이 소통</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">스파크는 실시간 빅데이터 처리를 위한 솔루션 : 느린 하둘보다 10배 이상 빠른 고속처리</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">MS의 에반젤리스트는 2000년 초반, MS의 기술을 정확히 알리고, 기술을 쓸 수 있도록 독려하는 게 주요 업무</p>
+    <p class="p1" data-ke-size="size16">MS 애저 클라우드에 돌고 있는 VM의 43%가 리눅스. &mdash;&gt; 최근에는 리눅스에서도 닷넷 프레임워크가 작동</p>
+    <p class="p1" data-ke-size="size16">MONO는 MS의 기술 중 닷넷 프레임워크의 오픈 소스 버전</p>
+    <p class="p1" data-ke-size="size16">Win16 &mdash;&gt; Win32 (90년대 초반) &mdash;&gt; WinRT : API 지원을 축소하면서 한계 도출 (보안적인 문제로 배제, 모바일 환경에 부적합)<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p1" data-ke-size="size16">WinRT는 기본저으로 윈도우폰과 윈도우 엑스박스 전체를 아우르는 형태의 API 셋을 제공 &mdash;&gt; win 8.1 95% 수준, win 10에서 만회</p>
+    <p class="p1" data-ke-size="size16">마케팅으로 인해 혼란이 가중되는 MS 생태계</p>
+    <p class="p1" data-ke-size="size16">(휘슬러 서버 -&gt; 윈도우 2002 서버 -&gt; 윈도우 닷넷 서버 -&gt; 윈도우 닷넷 서버 2003 -&gt; 윈도우 서버 2003)</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">5장 빌드에서 새로운 MS를 보다</span></b></p>
+    <p class="p1" data-ke-size="size16">보안 패치라든지 취약점 패치라든지 하면 좋다 이게 아니라 반드시 해야 하는 필수적인 거다</p>
+    <p class="p1" data-ke-size="size16">공유기를 패치하고 리셋</p>
+    <p class="p1" data-ke-size="size16">문제가 되는 경우는 정말 자기가 못한다 생각하기 때문에 안 보여주는 경우</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">빌드 : MS에서 1년에 한 번 개최하는 신기술, 신제품을 모아서 발표하는 행사</p>
+    <p class="p1" data-ke-size="size16">애저 리부트 했어요. 다시 배워야 해요</p>
+    <p class="p1" data-ke-size="size16">도커 컨데이너가 오염되면 메인 컨테이너가 오염될 수 있다는 거죠</p>
+    <p class="p1" data-ke-size="size16">클라우드 전략 2002년경부터 해왔음 (헤일스톰) &mdash;&gt; AWS가 시장에서 성공하고 나서 MS 역시 2008년부터 애저로 다시 시장에 도전</p>
+    <p class="p1" data-ke-size="size16">엄청난 성공 뒤 실패 : IE 6, 윈도우 XP</p>
+    <p class="p1" data-ke-size="size16">액박을 기반으로 해서 가정용 홈시어터 구성</p>
+    <p class="p1" data-ke-size="size16">JSON : 모든 사물 인터넷의 백엔드 단에는 결국 클라우드가 동작 : 개인별 맞춤화된 서비스 제공</p>
+    <p class="p1" data-ke-size="size16">라즈베리 파이 (초소형PC) : 아직 너무 비쌈<span class="Apple-converted-space">&nbsp; </span>&mdash;&gt; 임베디드 보드 JSON 안 쓰고, 그냥 개발자가 최대한 짧게 데이터 플래그를 정의해서 HTTP로 보내는 정도</p>
+    <p class="p1" data-ke-size="size16">이벤트허브 : 실시간 분석 (IoT에서 생성한 정보를 이벤트허브로 모두 던지면 실시간 분석 실행)</p>
+    <p class="p1" data-ke-size="size16">MS는 안드로이드에 대한 원천 기술을 많이 가지고 있어요</p>
+    <p class="p1" data-ke-size="size16">오피스 API 오픈 (예전부터 해왔음)<span class="Apple-converted-space">&nbsp; </span>&mdash;&gt;<span class="Apple-converted-space">&nbsp; </span>클라우드 서비스가 되면서<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p1" data-ke-size="size16">개발자의 체감 IDE 편리성 : 자바 인텔리J 보다 비주얼 스튜디오가 10배는 높을 듯</p>
+    <p class="p1" data-ke-size="size16">비주얼 스튜디오 코드는 비주얼 스튜디오에서 에디트 기능과 깃 버전 관리 기능 정도만 포함된 수준</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">6장 아시아 두번째 AWS 커뮤니티 히어로와 함께하는 클라우드 컴퓨팅 이야기</span></b></p>
+    <p class="p1" data-ke-size="size16">베놈 취약점 : 가상환경의 취약점을 이용해 VM 이용자가 호스트 시스템에서 코드를 실행할 수 있게 해줌</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">클라우드 컴퓨팅 : 네트워크를 이용해 컴퓨팅 파워를 사용하는 모든 서비스</p>
+    <p class="p1" data-ke-size="size16">IaaS (Infrastructure),<span class="Apple-converted-space">&nbsp; </span>PaaS (Platform),<span class="Apple-converted-space">&nbsp; </span>SaaS (Software)</p>
+    <p class="p1" data-ke-size="size16">개발자들이 개발에만 집중할 수 있음</p>
+    <p class="p1" data-ke-size="size16">클라우드 요금 예측 컨설팅 업체도 존재함</p>
+    <p class="p1" data-ke-size="size16">가장 큰 걸림돌 : 보안. (돈은 어디에 보관하는가?<span class="Apple-converted-space">&nbsp; </span>:<span class="Apple-converted-space">&nbsp; </span>은행이 안전한가? 집이 안전한가?)</p>
+    <p class="p1" data-ke-size="size16">고가용성을 유지하기 위해 권고사항으로 2군데 이상의 리전에 VM 설치 권고</p>
+    <p class="p1" data-ke-size="size16">자체 데이터 센터를 둬야 하는 이유는 법적 규제를 받는 개인정보를 다루는 경우를 제외하고 거의 없음</p>
+    <p class="p1" data-ke-size="size16">오토스케일링 쉬움 : 클라우드 친화적인 개발을 해야 함, 영속 데이터를 애플리케이션 서버와 철저하게 분리</p>
+    <p class="p1" data-ke-size="size16">DevOps는 개발과 운영을 합성 : 개발, 빌드, 배포, 테스트를 하나의 사이클로 만들어 끊임없이 반복하는 개발 프로세스</p>
+    <p class="p1" data-ke-size="size16">직접 써보는 것이 가장 중요</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">7장 핀테크, 메가트랜드인가 버즈워드인가?</span></b></p>
+    <p class="p1" data-ke-size="size16">핀테크는 기술이라기보다는 하나의 비즈니스 도메인</p>
+    <p class="p1" data-ke-size="size16">기업중심에서 개인중심으로 바뀌면서 등장</p>
+    <p class="p1" data-ke-size="size16">금융산업에서 기술을 활용해 고객에게 더 나은 서비스를 제공하는 모든 수단</p>
+    <p class="p1" data-ke-size="size16">클라우드펀딩, P2P대출, 알고리즘 자산곤리, 씨메틱 투자, 지불 서비스, 데이터수집, 신용평가, 교육대출, 디지털화폐, 주식거래, 운전자본관리,,,</p>
+    <p class="p1" data-ke-size="size16">실리콘밸리가 월스트리트의 점심을 빼앗어 먹으르 하고 있다</p>
+    <p class="p1" data-ke-size="size16">인터넷 전문은행을 베이스로 깔고간다</p>
+    <p class="p1" data-ke-size="size16">누군가 하는 일 없이 독점해온 수익구조를 가차 없이 흔들고 뒤집어서 새로운 돈의 흐름을 만들어냄</p>
+    <p class="p1" data-ke-size="size16">페이팔 : 사기 리스크의 관리를 매우 중요하게 여김</p>
+    <p class="p1" data-ke-size="size16">인터넷전문은행은 운영체재고<span class="Apple-converted-space">&nbsp; </span>핀테크기업은 어플리케이션</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">8장 MS MVP가 프로그래머로 사는 법</span></b></p>
+    <p class="p1" data-ke-size="size16">레진코믹스 차단 : 홍보효과</p>
+    <p class="p1" data-ke-size="size16">국세청 홈택스 : 대혼란, 엑티브X 8개 설치 (2015 2분기)</p>
+    <p class="p1" data-ke-size="size16">엔티브X 위에서 동작하는 플래시</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">짜기 쉽다. 디버깅 쉽다. 이해하기 쉽다</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">소프트웨어 릴리즈 주기를 길게 가지 않음</p>
+    <p class="p1" data-ke-size="size16">SI에서는 공동 작업 : 힘들어 하는 사람이 있으면 새로운 툴을 함께 사용하기 힘듦<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16">클라우드는 돈보다는 시간 (시간이 더 비싸다)</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">9장 여자 개발자라는 블루오션</span></b></p>
+    <p class="p1" data-ke-size="size16">청중들에게서 유의미한 반응</p>
+    <p class="p1" data-ke-size="size16">코딩신 영접</p>
+    <p class="p1" data-ke-size="size16">여자들을 배려해준다고 일을 적게 줌 ???<span class="Apple-converted-space">&nbsp; </span>&mdash;&gt; 차별입니다</p>
+    <p class="p1" data-ke-size="size16">1주일에 한 번 정도 재택근무 (생산성 높이기 위한 수단)</p>
+    <p class="p1" data-ke-size="size16">세상의 절반이 여자다. 개발계에서도 여자의 비율이 높아져야함</p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">10장 개발자와 영어, 뜨거운 애증 관계에 대하여</span></b></p>
+    <p class="p1" data-ke-size="size16">한국어 스택오버플로우 : 기존 사이트들이라도 통합하는 것이 나을 듯</p>
+    <p class="p1" data-ke-size="size16">생존영어 : 영어로 프리토킹하는 학원, 한국TV 안보기, 일 외에는 영어 콘텐츠만</p>
+    <p class="p1" data-ke-size="size16">말하기 능력은 실제로 해 봐야 함 : 한인들 상대 비즈니스 또는 홀로하는 연구소 등에서는 외국에 나가서도 말을 배우지 못할 수 있음</p>
+    <p class="p1" data-ke-size="size16">오픈소스 매뉴얼 등은 허접한 문장일 수 있다.<span class="Apple-converted-space">&nbsp;</span></p>
+    <p class="p2" data-ke-size="size16">&nbsp;</p>
+    <p class="p1" data-ke-size="size16"><b><span style="color: #0055ff;">11장 절망에서 희망으로 SI 이노베이션</span></b></p>
+    <p class="p1" data-ke-size="size16">SI 프로젝트 끝나고 통상 10% 정도만이 유지보수 인력으로 남음</p>
+    <p class="p1" data-ke-size="size16">IT시스템은 코어 비즈니스 모델을 서포트하기 위한 부수적인 작업<span class="Apple-converted-space">&nbsp; </span>&mdash;&gt; 코어 비즈니스 영역 그 자체로 보아야 함</p>
+    <p class="p1" data-ke-size="size16">야근은 하나의 면피 도구</p>
+
+</body>
