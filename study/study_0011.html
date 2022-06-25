@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SW자산관리사</title>
+    <link rel="stylesheet" href="study_style.css" />
+</head>
+<body>
+    <header><h2>4.1 소프트웨어 자산관리 일반 (20.06.21, SW자산관리사)</h2></header>
+
+    <p class="myclass">#SW자산관리사</p>
+    
+    <h4 data-ke-size="size20">1. 소프트웨어 자산의 인식</h4>
+    <p data-ke-size="size16">&nbsp; IT 자산관리</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 기업의 자산으로서 IT자산관리는 제대로 이루어지지 않았음 (토지, 시설, 각종기기, IT인프라)</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &rarr; <span style="color: #006dd7;">비용</span>으로 쳐다봄, &nbsp;<span style="color: #006dd7;">무형</span> 자산으로 인식 부족</p>
+    <p data-ke-size="size16">&nbsp; &nbsp;&nbsp;<span style="color: #333333;">&rarr; 하드웨어든 소프트웨어든 관리대장(<span style="color: #006dd7;">고정자산</span>) 차원의 관리수준을 넘지 못했음</span></p>
+    <p data-ke-size="size16">&nbsp; &nbsp;&nbsp;<span style="color: #333333;">&rarr; <span style="color: #006dd7;">라이프사이클</span> 차원에서 관리</span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; 소프트웨어 자산의 성격&nbsp;</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; <span style="color: #ee2323;">단순한 라이선스 관리</span> 이상임</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; IT 자산관리 : 서버, 스토리지 등의 IT 장비로부터 출발한 것이 때문에 소프트웨어 특징 반영 못함</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 일부 자체 개발 소프트웨어는 ITSM에 포함해야 함</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; SAM은 ITAM의 일부가 될 수도 있겠으나 독립적인 영역도 존재, &nbsp;ITAM과 &nbsp;SAM은 결국 ITSM 을 구현하기 위한 축으로의 관계</span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; 어려운 점</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 대상의 증가 : 업무 늘어날 때마다 관련 시스템, 소프트웨어, 서비스가 늘어남</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 관리의 어려움 : 비즈니스 측면에서는 하나의 요구사항 추가이나, 기존 인프라 수정해야 하는 RISK 가질수도</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; IT 인프라에 대한 가시성과 통찰력을 제공 : 사전에 비즈니스 변화에 대응할 수 있음</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; ITIL의 &nbsp;SAM : 소프트웨어 생명주기를 기초로 하여 4P(Process, People, Product, Partner)의 관리방안 제시</span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; 소프트웨어 자산의 요건 : 해당 소프트웨어가 회사 비즈니스의 가치를 지속적으로 증대시키는 역할</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 기업회계기준 : 식별가능성, 통제가능성, 미래 경제적 효익의 가능성, 취득원가의 신뢰성 있는 측정가능성</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; 소프트웨어 자산의 범위</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; 소프트웨어 자산의 리스크</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 라이선스 없이 사용 가능 : 실제 해외 저작권사로부터 증서 받을 때까지 시간 소요</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 라이선스 증거의 분실 위험</span></p>
+    <p data-ke-size="size16"><span style="color: #333333;">&nbsp; &nbsp; 라이선스 조건 위반으로 인한 위험 : 최종 사용 고객과 제조업체 사이의 계약임</span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    
+    <h4 data-ke-size="size20">2. 소프트웨어 자산관리 개요</h4>
+    <p data-ke-size="size16">&nbsp; 소프트웨어 자산관리는 한 조직이 보유한 소프트웨어 자산을 <span style="color: #006dd7;">라이프사이클 전체 단계</span>에 걸쳐 효과적으로 관리, 통제, 보호하는 데 필요한 모든 인프라스트럭처 및 프로세스를 의미한다 (OGC의 ITIL에서 정의한 SAM)</p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16">&nbsp; SAM의 필요성</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; (IT 감사 및 소프트웨어 감사에 대한 책임) 내부회계관리제도, (저작권 침해) 저작권법 상 양벌규정</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 비즈니스 위험의 감소</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 업무 중단 위험</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 보안 및 정보 자산 훼손의 위험 : 적절한 패치를 받지 못함</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 법적 위험</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 경제적 위험&nbsp;</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 예상치 못한 업무량 부하 : 법적 대응 등으로 인한 업무부하 증가</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 이미지 훼손의 위험</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; TCO 절감</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 전략적인 계획 및 운영 : <span style="color: #006dd7;">지출시기 및 규모</span></p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 유리한 가격 협상 위치</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 합리적인 소프트웨어 구매</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 관련된 하드웨어 비용 절감</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 자산관리 비용 감소</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 문제 해결 비용의 감소</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 경쟁우위의 확보</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 정확한 의사결정</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 신속한 업무지원</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 조직의 합병.분리 등의 대처</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 효과사례</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 중앙집중화 사례</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 자산 식별 사례</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; &nbsp; 요구분석 사례</p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16">&nbsp; SAM의 리스크 (경영진 의지, 중앙집중화 필요)</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 경영진의 의지</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 임직원의 인식 부족 : 통제의 추가로 인식하면&nbsp;</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 역할과 책염의 부재 : 정보시스템, 자산관리부서, 구매관리부서, 인사관리부서, 재무관리부서</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 분산된 의사결정 환경</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 교육 및 모니터링 미비</p>
+    <p data-ke-size="size16">&nbsp;</p>
+    
+    <h4 data-ke-size="size20">3. SAM의 국제 표준</h4>
+    <p data-ke-size="size16">&nbsp; ISO/IEC 19770의 특성</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 품질을 일정 수준 이상으로 유지 (통제비용과 실패비용)</p>
+    <p data-ke-size="size16">&nbsp; &nbsp; 위키피디아 : <span style="color: #006dd7;"><i><a style="color: #006dd7;" href="https://en.wikipedia.org/wiki/ISO/IEC_19770" target="_blank" rel="noopener">en.wikipedia.org/wiki/ISO/IEC_19770</a></i></span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16">&nbsp; ISO/IEC 19770-1 : 프로세스(2006) &rarr; 프로세스 및 단계별 적합성 평가(2012) <span style="color: #333333;">&rarr;&nbsp;</span><span>specifies the requirements for the establishment, implementation, maintenance, and improvement of a management system(2017, tiered 구조는 &nbsp;appendix로 이전)</span></p>
+    <p data-ke-size="size16"><span>&nbsp; IT 서비스 관리 표준 (20000)는 다음 3개와 연계 &nbsp;소프트웨어 라이프사이클 (12207), &nbsp;품질표준(9001), 기업 거버넌스 IT표준(38500)&nbsp;</span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span>&nbsp; <span style="color: #333333;">ISO/IEC 19770-2 : Sofrware Identification Tag(소프트웨어 식별 태그), 릴리스 관리, &nbsp;사용자 조직 뿐만 아니라 저작권사들에게도 필요한 것임</span></span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span><span style="color: #333333;"><span style="color: #333333;">&nbsp; ISO/IEC 19770-3 : Software Entitlement Schema (ENT, 권한태그)</span></span></span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span><span style="color: #333333;"><span style="color: #333333;"><span style="color: #333333;">&nbsp; ISO/IEC 19770-4 : Resource Utilization Measurement (RUM)</span></span></span></span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span><span style="color: #333333;">&nbsp; ISO/IEC 19770-5 : 개요와 용어</span></span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span><span style="color: #333333;"><span style="color: #333333;">&nbsp; ISO/IEC 19770-8 : 적용 가이드라인</span></span></span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16">COBIT 2019 (ISACA, 버전체계 변경됨 1, 2, ... -&gt; 년도)</p>
+    <p data-ke-size="size16"><span>F</span><span>r</span><span>a</span><span>m</span><span>e</span><span>w</span><span>o</span><span>r</span><span>k</span><span>&nbsp;</span><span>f</span><span>o</span><span>r</span><span>&nbsp;</span><span>E</span><span>n</span><span>t</span><span>e</span><span>r</span><span>p</span><span>r</span><span>i</span><span>s</span><span>e</span><span>&nbsp;</span><span style="color: #006dd7;">Governance</span><span>&nbsp;</span><span>o</span><span>f</span><span>&nbsp;</span><span>I</span><span>n</span><span>f</span><span>o</span><span>r</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>a</span><span>n</span><span>d</span><span>&nbsp;</span><span>T</span><span>e</span><span>c</span><span>h</span><span>n</span><span>o</span><span>l</span><span>o</span><span>g</span><span>y</span><span>&nbsp;</span><span>(</span><span>E</span><span>G</span><span>I</span><span>T)</span></p>
+    <p data-ke-size="size16">&nbsp;</p>
+    <p data-ke-size="size16"><span>IT의 목표가 기업의 목표와의 일치</span></p>
+
+</body>
