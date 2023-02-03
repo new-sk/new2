@@ -1,0 +1,48 @@
+﻿<h1 id="04-데이터마트">04. 데이터마트</h1>
+<p>요약변수</p>
+<p>파생변수</p>
+<br>
+<p>reshape 패키지</p>
+<ul>
+<li>melt → cast</li>
+</ul>
+<p>sqldf 패키지</p>
+<p>plyr 패키지 (R로 작성) → dplyr (C++로 작성, 속도 빠름)</p>
+<p>data.table 패키지</p>
+<br>
+<p>데이터 탐색</p>
+<ul>
+<li>head</li>
+<li>summary : 수치형(5 number, 평균), 명목형(명목값, 갯수)</li>
+</ul>
+<br>
+<p>변수중요도</p>
+<br>
+<p>변수 구간화</p>
+<ul>
+<li>binning : 연속형 → 범주형 변수</li>
+</ul>
+<br>
+<p>결측치처리</p>
+<ul>
+<li>꼭 처리해야 하나요?</li>
+<li>mean(x, na.rm=T)</li>
+</ul>
+<br>
+<p>단순대치법</p>
+<ul>
+<li>삭제, 평균대치, 조건부 평균 대치(회귀분석 활용), 단순확률대치(추정량 표준 오차 과소 추정문제 해결 위해)</li>
+</ul>
+<p>다중대치법</p>
+<ul>
+<li>단순대치법을 여러번 실시</li>
+</ul>
+<br>
+<p>이상값처리</p>
+<ul>
+<li>ESD</li>
+<li>기하평균</li>
+<li>사분위수</li>
+<li>절단(trimming) : 삭제</li>
+<li>극단값조정(winsorizing) : 정상범위 Min/Max 값으로 조정</li>
+</ul>
