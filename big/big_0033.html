@@ -1,0 +1,78 @@
+﻿<h1 id="4장-확률론적-학습-나이브-베이즈를-사용한-분류">4장 확률론적 학습 나이브 베이즈를 사용한 분류</h1>
+<ul>
+<li><p>베이즈 분류기</p>
+<ul>
+<li>많은 속성을 고려해야 하는 문제에 가장 적합</li>
+<li>많은 다른 알고리즘에서는 약한 효과를 내는 속성을 무시하는 경향이 있음</li>
+</ul>
+</li>
+<li><p>상호배타적이고 포괄적</p>
+<ul>
+<li>1 = P(spam) + P(ham)</li>
+<li>p(spam) = P(~ham)  (예사건)</li>
+</ul>
+</li>
+<li><p>벤다이어그램</p>
+<ul>
+<li>P(spam) / P(viagra) / P(ham)</li>
+<li>P(spam ∩ ~viagra) + P(spam ∩ viagra) + P(~spam ∩ viagra)</li>
+<li>spam 과 viagra가 독립이라면 : P(spam ∩ viagra) = P(spam)P(viagra)</li>
+</ul>
+</li>
+<li><p>장점</p>
+<ul>
+<li>단순하고 빠르며 매우 효과점</li>
+<li>노이즈 / 결측 있어도 잘 작동</li>
+<li>훈련에 대해 적은 예제 필요, 많을 때도 잘 작동</li>
+<li>예측에 대한 추정된 확률 얻기 쉬움</li>
+</ul>
+</li>
+<li><p>단점</p>
+<ul>
+<li>모든 속성은 동등하게 중요하며 독리적이라는 가정</li>
+<li>수치 속성 잘 작동 안됨</li>
+<li>추청된 확률이 예측된 범주보다 덜 신뢰적</li>
+</ul>
+</li>
+<li><p>라플라스 추정기</p>
+<ul>
+<li>범주 레벨이 전혀 발생하지 않았다면 문제 발생 (예 : 새로운 용어 발생 → 사후 확률 0 → 다른 증거들도 무시됨)</li>
+<li>1로 설정</li>
+</ul>
+</li>
+<li><p>수치 속성 → 구간화하여 사용 (binning)</p>
+<ul>
+<li>cut point, 잘 모를 때는 4분위수 활용 가능</li>
+</ul>
+</li>
+<li><p>텍스트 데이터 전처리 (tm package)</p>
+<ul>
+<li>install.packages(&quot;tm&quot;)</li>
+<li>sms_corpus ← Corpus (VectorSource(sms_raw$text))</li>
+<li>휘발성 저장장치(VCorpus) / 영구 저장장치(PCorpus)</li>
+<li>inspect</li>
+<li>DocumentTermMatrix : 희소 매트릭스 생성</li>
+</ul>
+</li>
+<li><p>시각화 : word clound</p>
+<ul>
+<li>install.packages(&quot;wordcloud&quot;)</li>
+<li>wordcloud(corpus, min_freq = 40, random.order = F)
+<ul>
+<li>corpus 데이터에서 40번 이상 나타난 단어를 빈도순에 따라 가운데에서 차례로 생성</li>
+</ul>
+</li>
+<li>wordcloud(corpus, max_words = 40, scale = c(3,0.5))
+<ul>
+<li>40개만 표시하고, 글자의 크기는 0.5~3 사이의 크기</li>
+</ul>
+</li>
+<li>subset (dataset, type == &quot;spam&quot;)</li>
+</ul>
+</li>
+<li><p>M ← naiveBayes(train, class, laplace=0)</p>
+<ul>
+<li>훈련데이터셋, 결과 팩터, 라플라스값은 0으로 초기화</li>
+</ul>
+</li>
+</ul>

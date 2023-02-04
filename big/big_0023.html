@@ -1,0 +1,37 @@
+﻿<h1 id="dor-06자유자재로-데이터-가공하기">DoR 06.자유자재로 데이터 가공하기</h1>
+<h2 id="데이터-전처리--dplyr로-전처리">데이터 전처리 : dplyr로 전처리</h2>
+<p>주요함수</p>
+<p>filter    : 행추출</p>
+<p>select    : 열추출</p>
+<p>arrange   : 정렬</p>
+<p>mutate    : 파생변수</p>
+<p>summarise : 통계치 산출</p>
+<p>group_by  : 집단별</p>
+<p>left_join : 데이터 합치기 (열)</p>
+<p>bind_rows : 데이터 합치기 (행)</p>
+<p>install.packages(&quot;dplyr&quot;)</p>
+<p>library(dplyr)</p>
+<p>exam ← data.frame(id=1:6, class=c(1,1,1,1,2,2), english=c(98,97,86,98,80,89), math=c(50,60,78,58,65,98))</p>
+<p>exam %&gt;% filter(class ==1)  # 연산자 %&gt;%,  데이터셋명 일일이 표기하지 않아도 됨</p>
+<p>exam %&gt;% filter(class ==1 &amp; math &gt; 50)   # 두가지 조건 함께 검사</p>
+<p>연산자 확인</p>
+<p>논리 : &lt;, ⇐, &gt;, &gt;=, ==, !=, |, &amp;, %in%</p>
+<p>산술 : +, -, *, ㅗ, ^ = **, %/%(몫), %% (나머지)</p>
+<p>exam %&gt;% select(class,english)</p>
+<p>exam %&gt;% select(-english)                        # english만 제외</p>
+<p>exam %&gt;% filter(class==1) %&gt;% select(-english)  # filter와 select 동시 사용</p>
+<p>exam %&gt;% arrange(math)        # 정렬</p>
+<p>exam %&gt;% arrange(desc(math))  # 정렬 desc</p>
+<p>exam %&gt;% arrange(class,math)  # 여러 변수 동시 정렬</p>
+<p>exam %&gt;% mutate(total=english+math) %&gt;% head (2)      # 파생변수 생성, head 사용</p>
+<p>exam %&gt;% mutate(test=ifelse(math&gt;=70,&quot;Pass&quot;,&quot;Fail&quot;))  # ifelse 사용한 파생변수</p>
+<p>exam %&gt;% summarise(mean_math=mean(math))                     # 통계량 측정</p>
+<p>exam %&gt;% group_by(class) %&gt;% summarise(mean_math=mean(math)) # 집단별 통계량 측정</p>
+<p>test1 ← data.frame(id=1:5, mid=c(60,80,70,90,85))</p>
+<p>test2 ← data.frame(id=1:5, final=c(70,83,65,95,80))</p>
+<p>total ← left_join(test1, test2, by=&quot;id&quot;)</p>
+<p>total</p>
+<p>test1 ← data.frame(id=1:5, test=c(60,80,70,90,85))</p>
+<p>test2 ← data.frame(id=1:5, test=c(70,83,65,95,80))</p>
+<p>total ← bind_rows(test1, test2)</p>
+<p>total</p>

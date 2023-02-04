@@ -1,0 +1,37 @@
+﻿<h1 id="dor-04데이터프레임">DoR 04.데이터프레임</h1>
+<h2 id="04-데이터-프레임의-세계로">04. 데이터 프레임의 세계로</h2>
+<h3 id="데이터프레임">데이터프레임</h3>
+<p>df_exam ← data.frame(english&lt;-c(38,37,28,34), math&lt;-c(29,39,16,21))</p>
+<p>df_exam</p>
+<p>df_exam$class ← c(1,1,2,2)</p>
+<p>df_exam</p>
+<p>mean(df_exam$english)</p>
+<h3 id="엑셀">엑셀</h3>
+<p>install.packages(&quot;readxl&quot;,dependencies = T)  # 종속적인 패키지도 같이 설치</p>
+<p>df_exam ← read_excel(&quot;d:/&quot;, col_names=F)  # 슬래시 확인 꼭 ^^</p>
+<p>?read_excel</p>
+<h3 id="csv">csv</h3>
+<p>read.csv(&quot;melong.csv&quot;, stringsAsFactors = F)  # 문자열 읽을 때 Factor로 할지 여부</p>
+<p>write.csv(df_exam, file=&quot;melong.csv&quot;)</p>
+<p>getwd()  # pwd</p>
+<h3 id="rdata--저장시-사용한-변수로-자동-저장됨-엑셀-csv와-다른-">RDATA : 저장시 사용한 변수로 자동 저장됨 (엑셀, csv와 다른 )</h3>
+<p>save(df_exam, file=&quot;df_exam.rda&quot;)</p>
+<p>rm(df_exam)</p>
+<p>load(&quot;df_exam.rda&quot;)</p>
+<p><br><br></p>
+<h2 id="05-데이터-분석-기초---데이터-파악하기-다루기-쉽게-수정하기">05. 데이터 분석 기초 - 데이터 파악하기, 다루기 쉽게 수정하기</h2>
+<p>head/tail : 일부만 보여줌</p>
+<p>View : 뷰어창에서 보여줌 : R-studio environment에서 변수 클릭했을 때와 동일함</p>
+<p>dim : 차원</p>
+<p>str : 속성 (구조)</p>
+<p>summary : 요약 통계량 제공</p>
+<p>table : 빈도표 : 종류가 너무 많으면 안 보여줌</p>
+<p>summary(y)</p>
+<p>table(d)</p>
+<p>변수명 바꾸기 : 왜 하는지 모르겠음</p>
+<p>df_new ← rename(df_new, v2&lt;-var2)  # df_new에 있는 변수 var2를 v2로 바꿈</p>
+<p>파생변수 : 그냥 만들어서 붙이면 됨</p>
+<p>data(&quot;ChickWeight&quot;)</p>
+<p>ChickWeight$w2 ← ChickWeight$weight * 2</p>
+<p>ChickWeight$w3 ← ifelse(ChickWeight$Diet == 1, ChickWeight$weight, ChickWeight$weight*2)</p>
+<p>summary(ChickWeight)</p>

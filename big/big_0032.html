@@ -1,0 +1,44 @@
+﻿<h1 id="3장-게으른-학습-최근접-이웃을-사용한-분류">3장 게으른 학습 최근접 이웃을 사용한 분류</h1>
+<ul>
+<li><p>개인별 추천 영화 예측</p>
+</li>
+<li><p>특정 단백질과 질병을 추출하는 데 사용하는 유전자 데이터의 패턴 식별</p>
+</li>
+<li><p>장점
+. 단순하고 효율적 / 분산에 대한 추정이 불필요함(비모수적) / 빠른 훈련 단계</p>
+</li>
+<li><p>단점
+. 모델을 생성하지 않음 → 통찰력 발견 제한
+. 느린 분류 단계, 많은 메모리 소요 / 명목형, 결측치 처리시 추가적인 작업 필요</p>
+</li>
+<li><p>K : 보통 3~10개</p>
+</li>
+<li><p>dist : 기본적으로 유클리디언  (참고, 맨하튼/맥시멈)</p>
+</li>
+<li><p>k가 작아지면 이상치의 영향 받음</p>
+</li>
+<li><p>k가 커지면 작지만 중요한 패턴을 무시할 수 있음</p>
+</li>
+<li><p>가중치를 부여하여 가까운 이웃에게 좀 더 큰 가중치 부여할 수도</p>
+</li>
+<li><p>정규화</p>
+</li>
+<li><p>명목형 변수 : 더미코딩</p>
+</li>
+<li><p>명목형 변수가 서수형일 경우 (1,2,3,,,,)처럼 사용할 수 있지만, 차이가 일정하지 않다면 더미 코딩하는 것이 나을 수도 있음</p>
+</li>
+<li><p>knn(train, test, class, k)</p>
+</li>
+</ul>
+<p>. k는 홀수 : 동수로 끝날 확률을 줄여줌</p>
+<p>library(&quot;class&quot;)</p>
+<p>Usage
+knn(train, test, cl, k = 1, l = 0, prob = FALSE, use.all = TRUE)</p>
+<p>Arguments
+train : matrix or data frame of training set cases.
+test : matrix or data frame of test set cases. A vector will be interpreted as a row vector for a single case.
+cl : factor of true classifications of training set
+k : number of neighbours considered.
+l : minimum vote for definite decision, otherwise doubt. (More precisely, less than k-l dissenting votes are allowed, even if k is increased by ties.)
+prob : If this is true, the proportion of the votes for the winning class are returned as attribute prob.
+use.all : controls handling of ties. If true, all distances equal to the kth largest are included. If false, a random selection of distances equal to the kth is chosen to use exactly k neighbours.</p>

@@ -1,0 +1,98 @@
+﻿<h1 id="2장-t검정-및-비모수검정">2장 T검정 및 비모수검정</h1>
+<p>2장 T검정 및 비모수검정
+3장 분산분석
+4장 상관분석 및 Bootstrap 방법</p>
+<p>t검정 (t.test)</p>
+<ul>
+<li>표본의 평균 차이 검정</li>
+<li>정규분포 따르고, 분산은 같고, 평균 차이 검정 : T test</li>
+<li>정규분포 따르고, 분산은 모르고, 평균 차이 검정 : Welch Test</li>
+</ul>
+<p>F검정 (var.test)</p>
+<ul>
+<li>표본의 분산 차이 검정 (Var Test)</li>
+</ul>
+<p>비모수검정</p>
+<ul>
+<li>귀무가설 : 차이가 없음</li>
+<li>Ansari-Bradley Test</li>
+<li>Mood Test</li>
+<li>Fligner Test</li>
+<li>Battlett Test</li>
+</ul>
+<p>분산분석</p>
+<ul>
+<li>3개 이상 집단</li>
+<li>정규성, 독립성, 불편성, 등분산성 → 분산분석, 공분산분석, 상관분석, 회귀분석, 요인분석에 적용</li>
+</ul>
+<p>상관분석</p>
+<ul>
+<li>수치 : Pearson</li>
+<li>순위 : Spearman, Kendall</li>
+<li>상관계수 (공분산을 표준화)</li>
+</ul>
+<blockquote>
+<hr />
+</blockquote>
+<p>하나(xx)의 집단과 평균
+귀무가설 : 평균이 30이다
+p-value가 0.05보다 크므로, 귀무가설을 기각하지 못함 (평균이 30임)</p>
+<blockquote>
+<p>xx = c(35, 32, 33, 28, 29, 30, 31, 29, 28, 30)
+mu = 30
+t.test(xx, y=NULL, mu=30)</p>
+</blockquote>
+<p>One Sample t-test</p>
+<p>data:  xx
+t = 0.69561, df = 9, p-value = 0.5042
+alternative hypothesis: true mean is not equal to 30
+95 percent confidence interval:
+28.87397 32.12603
+sample estimates:
+mean of x
+30.5</p>
+<blockquote>
+<hr />
+</blockquote>
+<p>두번째 집단(yy)와의 평균
+귀무가설 : xx = yy
+p-values가 0.05보다 작으므로, 귀무가설이 기각됨 (평균이 서로 다름)
+(디폴트는 분산이 다르다고 가정 : Welch Test)</p>
+<blockquote>
+<p>yy = c(31, 32, 33, 34, 35, 36, 35, 34, 33)
+t.test(xx, yy)</p>
+</blockquote>
+<p>Welch Two Sample t-test</p>
+<p>data:  xx and yy
+t = -3.5528, df = 16.057, p-value = 0.002638
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+-5.055624 -1.277709
+sample estimates:
+mean of x mean of y
+30.50000  33.66667</p>
+<blockquote>
+<hr />
+</blockquote>
+<p>(var.equal = T로 하면, 분산이 동일하다고 가정 : T test)</p>
+<blockquote>
+<p>t.test(xx, yy, var.equal = T)</p>
+</blockquote>
+<p>Two Sample t-test</p>
+<p>data:  xx and yy
+t = -3.4847, df = 17, p-value = 0.002837
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+-5.083950 -1.249383
+sample estimates:
+mean of x mean of y
+30.50000  33.66667</p>
+<blockquote>
+<hr />
+</blockquote>
+<p>정책 실행 전후 선호도 차이 분석</p>
+<p>t.test(xxx, yyy, paired = T)</p>
+<blockquote>
+<hr />
+</blockquote>
+<p>var.test(xx, yy)</p>
