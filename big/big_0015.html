@@ -1,0 +1,29 @@
+﻿<h1 id="5장-데이터프레임">5장 데이터프레임</h1>
+<p>kids ← c(&quot;Jack&quot;, &quot;Jill&quot;, &quot;Ted&quot;)</p>
+<p>ages ← c(10,11,NA)</p>
+<p>df ← data.frame(kids,ages,stringsAsFactors = F)  # 갯수 다르니 에러</p>
+<p>ages ← c(10,11)</p>
+<p>df ← data.frame(kids2=kids,ages2=ages,stringsAsFactors = F)</p>
+<p>df</p>
+<p><strong>접근</strong></p>
+<p>df$kids</p>
+<p>df[1]      # 리스트</p>
+<p>df[[1]]    # 벡터</p>
+<p>df[,1]</p>
+<p>df[,&quot;kids&quot;]</p>
+<p>str(df)</p>
+<p><strong>NA처리 : subset권장</strong></p>
+<p>df[df$ages2 &gt;= 11,]      # df$ 필요함,  NA 포함</p>
+<p>subset(df, ages2 &gt;= 11)  # df$ 불필요,  NA 미포함</p>
+<p><strong>행 추가</strong></p>
+<p>rbind(df,list(&quot;SK&quot;,14))</p>
+<p><strong>열 추가</strong></p>
+<p>cbind(df,years10=df$ages2+10)</p>
+<p>df$years10 ← df$ages+10</p>
+<p>df</p>
+<p>df$years10 ← NULL</p>
+<p>df</p>
+<p><strong>결합 : merge</strong></p>
+<p><strong>하나 이상의 동일한 컬럼 있어야 : 없을 경우 by 사용</strong></p>
+<p>merge(A,B)</p>
+<p>merge(A,B, by.x=&quot;kids&quot;,by.y=&quot;pals&quot;)</p>

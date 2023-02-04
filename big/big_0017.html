@@ -1,0 +1,59 @@
+﻿<h1 id="7장-r프로그래밍구조">7장 R프로그래밍구조</h1>
+<p><strong>반복문</strong></p>
+<p>for(n in x) { }</p>
+<p>while (조건문) {</p>
+<p>break # 밖으로</p>
+<p>next  # 다음 조건으로</p>
+<p>}</p>
+<p><strong>get : u,v는 각각 3*2 행렬</strong></p>
+<p>for (m in c(&quot;u&quot;,&quot;v&quot;)) {</p>
+<p>z ← get(m)</p>
+<p>print(lm(z[,2] ~ z[,1]))</p>
+<p>}</p>
+<p><strong>if - else</strong></p>
+<p>y ← if (x==2) x else x+1</p>
+<p><strong>연산자</strong></p>
+<p>+, -, *, /, ^(제곱)</p>
+<p>%/% (몫), %%(나머지)</p>
+<p>==, ⇐, &gt;=</p>
+<p>&amp;&amp;, || (정수형, 결과값 하나),   &amp;, | (벡터, 결과값 벡터),  ! (not)</p>
+<p><strong>인수의 기본값, 결과값</strong></p>
+<p><strong>return() 는 명시적으로 하는 것을 권장</strong></p>
+<p><strong>&quot;{&quot; 도 함수라네요</strong></p>
+<p>?&quot;{&quot;</p>
+<p><strong>함수 내용 확인</strong></p>
+<p>abline       # 함수명 입력</p>
+<p>page(abline) # page 단위  ## R-studio에서는 별도 파일로 열림</p>
+<p>sum          # C로 짜여진 소스는 안 보여짐</p>
+<p><strong>ls</strong></p>
+<p>ls()         # 객체 리스트 보여줌</p>
+<p>ls.str()     # 좀 더 상세한 내역</p>
+<p><strong>지역변수가 없으면 그 상위 레벨에서 찾음</strong></p>
+<p>f ← function(y) {</p>
+<p>d ←8</p>
+<p>print(ls(envir = parent.frame(n=y)))</p>
+<p>print(ls())           # 함수 내의 변수가 보여짐</p>
+<pre><code>return(d*y)
+</code></pre>
+<p>}</p>
+<p>f(1)</p>
+<p><strong>함수는 거의 부작용이 없다 : 복사본 사용 (call by value)</strong></p>
+<p><strong>&lt;&lt;- : 최상위레벨 변수 사용</strong></p>
+<p>kkk</p>
+<p>tow ← function(x) { kkk &lt;&lt;- x*2 }</p>
+<p>kkk</p>
+<p>tow(2)    # tow 함수 호출이후에는 kkk가 존재한다</p>
+<p>kkk</p>
+<p>rm(kkk)</p>
+<p>assign(&quot;u&quot;, 2<em>u, pos=.GlobalEnv)  # 환경변수 &quot;u&quot;에 2</em>u값 할당</p>
+<p><strong>광역변수 사용 자제 : 스레드코드, GPU 코드 병렬처리시 대거 사용됨</strong></p>
+<p><strong>변수 2개를 리턴해야 한다면 : 리스트로 해야하는 불편이 존재</strong></p>
+<p><strong>광역변수와 동일한 이름의 상관없는 변수를 겹쳐 쓰는 사고 발생 우려</strong></p>
+<p><strong>7.8.5 클로저가 뭔지???</strong></p>
+<p><strong>재귀함수</strong></p>
+<p><strong>7.10 교체함수 : 뭘 말하려고 하는지 모르겠다. 번역 오류인가?</strong></p>
+<p>names(x) ← c(&quot;a&quot;,&quot;b&quot;,&quot;ab&quot;)  # 함수에 값을 집어넣다니 이상하지 않는가? 어쩌라꾸</p>
+<p><strong>나만의 연산자 만들기</strong></p>
+<p>&quot;%a2b%&quot; ← function(a,b) return(a+2*b)</p>
+<p>3 %a2b% 5</p>
+<p><strong>7.13 무기명 함수 : 예제 부적절</strong></p>

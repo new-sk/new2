@@ -1,0 +1,75 @@
+﻿<h1 id="1장-시작하기">1장 시작하기</h1>
+<p><strong>이게 뭘 정리한건지 모르겠다. 다시 봐야 겠다. (23.02.04)</strong></p>
+<p><br> <br></p>
+<p>인터액티브 모드</p>
+<p>배치 모드</p>
+<p>save file z.R  # z.R 파일생성</p>
+<p>pdf(&quot;r.pdf&quot;)</p>
+<p>hist(rnorm(100))</p>
+<p>dev.off()</p>
+<p>R CMD BATCH z.R  # 배치실행</p>
+<p>할당연산자 : ← 권장 (= 별루 권하지 않음)</p>
+<p>c() : concatenate : 벡터 이어줌</p>
+<p>z ← c(1,2,3)    # 벡터 만듦</p>
+<p>z ← c(z,z,8)    # 백터를 이어줌</p>
+<br>
+<p>배열은 1부터 시작</p>
+<p>z[1]</p>
+<p>부분집합</p>
+<ul>
+<li><p>z[3:4]</p>
+</li>
+<li><p>z[c(1,4)]</p>
+</li>
+</ul>
+<br>
+<p>내장 데이터셋 확인</p>
+<p>data()</p>
+<p><br> <br></p>
+<p>벡터에서 홀수 갯수 찾는 함수 : 어느게 더 좋은가요?</p>
+<p>oddcount ← function(x) {</p>
+<p>k ← 0</p>
+<p>for (n in x) if (n %% 2 ==1 ) k&lt;-k+1</p>
+<p>return(k)</p>
+<p>}</p>
+<p>oddcount2 ← function(x) {</p>
+<p>k ← 0</p>
+<p>for (i in 1:length(x)) if (x[i] %% 2 == 1) k ← k+1</p>
+<p>return(k)</p>
+<p>}</p>
+<p>x ← c(1,2,3)</p>
+<p>x ← integer()  # integer type인데, 길이는 0</p>
+<p>x ← &quot;integer()&quot;</p>
+<p>oddcount(x)</p>
+<p>oddcount2(x)</p>
+<p><br> <br></p>
+<p>함수에서 기본 인수</p>
+<p>g ← function(x, y=2, z=T) { }</p>
+<p><br> <br></p>
+<p>스칼라, 문자열, 행렬, 리스트, 데이터프레임, 클래스</p>
+<p>x ← 8     # 스칼라 : 단일값 (실제로는 스칼라가 아니라 1개 값을 가진 벡터임)</p>
+<p>y ← &quot;xyz&quot; # 문자열을 단일 원소로 가지는 벡터</p>
+<p>m ← rbind(c(1,4), c(2,3))</p>
+<p>m[1,]</p>
+<p>m[,2]</p>
+<p>m*m</p>
+<p>m%*%m  # 행렬곱</p>
+<p><br> <br></p>
+<p>리스트는 여러가지 데이터 형태를 가지고 있음</p>
+<p>x ← list(u=2, v=&quot;abc&quot;)  # &quot;=&quot;임을 명심하자</p>
+<p><br> <br></p>
+<p>2개의 항목을 가지는 리스트</p>
+<p>$u</p>
+<p>[1] 2</p>
+<p>$v</p>
+<p>[1] &quot;abc&quot;</p>
+<p>histNile ← hist(Nile)</p>
+<p>데이터프레임 : 데이터타입이 다른 값을 가지는 행렬</p>
+<p>d ← data.frame(list(kids=c(&quot;Jack&quot;,&quot;Jill&quot;),agges=c(10,12)))</p>
+<p>갯수가 안 맞으면 error가 남</p>
+<p>클래스는 나중에</p>
+<p>HELP : R-studio에서는 help에서 그냥 찾으면 그만,,,</p>
+<p>help(mean)</p>
+<p>?mean</p>
+<p>help.search(&quot;network&quot;)</p>
+<p>R CMD command --help</p>

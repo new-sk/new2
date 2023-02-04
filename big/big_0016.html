@@ -1,0 +1,40 @@
+﻿<h1 id="6장-팩터와-테이블">6장 팩터와 테이블</h1>
+<p><strong>팩터와 레벨</strong></p>
+<p>x ← c(5,12,13,12)</p>
+<p>xf ← factor(x)     # 값은 4개, 고유의 레벨값 가짐</p>
+<p>xf</p>
+<p>str(xf)             # 레벨은 &quot;5&quot;, &quot;12&quot;, &quot;13&quot; 3가지이고, 1,2,3,2의 값으로 저장됨</p>
+<p>unclass(xf)</p>
+<p><strong>number의 structure</strong></p>
+<p>x ← c(1,2)</p>
+<p>str(x)</p>
+<p><strong>팩터 &amp; 숫자</strong></p>
+<p>xf ← c(xf,6)</p>
+<p>xf</p>
+<p>str(xf)        # 숫자로 바뀌어 버렸네요. 팩터는 레벨로 저장</p>
+<p><strong>팩터에 없는 레벨값을 넣으면 에러</strong></p>
+<p>xf[3]</p>
+<p>xf[5] ← 6</p>
+<p><strong>레벨값 확장</strong></p>
+<p>xff ← factor(x, level=c(5,12,13,6))</p>
+<p>xff[5] ← 6</p>
+<p>xff</p>
+<p>unclass(xff)</p>
+<p><strong>tapply : 팩터에 따른 그룹으로 나누고, 함수 적용</strong></p>
+<p>d ← data.frame(list(gender=c(&quot;M&quot;,&quot;F&quot;,&quot;M&quot;,&quot;F&quot;,&quot;M&quot;,&quot;F&quot;),age=c(10,15,20,25,30,35),</p>
+<pre><code>                 income=c(55,52,50,18,78,90)))
+</code></pre>
+<p>d$over25 ← ifelse(d$age&gt;25,1,0)</p>
+<p>d</p>
+<p>str(d)</p>
+<p>tapply(d$income,list(d$gender,d$over25),mean)</p>
+<p><strong>split : 그룹으로 나누기만 함</strong></p>
+<p>split(d$income,list(d$gender,d$over25))  # tapply → split, mean이 사라짐</p>
+<p><strong>by : data frame을 apply함 factor를 기준으로 나누어서</strong></p>
+<p><strong>table : 분할표를 만든다</strong></p>
+<p><strong>tapply:length를 하면 NA가 만들어지는데, talbe은 0으로 표기된다</strong></p>
+<p><strong>aggregate</strong></p>
+<p><strong>cut : 숫자값을 팩터로 만듦</strong></p>
+<p>z ← c(0.27, 0.38, 0.94, 0.11, 2.19, 5.42)</p>
+<p>binmarks ← seq(from=0, to=1, by=0.25)</p>
+<p>cut(z, binmarks, labels = F)</p>

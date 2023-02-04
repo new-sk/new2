@@ -1,0 +1,32 @@
+﻿<h1 id="4장-리스트">4장 리스트</h1>
+<p><strong>리스트는 벡터이다</strong></p>
+<p><strong>태그 붙여도 되고 안붙여도 되고</strong></p>
+<p>j ← list(name=&quot;Joe&quot;, salary=55000, union=T)</p>
+<p>j</p>
+<p>j ← list(&quot;Joe&quot;, 55000, T)</p>
+<p>j</p>
+<p>j</p>
+<p>j$name</p>
+<p>j[[&quot;name&quot;]]</p>
+<p>k&lt;-j[1]     # 이거랑                 # 결과값이 리스트</p>
+<p>l&lt;-j[[1]]   # 이거랑의 차이는 뭘까?  # 결과값이 원소</p>
+<p><strong>리스트 추가 및 삭제</strong></p>
+<p>j$melong ← &quot;melong&quot;  # 추가</p>
+<p>j</p>
+<p>j$melong ← NULL      # Null 값 줌으로써 삭제</p>
+<p>j</p>
+<p><strong>연결</strong></p>
+<p>c(j,list(5))   # 두 개의 리스트 연결 : c(j,5)도 같은 결과네요.</p>
+<p><strong>갯수</strong></p>
+<p>length(j)</p>
+<p><strong>구성요소 이름</strong></p>
+<p>names(j)</p>
+<p><strong>리스트의 해체</strong></p>
+<p>unlist(j)</p>
+<p>typeof(j)</p>
+<p><strong>list apply : lapply</strong></p>
+<p>x ← list(1:2,3:5)</p>
+<p>x</p>
+<p>lapply(x,mean) # 결과값 리스트</p>
+<p>sapply(x,mean) # 결과값 벡터</p>
+<p><strong>재귀리스트 가능 : 리스트 내에 리스트</strong></p>

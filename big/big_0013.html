@@ -1,0 +1,49 @@
+﻿<h1 id="3장-행렬과-배열">3장 행렬과 배열</h1>
+<p><strong>열 우선 배열</strong></p>
+<p><strong>matrix 함수를 활용한 행렬 정의</strong></p>
+<p>matrix(c(1,2,3,4), nrow=2, ncol=2)</p>
+<p>matrix(c(1,2,3,4), nrow=2, ncol=2, byrow=T)  # 저장하는 방식만 row 방식으로</p>
+<p><strong>선형대수에서의 행렬간 곱 : %*%</strong></p>
+<p>x ← matrix(1:12,nrow=3)</p>
+<p>x</p>
+<p><strong>부분집합</strong></p>
+<p>x[,2:3]     # 2열과 3열</p>
+<p>x[c(1,3),]  # 1행과 3행</p>
+<p>x[2:3,2:3] ← 0  # 부분집합 대체</p>
+<p>x</p>
+<p><strong>행렬도 인덱싱 가능</strong></p>
+<p>x[,x[1,]&gt;5]  # 1행에서 조건에 맞는 열을 선택하는 것임</p>
+<p><strong>apply 함수 : 행렬 적용</strong></p>
+<p><strong>apply(m,dimcode,f,fargs) : 행렬, 1:행/2:열적용, 함수, 함수인자</strong></p>
+<p>x ← matrix(1:6,nrow=3)</p>
+<p>apply(x, 2, mean)</p>
+<p><strong>행렬의 크기 변화 : rbind, cbind 활용</strong></p>
+<p><strong>bind를 활용하여 간단하게 행렬을 만들 수 있음</strong></p>
+<p>cbind(c(1,2),c(3,5))</p>
+<p><strong>애초에 큰 행렬을 미리 만들어 두는 것이 속도에 좋음 : 반복문 사용</strong></p>
+<p><strong>행렬은 벡터의 확장이다</strong></p>
+<p>z ← matrix(1:8, nrow=4)</p>
+<p>mode(z)</p>
+<p>typeof(z)</p>
+<p>length(z)      # 8</p>
+<p>class(z)       # matrix</p>
+<p>attributes(z)  # $dim 4 2</p>
+<p>z ← 1:8       # class가 다르고, attribute값이 matrix에서만 존재</p>
+<p>dim(z)</p>
+<p>nrow(z)</p>
+<p>ncol(z)</p>
+<p><strong>행렬에서 차원축소 하려다가 벡터(1차원 행렬)가 될 수 있다.</strong></p>
+<p>z ← matrix(1:8, nrow=4)</p>
+<p>z[2,]           # 1개의 행만 남음 : 벡터</p>
+<p>z[2,, drop=F]   # drop 사용하여 : 1*2 행렬</p>
+<p><strong>colnames    : 벡터에서는 names 였다</strong></p>
+<p>colnames(z) ← c(&quot;a&quot;,&quot;b&quot;)</p>
+<p>rownames(z) ← c(&quot;a&quot;,&quot;b&quot;)  # error : 4개인데, 2개만 정의했다고 에러</p>
+<p>rownames(z) ← c(&quot;aa&quot;,&quot;bb&quot;,&quot;cc&quot;,&quot;dd&quot;)</p>
+<p>z</p>
+<p><strong>고차원배열 (행렬에서 차원이 더 높아지면 배열)</strong></p>
+<p>m1 ← matrix(1:6,nrow=3)</p>
+<p>m2 ← matrix(5:10,nrow=3)</p>
+<p>array(data=c(m1,m2),dim=c(3,2,2))</p>
+<p>m1+m2      # 단순한 행렬 합</p>
+<p>c(m1,m2)   # 벡터로 풀려버리네요</p>

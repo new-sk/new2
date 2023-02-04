@@ -1,0 +1,48 @@
+﻿<h1 id="8장-r에서-수학과-시뮬레이션하기">8장 R에서 수학과 시뮬레이션하기</h1>
+<p><strong>수학함수</strong></p>
+<p>exp(1)  # e를 밑으로 하는 지수 함수</p>
+<p>log(1)  # 자연로그 함수</p>
+<p>log10(1)  # 10을 밑으로 하는 로그</p>
+<p>sqrt(4)   # 제곱근</p>
+<p>abs(-1)   # 절대값</p>
+<p>sin(0.5)  # 삼각함수 : cos, tan</p>
+<p>which.min(c(1,2))  # 벡터 내에서 최소값의 인덱스 : which.max</p>
+<p>x ← matrix(c(1:6),nrow=2)</p>
+<p>min(x[,1],x[,2])   # 하나의 긴 벡터로 만들어  최소값  : max</p>
+<p>pmin(x[,1],x[,2])  # 벡터별로 최소값을 구해서 길이가 같은 새로운 벡터 만듦  : pmax</p>
+<p><strong>sum, prod, cumsum, cumprod</strong></p>
+<p>x ← c(1,2,3)</p>
+<p>sum(x)        # 벡터합</p>
+<p>prod(x)       # 벡터곱</p>
+<p>cumsum(x)     # 벡터누적합</p>
+<p>cumprod(x)    # 벡터 누적곱</p>
+<p>round(0.4)    # 반올림</p>
+<p>floor(0.7)    # 버림</p>
+<p>ceiling(0.1)  # 올림</p>
+<p>factorial(4)</p>
+<p><strong>최소화, 최대화, 미적분 생략</strong></p>
+<p><strong>분포함수</strong></p>
+<p><strong>정규(norm), 카이스퀘어(chisq), 이항(binom)</strong></p>
+<p><strong>정렬</strong></p>
+<p>x ← c(8,9,7)</p>
+<p>sort(x)   # 정렬된 값</p>
+<p>order(x)  # 정렬된 인덱스: 세번째 것이 제일 작다</p>
+<p>rank(x)   # 순위 표시 : 첫번째 것이 2등이다</p>
+<p><strong>선형대수 연산</strong></p>
+<p><strong>집합연산</strong></p>
+<p>union(c(1,2),c(2,3))     # 합집합 A+B</p>
+<p>intersect(c(1,2),c(2,3)) # 교집합 A and B</p>
+<p>setdiff(c(1,2),c(2,3))   # 차집합 A minus B</p>
+<p>setequal(c(1,2),1:2)     # 동일성테스트 : T/F</p>
+<p>1 %in% c(1:2)            # c %in% y : c가 y의 원소인가 : T/F</p>
+<p>choose(5,2)              # 5개 원소 가진 집합에서 2개 뽑는 방법의 수</p>
+<p><strong>랜덤변수</strong></p>
+<p>x ← rbinom(100,5,0.5) # 이항분포, 5번시도, 성공확률 0.5</p>
+<p>x                      # 성공횟수가 나옴, 0~5 사이의 값</p>
+<p>mean(x &gt;= 4)           # 4보다 클 확률</p>
+<p>rnorm   # 정규분포</p>
+<p>rexp    # 지수분포</p>
+<p>runif   # 균등분포</p>
+<p>rgamma  # 감마분포</p>
+<p>rpois   # 포아송분포</p>
+<p>set.seed(999)  # 동일한 랜덤값 얻기 위해</p>
