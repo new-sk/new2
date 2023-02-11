@@ -1,0 +1,42 @@
+﻿<h1 id="5-선택자">5. 선택자</h1>
+<h2 id="51-선택자">5.1 선택자</h2>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;CSS 선택자&lt;/title&gt;</p>
+<p>&lt;style&gt;</p>
+<p>h2 { color:red; }   &lt;!-- type  태그명으로 사용  --&gt;</p>
+<p>.coding { color:green; }  &lt;!-- class  여러군데 사용  --&gt;</p>
+<p>#coding { color:yellow; }  &lt;!-- ID 한군데에서만 사용 --&gt;</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;!-- 우선순위  ID &gt; Class &gt; Type --&gt;</p>
+<p>&lt;h2&gt;TYPE : 기본 red&lt;/h2&gt;</p>
+<p>&lt;h2 class=&quot;coding&quot;&gt;CLASS(.) : green&lt;/h2&gt;</p>
+<p>&lt;h2 id=&quot;coding&quot;&gt;ID(#) : yellow&lt;/h2&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<br>
+<h2 id="52-실제-사항">5.2 실제 사항</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 선택자</title>
+  
+  <style>
+      h2 { color:red; }   <!-- type  태그명으로 사용  -->
+      .coding { color:green; }  <!-- class  여러군데 사용  -->
+      #coding { color:yellow; }  <!-- ID 한군데에서만 사용 -->
+  </style>
+  
+</head>
+<body>
+<!-- 우선순위  ID > Class > Type -->
+<h2>TYPE : 기본 red</h2>
+<h2 class="coding">CLASS(.) : green</h2>
+<h2 id="coding">ID(#) : yellow</h2>
+</body>
+</html>

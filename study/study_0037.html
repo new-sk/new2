@@ -1,0 +1,60 @@
+﻿<h1 id="7-css-우선순위">7. CSS 우선순위</h1>
+<h2 id="71-css-우선순위">7.1 CSS 우선순위</h2>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;CSS 우선 순위&lt;/title&gt;</p>
+<p>&lt;style&gt;</p>
+<p>p { color: red; }</p>
+<p>p { color: blue; }  &lt;!-- 순서 :  늦게 나온 것으로 선택 --&gt;</p>
+<p>header h3 { background-color: green; }   &lt;!-- 디테일. 하게 정의된 것으로 선택 --&gt;</p>
+<p>h3 { background-color: blue; }</p>
+<p>#color { color: yellow; }     &lt;!-- 선택자:  style &gt; ID &gt; class &gt; type --&gt;
+.color { color: pink; }
+h4 { color: gray; }
+&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;p&gt;순서 캐스케이딩&lt;/p&gt;</p>
+<p>&lt;header&gt;</p>
+<p>&lt;h3&gt;디테일 캐스케이딩&lt;/h3&gt;</p>
+<p>&lt;/header&gt;</p>
+<p>&lt;h4 style = &quot;color:green;&quot; id=&quot;color&quot; class=&quot;color&quot;&gt;SICT 선택자 캐스케이딩&lt;/h4&gt;</p>
+<p>&lt;h4 id=&quot;color&quot; class=&quot;color&quot;&gt;_ICT 선택자 캐스케이딩&lt;/h4&gt;</p>
+<p>&lt;h4 class=&quot;color&quot;&gt;__CT 선택자 캐스케이딩&lt;/h4&gt;</p>
+<p>&lt;h4&gt;___T 선택자 캐스케이딩&lt;/h4&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<br>
+<h2 id="72-실제-사항">7.2 실제 사항</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 우선 순위</title>
+  
+  <style>
+      p { color: red; }
+      p { color: blue; }  <!-- 순서 :  늦게 나온 것으로 선택 -->
+      
+      header h3 { background-color: green; }   <!-- 디테일. 하게 정의된 것으로 선택 -->
+      h3 { background-color: blue; }
+      
+      #color { color: yellow; }     <!-- 선택자:  style > ID > class > type -->
+      .color { color: pink; }
+      h4 { color: gray; }
+  </style>
+</head>
+<body>
+  <p>순서 캐스케이딩</p>
+  <header>
+    <h3>디테일 캐스케이딩</h3>
+  </header>
+  <h4 style = "color:green;" id="color" class="color">SICT 선택자 캐스케이딩</h4>
+  <h4 id="color" class="color">_ICT 선택자 캐스케이딩</h4>
+  <h4 class="color">__CT 선택자 캐스케이딩</h4>
+  <h4>___T 선택자 캐스케이딩</h4>
+  
+</body>
+</html>

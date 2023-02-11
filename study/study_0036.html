@@ -1,0 +1,50 @@
+﻿<h1 id="6-css-상속">6. CSS 상속</h1>
+<h2 id="61-css-상속">6.1 CSS 상속</h2>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;CSS 속성의 상속&lt;/title&gt;</p>
+<p>&lt;style&gt;</p>
+<p>header { color: blue; }.      &lt;!-- 부모의 속성을 자식이 물려받는다. (일부) --&gt;</p>
+<p>header p { color: red; }.     &lt;!-- 특정 부모의 자식만의 속성 정의 방법 --&gt;</p>
+<p>p {color: green; }</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;header&gt;</p>
+<p>&lt;h2&gt;header h2&lt;/h2&gt;</p>
+<p>&lt;p&gt;header p&lt;/p&gt;</p>
+<p>&lt;/header&gt;</p>
+<p>&lt;footer&gt;</p>
+<p>&lt;h2&gt;footer h2&lt;/h2&gt;</p>
+<p>&lt;p&gt;footer p&lt;/p&gt;</p>
+<p>&lt;/footer&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<br>
+<h2 id="62-실제-사항">6.2 실제 사항</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 속성의 상속</title>
+  
+  <style>
+    header { color: blue; }.      <!-- 부모의 속성을 자식이 물려받는다. (일부) -->
+    header p { color: red; }.     <!-- 특정 부모의 자식만의 속성 정의 방법 -->
+    p {color: green; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>header h2</h2>
+    <p>header p</p>
+  </header>
+  
+  <footer>
+    <h2>footer h2</h2>
+    <p>footer p</p>
+  </footer>
+</body>
+</html>

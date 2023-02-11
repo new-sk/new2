@@ -1,0 +1,38 @@
+﻿<h1 id="4-css">4. css</h1>
+<h2 id="41-css">4.1 css</h2>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;CSS 연동 방법&lt;/title&gt;</p>
+<p>&lt;style&gt;                  &lt;!--  internal 방법:  head tag안에 정의  --&gt;</p>
+<p>h3 {color:red;}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot;&gt;  &lt;!--  external 방법: head tag안에서 외부 CSS 파일 연결 --&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;h3&gt;Hello world&lt;/h3&gt;   &lt;!--  inline 방법:  각 태그에 style속성 정의 --&gt;</p>
+<p>&lt;h3 style=&quot;color:blue;&quot;&gt;Hello world&lt;/h3&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<br>
+<h2 id="42-실제-사항">4.2 실제 사항</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 연동 방법</title>
+  
+  <style>                  <!--  internal 방법:  head tag안에 정의  -->
+      h3 {color:red;}
+  </style>
+  
+  <link rel="stylesheet" href="index.css">  <!--  external 방법: head tag안에서 외부 CSS 파일 연결 -->
+  
+</head>
+<body>
+  <h3>Hello world</h3>   <!--  inline 방법:  각 태그에 style속성 정의 -->
+  <h3 style="color:blue;">Hello world</h3>   
+  
+</body>
+</html>
