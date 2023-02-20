@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DB</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="db">DB</h1>
+<h2 id="1-array">1. array</h2>
+<h3 id="11-any">1.1 any</h3>
+<p>a = any (배열) : 배열 속에서 특정 값이 있는지 여부를 확인</p>
+<p>a &lt;&gt; all (배열) : 논리연산이라 단순하게 not이 아님</p>
+<h3 id="12-array---unnest">1.2 array -&gt; unnest</h3>
+<p>array 풀어서 저장</p>
+<h3 id="13-array_cat--두-개의-array-합침">1.3 array_cat : 두 개의 array 합침</h3>
+<h3 id="14-string_to_array--string을-array로-변환">1.4 string_to_array : string을 array로 변환</h3>
+<p>array_cat(string_to_array('a,b,c',','), string_to_array('d:e:f',':'))</p>
+<br>
+<h2 id="2-case-when-then-end">2. case when then end</h2>
+<p><strong>case</strong> contype <strong>when</strong> 'p' <strong>then</strong> 'PK' <strong>when</strong> 'u' <strong>then</strong> 'UK' <strong>end</strong></p>
+<br>
+<h2 id="3-string_agg">3. string_agg()</h2>
+<p>group by SQL문 중에서 select문에서 사용 가능함</p>
+<br>
+<h2 id="4-with">4. with</h2>
+<p>with aaa as ( with절 NESTED ) select * from aaa;</p>
+<p>with aaa as ( sql문 ), ccc as ( sql문2 ) select * from aaa, ccc;  -- 여러개도 가능</p>
+<br>
+<h2 id="5-outer-join">5. outer join</h2>
+<br>
+<h2 id="6-block-sql">6. block sql</h2>
+<p><strong>do $$</strong></p>
+<p>begin</p>
+<p>select now();  -- select문장은 안 좋아함</p>
+<p>end; $$;</p>
+<br>
+<h2 id="7-디비버-리드오니">7. 디비버 리드오니</h2>
+<p>화면 상단 열쇄 클릭</p>
+<br>
+<h2 id="8-디비버-팀워크">8. 디비버 팀워크</h2>
+<p>Network 안되는 곳에서 사용 불가</p>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
