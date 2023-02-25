@@ -1,0 +1,42 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./study_r2019style.css" />
+    <title>R 리스타트 (19.01.13)</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">R 리스타트 (19.01.13)</h2>
+                                <div class="box-info">
+                                    <p class="category">Study/코딩</p>
+                                    <p class="date">2019-01-13 23:40:49</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p><b>#1일차</b></p><p><br></p><p>R 설치<br>R Studio 설치</p><p>구글링을 통해서 R 함수 확인 (~~~ in R)<br>&nbsp;- pwd -&gt; getwd</p><p>윈도우즈에서 폰트 깨짐 현상</p><p>Tools - Global Options - Code - Saving</p><p><br>1. 자료 입력<br>2. 자료 조회</p><p><br>read.csv(파일명)</p><p>이슈1.<br>incomplete final line found by readTableHeader &#111;&#110; : 마지막 줄에 엔터키를 넣어주면 됨 (work around)<br>이슈2.<br>more columns than column names : 저장시 UTF-8이 아니라, ANSI로 저장시 정상 저장</p><p><br>write.csv(schd,"일정3.csv", row.names=FALSE)<br>&nbsp;- schd : 자료 내역<br>&nbsp;- 파일명<br>&nbsp;- row.name 없이 출력, 있으면 숫자로 표시됨</p><p><br></p><p>####### PC 표준시간 맞추기<br><a href="http://autostock.tistory.com/81" target="_blank">http://autostock.tistory.com/81</a><br>- KRISS 한국표준과학연구원 <a href="http://www.kriss.re.kr" target="_blank">http://www.kriss.re.kr</a> : UTCk 3.1</p><p><br>work around : 회피수단,대비책</p><p><br># 마지막 줄 문제 동일하게 발생<br>schd = read.csv("일정3.csv", sep=',')<br>schd = read.table(file="일정3.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)</p><p>write시에는 개행문자가 들어가는 문제 없음<br></p><p><br></p><p><b>#2일차</b></p><div><b><br></b></div><div><div># 패키지 설치</div><div>install.packages("dplyr")</div><div># 패키지 사용</div><div>library("dplyr")</div><div><br></div><div># dplyr을 활용한 다양한 사용</div><div>schd %&gt;% filter(주기=="년")</div><div>schd %&gt;% select(주기)</div><div>schd %&gt;% arrange(주기)</div><div>schd %&gt;% arrange(desc(주기))</div><div><br></div><div># dplyr에서 mutate를 통한 변수 생성 실패</div><div># dplyr을 사용하지 않으면 좀 지저분해집니다.</div><div>schd$일자2 &lt;- ifelse(schd$완료여부=="Y","",schd$일자)</div></div><div><br></div><div><b>#3일차</b><br></div><div><b><br></b></div><div><div># R Markdown 첫 실행</div><div>File - New File - R Markdown</div><div>호환성 위해 패키지 설치하더라</div><div><br></div><div>샘플코드가 나타남</div><div><br></div><div># 제목1</div><div>## 제목2</div><div>### 제목3</div><div>#### 제목4</div><div><br></div><div>*텍스트* 기울림체</div><div>**텍스트** 강조체</div><div>~~텍스트~~ 취소선</div><div>`텍스트` 음영</div><div><br></div><div>코드 청크(덩어리) : Ctrl + Alt + I 로 만들어짐</div></div><div><br></div><p><br></p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./study_r2019style.css" />
+    <title>igraph in R (19.04.16, v4)</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">igraph in R (19.04.16, v4)</h2>
+                                <div class="box-info">
+                                    <p class="category">Study/코딩</p>
+                                    <p class="date">2019-04-12 00:02:23</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p># 2019.4.09 : 네트웍 다이어그램 restart</p><p># 2019.4.11 : 네트웍 계속 2-2 시작</p><p># 2019.4.12 : 2-2 계속, 2-3 간단히, 3 간단 내역만</p><p># 2019.4.16 : 3,4 기본적인 내용 끝, 5-1 색칠공부 추가?</p><p>http://kateto.net/netscix2016</p><p><br></p><p>node, edge(연결)</p><p>source -&gt; target</p><p><br></p><p># 4일차 : 네트워크 다이어그램 맛들이기&nbsp;</p><p><br></p><p>install.packages("igraph")</p><p><br></p><p>rm(list=ls()) &nbsp; &nbsp; # remove all the objects</p><p>library(igraph) &nbsp; # Load igraph</p><p><br></p><p># n=3, number of vertices (node,vertex)</p><p># edge 1-2, 2-3, 3-1</p><p># sometimes ignore n&nbsp;</p><p># face : 면</p><p>g1 &lt;- graph(edges = c(1,2,2,3,3,1),n=5, directed = T)</p><p>plot(g1)</p><p>class(g1)</p><p>g1</p><p><br></p><p># edge name</p><p>g2 &lt;- graph(edges = c("Jone","Jim"), isolates = c("Soo"))</p><p>plot(g2)</p><p><br></p><p># - : undirected tie (잘안됨???)</p><p># +- : directed</p><p># ++ symmetric tie</p><p># : : set of vertices</p><p>g3 &lt;- graph_from_literal(a--b,c+-d, d+---+e, f:g--+h)</p><p>plot(g3)</p><p># 이슈해결 : +가 하나라도 있으면 directed graph 생성</p><p>g3 &lt;- graph_from_literal(a--b,c-d, d---e, f:g--h)</p><p><br></p><p># 2.2</p><p>E(g3) &nbsp;# edge list</p><p>V(g3) &nbsp;# vertices list</p><p>g3[] &nbsp; # matrix</p><p><br></p><p>V(g3)$name # 자동생성됨</p><p>E(g3)$weight &lt;- 10 # 속성 지정</p><p><br></p><p>edge_attr(g3)</p><p>vertex_attr(g3)</p><p><br></p><p># 그래프 속성 지정 / 출력</p><p>g3 &lt;- set_graph_attr(g3,"name","melong")</p><p>graph_attr(g3)</p><p><br></p><p><br></p><p>graph_attr_names(g3) &nbsp;# g3 그래프에는 어떤 속성이 있나요</p><p>graph_attr(g3,"name") # 그래프 g3의 name 속성</p><p><br></p><p><br></p><p>g4 &lt;- graph( c("John", "Jim", "Jim", "Jack", "Jim", "Jack", "John", "John"),&nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;isolates=c("Jesse", "Janis", "Jennifer", "Justin") )&nbsp;</p><p><br></p><p>V(g4)$gender &lt;- c("male", "male", "male", "male", "female", "female", "male")</p><p>E(g4)$type &lt;- "email" # Edge attribute, assign "email" to all edges</p><p>E(g4)$weight &lt;- 10 &nbsp; &nbsp;# Edge weight, setting all existing edges to 10</p><p><br></p><p># 이슈해결 : 색깔이 안 만들어짊 -&gt; 다음날 하니깐, 그냥 됨 ???</p><p># 설명 : color : 색깔배열 만듦 --&gt; gender T/F 후 1 증가, 배열은 1부터니깐</p><p>plot(g4, edge.arrow.size=.2, vertex.label.color="black", vertex.label.dist=1.5,</p><p>&nbsp; &nbsp; &nbsp;vertex.color=c( "pink", "skyblue")[1+(V(g4)$gender=="male")] )&nbsp;</p><p><br></p><p><br></p><p># 그래프 설명</p><p># 1. D/U : directed or undirected</p><p># 2. N : Named ? (node name)</p><p># 3. W : Weighted ? (edge weight)</p><p># 4. B : bipartite ? (node type) &nbsp;???</p><p># 5. 7 4 (# of node, # of edgt)</p><p># 6. g/c : graph chacracter , v/c, e/n : numeric&nbsp;</p><p><br></p><p># 2.3 다양한 그래프 그릴 수 있음 : 의미없음</p><p>plot( make_empty_graph(10) )</p><p>plot( make_full_graph(10) )</p><p>plot( make_star(10) )</p><p>plot( make_tree(10) )</p><p>plot( make_tree(20, children = 4) )</p><p>plot( sample_gnm(n=10,m=10) ) # node, edge</p><p># 기타 다양한 그래프가 존재함 : 난 이걸 원하는게 아냐</p><p><br></p><p># 3 / 4 : data frame 구조에 끌림</p><p>getwd()</p><p>setwd("/Users/sk/Documents/study 복사본/") &nbsp; # 맥 디렉토리 확인 : getwd + HOME,,</p><p>nodes &lt;- read.csv("Dataset1-Media-Example-NODES.csv", header=T, as.is=T)</p><p>links &lt;- read.csv("Dataset1-Media-Example-EDGES.csv", header=T, as.is=T)</p><p><br></p><p>nrow(nodes); length(unique(nodes$id))</p><p>nrow(links); nrow(unique(links[,c("from", "to")]))</p><p><br></p><p># links[,-3] 기준으로 aggr해서 links[,3]을 sum함&nbsp;</p><p>aggregate(links[,3], links[,-3], sum)&nbsp;</p><p>colnames(links)[4] &lt;- "weight" # 사라진 이름을 되찾다</p><p><br></p><p># 함수명이 너무나도 직관적이다</p><p>net &lt;- graph_from_data_frame(d=links, vertices=nodes, directed = T)</p><p>plot(net)</p><div><br></div>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

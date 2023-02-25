@@ -1,0 +1,42 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./study_r2019style.css" />
+    <title>일정관리 v2019.8 with R</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">일정관리 v2019.8 with R</h2>
+                                <div class="box-info">
+                                    <p class="category">Study/코딩</p>
+                                    <p class="date">2019-02-25 23:20:01</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p># 00. library<br>library("dplyr")&nbsp;&nbsp; # %&gt;%<br>library("zoo")&nbsp;&nbsp;&nbsp; # as.Data.numeric</p><p><br># 05. dataset 정의<br># input dataset<br># # 일자 : 작업일자<br># # 주기 : 다음 작업할 주기 (년,월,일)<br># # 완료여부 : 이번 작업주기에 완료했는지 여부<br># # 제목 : 작업 제목<br># # 내용 : 작업에 대한 구체적인 내용<br># # 비고 : 작업 진행상태 등 참고할 내역자<br># temp dataset (additional)<br># # Next일자 : 완료된 일에 대한 다음 주기 일자</p><p><br>#<br>### dataset 추가 <br># 격주 등 다양한 주기 설정 : N</p><p><br>{<br>&nbsp; # 10. 파일 열기<br>&nbsp; schd = read.table(file="일정5.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)<br>&nbsp; schd<br>&nbsp; <br>&nbsp; <br>&nbsp; # 11. 파일명 지정하여 열고 닫기<br>&nbsp; #<br>&nbsp; ### 고민중<br>&nbsp; #<br>&nbsp; <br>&nbsp; <br>&nbsp; # 20. data frame 타입 지정<br>&nbsp; schd$일자 &lt;- as.Date(schd$일자, format="%Y-%m-%d") <br>&nbsp; schd$비고 &lt;- as.character(schd$비고)<br>&nbsp; schd<br>&nbsp; <br>&nbsp; <br>&nbsp; # 30. 기존일자로 정렬 : order by 일자 <br>&nbsp; schd %&gt;% arrange(일자)<br>&nbsp; schd<br>&nbsp; <br>&nbsp; <br>&nbsp; # 40. "Next일자" 생성 <br>&nbsp; # 아직 못한 일 : 그대로<br>&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 한 일 : 기존일자 + 주기(365년, 30월, 7주)<br>&nbsp; schd &lt;- schd %&gt;% mutate(Next일자=ifelse(완료여부!="Y",일자,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ifelse(주기=="년",일자+365,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ifelse(주기=="월",일자+30,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ifelse(주기=="주",일자+7,NA)))))<br>&nbsp; schd$Next일자 &lt;- as.Date.numeric(schd$Next일자) <br>&nbsp; schd<br>&nbsp; <br>&nbsp; <br>&nbsp; # 50. 변경된 일자로 정렬 : order by 일자 <br>&nbsp; schd &lt;- schd %&gt;% arrange(Next일자)<br>&nbsp; schd<br>}</p><p><br>{<br>&nbsp; # 60. EDIT<br>&nbsp; # 수작업 필요 : View(schd)<br>&nbsp; schd &lt;- edit(schd)&nbsp; # edit하면서 chr로 변경<br>&nbsp; schd<br>&nbsp; <br>&nbsp; <br>&nbsp; <br>&nbsp; # 70. 그래프 출력<br>&nbsp; #<br>&nbsp; # idea 단계<br>&nbsp; #<br>}</p><p><br>{<br>&nbsp; # 80. 출력용 데이터 편성<br>&nbsp; # 일자는 지우고, Next일자를 일자로 변경하여 저장<br>&nbsp; 일자 &lt;- data.frame(일자=schd$Next일자)<br>&nbsp; schd &lt;- schd %&gt;% select(-일자,-Next일자)<br>&nbsp; schd &lt;- data.frame(c(일자,schd))<br>&nbsp; schd<br>&nbsp; <br>&nbsp; # 90. 출력<br>&nbsp; write.table(schd, file="일정5.csv", sep=',', row.names=FALSE)<br>}</p><p><br></p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
