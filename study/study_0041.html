@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>11&period; Animation changeWidth</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="11-animation-changewidth">11. Animation changeWidth</h1>
+<h2 id="a-소스내역">A. 소스내역</h2>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;CSS Animation&lt;/title&gt;</p>
+<p>&lt;style&gt;</p>
+<pre><code>.animation {
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+    
+    animation-name: changeWidth;
+    animation-duration: 3s;                                /* 3개 항목은 Transition과 동일함 */
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-iteration-count: 6;                    /* infinite 무한반복 */
+    animation-direction: alternate;                  /* normal -&amp;gt;,  reverse &amp;lt;-,  alternate 왕복 */
+}
+
+@keyframes changeWidth {                        /* animation과 keyframes는 세트 */
+    from {                                                /* from -&amp;gt; to,  300에서 600으로 변화함 */
+        width: 300px;                                   
+    }
+    to {
+        width: 600px;
+    }
+}
+</code></pre>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div class=&quot;animation&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<p><br><br></p>
+<h2 id="b-실제-사항">B. 실제 사항</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Animation</title>
+  <style>
+
+    .animation {
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+        
+        animation-name: changeWidth;
+        animation-duration: 3s;                                /* 3개 항목은 Transition과 동일함 */
+        animation-timing-function: linear;
+        animation-delay: 1s;
+        animation-iteration-count: 6;                    /* infinite 무한반복 */
+        animation-direction: alternate;                  /* normal ->,  reverse <-,  alternate 왕복 */
+    }
+    
+    @keyframes changeWidth {                        /* animation과 keyframes는 세트 */
+        from {                                                /* from -> to,  300에서 600으로 변화함 */
+            width: 300px;                                   
+        }
+        to {
+            width: 600px;
+        }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="animation"></div>
+</body>
+</html>        
+        
+        
+    </body>
+    </html>

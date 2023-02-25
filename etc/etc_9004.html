@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>KUDU</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="kudu">KUDU</h1>
+<p>하둡 : 빅데이터를 저장, 처리, 분석할 수 있는 프레임워크이다</p>
+<p>3가지 특징 :</p>
+<ul>
+<li>
+<p>Distributed(분산저장처리)</p>
+</li>
+<li>
+<p>Scalable(쉽게확장)</p>
+</li>
+<li>
+<p>Fault-tolerant(고장나더라도정상)</p>
+</li>
+</ul>
+<p>3가지 방식 :</p>
+<ul>
+<li>
+<p>맵리듀스, 스파크 등 애플리케이션 활용</p>
+</li>
+<li>
+<p>솔라, 일라스틱서치 등 검색 기반</p>
+</li>
+<li>
+<p>SQL기반</p>
+</li>
+</ul>
+<p>하둡  =  HDFS(데이터 저장, 관리)  +  맵리듀스 (데이터 분석)</p>
+<p>블록 스토리지 단점</p>
+<ul>
+<li>
+<p>보통 블록 당 64~256MB, 3개로 복제저장</p>
+</li>
+<li>
+<p>단점1 : small file 문제 : 꽉 채워야 효율성 높은데, 지연시간 발생, 수용가능한 대기시간 설정, 작은 파일 여러개 생김</p>
+</li>
+<li>
+<p>단점2 : 삽입만 가능</p>
+</li>
+</ul>
+<p>HDFS : 대용량 자료 속도 빠르나, 단건처리 부적당</p>
+<p>HBase : 람다 프로젝트, 256MB 될 때까지 별도 파일 저장, 새로운 문제점 발생, 단건씩 조회하면 모든 것이 조회되나, 전체조회시에는 최근 자료 누락</p>
+
+        
+        
+    </body>
+    </html>

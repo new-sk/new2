@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>8&period; CSS &#xc8fc;&#xc694;&#xc18d;&#xc131;</title>
+        <title>14&period; &#xbdf0;&#xd3ec;&#xd2b8;</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -40,55 +40,70 @@
         
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="8-css-주요속성">8. CSS 주요속성</h1>
-<h2 id="81-css-주요속성">8.1 CSS 주요속성</h2>
+        <h1 id="14-뷰포트">14. 뷰포트</h1>
+<h2 id="a-소스내역">A. 소스내역</h2>
 <p>&lt;!DOCTYPE html&gt;</p>
 <p>&lt;html&gt;</p>
 <p>&lt;head&gt;</p>
 <p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>&lt;title&gt;CSS 주요 속성&lt;/title&gt;</p>
+<p>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>&lt;title&gt;미디어쿼리&lt;/title&gt;</p>
 <p>&lt;style&gt;</p>
-<p>.paragraph {</p>
-<p>width: 500px;    &lt;!--  비율로도 지정 가능  100% --&gt;</p>
-<p>height: 500px;</p>
-<p>background: green;   &lt;!-- 배경관련 다른 것들도 한꺼번에 정의 가능 : yellow url no-repeat, left --&gt;</p>
-<p>font-size: 50px;</p>
-<p>font-family: Times, Arial, sans-serif;   &lt;!-- 브라우저에 따라 폰트 없을 수도 있음. 앞에 것 먼저 선택됨, 마지막은 보통 s폰트 --&gt;</p>
-<p>font-style: italic;</p>
-<p>border: 2pt solid red;</p>
-<p>background: yellow url(elice_logo.png) no-repeat center;</p>
+<pre><code>.media {
+  width: 500px;
+  height: 500px;
+  background-color: yellow;
+  
+  border: solid 10px red;
+}
+</code></pre>
+<p>@media (min-width: 320px) and (max-width: 800px) {</p>
+<pre><code>  .media {
+    width: 300px;
+    height: 300px;
+    
+    border: none;    /* 상속 안 받을래요 */
+  }
+</code></pre>
 <p>}</p>
 <p>&lt;/style&gt;</p>
 <p>&lt;/head&gt;</p>
 <p>&lt;body&gt;</p>
-<p>&lt;h1 class=&quot;paragraph&quot;&gt;Nice to meet you&lt;/h1&gt;</p>
+<p>&lt;div class=&quot;media&quot;&gt;&lt;/div&gt;</p>
 <p>&lt;/body&gt;</p>
 <p>&lt;/html&gt;</p>
-<br>
-<h2 id="82-실제-사항">8.2 실제 사항</h2>
+<p><br><br></p>
+<h2 id="b-실제-사항">B. 실제 사항</h2>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CSS 주요 속성</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미디어쿼리</title>
   <style>
-    .paragraph {
-      width: 500px;    <!--  비율로도 지정 가능  100% -->
+    .media {
+      width: 500px;
       height: 500px;
-      background: green;   <!-- 배경관련 다른 것들도 한꺼번에 정의 가능 : yellow url no-repeat, left -->
-      font-size: 50px;
-      font-family: Times, Arial, sans-serif;   <!-- 브라우저에 따라 폰트 없을 수도 있음. 앞에 것 먼저 선택됨, 마지막은 보통 s폰트 -->
-      font-style: italic;
-    
-      border: 2pt solid red;        
-      background: yellow url(elice_logo.png) no-repeat center;
+      background-color: yellow;
+      
+      border: solid 10px red;
     }
+
+  @media (min-width: 320px) and (max-width: 800px) {
+      .media {
+        width: 300px;
+        height: 300px;
+        
+        border: none;    /* 상속 안 받을래요 */
+      }
+  }
   </style>
 </head>
 <body>
-  <h1 class="paragraph">Nice to meet you</h1>
+  <div class="media"></div>
 </body>
 </html>
+
         
         
     </body>

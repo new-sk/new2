@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>13&period; 3-6</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="13-3-6">13. 3-6</h1>
+<p>3-5 대비하여 뭐가 바뀐건가?</p>
+<h2 id="a-소스내역">A. 소스내역</h2>
+<p>/* Default CSS */</p>
+<ul>
+<li>{
+margin: 0;
+padding: 0;
+}</li>
+</ul>
+<p>img {
+vertical-align: middle;
+}</p>
+<p>a {
+text-decoration: none;
+color: #000;
+}</p>
+<p>ol, ul {
+list-style: none;
+}</p>
+<p>.container {
+width: 960px;
+margin: 0 auto;
+}</p>
+<p>/* header CSS */
+#intro {
+width: 100%;
+height: 80px;
+background-color: yellow;
+}</p>
+<p>#intro h1 {
+float: left;</p>
+<pre><code>width: 50%;
+height: 80px;
+background-color: #fbfbfb;
+</code></pre>
+<p>}</p>
+<p>#intro h1 a {
+display: block;</p>
+<pre><code>padding: 22px 0 0 30px;
+font-size: 30px;
+</code></pre>
+<p>}</p>
+<p>#intro nav {
+float: right;</p>
+<pre><code>width: 50%;
+height: 80px;
+background-color: pink;
+</code></pre>
+<p>}</p>
+<p>#intro nav ul li {
+width: 33.33333%;
+height: 80px;</p>
+<pre><code>/* display: inline-block;*/
+float: left;
+
+text-align: center;
+
+line-height: 80px;
+</code></pre>
+<p>}</p>
+<p>#intro nav ul li.one {
+background-color: #efeff6;
+}</p>
+<p>#intro nav ul li.two {
+background-color: #dcdcec;
+}</p>
+<p>#intro nav ul li.three {
+background-color: #cbcae3;
+}</p>
+<p>#intro nav ul li a {
+font-size: 20px; font-weight: bold;
+}</p>
+<p>/* Main CSS */
+#main article {
+width: 50%;
+height: 320px;</p>
+<pre><code>float: left;
+</code></pre>
+<p>}</p>
+<p>#main article a {
+display: block;</p>
+<pre><code>width: 100%;
+height: 100%;
+</code></pre>
+<p>}</p>
+<p>#main article.one {
+background-color: #532fa1;</p>
+<pre><code>transition: background-color 0.3s;
+</code></pre>
+<p>}</p>
+<p>#main article.two {
+background-color: #a44789;</p>
+<pre><code>transition: background-color 0.3s;
+</code></pre>
+<p>}</p>
+<p>#main article.three {
+background-color: #3ab6bc;</p>
+<pre><code>transition: background-color 0.3s;
+</code></pre>
+<p>}</p>
+<p>#main article img {
+width: 100%;</p>
+<pre><code>transition: all 0.3s;
+</code></pre>
+<p>}</p>
+<p>#main article img:hover {
+transform: scale(1.3);
+}</p>
+<p>#main article h2 {
+color: #fff;
+font-size: 25px;</p>
+<pre><code>text-align: center;
+padding: 10px 0;
+</code></pre>
+<p>}</p>
+<p>#main article.text {
+width: 100%;
+height: 66px;
+}</p>
+<p>#main article.text p {
+text-align: center;
+font-size: 20px;
+font-weight: bold;</p>
+<pre><code>padding: 20px 0;
+
+border: solid 1px #000;
+</code></pre>
+<p>}</p>
+<p>#main article.one:hover {
+background-color: #8683bd;
+}
+#main article.two:hover {
+background-color: #bf7eac;
+}
+#main article.three:hover {
+background-color: #75ccd0;
+}</p>
+<p>/* Footer CSS  */
+#footer {
+clear: both;</p>
+<pre><code>width: 100%;
+height: 80px;
+background-color: #f9f9f9;
+</code></pre>
+<p>}</p>
+<p>#footer .copyright {
+float: left;</p>
+<pre><code>width: 50%;
+</code></pre>
+<p>}</p>
+<p>#footer .address {
+float: right;</p>
+<pre><code>width: 50%;
+</code></pre>
+<p>}</p>
+<p>#footer .copyright p {
+font-size; 14px;
+color: #999;</p>
+<pre><code>padding: 32px 0 0 40px;
+</code></pre>
+<p>}</p>
+<p>#footer .address p {
+font-size: 14px;
+color: #999;</p>
+<pre><code>text-align: right;
+
+padding: 32px 40px 0 0;
+</code></pre>
+<p>}</p>
+<p>/* 새로 추가되는 내용 : 애니메이션 */
+#intro nav ul li a { transition: color 0.3s; }
+#intro nav ul li a:hover { color: #917f7f; }</p>
+
+        
+        
+    </body>
+    </html>

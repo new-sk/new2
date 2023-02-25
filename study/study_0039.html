@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>9&period; Transform</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="9-transform">9. Transform</h1>
+<h2 id="a-소스내역">A. 소스내역</h2>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;title&gt;CSS Transform&lt;/title&gt;</p>
+<p>&lt;style&gt;                                      /* 3종 : transform,  transition,  animation */</p>
+<pre><code>.transform {                               /* 브라우저 하위 호환성을 위한 prefix : 코드가 엄청 늘어남 */
+   width: 100px;
+   height: 100px;
+   background-color: red;
+   
+   margin: 200px 0 0 200px;
+   transform: rotate(45deg);                            /* 회전: 음수가능 */
+   transform: scale(2,3);                                  /* 확대비율 */
+   transform: translate(100px, 200px);                /* 이동 */
+   transform: skew(10deg, 20deg)                     /* 입체적 각도, x축, y축 */
+}
+</code></pre>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div class=&quot;transform&quot;&gt;&lt;/div&gt;                            /* 마진, 패딩으로 처리했던 것,  translate로 가능해짐 */</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<p><br><br></p>
+<h2 id="b-실제-사항">B. 실제 사항</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Transform</title>
+  <style>                                      /* 3종 : transform,  transition,  animation */
+    .transform {                               /* 브라우저 하위 호환성을 위한 prefix : 코드가 엄청 늘어남 */
+       width: 100px;
+       height: 100px;
+       background-color: red;
+       
+       margin: 200px 0 0 200px;
+       transform: rotate(45deg);                            /* 회전: 음수가능 */
+       transform: scale(2,3);                                  /* 확대비율 */
+       transform: translate(100px, 200px);                /* 이동 */
+       transform: skew(10deg, 20deg)                     /* 입체적 각도, x축, y축 */
+
+    }
+  </style>
+</head>
+<body>
+  <div class="transform"></div>                            /* 마진, 패딩으로 처리했던 것,  translate로 가능해짐 */
+</body>
+</html>                                                          
+        
+        
+    </body>
+    </html>
