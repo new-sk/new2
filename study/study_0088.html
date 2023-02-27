@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Git Study &colon; 7&period; &#xbe0c;&#xb79c;&#xce58; CLI</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="git-study--7-브랜치-cli">Git Study : 7. 브랜치 CLI</h1>
+<p>/* 언제 브랜치 사용하나? */</p>
+<p>새로운 기능 추가  : 안정적인 master에 추가 기능 반영</p>
+<p>버그 수정  : 당연</p>
+<p>병합과 리베이스 테스트  : 임시 브랜치를 만들어서 병합과 리베이스 테스트</p>
+<p>이전 코드 개선</p>
+<p>특정 커밋으로 돌아가고 싶을 때</p>
+<p>/* git branch : 현재 브랜치 확인 */</p>
+<ul>
+<li>찍힌 것이 현재 브랜치임</li>
+</ul>
+<p>/* git branch branch_name : 신규 브랜치 생성 */</p>
+<p>/* HEAD */</p>
+<p>HEAD는 현재 작업 중인 브랜치의 최근 커밋을 가르킴</p>
+<p>/* git checkout : HEAD 이동 */</p>
+<p>git checkout master  # 7자리 숫자보다는 이름으로 이동해요</p>
+<p>/* git merge branch_name : merge */</p>
+<ul>
+<li>
+<p>현재 HEAD가 있는 곳에서 branch_name과 merge 하는 것임</p>
+</li>
+<li>
+<p>Fast-forward : 단순하게 파일이 추가되는 경우로 branch_name에서 추가된 파일만 merge되는 경우</p>
+</li>
+</ul>
+<p>/* git reset --hard : 되돌리기 */</p>
+<p>--hard : 변경된 파일들도 무시하고 이전 상태로 되돌림</p>
+<p>checksum : 커밋 체크섬을 통해 해당 위치로 이동 (git log로 확인 가능)</p>
+
+        
+        
+    </body>
+    </html>

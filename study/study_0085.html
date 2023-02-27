@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Git Study &colon; 0&period;&#xbe60;&#xb978; &#xc2e4;&#xc2b5;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="git-study--0빠른-실습">Git Study : 0.빠른 실습</h1>
+<h2 id="git-이란-github-가입">Git 이란, github 가입</h2>
+<p>버전관리</p>
+<p>Git을 통하여 협업 수행</p>
+<p>인터넷을 통한 버전관리 : Git 호스팅 서비스 : 대표적인 사이트 github</p>
+<p>Github에 올려두면 시간, 공간의 제약없이 협업이 가능해짐</p>
+<p>가입절차 : 일반적인 가입이랑 유사, Free로 설치, 메일주소로 메일 보내고 인증코드 입력해야지 완료</p>
+<p><br><br></p>
+<h2 id="로컬-git-설치">로컬 Git 설치</h2>
+<p>로컬 git 설치 (2.33.0(2)  21.8.24) : 묻는 것 열나게 많다. 일단 다 디폴트로 설치</p>
+<ul>
+<li>bash로 실행합니다 (유닉스 명령셀), cmd(원도우), gui(간단 gui)</li>
+</ul>
+<p>git bash Here   (윈도우 탐색기)     /    커맨드 창에서는 폴더로 이동후</p>
+<p>git init    (git 초기화, 지금부터 로컬저장소가 만들어져서 버전관리가 가능해짐)</p>
+<p>--&gt; Initialized empty Git repository in D:/iTshirt-cat/.git/</p>
+<p>--&gt; .git 라는 폴더가 생성됨  (ls -al 로 확인)</p>
+<p><br><br></p>
+<h2 id="첫-커밋--두번째-커밋">첫 커밋,  두번째 커밋</h2>
+<p>git config -global user.email &quot;email&quot;   -- 작성자 정보 남김</p>
+<p>git config -global <a href="http://user.name">user.name</a> &quot;name&quot;</p>
+<p>git add README.txt   -- 파일 추가</p>
+<p>git commit -m &quot;Readme 파일 추가&quot;   -- 커밋을 하면서 comment 작성</p>
+<p>--&gt; 1 file changed, 1 insertion(+)    -- 정상 수행 결과</p>
+<p>--&gt; 1 file changed, 1 insertion(+), 1 deletion(-)   -- 기존 파일 변경후 다시 하니깐, 이렇게 나오네요</p>
+<p>-- 이름 입력안하고 commit 하니깐, &quot;Author identity unknown, *** Please tell me who you are.&quot;</p>
+<p><br><br></p>
+<h2 id="다른-커밋으로-이동">다른 커밋으로 이동</h2>
+<p>git log    -- 커밋 내역 확인 (앞의 7자리 커밋 아이디, 설명 확인)</p>
+<p>git checkout 7자리   -- 커밋 이동</p>
+<p>git checkout -         -- 최신 커밋으로 이동, 숫자로 적어도 되지만 &quot;-&quot;</p>
+<p><br><br></p>
+<h2 id="github-push--로컬---github">github push : 로컬 -&gt; github</h2>
+<p>New Repository 생성   -- 다른 사람 보는 것 선택 (public vs private)</p>
+<p>git remote add origin &quot;<a href="https://github.com/name/iTshirt.git">https://github.com/name/iTshirt.git</a>&quot;  -- github와 연결  &quot;는 빼고 작성해 주세요.</p>
+<p>git push origin master   -- 로컬 -&gt; github로 전송</p>
+<p><br><br></p>
+<h2 id="clone">clone</h2>
+<p>원격저장소의 코드와 버전 전체를 내 컴퓨터로 내려 받는 것  &lt;--&gt; [download zip]이랑은 다름</p>
+<p>git clone &quot;<a href="https://github.com/name/iTshirt.git">https://github.com/name/iTshirt.git</a>&quot;  .    -- 점은 현재 폴더에 생성,   아니면 iTshirt 폴더 만들어서 생성됨</p>
+<p>/* github pull : github -&gt; 로컬 */</p>
+<p>git pull origin master</p>
+
+        
+        
+    </body>
+    </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Git Study &colon; 6&period; &#xae30;&#xbcf8; &#xba85;&#xb839;&#xc5b4; CLI</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="git-study--6-기본-명령어-cli">Git Study : 6. 기본 명령어 CLI</h1>
+<p>/* git bash로 해요 */</p>
+<p>bash로 실행합니다</p>
+<ul>
+<li>유닉스 명령어 습득 : pwd, ls -a, cd, mkdir, echo</li>
+</ul>
+<p>/* git status : 현재 디렉토리 git 상태 확인 */</p>
+<p>fatal: not a git repository (or any of the parent directories): .git</p>
+<p>--&gt; git을 만든적이 없네요.</p>
+<p>On branch master
+nothing to commit, working tree clean</p>
+<p>--&gt; 정상 상태</p>
+<p>/* git init : git 저장소 생성 */</p>
+<p>Initialized empty Git repository in ...</p>
+<p>--&gt;git 정상 생성</p>
+<p>Reinitialized existing Git repository in</p>
+<p>--&gt;</p>
+<p>/* git config : 설정값 지정 */</p>
+<p>git config  --list   # 현재 config 설정값 보임</p>
+<p>editor 변경 가능 : 디폴트로 vim</p>
+<p>/* git add : 파일 추가  (git reset 추가된 파일 제거) */</p>
+<h3 id="untracked-file이-있어요-git-add-수행전">untracked file이 있어요. (git add 수행전)</h3>
+<p>Untracked files:
+(use &quot;git add <file>...&quot; to include in what will be committed)
+HTML_001.html</p>
+<h3 id="commit가-필요한-파일이-있어요-git-add-수행후">commit가 필요한 파일이 있어요 (git add 수행후)</h3>
+<p>Changes to be committed:
+(use &quot;git restore --staged <file>...&quot; to unstage)
+new file:   HTML_001.html</p>
+<p>/* git commit : add된 파일 커밋 */</p>
+<p>vim 등 editor가 뜸 / 그냥 닫으면 안되고 아래 내역 작성해야 함</p>
+<p>첫줄 : 작업 요약</p>
+<p>둘째줄 : 빈 칸</p>
+<p>셋째줄 : 상세 작업 내역</p>
+<p>이후에 git status하면 깨끗한 상태로 보임 (staging 영역에 아무것도 없음)ㅡㅁ</p>
+<p>/* git log : commit log 내역 확인 */</p>
+<p>git log</p>
+<p>git log -n2   : 최신 2개 보여줌</p>
+<p>git log -oneline  : 1줄로 요약해서 보여줌</p>
+<p>git log --graph  : 그래프 형식</p>
+<p>git log --oneline --graph --decorate --all</p>
+<p>/* git help : 도움말 */</p>
+<p>브라우저에서 로컬에 있는 도움말이 영어로 열림 ^^</p>
+<p>/* remote : remote repository 연결 */</p>
+<p>git remote add origin URL (<a href="https://github.com/">https://github.com/</a>)    # github URL</p>
+<p>git remote -v      # 연결된 내역 확인</p>
+<p>/* git push : 원격저장소로 저장 */</p>
+<p>git push [-u] [원격저장소별명] [브랜치이름]</p>
+<p>--&gt; (HEAD -&gt; master, origin/master)  # (gihub의 마스터 브랜치인) 새로운 브랜치가 생긴 것을 확인할 수 있습니다.</p>
+<p>Everything up-to-date  # 모든 것이 최신일 경우에</p>
+<p>[-u] 옵션 사용하면 이후에는 git push 이후의 내역 없이도 자동으로 처리됨</p>
+<p>/* git pull : 원격저장소 변경사항 반영 (fetch + merge) */</p>
+<p>/* git clone */  # 맥에서 합시당 p239</p>
+<p>/* git commit -a : 몰라요 */</p>
+<p>/* git fetch : 원격저장소의 브랜치와 커밋들을 로컬저장소로 동기화 */</p>
+<p>/* git merge */ commit</p>
+
+        
+        
+    </body>
+    </html>

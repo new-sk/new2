@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Git &sol; GitHub &#xccab; &#xc0ac;&#xc6a9;&#xd558;&#xae30;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="git--github-첫-사용하기">Git / GitHub 첫 사용하기</h1>
+<h2 id="1-빈--git-만들기">1. 빈  git 만들기</h2>
+<p>git init</p>
+<p>==&gt; Initialized empty Git repository in /Users/sk/Documents/,,,</p>
+<br>
+<h2 id="2-연결">2. 연결</h2>
+<p>git remote add origin <a href="https://github.com/github_id/repository_name.git">https://github.com/github_id/repository_name.git</a></p>
+<br>
+<h2 id="3-github에서-로컬로-가져오기">3. github에서 로컬로 가져오기</h2>
+<p>git pull origin master</p>
+<br>
+<h2 id="4-기본-설정-합시다-원하지-않는-값으로-들어갑니다">4. 기본 설정 합시다. 원하지 않는 값으로 들어갑니다.</h2>
+<p>git config --global <a href="http://user.name">user.name</a> &quot;name&quot;</p>
+<p>git config --global user.email &quot;email&quot;</p>
+<p>git reset HEAD^  // 커밋한 것 중에서 마지막 1개 취소</p>
+<br>
+<h2 id="5-github-개인키-인증">5. github 개인키 인증</h2>
+<p>setting - Developer settings - Personal access tokens - Generater new token : 1번 만들고 아래쪽 Key값 별도 저장 필요</p>
+<p><img src="img/s0082.png" alt="개인접큰키"></p>
+
+        
+        
+    </body>
+    </html>
