@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#xc5d1;&#xc140; &#xc218;&#xc2dd;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="엑셀-수식">엑셀 수식</h1>
+<ul>
+<li><a href="./office_0001.html">엑셀 셀</a></li>
+<li><a href="./office_0008.html">엑셀 수식</a></li>
+</ul>
+<br>
+<h2 id="012-그룹-묶음처리--숨김처리-22-01-29"><strong>012. 그룹 (묶음처리 : 숨김처리) (22. 01. 29)</strong></h2>
+<p>. 데이터 - 그룹  (선택하면 만들면, 그 다음 줄(열)에 ± 버튼이 생김</p>
+<br>
+<h2 id="011-sumifs-countifs-21-04-17"><strong>011. sumifs, countifs (21. 04. 17)</strong></h2>
+<p>. 주위에서 사용하는 것을 보고 관심이 가지게 된 함수</p>
+<p>. 기존 조건절을 여러 개를 사용할 수 있게 된 것임</p>
+<br>
+<h2 id="010-이름정의-20-11-10"><strong>010. 이름정의 (20. 11. 10)</strong></h2>
+<p>. 영역을 특정한 이름으로 정의하여 관리</p>
+<p>. 셀속성에서 이름 정의</p>
+<p>.  &lt;수식 - 이름관리자&gt;에서 수정 가능</p>
+<br>
+<h2 id="009-offset-20-11-10"><strong>009. offset (20. 11. 10)</strong></h2>
+<p>. 지정한 위치에서 이동</p>
+<p>. offset(영역, row, col)</p>
+<br>
+<h2 id="007-매크로-만들기"><strong>007. 매크로 만들기</strong></h2>
+<p>. 보기 - 매크로 - 매크로 기억 [매크로명, 단축키(ctrl+영문자) ]</p>
+<p>. 잡다한 작업들,,,</p>
+<p>. 보기 - 매크로 - 매크로 종료</p>
+<br>
+<h2 id="006-조건부서식--조건절-추가"><strong>006. 조건부서식 : 조건절 추가</strong></h2>
+<p>. =OR($A2=&quot;X&quot;) : A2셀이 &quot;X&quot;인 경우 조건부서식 적용</p>
+<p>주의) 여러줄 적용시 $ 값 잘 사용합시다 ^^</p>
+<br>
+<h2 id="005-hyperlink-함수를-활용해서-하이퍼링크-만들기"><strong>005. hyperlink (함수를 활용해서 하이퍼링크 만들기)</strong></h2>
+<p>. hyperlink (&quot;URL&quot;, &quot;텍스트명&quot;)</p>
+<p>. hyperlink (&quot;#'시트명'!A1&quot;, &quot;바로가기&quot;) : 현재 열려져 있는 파일의 하이퍼링크</p>
+<br>
+<h2 id="004-indirect-주소값을-활용하여-셀-값-가져오기"><strong>004. indirect (주소값을 활용하여 셀 값 가져오기)</strong></h2>
+<p>. indirect( 셀주소 ) : &quot;TASK_LIST!C&quot; &amp; A4</p>
+<br>
+<h2 id="003-match-vlookup-이상"><strong>003. match (vlookup 이상)</strong></h2>
+<p>. vlookup( 1, 2, 3, 4)</p>
+<p>1 : 찾고자 하는 값</p>
+<p>2 : 찾을 영역</p>
+<p>3 : 찾았으면 몇번째 값을 가져갈까요?</p>
+<p>4 : false : 정확하게 일치하는 값을 찾음 (주의)</p>
+<p>. match : 3번째 값을 숫자로써 정의하지 않고 필드명으로 정의 : 변경시 관리 쉬움</p>
+<p>vlookup (1, 2, match(컬럼명셀값, 컬럼명배열, false), false)</p>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
