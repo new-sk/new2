@@ -1,5 +1,13 @@
 # VSC
 
+## (23.04.02) 맥 : VSC & github
+
+간만에 맥에서 작업하려니 안되네, 맥OS 업그레이드 이후 사라진듯, git 새로 설치이후 설정함
+
+<br>
+
+
+
 ## 1. 컬럼단위 글쓰기
 
 Ctrl + Alt + 화살표 위 또는 아래
@@ -27,9 +35,9 @@ Ctrl + Alt + 화살표 위 또는 아래
     . HTML Snipper : <> 없어도 태그 완성 : 꺽쇠 없이 div 후 엔터키
     . Live Server : 자동 저장 기능
     . Material Icon Theme : 언어별 아이콘 부여
-    . Prettier : 코드 배치 이쁘게
+    . Prettier : 코드 배치 이쁘게  
 
-![마켓플레이스](img/s0052.jpg)
+![마켓플레이스](./img/s0052.JPG)
 
 ### 3.1 Korean Languange Pack for Visual Studio Code
 
@@ -40,6 +48,8 @@ Ctrl + Alt + 화살표 위 또는 아래
 - Alt + B : html 내역을 브라우저에서 오픈
 
 ### 3.3 Markdown All in One
+
+- Markdown 문서 자동으로 html 문서로 변경해 줌
 
 <br>
 
