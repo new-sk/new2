@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>6-1&period; &#xb370;&#xc774;&#xd130;&#xbca0;&#xc774;&#xc2a4; &#xc124;&#xacc4;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="6-1-데이터베이스-설계">6-1. 데이터베이스 설계</h1>
+<h3 id="가-저장-공간-설계"><strong>가. 저장 공간 설계</strong></h3>
+<p>테이블, 테이블스페이스에 대해서 알아봅시다</p>
+<br>
+<p>테이블 구조</p>
+<ul>
+<li>Heap-Organized Table : 순서와 관계없이 데이터 저장</li>
+<li>Index Organized Table / Clustered Index Table : 인덱스 값의 순서대로 데이터 저장, 소량 데이터 랜덤 엑세스에 성능 향상</li>
+<li>Partitioned Table : (범위, 해쉬, 리스트) 파티션별 저장, 삭제, 추가 등등</li>
+<li>External Table : 파일 데이터</li>
+<li>Temporary Table : 트랜잭션 또는 세션 단위, 공유 안됨</li>
+</ul>
+<p>컬럼 설계</p>
+<ul>
+<li>참조 관계에 있는 것은 데이터 타입 동일하게</li>
+<li>고정컬럼, NOT NULL은 앞에</li>
+<li>가변결이, NULL 많은 경우는 뒤에</li>
+<li>체인 발생 적게 나도록 해야 함</li>
+</ul>
+<p>테이블 설계</p>
+<ul>
+<li>컬럼 데이터 길이가 1블록/페이지 보다 크면 체인 발생 가능</li>
+<li>수직 분할 고려 : 특정 컬럼 사용 빈도 높거나, 사용자 그룹이 다르거나</li>
+<li>수직 분할 후 하나의 트랜잭션에 동시에 처리되는 것이 많으면 안됨</li>
+<li>시간 가공이 빈번한 경우에는 텍스트로</li>
+</ul>
+<p>테이블과 테이블스페이스</p>
+<ul>
+<li>테이블은 테이블스페이스라는 논리적인 단위와 연관, 테이블스페이스는 데이터 파일이라는 물리적인 단위와 연관</li>
+<li>업무별로 지정, 큰 것은 별도로, 인덱스와는 분리, LOB는 독립적으로</li>
+</ul>
+<p>용량 설계</p>
+<ul>
+<li>확장성과 가용성 / 디스크 채널 병목 최소화</li>
+<li>초기 사이즈 / 증가 사이즈 / 트랜잭션 옵션 / 최대 사이즈 / 자동 증가 옵션</li>
+<li>용량 분석 / 오브젝트별 용량 산정 / 테이블스페이스 용량 산정 / 디스크 용량 산정 (IO분산)</li>
+</ul>
+<br>
+<h3 id="나-무결성-설계"><strong>나. 무결성 설계</strong></h3>
+<p>정확성, 일관성, 유효성, 신뢰성을 위해 무효 갱신으로부터 데이터 보호가 필요합니다.</p>
+<br>
+<p>무결성 강화 방법</p>
+<ul>
+<li>응용 프로그램 : 소스코드에 분산, 관리 어려움, 적정성 검토 어려움</li>
+<li>트리거 : 운영중 변경 어려움, 사용상 주의 필요</li>
+<li>제약조건 : 복잡한 내역으로 구성 불가, 예외 처리 불가</li>
+</ul>
+<p>실체 무결성 (PK, UK)</p>
+<ul>
+<li>기본키 제약 : NOT NULL, UNIQUE</li>
+<li>UNIQUE 제약 : 후보키 대상인 UK, NULL 가능, PK선언만으로 클러스터드 인덱스 테이블 구조 생성,</li>
+<li>채번시 시퀀스(시리얼) 활용이 바람직함</li>
+</ul>
+<p>영역 무결성 (Domain)</p>
+<ul>
+<li>데이터 타입 &amp; 길이</li>
+<li>유효값 (Check)</li>
+<li>NOT NULL (숫자 NOT NULL, default 0)</li>
+</ul>
+<p>참조 무결성 (FK)</p>
+<ul>
+<li><strong>입력 무결성 종류</strong></li>
+<li><strong>수정/삭제 무결성 종류</strong></li>
+<li>참조 무결성에는 NULL 지정은 바람직하지 않음 : default 사용 필요</li>
+<li>슈퍼-서브타입 : 삽입시 depdendent, automatic, 변경시 cascade</li>
+<li>성능상 이슈, 반드시 적용 필요한 관계에만</li>
+<li>인덱스 생성 필요</li>
+</ul>
+<br>
+<h3 id="다-전사아키텍처-활용"><strong>다. 전사아키텍처 활용</strong></h3>
+<p>이렇게 활용하세요.</p>
+<br>
+<p>목표아키텍처 이행 계획 (1/2)</p>
+<ul>
+<li>정의된 프로젝트들 간의 유사성과 상호연관성을 고려하여 우선순위 결정</li>
+<li>주요활동 및 작업 : 아키텍처 차이 분석, 프로젝트 정의, 이행 전략 수립, 이행 계획 수립, 변화관리 계획 수립</li>
+</ul>
+<p>정보 상시 활용 (2/2)</p>
+<ul>
+<li>IT 기획 관리 :
+<ul>
+<li>(단기, 중기) 정보화 계획 수립, 전략 방향에 맞는 목표 시스템을 정의하고 추진 계획 수립,</li>
+<li>IT 투자에 대한 포토폴리오 관리</li>
+</ul>
+</li>
+<li>IT 구축 관리 : 프로젝트 계획, 시스템 개발</li>
+<li>IT 운영/통제 관리
+<ul>
+<li>프레임워크 및 매트릭스 변경할 수도, 성숙도 높아질수록 요구사항도 높아짐</li>
+<li>정보의 품질 보장, 전담 조직을 통한 운영, 활용 위한 절차 및 시스템 필요</li>
+</ul>
+</li>
+</ul>
+<p>DAP와 다른 아키텍트와의 관계 (추가)</p>
+<ul>
+<li>범위통합 : 모델 내의 불일치성 제거</li>
+<li>수평통합 : 관련된 다른 영역과의 불일치성 제거</li>
+<li>수직통합 : 요구사항에 대한 일치 정렬(Alignment) 개념과 연관</li>
+</ul>
+
+        
+        
+    </body>
+    </html>
