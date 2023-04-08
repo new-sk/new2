@@ -16,5 +16,16 @@
 
 5. 데이터베이스 설계와 이용
 
+<br>
+
+    블록, 확장영역, 세그먼트
+    CKPT
+    2PC
+    드라이빙 테이블
+    엔덱스 종류별 언제 사용하는지
+    Latch 경합
+    스크롤이 가능한 커서
+
+<br>
 
 [챗GPT에 모든 걸 맡기면 안 되는 이유 : 3PRO TV, 조봉한 깨봉수학 대표](https://www.youtube.com/watch?v=vCr6Frmritg&list=PLQvqXcm97CTCa3KE90z0rhBQKlxpNhzCG)
