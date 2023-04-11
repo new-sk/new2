@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>5-2&period; &#xac1c;&#xb150; &#xb370;&#xc774;&#xd130; &#xbaa8;&#xb378;&#xb9c1;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="5-2-개념-데이터-모델링">5-2. 개념 데이터 모델링</h1>
+<h3 id="가-개념-데이터-모델링-이해"><strong>가. 개념 데이터 모델링 이해</strong></h3>
+<p>핵심 엔터티로 구성 : 다른 집합의 존재 유무와 상관없이 존재</p>
+<p>모델링 기법은 논리적 모델링과 유사</p>
+<p>개괄 데이터 모델 : 주제영역 관계도</p>
+<br>
+<h3 id="나-주제-영역-정의"><strong>나. 주제 영역 정의</strong></h3>
+<p>최상위 데이터 모델인 주제영역을 분류해 보아요</p>
+<br>
+<p>주제 영역 개념</p>
+<ul>
+<li>데이터의 최상위 집합 (인사, 생산, 자재, 판매 등)</li>
+<li>데이터를 주제별로 분류하는 방법</li>
+<li>내부적으로 밀접한 관계, 다른 주제영역과는 상호작용 최소화</li>
+<li>하향식 방식 용이 / 검증 위해서 일부 샹향식</li>
+</ul>
+<p>주제 영역 분류 원칙 및 기준</p>
+<ul>
+<li>분류 원칙 : 데이터 중복 최소화(체계적 분류 필요), 확장성 보장(가까운 미래 추가될 일), 관련성 및 편의성 확보</li>
+<li>분류 기준 :
+<ul>
+<li>데이터 관점 분류, 업무요건 추가에 대한 유연성 보장, 주제영역 간 균형 유지</li>
+</ul>
+</li>
+<li>주제 영역 명명 : 업무용어, 단수형 명사, 업무 활동명 배제하고 데이터그룹 의미하는 이름</li>
+<li>주제 영역 정의 절차
+<ul>
+<li>데이터 분류 지침 정의 - 주제영역 분류 및 정의 - 주제영역 도식화</li>
+</ul>
+</li>
+<li>주제영역 분류 방법
+<ul>
+<li>1차분류 : 주요 데이터 집합의 유형 정의</li>
+<li>2차분류 : Biz 활동에 필요한 데이터 분류</li>
+<li>3차분류 : 2차 영역의 세부 주제 영역 분류</li>
+</ul>
+</li>
+</ul>
+<p>주제 영역 활용</p>
+<ul>
+<li>전체 데이터 구성의 청사진 제시</li>
+</ul>
+<p>주제 영역 도출</p>
+<ul>
+<li>명사형, 업무기능, 하향식, 상향식(그룹핑), 분석단계</li>
+</ul>
+<p>주제 영역 정의 내용</p>
+<ul>
+<li>레벨, 주제영역명, 설명, 대표엔터티</li>
+</ul>
+<br>
+<h3 id="다-후보-엔터티-선정"><strong>다. 후보 엔터티 선정</strong></h3>
+<p>버리지 말고 잘 모아서 엔터티를 분류해 보아요</p>
+<br>
+<p>엔터티 후보 수집</p>
+<ul>
+<li>기존 시스템 도큐먼트</li>
+<li>현업 장표/보고서</li>
+<li>현업 인터뷰</li>
+<li>관련 전문 서적</li>
+<li>데이터 흐름도</li>
+<li>타 시스템 자료</li>
+<li>현장 조사</li>
+</ul>
+<p>엔터티 후보 식별</p>
+<ul>
+<li>구체적인 집합으로 정의</li>
+<li>관리대상인지 판별 (앞으로 관리할 것인지에 대한 전략적 판단 포함)</li>
+<li>집합이 되는지 확인 (개체가 있는지, 속성이 있는지)</li>
+</ul>
+<p>엔터티 선정시 유의 사항</p>
+<ul>
+<li>엔터티 가능성 있다고 예상되면 일단 검토 대상에 올려라</li>
+<li>동의어처럼 보이더라도 함부로 버리지 마라</li>
+<li>개념이 모호한 대상은 일차로 그 개념을 상식화하여 이해하라</li>
+<li>프로세스에 너무 연연해 하지 마라</li>
+<li>예외 경우에 너무 집착하지 마라</li>
+<li>단어 하나하나에 집중해서 판단하라</li>
+</ul>
+<p>수집된 엔터티 분류</p>
+<ul>
+<li>키 엔터티 : 부모를 가지지 않는 엔터티 (사원, 부서, 고객, 상품, 자재), 규칙과 부모의 차이 (부서없는 사원은 없다 : 규칙)</li>
+<li>메인 엔터티 : 키 엔터티 제외하고 업무의 중심 (보험계약, 사고, 예금원장, ,,,)</li>
+<li>액션 엔터티 : (상태이력, 차량수리내역, 상세주문내역)</li>
+<li>부분집합과 자식은 다르다 (법인, 고객의 서브타입)</li>
+<li>유사한 의미를 가지는 엔터티 모아서 비교</li>
+</ul>
+<br>
+<h3 id="라-핵심-엔터티-정의"><strong>라. 핵심 엔터티 정의</strong></h3>
+<p>그래서 핵심 엔터티가 뭔가?</p>
+<br>
+<p>엔터티</p>
+<p>의미상 주어 정의</p>
+<ul>
+<li>본질식별자, 인조식별자</li>
+<li>1:M 관계에서 1인쪽인 본질식별자가 될 가능성이 높다. (반례 : 부서와 사원)</li>
+<li>본질식별자란 만약 자신이 없다면 자신이 절대로 태어날 수 없을 때만 해당</li>
+</ul>
+<p>코드성 키 엔터티 모델링</p>
+<ul>
+<li>너무 많이 정의해 버리면 모델링의 효율적인 진행에 방해</li>
+<li>꼭 필요한 것이 누락한다면 중요한 자식 엔터티가 나오지 않을 수도 있음</li>
+<li>속성 및 관계 존재여부를 파악</li>
+</ul>
+<p>집합 순수성</p>
+<ul>
+<li>단위 사물을 정의한 개체 or 어떤 활동의 행위 (입금, 계약 등), 혼용되면 릴레이션십</li>
+<li>사례. 납입자 : 고객 + 납입 (혼용)</li>
+<li>예외1. 릴레이션십 엔터티 : M:N : 1:M으로 변환 : 릴레이션십 엔터티 (제휴:association, 교차:intersection)</li>
+<li>예외2. 부분집합 : 기관 vs 금융기관, 금융기관(금융은 분류) vs 수납기관(수납은 행위)</li>
+<li>예외3. 배타적관계</li>
+</ul>
+<p>집합 동질성 : 집합에 들어갈 개체들의 동일한 성질 (사람만 vs 사람과법인까지)</p>
+<p>엔터티 명칭 : 교육과정 + 강사 --&gt; 교육일정 보다는 개설강좌(일정외에도 장소라든지 다른 정보들 들어가 있음)</p>
+<p>서브타입</p>
+<ul>
+<li>교집합 불가, 합이 전체 집합,</li>
+<li>개별속성 또는 개별관계를 가지거나 가독성 증진 위해</li>
+<li>트레이드오프 : 명확성과 복잡성</li>
+</ul>
+<p>엔터티 통합과 분할</p>
+
+        
+        
+    </body>
+    </html>
