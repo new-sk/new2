@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>5-3&period; &#xb17c;&#xb9ac; &#xb370;&#xc774;&#xd130; &#xbaa8;&#xb378;&#xb9c1;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="5-3-논리-데이터-모델링">5-3. 논리 데이터 모델링</h1>
+<h3 id="가-논리-데이터-모델링-이해"><strong>가. 논리 데이터 모델링 이해</strong></h3>
+<p>데이터 모델링이 최종적으로 완료된 상태</p>
+<p>목적 및 효과</p>
+<ul>
+<li>해당 비즈니스에 대한 데이터 관점에서의 명확한 이해</li>
+<li>전사적인 통합 데이터 체계 확립</li>
+<li>데이터의 일관성 및 정확성 유지를 위한 규칙 도출</li>
+<li>안정적인 데이터베이스 설계의 토대 마련</li>
+<li>사용자의 명확한 의사소통을 위한 수단으로 활용</li>
+</ul>
+<p>필수 성공 요소</p>
+<ul>
+<li>업무에 능통한 현업 사용자와 함께 데이터 모델링을 진행하라</li>
+<li>절차보다는 데이터에 초점을 두고 모델링을 진행하라</li>
+<li>데이터의 구조와 무결성을 함께 고려하라</li>
+<li>개념화와 정규화 기법을 적용하라</li>
+<li>가능하면 다이어그램을 이용하여 업무를 표현하라</li>
+</ul>
+<br>
+<h3 id="나-속성-정의"><strong>나. 속성 정의</strong></h3>
+<p>속성 정의한 후에 엔터티 상세화할 꺼예요</p>
+<br>
+<p>모든 인스턴스가 공통으로 가지고 있는 특성</p>
+<p>속성 특징</p>
+<ul>
+<li>속성의 어원적 의미 : 남의 도움을 받지 않더라도 자가만의 독자적인 성질 가짐</li>
+<li>속성도 일종의 집합이다 : 속성값 집합</li>
+<li>릴레이션십도 속성이다 : FK 형태로 나타날 수 있음</li>
+<li>속성들 간은 서로 독립적이다 (식별자에 종속됨, 속성들 간의 종속 : 별도 분리 : 제3정규형)</li>
+</ul>
+<p>속성 후보 도출</p>
+<ul>
+<li>수집처 : 구시스템 문서, 현업장표/보고서, 사용자협의, DFD의 DD, 전문서적, 다른 시스템</li>
+<li>선정원칙 : 버리지마라, 소그룹별로 후보군을 만들고 가장 근접한 엔터티에 할당</li>
+<li>구성요소 : 속성명, 도메인, 선택성</li>
+</ul>
+<p>속성 검증 및  확정 (요구사항에 맞게 적용)</p>
+<ul>
+<li>최소(atom) 단위까지 분할 : 분할 및 통합의 기준은 업무의 요구사항에 따른다</li>
+<li>하나의 값만을 가지는지 검증(single value) : 차량 계약일 (여러 번 계약 가능), 차량번호(굳이 2대 이상 관리할 필요 없음)</li>
+<li>추출 속성인지 검증 : 최초정보, 최종정보, 집계정보(합계금액), 릴레이션정보, 다른속성의일부</li>
+<li>보다 상세하게 관리할 것인가</li>
+</ul>
+<p>가공 속성 규칙</p>
+<ul>
+<li>도출 또는 계산에 사용된 기준 속성(base attribute)</li>
+<li>초기에는 가공속성을 중복으로 파악했으나, 요즘은,,,</li>
+</ul>
+<p>속성 정의 시 유의 사항</p>
+<ul>
+<li>의미가 명확한 속성 명칭 부여</li>
+<li>유일한 복합명사 사용</li>
+<li>순번(좀 더 명확하게), 상태(무슨 상태?), 보험기간(년?, 월?), 초회납방(말이 어렵잖아), 작의적인 전용 금지(ERP 전용 용도 속성 사전에 만들어져 있음^^)</li>
+</ul>
+<br>
+<h3 id="다-엔터티-상세화"><strong>다. 엔터티 상세화</strong></h3>
+<p>속성 정의했으나 엔터티 상세화할 꺼예요</p>
+<br>
+<p>식별자 확정</p>
+<ul>
+<li>본질 식별자</li>
+<li>후보 식별자</li>
+<li>대체(보조) 식별자</li>
+<li>인조 식별자</li>
+<li>식별자 확정</li>
+</ul>
+<p>정규화</p>
+<ul>
+<li>변경 이상으로부터 데이터 보호 (Modification = Insertion, Update, Deletion)</li>
+<li>정규화 장점
+<ul>
+<li>중복값 줄어듦, NULL 줄어듦, 복잡한코드해결, 새로운요구사항발견, 업무규칙포착, 데이터구조안정성</li>
+</ul>
+</li>
+<li>1차정규형 (1NF) : 하나의 속성이 여러 개의 값을 가진 경우 : 해당 속성 분리</li>
+<li>2차정규형 : <strong>식별자</strong> 전체에 완전 종속 되어야 함 : 일부 종속 내역</li>
+<li>3차정규형 : 식별자를 제외한 나머지 속성들 사이에서의 종속성</li>
+<li>BCNF정규형 : 모든 결정자가 키 (복합후보키가 2개, 1개 이상 공유, 1개 이상 일반 속성 가짐, 하나가 삭제될 경우 다른 후보키의 정보다 사람짐)</li>
+</ul>
+<p>M:N 관계 해소</p>
+<ul>
+<li>모델링이 덜 된 관계로 1:M 관계 2개로 정의함</li>
+</ul>
+<p>참조 무결성 규칙 정의</p>
+<ul>
+<li>입력 : dependent(있는 경우만), automatioc(무조건 삽입), nullify(to null), default(to deau), customized(특정조건만족할경우만), no effect</li>
+<li>삭제 : restrict(제한), cascade(다삭제), nullify, deault, cutomized, no effect</li>
+</ul>
+<br>
+<h3 id="라-이력-관리-정의"><strong>라. 이력 관리 정의</strong></h3>
+<p>블라</p>
+<br>
+<p>블라</p>
+<ul>
+<li>블라블라</li>
+</ul>
+
+        
+        
+    </body>
+    </html>
