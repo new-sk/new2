@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>5-4&period; &#xbb3c;&#xb9ac; &#xb370;&#xc774;&#xd130; &#xbaa8;&#xb378;&#xb9c1;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="5-4-물리-데이터-모델링">5-4. 물리 데이터 모델링</h1>
+<h3 id="가-물리-데이터-모델링-이해"><strong>가. 물리 데이터 모델링 이해</strong></h3>
+<p>DBMS의 특성을 고려하여 데이터베이스 저장구조로 변환됨</p>
+<ul>
+<li>저장공간 활용 계획, 파티셔닝 설계, 인덱스 설계</li>
+</ul>
+<p>물리적 데이터 모델링 = 관계 데이터 모델링 (RDM, Relation Data Modeling)</p>
+<ul>
+<li>데이터의 저장공간, 분산, 저장방법</li>
+</ul>
+<p>분산데이터베이스 구축시, 물리데이터 모델 비교, 물리적환경 비교시, 물리적 모델 형상관리</p>
+<br>
+<h3 id="나-물리-요소-조사-및-분석"><strong>나. 물리 요소 조사 및 분석</strong></h3>
+<p>물리적인 환경을 관리합시다</p>
+<br>
+<p>시스템 구축 관련 명명 규칙</p>
+<p>CPU, DISK, I/O Controller, Network</p>
+<p>운영체재 및 DBMS 버전</p>
+<p>DBMS 파라미터 관리</p>
+<br>
+<h3 id="다-논리-물리-모델-변환"><strong>다. 논리-물리 모델 변환</strong></h3>
+<p>물리 데이터베이스 객체를 만들어 보아요</p>
+<br>
+<p>논리 데이터 모델 - 물리 데이터 모델 변환 용어</p>
+<ul>
+<li>엔터티 - 테이블</li>
+<li>속성 - 컬럼</li>
+<li>Primary UID - Primary Key</li>
+<li>Secondary(Alternate) UID - Unique Key</li>
+<li>Relationship - Foreign Key</li>
+<li>Business Constraints - Check Constraints</li>
+</ul>
+<p>엔터티-테이블 변환</p>
+<ul>
+<li>테이블 : 로우, 컬럼(*,O), 기본키(#), 외래키</li>
+<li>서브타입 변환 : 1. 하나로 통합 (슈퍼타입 위주 통합)
+<ul>
+<li>절차 : 슈퍼타입명칭으로통합 - 서브타입구분컬럼추가(슈퍼+서브+서브구분) - 관계(슈퍼관계, 서브관계)</li>
+<li>장점 : 성능향상(수행속도, 조인감소), 쉽다(액세스, 구분없는임의집합처리용이, SQL간단해짐, 뷰활용으로서브타입처리가능)</li>
+<li>단점 : 용량증가(컬럼/블록수 증가), 치리시마다서브타입구분필요, 인덱스크기증가, 서브타입의 NOT NULL 처리 곤란</li>
+</ul>
+</li>
+<li>서브타입 변환 : 2. 여러개 분할 (서브타입 위주 분할)
+<ul>
+<li>절차 : 서브타입명칭부여 - 서브타입속성 + 슈퍼타입구분 - 서브타입관계 - 슈퍼타입관계</li>
+<li>장점 : 서브타입별 선택사양 명확할때, 서브타입 구분 불필요시, 전체테이블스캔시, 단위테이블크기감소</li>
+<li>단점 : 속도저하 (UNION 처리 발생 여러 테이블 처리), SQL통합 어려워짐, 부분범위 처리 불가능, 여러테이블 뷰는 조회만 가능, UID 유지 관리 어려움</li>
+</ul>
+</li>
+<li>서브타입 변환 : 3. ARC (슈퍼타입과 서브타입을 각각 테이블로)
+<ul>
+<li>특별한경우 적용 : 전체 데이터 처리 빈번, 서브타입처리 독립적, 컬럼수 많을 때(특히 서브), 주로 공통부분에서 트랜잭션 처리
+테이블 목록 정의서</li>
+</ul>
+</li>
+</ul>
+<p>속성-컬럼 변환</p>
+<ul>
+<li>가능하다면 표본 데이터 표시, 나머지는 일반적임</li>
+<li>테이블 정의서</li>
+</ul>
+<p>관계 변환</p>
+<ul>
+<li>1:M : 1에 있는 PK를 M의 FK로 변환
+<ul>
+<li>1쪽이 Mandatory 여부 : 자식이 꼭 있어야 부모 생김, 자식이 모두 사라지면 부모까지 사라짐 (주의)</li>
+</ul>
+</li>
+<li>1:1 : 양쪽다 Optional인 경우 보다 빈번히 사용되는 곳에 FK
+<ul>
+<li>FK는 UK임</li>
+</ul>
+</li>
+<li>순환(1:M) : 최상위관계 Optional (예외로 특정값 넣기도)</li>
+<li>배타적관계 : 은행계좌 - 개인/단체/법인 : 각각에 FK(1개만 가능토록 추가적인 Check 필요) / 유형구분(FK 사용불가)</li>
+</ul>
+<p>관리상 필요한 컬럼 추가</p>
+<ul>
+<li>데이터등록일시, 시스템 관리번호 등 관리상의 이유로 추가 가능</li>
+</ul>
+<p>데이터 타입 선택</p>
+<ul>
+<li>문자 : 영문만(영문1, 한글2, nvarchar,,,), 긴것(4000,8000, 물리적특성 및 DBMS 고려), 고정/가변, Text/Char/Varchar/ntext/nchar/nvarchar</li>
+<li>숫자 : 정말 숫자인가(주민번호 같은 경우), boolean/integer/decimal/money</li>
+<li>날짜 : 논리모델링에서 날짜타입 or 문자타입 결정, 물리에서는 그대로</li>
+</ul>
+<p>데이터 표준 적용</p>
+<ul>
+<li>업무영역(필) - 주제어수식어 - 주제어(필) - 분류어수식어 - 분류어(필) - 접미사</li>
+</ul>
+<br>
+<h3 id="라-반정규화"><strong>라. 반정규화</strong></h3>
+<p>성능상의 이유로 반정규화를 합니다</p>
+<br>
+<p>테이블 분할 (파티션)</p>
+<ul>
+<li>수평분할 : 데이터 많고 특정 영역 자료 위주 처리, 물리적인 위치까지 분할하여 디스크 효용성 극대화</li>
+<li>수직분할 : 갱신위주컬럼분할, 자주조회되는컬럼분할, 크기가큰컬럼분할, 특정컬럼보안위해분할</li>
+</ul>
+<p>중복 테이블 생성</p>
+<ul>
+<li>집계 테이블 (Group By) : 일관성 유지(집계 vs 원본)</li>
+<li>진행 테이블 : 활용도 높도록 키 설정, 집계 테이블 역할도 가능토록 컬럼 설정</li>
+</ul>
+<p>중복 컬럼 생성</p>
+<ul>
+<li>빈번한 조인, 기본키 복잡해서 가상키 생성</li>
+</ul>
+
+        
+        
+    </body>
+    </html>
