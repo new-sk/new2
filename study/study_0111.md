@@ -39,7 +39,7 @@ DBMS 파라미터 관리
 논리 데이터 모델 - 물리 데이터 모델 변환 용어
 - 엔터티 - 테이블
 - 속성 - 컬럼
-- Primary UID - Primary Key
+- Primary UID(Unique Identifier) - Primary Key
 - Secondary(Alternate) UID - Unique Key
 - Relationship - Foreign Key
 - Business Constraints - Check Constraints
