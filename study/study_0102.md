@@ -1,5 +1,11 @@
 # 1-1 전사아키텍처 개요
 
+<p> <a href="./study_0102.html">0102. 1-1 전사아키텍처 개요</a> </p>
+<p> <a href="./study_0103.html">0103. 1-2 전사아키텍처 구축</a> </p>
+<p> <a href="./study_0104.html">0104. 1-3 전사아키텍처 관리 및 활용</a> </p>
+
+<br>
+
 [알기쉬운 EA.pdf (한국정보화진흥원)](./file/%EC%95%8C%EA%B8%B0%EC%89%AC%EC%9A%B4%20EA.pdf)
 
 [범정부 EA포털, GEAP](https://www.geap.go.kr/real/)
