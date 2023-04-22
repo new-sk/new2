@@ -169,8 +169,9 @@
 </ul>
 <p>데이터베이스 복구 알고리즘</p>
 <ul>
-<li>NO-UNDO / REDO</li>
-<li>UNDO / NO-REDO</li>
+<li>동기적 갱신 vs 비동기적 갱신 : 트랜잭션 실행이후 버퍼 내용(메모리)을 저장 매체(디스크)에 동기적으로 저장하는지 여부</li>
+<li>NO-UNDO / REDO : 비동기적 갱신으로 저장매체 저장되기 전에 장애시, 재실행필요</li>
+<li>UNDO / NO-REDO : 동기적 갱신으로 재실행 필요는 없으나, 트랜잭션 중인 것은 취소해야만 함</li>
 <li>UNDO / REDO</li>
 <li>NO-UNDO / NO-REDO</li>
 </ul>
