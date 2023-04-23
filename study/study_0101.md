@@ -28,4 +28,9 @@
 
 <br>
 
+
 [챗GPT에 모든 걸 맡기면 안 되는 이유 : 3PRO TV, 조봉한 깨봉수학 대표](https://www.youtube.com/watch?v=vCr6Frmritg&list=PLQvqXcm97CTCa3KE90z0rhBQKlxpNhzCG)
+
+[김승호 회장 **돈의속성** 부자되는법(동기부여,5000억부자)](https://www.youtube.com/watch?v=kqlKPbqynTw)
+- 재미 한국인 사업가, 스노우폭스, 한국에서 사장학 개론
+- 돈은 인격체 : 작은 돈 소중히
