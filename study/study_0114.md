@@ -1,5 +1,8 @@
 # 4-3. 데이터 표준 관리
 
+<p> <a href="./study_dasp.html">DASP</a> </p>
+
+**<p> 4. 데이터 표준화</p>**
 <p> <a href="./study_0112.html">0112. 4-1. 데이터 표준화 개요</a> </p>
 <p> <a href="./study_0113.html">0113. 4-2. 데이터 표준 수립</a> </p>
 <p> <a href="./study_0114.html">0114. 4-3. 데이터 표준 관리</a> </p>

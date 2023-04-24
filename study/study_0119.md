@@ -1,5 +1,8 @@
 # 3-2. 정보 요구 사항 조사
 
+<p> <a href="./study_dasp.html">DASP</a> </p>
+
+**<p> 3. 데이터 요건 분석</p>**
 <p> <a href="./study_0118.html">0118. 3-1. 정보 요구 사항 개요</a> </p>
 <p> <a href="./study_0119.html">0119. 3-2. 정보 요구 사항 조사</a> </p>
 <p> <a href="./study_0120.html">0120. 3-3. 정보 요구 사항 분석</a> </p>

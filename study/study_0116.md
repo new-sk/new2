@@ -1,5 +1,8 @@
 # 2-2. 데이터 구조 이해
 
+<p> <a href="./study_dasp.html">DASP</a> </p>
+
+**<p> 2. 데이터 품질 관리 이해 (DAP)</p>**
 <p> <a href="./study_0115.html">0115. 2-1. 데이터 이해</a> </p>
 <p> <a href="./study_0116.html">0116. 2-2. 데이터 구조 이해</a> </p>
 <p> <a href="./study_0117.html">0117. 2-3. 데이터 관리 프로세스 이해</a> </p>
