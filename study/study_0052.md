@@ -11,7 +11,7 @@
 ## 1. 컬럼단위 글쓰기
 
 Ctrl + Alt + 화살표 위 또는 아래
-
+ 
 <br>
 
 
@@ -36,7 +36,7 @@ Ctrl + Alt + 화살표 위 또는 아래
     . Live Server : 자동 저장 기능
     . Material Icon Theme : 언어별 아이콘 부여
     . Prettier : 코드 배치 이쁘게  
-
+ 
 ![마켓플레이스](./img/s0052.JPG)
 
 ### 3.1 Korean Languange Pack for Visual Studio Code
