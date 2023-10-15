@@ -15,6 +15,41 @@
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -76,6 +111,7 @@
 자랑처럼 풀이 무성할 게외다.</p>
 <br>
 <h3 id="시"><strong>시</strong></h3>
+<p> <a href="./book_0126.html">126. 중학생 필독 시</a> </p>
 <p> <a href="./book_0122.html">122. 꼭 읽어야 할 시 369 (윤동주)</a> </p>
 <p> <a href="./book_0054.html">054. 백석, 외롭고 높고 쓸쓸한</a> </p>
 <p> <a href="./book_0049.html">049. 난 빨강</a> </p>
