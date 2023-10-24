@@ -15,6 +15,41 @@
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
@@ -63,6 +98,8 @@
 <p>with aaa as ( sql문 ), ccc as ( sql문2 ) select * from aaa, ccc;  -- 여러개도 가능</p>
 <br>
 <h2 id="5-outer-join">5. outer join</h2>
+<p>from A full outer join B on A.x = B.x
+where ...</p>
 <br>
 <h2 id="6-block-sql">6. block sql</h2>
 <p><strong>do $$</strong></p>
@@ -75,6 +112,37 @@
 <br>
 <h2 id="8-디비버-팀워크">8. 디비버 팀워크</h2>
 <p>Network 안되는 곳에서 사용 불가</p>
+<br>
+<h2 id="9-문자-비교-오라클-vs-postgresql">9. 문자 비교 (오라클 vs PostgreSQL)</h2>
+<p>오라클 :</p>
+<ul>
+<li>varchar2(바이트단위) : nvarchar2(문자단위)   (lengthb vs length)</li>
+<li>char : 스페이스를 채움</li>
+</ul>
+<p>PostgreSQL :</p>
+<ul>
+<li>문자갯수로 처리함</li>
+</ul>
+<br>
+<h2 id="10-한꺼번에-테이블-처리">10. 한꺼번에 테이블 처리</h2>
+<ul>
+<li>
+<p>select * into new_table from old_table;</p>
+</li>
+<li>
+<p>insert into new_table select * from old_table;</p>
+</li>
+</ul>
+<br>
+<h2 id="11-디비버--export">11. 디비버 : export</h2>
+<ul>
+<li>
+<p>table or script to table 가능</p>
+</li>
+<li>
+<p>타입 정확하게 못 잡을 수 있으니깐, 사전 확인 필요</p>
+</li>
+</ul>
 
         <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
