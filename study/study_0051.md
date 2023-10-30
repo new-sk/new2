@@ -1,6 +1,6 @@
 # DB
 
-## 1. array
+## A01. array
 
 ### 1.1 any
 
@@ -22,7 +22,7 @@ array_cat(string_to_array('a,b,c',','), string_to_array('d:e:f',':'))
 <br>
 
 
-## 2. case when then end
+## A02. case when then end
 
 **case** contype **when** 'p' **then** 'PK' **when** 'u' **then** 'UK' **end** 
 
@@ -30,15 +30,15 @@ array_cat(string_to_array('a,b,c',','), string_to_array('d:e:f',':'))
 <br>
 
 
-## 3. string_agg()
+## A03. string_agg()
 
-group by SQL문 중에서 select문에서 사용 가능함
-
+ - group by SQL문 중에서 select문에서 사용 가능함
+ - string_agg(indtype || '-' || sno, ', ' **order by** indtype)
 
 <br>
 
 
-## 4. with 
+## A04. with 
 
 with aaa as ( with절 NESTED ) select * from aaa;
 
@@ -48,7 +48,7 @@ with aaa as ( sql문 ), ccc as ( sql문2 ) select * from aaa, ccc;  -- 여러개
 <br>
 
 
-## 5. outer join
+## A05. outer join
 
 from A full outer join B on A.x = B.x
 where ...
@@ -57,7 +57,7 @@ where ...
 <br>
 
 
-## 6. block sql
+## A06. block sql
 
 **do $$**
 
@@ -71,23 +71,7 @@ end; $$;
 <br>
 
 
-## 7. 디비버 리드오니
-
-화면 상단 열쇄 클릭
-
-
-<br>
-
-
-## 8. 디비버 팀워크
-
-Network 안되는 곳에서 사용 불가
-
-
-<br>
-
-
-## 9. 문자 비교 (오라클 vs PostgreSQL)
+## A07. 문자 비교 (오라클 vs PostgreSQL)
 
 오라클 : 
 - varchar2(바이트단위) : nvarchar2(문자단위)   (lengthb vs length)
@@ -100,7 +84,7 @@ PostgreSQL :
 <br>
 
 
-## 10. 한꺼번에 테이블 처리
+## A08. 한꺼번에 테이블 처리
 
 - select * into new_table from old_table;
 
@@ -110,8 +94,58 @@ PostgreSQL :
 <br>
 
 
-## 11. 디비버 : export 
+## A09. 권한부여
+
+- grep fl_from to fl_to;
+- grant truncate on all tables in schema fl_from to tmp_user;
+- alter default privileges in schema fl_from grant truncate on tables to tmp_user;
+
+
+<br>
+
+
+## A10. comment 
+
+- comment on table table_name is '테이블명';
+- comment on column tabnm.colnm is '컬럼명';
+
+
+<br>
+
+
+## B1. 디비버 리드오니
+
+화면 상단 열쇄 클릭
+
+
+<br>
+
+
+## B2. 디비버 팀워크
+
+Network 안되는 곳에서 사용 불가
+
+
+<br>
+
+
+## B3. 디비버 : export 
 
 - table or script to table 가능
 
 - 타입 정확하게 못 잡을 수 있으니깐, 사전 확인 필요
+
+
+<br>
+
+
+## C1. UNIX : grep
+
+- grep -n xxx 로그파일명 | grep duration
+
+
+
+
+
+
+
