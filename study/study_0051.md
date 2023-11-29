@@ -115,37 +115,109 @@ PostgreSQL :
 
 ## B1. 디비버 리드오니
 
-화면 상단 열쇄 클릭
+- 화면 상단 열쇄 클릭
 
+- Connetion 정보 변경 : General - Security
+  - Restrict data edit
+  - Restrict structure edit
+
+- 트랜잭션 모드
+  - auto commit : 실수로 잘못 바꿀 위협
+  - manual commit : 가동계 데이터 lock 발생 우려
 
 <br>
 
 
 ## B2. 디비버 팀워크
 
-Network 안되는 곳에서 사용 불가
+- 유료버전에서만 가능 
+- Network 안되는 곳에서 사용 불가
 
 
 <br>
 
 
-## B3. 디비버 : export 
+## B3. Database Tasks
+
+- 디비버에서 작업 관리
+    - 무료버전에서는 1개씩만 가능 (1개씩 여러 개 실행하면 됨)
+    - Script 실행 가능 
+    - import/export 실행 가능
+- 표준 점검 실행(script)  -> export 실행 -> excel 업로드
+
+<br>
+
+
+## B4. 디비버 : import 
 
 - table or script to table 가능
-
 - 타입 정확하게 못 잡을 수 있으니깐, 사전 확인 필요
+- trucate lock 주의
+- (?) use bulk load
+- 시작 후 진행상태 확인 가능 (오른쪽 아래에 메시지 같은 것 클릭하면 창이 뜸)
 
 
 <br>
 
 
-## C1. UNIX : grep
+## C1. postgresql.conf
+
+- port = 1111           # 포트번호
+- max_connection = 100  # 최대 connection 수
+- log_directory         # 로그 파일 위치
+- log_filename          # 로그 파일 생성 규칙 (날짜)
+- log_file_mode         # 0600 
+- log_min_duration_statement  # 3000(3초) : Long SQL
+- log_line_prefix       # 어떤 내용이 담기나
+- edb_audit
+- autovacuum = on
+- autovacuum_freeze_max_age  (change requires restart)
+
+
+<br>
+
+
+## C2. DB 로그 분석 
+  
+### grep
 
 - grep -n xxx 로그파일명 | grep duration
 
+- tail -f 로그파일명 | grep 서버IP | grep -e ERROR -e FATAL, ShareLock, ExclusiveLock, deadlock, "Wait queue"
+  
+### findstr
+
+- A 또는 B
+  - findstr "123 456 789" > processes.log
+
+- 특정문자열 찾기 (. 한글자, .* 여러글자)
+  - findstr "duration.*" > "fl..." > output.filename
+
+- 숫자 [0-9]{6}\.[0-9]{3} : 100초 이상 밀리초 (long sql 찾기)
+
+### VSC 
+
+- 찾기 (찾기 창 오른쪽에 옵션 있음 : 대소문자구분/정규식 )
 
 
+<br>
 
+
+## D1. 맥스게이지
+
+- Lock 조회 후 상세화면에서 Kill 가능
+
+
+<br>
+
+
+## E1. 기타등등
+
+- DB Connection Timeout
+- lock 현황
+  - alter table add column / truncate / index : lock 주의
+- 파티션 테이블 Purge
+- SEQ 초기화
 
 
 
