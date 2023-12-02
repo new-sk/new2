@@ -15,6 +15,41 @@
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -41,6 +76,57 @@
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="금융">금융</h1>
+<h2 id="isa">ISA</h2>
+<ul>
+<li>전 금융기관 1개만 소유 가능 (필요하면 계죄이관 : 현금화 이후에 이전 가능)
+<ul>
+<li>난 중개형 (ETF거래) &lt;--&gt; 신탁형(상품 매수/매도/교체 직접), 일임형</li>
+<li>금융사마다 운용상품 다름</li>
+</ul>
+</li>
+<li>계약기간/한도
+<ul>
+<li>최소 3년, 최대 5년 (필요시 개별적으로 연장신청해야 함 : ELS 만기 등 고려)</li>
+<li>계약 기간 내에도 원금에 대해서는 출금 가능 (다시 입금 가능액으로 증가되지는 않습니다)</li>
+<li>1년 2천만원, 5년 1억 : 이월 가능</li>
+<li>ISA 만가후 재가입시 한도 새로 만들어짐 (기존 계좌에서 입금한 금액 있더라도, 신규 계좌 2000만원 한도 새로 생성)</li>
+</ul>
+</li>
+<li>세금
+<ul>
+<li>200만원 비과세, 초과 금액 저율 과세 (9.9%)</li>
+<li>손익통산이나, (중개형) 국내 주식/ETF는 이미 비과세이므로 해당 사항 없음 : 별로 메리트가 없는 것 같기도 하고</li>
+<li>만기보유와 동일한 해지사유 : 6개월 이내에 발생한 천재지변, 퇴직, 폐업, 3개월 이상의 입원 또는 요양을 요하는 상해· 질병</li>
+</ul>
+</li>
+<li>연금계좌로 이전
+<ul>
+<li>ISA 계좌 만기일로부터 60일 이내</li>
+<li>계좌 잔액의 전부 또는 일부를 연금계좌로 불입시 10%(최대 300만원 한도)를 연금계좌 불입액에 포함해서 세액공제 가능
+<ul>
+<li>3000만원 이전시 300만원 세액공제 가능 (300*13.2%=39만6천원)</li>
+<li>연금한도가 추가적으로 300만원 증액 효과</li>
+<li>연금 : 2700만원 세액공제 안 받은 금액 / 300만원 세액공제 받은 금액  --&gt; 금융회사에 당해분 소득공제 금액으로 전환해 달라고 요청 가능
+<ul>
+<li>연말 지나서 2700만원 출금 (연말정산은 받아야지)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+<h2 id="연금저축-vs-irp">연금저축 vs IRP</h2>
+<ul>
+<li>세액공제 한도 초과 금액 : 중도인출 및 연금수련시 과세대상이 되지 않음</li>
+<li>세액공제는 13.2%, 중도해지시에는 16.5% 부담</li>
+<li>70세 이하 (5.5%), 80세 이하(4.4%), 80세 이상(3.3%)</li>
+<li>퇴직소득세율 (30% 절감 효과)</li>
+<li>연금수령액이 연간 1200만원 초과시 종합과세</li>
+<li>합쳐서 1800만원 한도</li>
+</ul>
+<p><br><br></p>
 <h2 id="펀드-수수료">펀드 수수료</h2>
 <ul>
 <li>
