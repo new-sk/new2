@@ -15,6 +15,41 @@
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -50,6 +85,22 @@
 <br>
 <h2 id="윈도우-창-정렬">윈도우 창 정렬</h2>
 <p>윈도우키 + 화살표 : 한 화면에 세로로 2개 정렬 가능 : 두 창 크기 조절 자동으로 이루어짐</p>
+<br>
+<h2 id="엣지-초기화면-설정">엣지 초기화면 설정</h2>
+<ul>
+<li>
+<p>설정 - 시작, 홈 및 새 탭 - 새 탭 페이지 - 새 탭 페이지 레이아웃 및 콘텐츠 사용자 지정 - 사용자 지정</p>
+</li>
+<li>
+<p>빠른 연결 (1행)</p>
+</li>
+<li>
+<p>콘텐츠 - 콘텐츠 끄기</p>
+</li>
+<li>
+<p>(구글처럼 간단하게, 뉴스 등 불필요한 것 제거)</p>
+</li>
+</ul>
 
         
         

@@ -113,6 +113,20 @@ PostgreSQL :
 <br>
 
 
+## A11. always id 
+
+- 자체 KEY, explict하게 사용하지 않아도 자체적으로 만들어짐, explict하게 사용하면 안됨
+
+- 데이터 이행
+  - default로 변경
+  - 이행한 후에 always로 변경
+  - 최종 sequence 값 설정
+    - alter sequence sequence_name restart with new_start_number;
+
+
+<br>
+
+
 ## B1. 디비버 리드오니
 
 - 화면 상단 열쇄 클릭
@@ -153,7 +167,7 @@ PostgreSQL :
 - table or script to table 가능
 - 타입 정확하게 못 잡을 수 있으니깐, 사전 확인 필요
 - trucate lock 주의
-- (?) use bulk load
+- (X) use bulk load (별로다. 죽는 경우가 있는데 왜 인지 확인을 못했다)
 - 시작 후 진행상태 확인 가능 (오른쪽 아래에 메시지 같은 것 클릭하면 창이 뜸)
 
 
@@ -203,6 +217,27 @@ PostgreSQL :
 <br>
 
 
+## C3. 프로세스 죽이기
+  
+### KILL
+
+- 죽이기
+  - select pg_cancel_backend(pid); -- 살살 죽이기, 현재 query만 죽이기
+  - select pg_terminate_backend(pid); -- 강력하게 죽이기 (프로세스 죽이기)
+
+- 한꺼번에 죽이기 : 특정 조건하의 모든 프로세스 죽이기 : 30분 동안 트랜잭션 중인 놈 죽이기
+  - select pg_terminate_backend(pid) from pg_catalog.**pg_stat_activity**
+  - where now() - query_start > '30 minutes' and client_addr::text like '10.%' and (backend_xid is not null or backend_xmin is not null)
+
+- backend_xmin
+  - 트랜잭션 중에서 현재 조회하고 있는 버전 관리 (트랜잭션 중에 유효)
+  - 트랜잭션이 종료되지 않으면 이 값이 변화하지 않음 -> vacuum이 적절하게 작동하지 않음
+  - 쉬고 있는 오래된 트랜잭션은 죽여줘야 겠네.
+
+
+<br>
+
+
 ## D1. 맥스게이지
 
 - Lock 조회 후 상세화면에서 Kill 가능
@@ -217,7 +252,6 @@ PostgreSQL :
 - lock 현황
   - alter table add column / truncate / index : lock 주의
 - 파티션 테이블 Purge
-- SEQ 초기화
-
-
+- Temp 영역을 사용하는 SQL
+- 
 
