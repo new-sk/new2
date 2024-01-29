@@ -15,6 +15,41 @@
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -44,6 +79,11 @@
 <ul>
 <li><a href="./office_0001.html">엑셀 셀</a></li>
 <li><a href="./office_0008.html">엑셀 수식</a></li>
+</ul>
+<br>
+<h2 id="016-외부파일-연결-내역-잡기"><strong>016. 외부파일 연결 내역 잡기</strong></h2>
+<ul>
+<li>수식 검사하면 됨 : 외부파일일 경우에는 &quot;[&quot;로 찾으면 됨</li>
 </ul>
 <br>
 <h2 id="015-수식이-최신화가-안-될-때"><strong>015. 수식이 최신화가 안 될 때</strong></h2>
