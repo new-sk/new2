@@ -14,7 +14,7 @@ with open(my_dir + "/input_index.txt", 'r', encoding='utf-8') as fi2:
   fi2_lines = fi2.readlines()
 
 ### 파일쓰기 : 앞부분
-fmyindex = open(my_dir + "/inex.html", 'w', encoding='utf-8')
+fmyindex = open(my_dir + "/index.html", 'w', encoding='utf-8')
 fmyindex.writelines(fi2_lines)
 
 ### 파일쓰기2 : 실제 내용 : 소팅이 되어 있다고 가정
