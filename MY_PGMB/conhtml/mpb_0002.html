@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#xc778;&#xacf5;&#xc9c0;&#xb2a5; &#xc694;&#xc18c; &#xae30;&#xc220;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="인공지능-요소-기술">인공지능 요소 기술</h1>
+<br>
+<h2 id="01-인공지능-요소-기술"><strong>01. 인공지능 요소 기술</strong></h2>
+<p>탐색, 지식표현, 추론, 학습, 계획수립</p>
+<p>탐색</p>
+<ul>
+<li>답이 될만한 공간에서 체계적으로 탐색하여 뒤짐
+<ul>
+<li>무정보 탐색 : 너비우선탐색, 깊이우선탐색</li>
+<li>휴리스틱 탐색</li>
+<li>게임트리 탐색</li>
+</ul>
+</li>
+</ul>
+<p>지식표현</p>
+<ul>
+<li>지식효과적으로 표현하는 방법
+<ul>
+<li>If then 규칙</li>
+<li>의미망 (Semantic Net)</li>
+<li>논리 : 명제논리, 술어논리</li>
+<li>스크립트 : 절차적 지식</li>
+<li>퍼지논리 : 애매한 지식 표현방법</li>
+<li>확률적 방법</li>
+<li>온톨로지 기술언어 : XML, RDF</li>
+</ul>
+</li>
+</ul>
+<p>추론</p>
+<ul>
+<li>가정이나 전제로부터 결론 이끌어 냄
+<ul>
+<li>전향추출</li>
+<li>후향추출 : 결과 확인하고 규칙 찾는 것</li>
+<li>확률모델추론 : 베이즈정리</li>
+</ul>
+</li>
+</ul>
+<p>학습</p>
+<ul>
+<li>경험을 통해 유사한 문제 더 잘해냄
+<ul>
+<li>머신러닝 : 컴퓨터가 학습하는 방법 연구</li>
+<li>지도학습 : &quot;문제-답&quot;을 주고 새로운 문제 해결 (분류, 회귀)</li>
+<li>비지도학습 : 답없음, 데이터로부터 패턴추출 (군집화, 밀도추정, 토픽모델링)</li>
+<li>강화학습 : 답 알려주지 않음, 기대보상 (게임문제, 로봇행동학습, 제어문제, 금융공학)</li>
+</ul>
+</li>
+</ul>
+<p>계획수립</p>
+<ul>
+<li>현재상태에서 목표상태로 갈 수 있는 행동순서 수립</li>
+</ul>
+<br>
+<h2 id="02-플랫폼"><strong>02. 플랫폼</strong></h2>
+<p>지식기반시스템 : 전문가시스템 확장</p>
+<p>자연어처리</p>
+<ul>
+<li>사람의 일반언어</li>
+<li>형태소분석, 구문분석, 품사태깅, 의미분석, 언어모델, 주제어추출, 객체명인식, 문서요약, 기계번역</li>
+</ul>
+<p>데이터마이닝 : 대규모데이터에서 암묵지 찾기</p>
+<p>음성인식 : 음성으로부터 문자로 전환</p>
+<p>컴퓨터비전 : 시각 기능 갖는 기계장치, 전처리후 특징 추출, (자율주행차)</p>
+<p>지능로봇 : 총체적 기술, (기계공학, 센서공학, 마이크로일렉트로닉)</p>
+<p>에이전트 : 사용자로부터 위임 받은 일을 자율적으로 수행, 반응형/숙고형/학습, (챗봇, 로봇)</p>
+<p>플랫폼 : 대규모 공급/수요 연결해 주는 매개체 (기차플랫폼, 마트)</p>
+<p>플랫폼 유형</p>
+<ul>
+<li>중개형 : 수수료로 수익 얻음</li>
+<li>락인형 : 충성도를 통해 수익 창출 (MS윈도우, 맥OS)</li>
+<li>광고형 : 광고를 팔아 수익 창출</li>
+</ul>
+<p>특징</p>
+<ul>
+<li>경계의 붕괴 : 국경, 산업간 경계가 없음</li>
+<li>이해관계자들의 참여 : 익숙한 것으로 회귀 (플랫폼 락인)</li>
+<li>선점의 중요성 : 자발적으로 시장을 만들어 줌 (참여자들의 자발적 참여)</li>
+</ul>
+<p>인공지능 플랫폼</p>
+<ul>
+<li>아마존 : 취급상품 다양화(도서-&gt;전자상거래), AWS, 아마존렉스(인공지능)</li>
+<li>MS : 애저, 코티나</li>
+<li>구글 : GCP(전단계 다루는 인공지능 플랫폼 제공)</li>
+<li>IBM : 왓슨, 애니웨이, 벤더 종속성 탈피</li>
+<li>네이버/카카오</li>
+</ul>
+<p>인공지능 서비스</p>
+<ul>
+<li>무인스토어 : 아마존고 확대</li>
+<li>AI배송 : 로봇 또는 드론 배송</li>
+<li>AI헬스케어 : 의료영상처리</li>
+<li>AI호텔 : 공간매핑, 자율주행</li>
+<li>시니어케어AI</li>
+<li>반려로봇</li>
+</ul>
+<br>
+<h2 id="03-인공지능-기술"><strong>03. 인공지능 기술</strong></h2>
+<p>데이터수집(IoT) --&gt; 데이터저장/처리(서버,클라우드) --&gt; 프로그램 제작 --&gt; 서비스배포</p>
+<p>GPU</p>
+<ul>
+<li>범용처리(CPU) vs 그래픽처리장치(GPU)</li>
+<li>직렬처리(CPU,수(십)개) vs 병렬처리(GPU,수천개)</li>
+<li>인공지능 학습 위한 행렬곱 연산 수행, 단순연산/대량병렬처리</li>
+</ul>
+<p>클라우드</p>
+<ul>
+<li>컴퓨터 자원 원할때마다 사용 가능 / 서비스 예측 어려울 때
+<ul>
+<li>신속한 인프라 도입</li>
+<li>유연한 인프라 관리</li>
+<li>손쉬운 글로벌 서비스</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>비싼 비용 (서비스 범위를 미리 예측 할 수 있다면)</li>
+<li>데이터 보관의 불안함</li>
+</ul>
+</li>
+<li>IaaS : 인프라 (하드웨어만 제공)</li>
+<li>PaaS : 플랫폼 (개발환경 제공) (OS, 미들웨어, 런타임)</li>
+<li>SaaS : 소프트웨어 (개발위한 API 제공이 아니라 서비스 자체를 제공)</li>
+<li>AIaaS : 클라우드 AI 환경</li>
+</ul>
+<p>사물인터넷 (IoT, Internet of Things)</p>
+<ul>
+<li><strong>센서</strong>(온도,영상,소리,,,)와 <strong>통신</strong>(유무선) 기술 내장, <strong>서비스 인터페이스</strong>에 관심(데이터가공처리위해)</li>
+<li>연결형IoT --&gt; 지능형IoT --&gt; 자율형IoT</li>
+</ul>
+<p>파이썬</p>
+<ul>
+<li>많은 AI 라이브러리가 파이썬으로 제공됨</li>
+<li>C(기계친화적) &lt;--&gt; 파이썬(벡터,행렬처리 코딩 유연 : 단순연산으로 행렬 계산 가능)</li>
+<li>핵심 라이브러리는 C로 코딩되어 있음</li>
+</ul>
+
+        
+        
+    </body>
+    </html>

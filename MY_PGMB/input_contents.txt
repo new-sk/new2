@@ -1,4 +1,5 @@
 ./conhtml/mpb_0001.html,python,인공지능의 역사
+./conhtml/mpb_0002.html,python,인공지능의 요소기술
 A0000001,python,파이썬 프로그래밍 기초
 A0000002,python,변수 및 연산자
 A0000003,python,데이터타입
