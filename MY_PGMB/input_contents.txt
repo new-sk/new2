@@ -8,10 +8,14 @@ A0000006,python,리스트
 A0000007,python,튜플 / 딕셔너리
 A0000008,python,함수 1
 A0000009,python,함수 2
+A0000011,python,모듈_패키지
+A0000012,python,tkinter 1
+A0000014,python,tkinter 2
 ../study/study_0071.html,python,파이썬 수강
 ../study/study_0072.html,python,비전공자를 위한 첫 코딩 챌린지
 A0000005,python,주요 함수
 A0000010,python,주의사항
+A0000013,python,DeBug
 B0000001,차이나는 클라스,같이살자 우리모두
 B0000002,차이나는 클라스,당신도 빅뱅을 믿나요
 B0000003,차이나는 클라스,DNA의 배신_암
