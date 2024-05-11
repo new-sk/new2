@@ -1,3 +1,18 @@
+class Rabbit:
+  __age = 0
+  def __init__(self):
+    Rabbit.__age += 1
+  @classmethod
+  def printage(self):
+    self.__age = 9
+    print(self.__age)
+
+r1 = Rabbit()
+r2 = Rabbit()
+r3 = Rabbit()
+print(r1.printage())
+
+
 import tkinter as tk           # tkinter
 import tkinter.messagebox as tkm
 root = tk.Tk()                  # 창 만들기
