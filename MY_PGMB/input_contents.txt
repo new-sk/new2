@@ -17,6 +17,8 @@ A0000018,python,객체지향 1
 A0000019,python,객체지향 2
 A0000020,python,객체지향 3
 A0000015,python,인공지능 기초
+A0000021,python,Numpy 1
+A0000022,python,Numpy 2
 ../study/study_0071.html,python,파이썬 수강
 ../study/study_0072.html,python,비전공자를 위한 첫 코딩 챌린지
 A0000005,python,주요 함수
