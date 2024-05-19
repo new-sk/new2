@@ -33,8 +33,13 @@ while i < n_lines:                    # 1줄씩 읽으려고 함
       my_name = i_tokens[1]
 
   if i_tokens[1]!="":                 # 기존 파일에 계속 출력함
-    if i_tokens[0].find(".") >= 0:
-      fw.write("<p><a href=\"" + i_tokens[0] + "\">" + i_tokens[2] +"</a></p>\n")                # HTML URL
+    # HTML URL인 경우 : ".html"로 끝나는 경우
+    if i_tokens[0].find(".html") >= 0:
+      fw.write("<p><a href=\"" + i_tokens[0] + "\">" + i_tokens[2] +"</a></p>\n")    
+    # 2. 중간 제목인 경우 : "T"로 시작하는 경우 (T 제외하게 출력함)            
+    elif i_tokens[0][0] == 'T':
+      fw.write("<br>\n<h4>" + i_tokens[0][1:] + "</h4>\n")                
+    # 3. 나머지는 PDF 파일로 생각함
     else:
       fw.write("<p><a href=\"./contensts/" + i_tokens[0] + ".pdf\">" + i_tokens[0] + ". " + i_tokens[2] +"</a></p>\n")  # PDF URL
   i += 1
