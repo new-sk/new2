@@ -1,3 +1,15 @@
+# 24.06.02 : Backup
+# 내용이 있는 파일을 읽고(input_contents.txt), 그룹별로 모아서 HTML 파일을 만듦
+#    파일1 : 그룹별 HTML로 연결하는 HTML
+#    파일2*n : 각 그룹별 HTML
+# input_contents.txt (샘플)
+# 1 : HTML 파일(.html)이거나 PDF 파일(그외)
+# 2 : 그룹명칭 
+# 3 : 각 contents 내용
+# ./conhtml/mpb_0002.html,python,인공지능의 요소기술
+# A0000001,python,파이썬 프로그래밍 기초
+
+
 #import platform
 #my_os = platform.system()
 
