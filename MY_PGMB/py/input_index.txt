@@ -5,4 +5,3 @@
     <title>MY PGM BLOG</title>
 </head>
 <body>
-    <header> 

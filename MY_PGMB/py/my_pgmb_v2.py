@@ -47,7 +47,10 @@ fmyindex.writelines(fi_index_lines)
 
 ### 파일쓰기2 : 실제 내용 : 소팅이 되어 있다고 가정
 for n_row in range(df_shape[0]):                    # 1줄씩 읽으려고 함
-  fmyindex.write("<p><a href=\"../my_" + df.iloc[n_row,2] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
+  if df.iloc[n_row,0] == 0:
+    fmyindex.write("<br><h4>" + df.iloc[n_row,2] + "</h4>\n")
+  else:
+    fmyindex.write("<p><a href=\"../my_" + df.iloc[n_row,2] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
 
 
 ### 파일쓰기3 : 마무리 & 닫기
