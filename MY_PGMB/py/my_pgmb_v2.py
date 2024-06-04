@@ -15,6 +15,7 @@ import pandas as pd
 
 # CSV 파일을 읽어서 데이터프레임에 저장
 df = pd.read_csv(my_dir + '/input_group.txt')
+dc = pd.read_csv(my_dir + '/input_contents.txt', dtype={'gKey': str})
 
 # 컬럼 Order에서 중복된 값이 있는지 여부 확인
 has_duplicates = df['Order'].duplicated().any()
@@ -30,29 +31,65 @@ else:
 
 # 데이터프레임 출력
 df_shape = df.shape
-print(f"데이터프레임의 크기: {df_shape}")
-print(f"행의 수: {df_shape[0]}")
+dc_shape = dc.shape
 
-print(df_shape[0], df)
+# print(f"데이터프레임의 크기: {df_shape}")
+# print(f"행의 수: {df_shape[0]}")
+# print(df_shape[0], df)
 
 
-# HTML 앞부분 공통 내역 읽기
+### File Index
+# 1.1 HTML 앞부분 공통 내역 읽기
 with open(my_dir + "/input_index.txt", 'r', encoding='utf-8') as fi_index:
   fi_index_lines = fi_index.readlines()
-
-# HTML 앞부분 공통 내역 쓰기
+# 1.2 파일 열고, HTML 앞부분 공통 내역 쓰기
 fmyindex = open(my_dir + "/index.html", 'w', encoding='utf-8')
 fmyindex.writelines(fi_index_lines)
-
-
-### 파일쓰기2 : 실제 내용 : 소팅이 되어 있다고 가정
+# 2. 본문 쓰기
 for n_row in range(df_shape[0]):                    # 1줄씩 읽으려고 함
   if df.iloc[n_row,0] == 0:
     fmyindex.write("<br><h4>" + df.iloc[n_row,2] + "</h4>\n")
   else:
     fmyindex.write("<p><a href=\"../my_" + df.iloc[n_row,2] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
-
-
-### 파일쓰기3 : 마무리 & 닫기
+# 3. 파일 마무리 & 닫기
 fmyindex.write("</body>\n</html>\n") # 파일 끝 저장 : 마지막 파일
 fmyindex.close()
+### EDN OF File Index
+
+
+### File Contents
+# 1. 변수 초기화
+my_gKey = "__isnotmyname__"
+fw_cnt = 0
+# 2. Contents 쓰기
+for n_row in range(dc_shape[0]):                    # 1줄씩 읽으려고 함
+  # 2.1 새로운 파일 열기 (기존 파일 닫기)
+  if n_row == 0  or  dc.iloc[n_row,1] != my_gKey:
+    # CLOSE Previous contents
+    if n_row != 0:  
+      fw.write("</body>\n</html>\n") 
+      fw.close()
+    # NEW Open & Write Init
+    fw = open(my_dir + "/" + dc.iloc[n_row,1] + ".html", 'w', encoding='utf-8')
+    fw.writelines(fi_index_lines)
+    my_gKey = dc.iloc[n_row,1]
+    fw_cnt += 1
+  # 2.2 현재 파일 본문 쓰기
+  # HTML URL인 경우 : ".html"로 끝나는 경우
+  if dc.iloc[n_row,0].find(".html") >= 0:
+    fw.write("<p><a href=\"" + "../" + dc.iloc[n_row,0] + "\">" + dc.iloc[n_row,2] +"</a></p>\n")    
+  # 2. 중간 제목인 경우 : "T"로 시작하는 경우 (T 제외하게 출력함)            
+  elif dc.iloc[n_row,0][0] == 'T':
+    fw.write("<br>\n<h4>" + dc.iloc[n_row,0][1:] + "</h4>\n")                
+  # 3. 나머지는 PDF 파일로 생각함
+  else:
+    fw.write("<p><a href=\"../contensts/" + dc.iloc[n_row,0] + ".pdf\">" + dc.iloc[n_row,0] + ". " + dc.iloc[n_row,2] +"</a></p>\n")  # PDF URL
+
+  # 2.3 (임시) 두번째 파일 첫번째 내용 적고 빠져 나오기
+  if fw_cnt == 2:
+    break
+
+# 3. 마지막 파일 마무리 & 닫기
+fw.write("</body>\n</html>\n") # 파일 끝 저장 : 마지막 파일
+fw.close()
+### EDN OF File Index
