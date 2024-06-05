@@ -50,7 +50,7 @@ for n_row in range(df_shape[0]):                    # 1줄씩 읽으려고 함
   if df.iloc[n_row,0] == "0":
     fmyindex.write("<br><h4>" + df.iloc[n_row,2] + "</h4>\n")
   else:
-    fmyindex.write("<p><a href=\"../" + df.iloc[n_row,0] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
+    fmyindex.write("<p><a href=\"./" + df.iloc[n_row,0] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
 # 3. 파일 마무리 & 닫기
 fmyindex.write("</body>\n</html>\n") # 파일 끝 저장 : 마지막 파일
 fmyindex.close()
