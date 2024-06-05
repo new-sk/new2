@@ -14,7 +14,7 @@ my_dir, my_file = os.path.split(__file__)
 import pandas as pd
 
 # CSV 파일을 읽어서 데이터프레임에 저장
-df = pd.read_csv(my_dir + '/input_group.txt')
+df = pd.read_csv(my_dir + '/input_group.txt',    dtype={'Key' : str})
 dc = pd.read_csv(my_dir + '/input_contents.txt', dtype={'gKey': str})
 
 # 컬럼 Order에서 중복된 값이 있는지 여부 확인
@@ -47,10 +47,10 @@ fmyindex = open(my_dir + "/index.html", 'w', encoding='utf-8')
 fmyindex.writelines(fi_index_lines)
 # 2. 본문 쓰기
 for n_row in range(df_shape[0]):                    # 1줄씩 읽으려고 함
-  if df.iloc[n_row,0] == 0:
+  if df.iloc[n_row,0] == "0":
     fmyindex.write("<br><h4>" + df.iloc[n_row,2] + "</h4>\n")
   else:
-    fmyindex.write("<p><a href=\"../my_" + df.iloc[n_row,2] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
+    fmyindex.write("<p><a href=\"../" + df.iloc[n_row,0] + ".html\"" + ">" + df.iloc[n_row,2] + "</a></p>\n")
 # 3. 파일 마무리 & 닫기
 fmyindex.write("</body>\n</html>\n") # 파일 끝 저장 : 마지막 파일
 fmyindex.close()
@@ -86,8 +86,8 @@ for n_row in range(dc_shape[0]):                    # 1줄씩 읽으려고 함
     fw.write("<p><a href=\"../contensts/" + dc.iloc[n_row,0] + ".pdf\">" + dc.iloc[n_row,0] + ". " + dc.iloc[n_row,2] +"</a></p>\n")  # PDF URL
 
   # 2.3 (임시) 두번째 파일 첫번째 내용 적고 빠져 나오기
-  if fw_cnt == 2:
-    break
+  # if fw_cnt == 2:
+  #   break
 
 # 3. 마지막 파일 마무리 & 닫기
 fw.write("</body>\n</html>\n") # 파일 끝 저장 : 마지막 파일
