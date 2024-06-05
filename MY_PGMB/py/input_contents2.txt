@@ -6,6 +6,7 @@ Order,Key,gKey,Name
 40,../office/office_0004.html,10,파워포인트
 50,../office/office_0005.html,10,Sticky Notes
 60,../office/office_0006.html,10,윈도우
+69,T메롱,10,
 70,../office/office_0007.html,10,맥OS
 80,./conhtml/mpb_0001.html,11,인공지능의 역사
 90,./conhtml/mpb_0002.html,11,인공지능의 요소기술
@@ -313,4 +314,3 @@ Order,Key,gKey,Name
 3110,../etc/etc_7006.html,25,디지털 리터러시
 3120,../etc/etc_9001.html,25,R함수
 3130,../etc/etc_9002.html,25,RPA세미나 (19.03.12)
-69,T메롱,10,
