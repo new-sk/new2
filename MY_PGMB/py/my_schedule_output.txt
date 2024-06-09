@@ -1,0 +1,30 @@
+--------------------------------------------------
+이번달(2024-06) 일정
+         Date  Num Cycle      Memo       CycleMemo
+7  2024-06-09    1     W    Weekly       This Week
+9  2024-06-14    1     M  Card(Af)      This Month
+7  2024-06-16    1     W    Weekly      2nd 1 Week
+7  2024-06-23    1     W    Weekly  Next 1 Week(s)
+10 2024-06-28    1     M        이체      This Month
+--------------------------------------------------
+다음달(2024-07) 일정
+         Date  Num Cycle      Memo    CycleMemo
+6  2024-07-02    1     M       158   This Month
+11 2024-07-04    2     M       GAS   This Month
+8  2024-07-13    1     M  Card(Bf)   This Month
+9  2024-07-14    1     M  Card(Af)  2nd 1 Month
+10 2024-07-28    1     M        이체  2nd 1 Month
+--------------------------------------------------
+이후 일정
+         Date  Num Cycle         Memo    CycleMemo
+0  2024-09-24    1     Y            B    This Year
+12 2024-10-08    2     Y          CAR    This Year
+4  2024-12-04    1     Y  Busan lunar    This Year
+3  2024-12-09    1     Y            B    This Year
+1  2024-12-28    1     Y            B    This Year
+5  2025-01-09    1     Y  Busan lunar    This Year
+2  2025-05-22    1     Y            B    This Year
+6  2024-08-02    1     M          158  2nd 1 Month
+8  2024-08-13    1     M     Card(Bf)  2nd 1 Month
+11 2024-09-04    2     M          GAS  2nd 2 Month
+--------------------------------------------------
