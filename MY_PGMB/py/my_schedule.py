@@ -1,7 +1,8 @@
 # 보완 필요사항
 # 1. LUNAR
 # 2. 1회성 이벤트
-# 3. 소스 별도 보관
+# 3. 소스 별도 보관 : 소스, 인풋, 아웃풋
+# 4. 실적 파일 별도 관리 (아웃품과 또 다른)
 
 import os
 my_dir, my_file = os.path.split(__file__)
@@ -130,25 +131,26 @@ print(df)
 # (WARNING) 오늘 이전날짜 계획이 있는가? 
 file_mode = 'w'
 if not df[ df['Date'] < today ].empty:
-  with open(my_dir + '/my_schedule_output.txt', 'w') as f:
+  with open(my_dir + '/my_schedule_output.txt', 'w', encoding='utf-8') as f:
     print("-"*50, file=f)
     print("WARNING", file=f)
     print( df[ df['Date'] < today ], file=f)
   file_mode = 'a'
 
 # Generate OUTPUT file
-with open(my_dir + '/my_schedule_output.txt', file_mode) as f:
+with open(my_dir + '/my_schedule_output.txt', file_mode, encoding='utf-8') as f:
   print("-"*50, file=f)
   print ("이번달(" + today.strftime('%Y-%m') + ") 일정", file=f)
   print( df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ], file=f)
 
-with open(my_dir + '/my_schedule_output.txt', 'a') as f:
+with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
   print("-"*50, file=f)
   nextm_day = today + relativedelta(months=1)
   print ("다음달(" + nextm_day.strftime('%Y-%m') + ") 일정", file=f)
   print( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ], file=f)
 
-with open(my_dir + '/my_schedule_output.txt', 'a') as f:
+# 이건 잠시만 막는거야...
+with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
   print("-"*50, file=f)
   print("이후 일정", file=f)
   print( df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Cycle","Date"], ascending=[False,True]), file=f)
