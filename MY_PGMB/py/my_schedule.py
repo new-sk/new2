@@ -10,6 +10,75 @@ my_dir, my_file = os.path.split(__file__)
 from datetime import datetime
 from dateutil.relativedelta import relativedelta  # 윤년 고려
 
+import tkinter as tk
+from tkinter import ttk
+
+class DataFrameApp:
+    def __init__(self, root, df):
+        self.root = root
+        self.df = df
+
+        self.frame = tk.Frame(root)
+        self.frame.pack(fill=tk.BOTH, expand=True)
+
+        self.columns = list(df.columns)
+        self.tree = ttk.Treeview(self.frame, columns=self.columns, show='headings')
+
+        for col in self.columns:
+            self.tree.heading(col, text=col)
+            self.tree.column(col, width=100)
+
+        for index, row in df.iterrows():
+            self.tree.insert("", tk.END, values=list(row))
+
+        self.tree.pack(fill=tk.BOTH, expand=True)
+
+        self.tree.bind("<ButtonRelease-1>", self.on_row_click)
+
+        self.info_frame = tk.Frame(self.frame)
+        self.info_frame.pack(fill=tk.X, expand=True)
+
+        self.entry_vars = {col: tk.StringVar() for col in self.columns}
+        for col in self.columns:
+            tk.Label(self.info_frame, text=col).pack(side=tk.LEFT)
+            entry = tk.Entry(self.info_frame, textvariable=self.entry_vars[col])
+            entry.pack(side=tk.LEFT)
+
+        self.update_button = tk.Button(self.info_frame, text="Update Row", command=self.update_row)
+        self.update_button.pack(side=tk.LEFT)
+
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+
+    def on_row_click(self, event):
+        item = self.tree.selection()[0]
+        row_values = self.tree.item(item, "values")
+        for col, val in zip(self.columns, row_values):
+            self.entry_vars[col].set(val)
+
+    def update_row(self):
+        item = self.tree.selection()[0]
+        row_index = self.tree.index(item)
+        updated_values = [self.entry_vars[col].get() for col in self.columns]
+
+        # DataFrame 업데이트
+        for col, val in zip(self.columns, updated_values):
+            self.df.at[row_index, col] = val
+
+        # Treeview 업데이트
+        self.tree.item(item, values=updated_values)
+
+    def on_closing(self):
+        if messagebox.askyesno("Quit", "Do you want to save the DataFrame before quitting?"):
+            # DataFrame 저장 (예: CSV 파일로 저장)
+            self.df.to_csv("output.csv", index=False)
+        self.root.destroy()
+
+def show_df_window(df):
+    root = tk.Tk()
+    root.title("DataFrame Viewer")
+    app = DataFrameApp(root, df)
+    root.mainloop()
+
 import pandas as pd
 # CSV 파일을 읽어서 데이터프레임에 저장
 #df = pd.read_csv(my_dir + '/my_schedule_input.txt')
@@ -125,6 +194,7 @@ print(dfw)
 ### TOTAL
 df = pd.concat([dfy,dfm,dfw])
 df = df.sort_values("Date")
+df = df.reset_index(drop=True)   # re-index
 print("Total Plan")
 print(df)
 
@@ -156,3 +226,13 @@ with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
   print( df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Cycle","Date"], ascending=[False,True]), file=f)
   print("-"*50, file=f)
 
+
+# 데이터프레임 생성
+dftk = pd.DataFrame({
+    "Name": ["John", "Jane", "Jim"],
+    "Age": [32, 28, 42],
+    "City": ["New York", "London", "Paris"]
+})
+
+# 데이터프레임 GUI 화면 출력
+show_df_window( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ])
