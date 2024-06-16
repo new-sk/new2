@@ -8,13 +8,34 @@ __istest__ = True
 
 import os
 import sys
-my_dir, my_file = os.path.split(__file__)
+my_home, my_file = os.path.split(__file__)
+my_lhome = 'D:\MY_BLOG_LOCAL_HOME\py'
+my_src_file = '/my_schedule_input.txt'
+
+print(my_home, my_file)
+print(my_lhome,my_src_file)
+#sys.exit()
 
 os = os.name
-
-if os != "nt" and (not __istest__):
+# REAL & NOT Home (여기서는 안돼요)
+if (__istest__==False) and (os!="nt") :
   print("Not Allowed : Real Mode")
-  sys.exit()
+  sys.exit() 
+# REAL (in HOME)
+elif (__istest__==False) and (os=="nt") :
+  my_src_dir = my_home
+  my_desc_dir = my_lhome
+  my_desc_file = '/my_schedule_output.txt'
+# TEST Home / Full Version
+elif  (__istest__==True) and (os=="nt") :
+  my_src_dir = my_home
+  my_desc_dir = my_lhome
+  my_desc_file = '/my_schedule_output2.txt'
+# TEST Not Home / Short Version
+elif  (__istest__==True) and (os!="nt") :
+  my_src_dir = my_home
+  my_desc_dir = my_home
+  my_desc_file = '/my_schedule_output2.txt'
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta  # 윤년 고려
@@ -92,7 +113,7 @@ def show_df_window(df):
 import pandas as pd
 # CSV 파일을 읽어서 데이터프레임에 저장
 #df = pd.read_csv(my_dir + '/my_schedule_input.txt')
-df = pd.read_csv(my_dir + '/my_schedule_input.txt', converters={'Date': lambda x: pd.to_datetime(x, format='%Y.%m.%d')})
+df = pd.read_csv(my_src_dir + my_src_file, converters={'Date': lambda x: pd.to_datetime(x, format='%Y.%m.%d')})
 df['CycleMemo'] = ''
 print(type(df), df)
 
@@ -194,37 +215,36 @@ else :
   current_mode_print = "Real Mode"
 
 
-with open(my_dir + '/my_schedule_output.txt', 'w', encoding='utf-8') as f:
+with open(my_desc_dir + my_desc_file, 'w', encoding='utf-8') as f:
   print("-"*50, file=f)
   print(current_mode_print, file=f)
   print("-"*50, file=f)
   
 
 # Only Test Mode : (WARNING) 오늘 이전날짜 계획이 있는가? 
-if __istest__ :
+if (__istest__==True) and (os=="nt"):
   if not df[ df['Date'] < today ].empty:
-    with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
+    with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
       print("WARNING", file=f)
       print( df[ df['Date'] < today ], file=f)
       print("-"*50, file=f)
 
 # This Month
-with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
+with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
   print ("이번달(" + today.strftime('%Y-%m') + ") 일정", file=f)
   print( df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ], file=f)
   print("-"*50, file=f)
 
 # Next Month
-with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
+with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
   nextm_day = today + relativedelta(months=1)
   print ("다음달(" + nextm_day.strftime('%Y-%m') + ") 일정", file=f)
   print( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ], file=f)
   print("-"*50, file=f)
 
 # Only Test Mode : 이건 잠시만 막는거야...
-if __istest__ :
-  with open(my_dir + '/my_schedule_output.txt', 'a', encoding='utf-8') as f:
-    print("-"*50, file=f)
+if (__istest__==True) and (os=="nt"):
+  with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
     print("이후 일정", file=f)
     print( df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Cycle","Date"], ascending=[False,True]), file=f)
     print("-"*50, file=f)
