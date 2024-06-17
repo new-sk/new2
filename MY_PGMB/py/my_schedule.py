@@ -4,7 +4,7 @@
 # 3. 소스 별도 보관 : 소스, 인풋, 아웃풋
 # 4. 실적 파일 별도 관리 (아웃품과 또 다른)
 
-__istest__ = True
+__istest__ = False
 
 import os
 import sys
@@ -23,8 +23,8 @@ if (__istest__==False) and (os!="nt") :
   sys.exit() 
 # REAL (in HOME)
 elif (__istest__==False) and (os=="nt") :
-  my_src_dir = my_home
-  my_desc_dir = my_lhome
+  my_src_dir = my_lhome
+  my_desc_dir = my_home
   my_desc_file = '/my_schedule_output.txt'
 # TEST Home / Full Version
 elif  (__istest__==True) and (os=="nt") :
