@@ -27,12 +27,12 @@ if (__istest__==False) and (os!="nt") :
 elif (__istest__==False) and (os=="nt") :
   my_src_dir = my_lhome
   my_desc_dir = my_home
-  my_desc_file = '/my_schedule_output.txt'
+  my_desc_file = '/my_schedule_output.html'
 # TEST Home / Full Version
 elif  (__istest__==True) and (os=="nt") :
-  my_src_dir = my_home
+  my_src_dir = my_lhome
   my_desc_dir = my_lhome
-  my_desc_file = '/my_schedule_output2.txt'
+  my_desc_file = '/my_schedule_output2.html'
 # TEST Not Home / Short Version
 elif  (__istest__==True) and (os!="nt") :
   my_src_dir = my_home
@@ -217,98 +217,100 @@ else :
   title = "일정관리 (Real Mode)"
   
 
-# Only Test Mode : (WARNING) 오늘 이전날짜 계획이 있는가? 
-if (__istest__==True) and (os=="nt"):
-  if not df[ df['Date'] < today ].empty:
-    pass
-
-
-
-# 이후 일정
-if (__istest__==True) and (os=="nt"):
-  pass
 
 
 # Warning 
 title_0 = "Warning"
 df_0 = df[ df['Date'] < today ].copy()
+df_0['Date'] = df_0['Date'].dt.strftime('%Y-%m-%d')
 
 # This Month
 title_1 = "이번달(" + today.strftime('%Y-%m') + ") 일정"
 df_1 = df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ].copy()
+df_1['Date'] = df_1['Date'].dt.strftime('%Y-%m-%d')
 
 # Next Month
 nextm_day = today + relativedelta(months=1)
 title_2 = "다음달(" + nextm_day.strftime('%Y-%m') + ") 일정"
 df_2 = df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ].copy()
+df_2['Date'] = df_2['Date'].dt.strftime('%Y-%m-%d')
 
 # 이후 일정
 title_3 = "이후 일정"
-df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Cycle","Date"], ascending=[False,True]).copy()
+df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Date"], ascending=[True]).copy()
+df_3['Date'] = df_3['Date'].dt.strftime('%Y-%m-%d')
 
-df = df_1 
 # HTML로 변환
-html = f"""
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>{title}</title>
-    <style>
-        table {{ width: 100%; border-collapse: collapse; }}
-        th, td {{ border: 1px solid black; text-align: center; }}
-        th[colspan="5"] {{ text-align: center; }}
-    </style>
-</head>
-<body>
-<table>
+def gen_title(title):
+  return f"""
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+      <meta charset="UTF-8">
+      <title>{title}</title>
+      <style>
+          table {{ width: 100%; border-collapse: collapse; }}
+          th, td {{ border: 1px solid black; text-align: center; }}
+          th[colspan="5"] {{ text-align: center; }}
+      </style>
+  </head>
+  <body>
+  <table>
+  """
+
+### WOW.1 f-string : {}를 사용하여 변수 추가 가능
+### WOW.2 함수화 : colspan 5, zip
+
+def gen_table(title, df, col_width):
+  html = f"""
     <tr>
-        <th colspan="5">{title_1}</th>
+        <th colspan="5">{title}</th>
     </tr>
     <tr>
-        <th style="width:20%; border: 1px solid black;">{df.columns[0]}</th>
-        <th style="width:10%; border: 1px solid black;">{df.columns[1]}</th>
-        <th style="width:10%; border: 1px solid black;">{df.columns[2]}</th>
-        <th style="width:20%; border: 1px solid black;">{df.columns[3]}</th>
-        <th style="width:40%; border: 1px solid black;">{df.columns[4]}</th>
+        <th style="width:{col_width[0]}%; border: 1px solid black;">{df.columns[0]}</th>
+        <th style="width:{col_width[1]}%; border: 1px solid black;">{df.columns[1]}</th>
+        <th style="width:{col_width[2]}%; border: 1px solid black;">{df.columns[2]}</th>
+        <th style="width:{col_width[3]}%; border: 1px solid black;">{df.columns[3]}</th>
+        <th style="width:{col_width[4]}%; border: 1px solid black;">{df.columns[4]}</th>
     </tr>
-"""
+  """
 
-# 데이터 행 추가
-for row in df.itertuples(index=False):
-    html += "<tr>"
-    for value in row:
-        html += f'<td style="border: 1px solid black;">{value}</td>'
-    html += "</tr>\n"
+  # 데이터 행 추가
+  for row in df.itertuples(index=False):
+      html += "<tr>"
+      for value in row:
+          html += f'<td style="border: 1px solid black;">{value}</td>'
+      html += "</tr>\n"
 
-df = df_2
-# HTML로 변환
-html += f"""
-    <tr>
-        <th colspan="5">{title_2}</th>
-    </tr>
-    <tr>
-        <th style="width:20%; border: 1px solid black;">{df.columns[0]}</th>
-        <th style="width:10%; border: 1px solid black;">{df.columns[1]}</th>
-        <th style="width:10%; border: 1px solid black;">{df.columns[2]}</th>
-        <th style="width:20%; border: 1px solid black;">{df.columns[3]}</th>
-        <th style="width:40%; border: 1px solid black;">{df.columns[4]}</th>
-    </tr>
-"""
-
-# 데이터 행 추가
-for row in df.itertuples(index=False):
-    html += "<tr>"
-    for value in row:
-        html += f'<td style="border: 1px solid black;">{value}</td>'
-    html += "</tr>\n"
+  return html
 
 
-html += """
-</table>
-</body>
-</html>
-"""
+def gen_tail():
+  return f"""
+  </table>
+  </body>
+  </html>
+  """
+
+# 열 넓이 비율
+col_width = [14,8,8,40,30]  
+
+# 타이틀 (필수)
+html = gen_title(title)
+# Warning (선택)
+if (__istest__==True) and (os=="nt"):
+  if not df[ df['Date'] < today ].empty:
+    html += gen_table(title_0, df_0, col_width)
+# 당월 (필수)
+html += gen_table(title_1, df_1, col_width)
+# 익월 (필수)
+html += gen_table(title_2, df_2, col_width)
+# 이후 (선택)
+if (__istest__==True) and (os=="nt"):
+  html += gen_table(title_3, df_3, col_width)
+# 마무리 (필수)
+html += gen_tail()
+
 
 # HTML 내용을 파일로 저장
 with open(my_desc_dir + my_desc_file, "w", encoding="utf-8") as file:
