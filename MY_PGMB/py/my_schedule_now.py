@@ -4,7 +4,7 @@
 # 3. 소스 별도 보관 : 소스, 인풋, 아웃풋
 # 4. 실적 파일 별도 관리 (아웃품과 또 다른)
 
-__istest__ = False
+__istest__ = True
 
 import os
 import sys
@@ -19,7 +19,9 @@ print(my_lhome,my_src_file)
 os = os.name
 # REAL & NOT Home (여기서는 안돼요)
 if (__istest__==False) and (os!="nt") :
+  print("-"*50)
   print("Not Allowed : Real Mode")
+  print("-"*50)
   sys.exit() 
 # REAL (in HOME)
 elif (__istest__==False) and (os=="nt") :
@@ -35,7 +37,7 @@ elif  (__istest__==True) and (os=="nt") :
 elif  (__istest__==True) and (os!="nt") :
   my_src_dir = my_home
   my_desc_dir = my_home
-  my_desc_file = '/my_schedule_output2.txt'
+  my_desc_file = '/my_schedule_output2.html'
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta  # 윤년 고려
@@ -44,6 +46,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
+# DataFrameApp은 챗GPT로 작성
 class DataFrameApp:
     def __init__(self, root, df):
         self.root = root
@@ -207,55 +210,112 @@ df = df.reset_index(drop=True)   # re-index
 print("Total Plan")
 print(df)
 
-# 현재 모드 출력 : Test & Not Test
+# 제목 설정 : 현재 모드 출력 : Test & Not Test
 if __istest__ :
-  current_mode_print = "Test Mode"
-  fn_output = ""
+  title = "일정관리 (Test Mode)"
 else :
-  current_mode_print = "Real Mode"
-
-
-with open(my_desc_dir + my_desc_file, 'w', encoding='utf-8') as f:
-  print("-"*50, file=f)
-  print(current_mode_print, file=f)
-  print("-"*50, file=f)
+  title = "일정관리 (Real Mode)"
   
 
 # Only Test Mode : (WARNING) 오늘 이전날짜 계획이 있는가? 
 if (__istest__==True) and (os=="nt"):
   if not df[ df['Date'] < today ].empty:
-    with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
-      print("WARNING", file=f)
-      print( df[ df['Date'] < today ], file=f)
-      print("-"*50, file=f)
+    pass
+
+
+
+# 이후 일정
+if (__istest__==True) and (os=="nt"):
+  pass
+
+
+# Warning 
+title_0 = "Warning"
+df_0 = df[ df['Date'] < today ].copy()
 
 # This Month
-with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
-  print ("이번달(" + today.strftime('%Y-%m') + ") 일정", file=f)
-  print( df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ], file=f)
-  print("-"*50, file=f)
+title_1 = "이번달(" + today.strftime('%Y-%m') + ") 일정"
+df_1 = df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ].copy()
 
 # Next Month
-with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
-  nextm_day = today + relativedelta(months=1)
-  print ("다음달(" + nextm_day.strftime('%Y-%m') + ") 일정", file=f)
-  print( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ], file=f)
-  print("-"*50, file=f)
+nextm_day = today + relativedelta(months=1)
+title_2 = "다음달(" + nextm_day.strftime('%Y-%m') + ") 일정"
+df_2 = df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ].copy()
 
-# Only Test Mode : 이건 잠시만 막는거야...
-if (__istest__==True) and (os=="nt"):
-  with open(my_desc_dir + my_desc_file, 'a', encoding='utf-8') as f:
-    print("이후 일정", file=f)
-    print( df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Cycle","Date"], ascending=[False,True]), file=f)
-    print("-"*50, file=f)
+# 이후 일정
+title_3 = "이후 일정"
+df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Cycle","Date"], ascending=[False,True]).copy()
+
+df = df_1 
+# HTML로 변환
+html = f"""
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <style>
+        table {{ width: 100%; border-collapse: collapse; }}
+        th, td {{ border: 1px solid black; text-align: center; }}
+        th[colspan="5"] {{ text-align: center; }}
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="5">{title_1}</th>
+    </tr>
+    <tr>
+        <th style="width:20%; border: 1px solid black;">{df.columns[0]}</th>
+        <th style="width:10%; border: 1px solid black;">{df.columns[1]}</th>
+        <th style="width:10%; border: 1px solid black;">{df.columns[2]}</th>
+        <th style="width:20%; border: 1px solid black;">{df.columns[3]}</th>
+        <th style="width:40%; border: 1px solid black;">{df.columns[4]}</th>
+    </tr>
+"""
+
+# 데이터 행 추가
+for row in df.itertuples(index=False):
+    html += "<tr>"
+    for value in row:
+        html += f'<td style="border: 1px solid black;">{value}</td>'
+    html += "</tr>\n"
+
+df = df_2
+# HTML로 변환
+html += f"""
+    <tr>
+        <th colspan="5">{title_2}</th>
+    </tr>
+    <tr>
+        <th style="width:20%; border: 1px solid black;">{df.columns[0]}</th>
+        <th style="width:10%; border: 1px solid black;">{df.columns[1]}</th>
+        <th style="width:10%; border: 1px solid black;">{df.columns[2]}</th>
+        <th style="width:20%; border: 1px solid black;">{df.columns[3]}</th>
+        <th style="width:40%; border: 1px solid black;">{df.columns[4]}</th>
+    </tr>
+"""
+
+# 데이터 행 추가
+for row in df.itertuples(index=False):
+    html += "<tr>"
+    for value in row:
+        html += f'<td style="border: 1px solid black;">{value}</td>'
+    html += "</tr>\n"
 
 
-# 데이터프레임 생성
-dftk = pd.DataFrame({
-    "Name": ["John", "Jane", "Jim"],
-    "Age": [32, 28, 42],
-    "City": ["New York", "London", "Paris"]
-})
+html += """
+</table>
+</body>
+</html>
+"""
 
+# HTML 내용을 파일로 저장
+with open(my_desc_dir + my_desc_file, "w", encoding="utf-8") as file:
+    file.write(html)
+
+
+
+# 24.06.18 잠시 이 기능은 막습니다. tkinter로 df 표출, 변경, 저장
 # 데이터프레임 GUI 화면 출력
-show_df_window( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ])
+# show_df_window( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ])
