@@ -4,7 +4,7 @@
 # 3. 소스 별도 보관 : 소스, 인풋, 아웃풋
 # 4. 실적 파일 별도 관리 (아웃품과 또 다른)
 
-__istest__ = True
+__istest__ = False
 
 import os
 import sys
