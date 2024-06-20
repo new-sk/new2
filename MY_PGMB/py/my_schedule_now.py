@@ -1,10 +1,10 @@
 # 보완 필요사항
-# 1. LUNAR
-# 2. 1회성 이벤트
-# 3. 소스 별도 보관 : 소스, 인풋, 아웃풋
-# 4. 실적 파일 별도 관리 (아웃품과 또 다른)
+# WOW NOT : LUNAR
+# WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
+# WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
+# WOW NOT : HTML 파일 이쁘게 만들기
 
-__istest__ = False
+__istest__ = True
 
 import os
 import sys
@@ -142,7 +142,7 @@ def update_year(row):
 dfy[['Date','CycleMemo']] = dfy.apply(update_year, axis=1, result_type='expand') # 각 행별로 날짜 변경
 
 print("Yearly Plan")
-print(dfy)
+#print(dfy)
 
 
 # MONTHLY PLAN
@@ -171,7 +171,7 @@ dfm2['CycleMemo'] = '2nd ' + dfm2['Num'].astype(str) + ' Month'
 print("Monthly Plan")
 #dfm = pd.concat([dfm,dfm2,dfm3])
 dfm = pd.concat([dfm,dfm2])
-print(dfm)
+#print(dfm)
 
 
 # WEEKLY PLAN
@@ -200,15 +200,37 @@ dfw2['CycleMemo'] = '2nd ' + dfw2['Num'].astype(str) + ' Week'
 print("Weekly Plan")
 #dfw = pd.concat([dfw,dfw2,dfw3,dfw4,dfw5])
 dfw = pd.concat([dfw,dfw2])
-print(dfw)
+#print(dfw)
+
+
+# ONE-Time, Irregular PLAN
+# 있는 그대로 복사
+print("ONE-Time, Irregular Plan")
+dfone = df[(df['Cycle'] == 'O') | (df['Cycle'] == 'X' )]
 
 
 ### TOTAL
-df = pd.concat([dfy,dfm,dfw])
+df = pd.concat([dfy,dfm,dfw,dfone])
 df = df.sort_values("Date")
 df = df.reset_index(drop=True)   # re-index
 print("Total Plan")
 print(df)
+
+
+# WOW 240620_mapping : pandas 기능. 간단하게 매핑에 유용하게 활용, apply 함수는 복잡한 경우 활용
+# Define & Apply the mapping
+cycle_mapping = {
+    "W": "Weekly",
+    "M": "Monthly",
+    "Y": "Yearly",
+    "O": "One-Time",
+    "X": "Irregular"
+}
+
+df["Cycle"] = df["Cycle"].map(cycle_mapping)
+# WOW 240620_mapping : END
+
+
 
 # 제목 설정 : 현재 모드 출력 : Test & Not Test
 if __istest__ :
@@ -243,37 +265,39 @@ df_3['Date'] = df_3['Date'].dt.strftime('%Y-%m-%d')
 # HTML로 변환
 def gen_title(title):
   return f"""
-  <!DOCTYPE html>
-  <html lang="ko">
-  <head>
-      <meta charset="UTF-8">
-      <title>{title}</title>
-      <style>
-          table {{ width: 100%; border-collapse: collapse; }}
-          th, td {{ border: 1px solid black; text-align: center; }}
-          th[colspan="5"] {{ text-align: center; }}
-      </style>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <style>
+        table {{ width: 100%; border-collapse: collapse; }}
+        th, td {{ border: 1px solid black; text-align: center; }}
+        th[colspan="5"] {{ text-align: center; color: red;}}
+    </style>
+</head>
+<body>
   <table>
-  """
+"""
 
-### WOW.1 f-string : {}를 사용하여 변수 추가 가능
-### WOW.2 함수화 : colspan 5, zip
+### WOW NOT colspan 5
 
+### WOW.240619 f-string, zip 
+### f-string : {}를 사용하여 string에 변수 추가하여 만들 수 있는 가능
+### zip : zip 함수를 사용하여 간결하게 표현, 리스트를 묶어서 처리
 def gen_table(title, df, col_width):
   html = f"""
     <tr>
         <th colspan="5">{title}</th>
     </tr>
     <tr>
-        <th style="width:{col_width[0]}%; border: 1px solid black;">{df.columns[0]}</th>
-        <th style="width:{col_width[1]}%; border: 1px solid black;">{df.columns[1]}</th>
-        <th style="width:{col_width[2]}%; border: 1px solid black;">{df.columns[2]}</th>
-        <th style="width:{col_width[3]}%; border: 1px solid black;">{df.columns[3]}</th>
-        <th style="width:{col_width[4]}%; border: 1px solid black;">{df.columns[4]}</th>
-    </tr>
-  """
+    """
+### WOW.240619 f-string, zip : END
+
+  for width, col in zip(col_width, df.columns):
+    html += f'<th style="width:{width}%; border: 1px solid black;">{col}</th>\n'
+
+  html +=  "</tr>\n"
 
   # 데이터 행 추가
   for row in df.itertuples(index=False):
@@ -293,7 +317,7 @@ def gen_tail():
   """
 
 # 열 넓이 비율
-col_width = [14,8,8,40,30]  
+col_width = [14,5,11,40,30]  
 
 # 타이틀 (필수)
 html = gen_title(title)
