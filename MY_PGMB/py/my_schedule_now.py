@@ -4,7 +4,7 @@
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
 # WOW NOT : HTML 파일 이쁘게 만들기
 
-__istest__ = True
+__istest__ = False
 
 import os
 import sys
