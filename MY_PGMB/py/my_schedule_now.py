@@ -3,6 +3,7 @@
 # WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
 # WOW NOT : HTML 파일 이쁘게 만들기
+# WOW NOT : PRE 태그를 활용한 파이썬 소스 보여주기
 
 __istest__ = False
 
