@@ -2,6 +2,7 @@ Key,Order,Name
 0,0,기본 컴퓨터 
 10,10,Office
 0,20,개발언어 
+27,29,MY python Source
 11,30,python
 22,40,HTML_CSS
 23,50,Github

@@ -9,6 +9,7 @@ Order,Key,gKey,Name
 70,../office/office_0007.html,10,맥OS
 80,./conhtml/mpb_0001.html,11,인공지능의 역사
 90,./conhtml/mpb_0002.html,11,인공지능의 요소기술
+99,./conhtml/my_pysource.html,27,MY Python Source
 100,A0000001,11,파이썬 프로그래밍 기초
 110,A0000002,11,변수 및 연산자
 120,A0000003,11,데이터타입
