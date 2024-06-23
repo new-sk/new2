@@ -1,20 +1,11 @@
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>Python Source</title>
-</head>
-<body>
-
-  <pre># 보완 필요사항
+# 보완 필요사항
 # WOW NOT : LUNAR
 # WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
 # WOW NOT : HTML 파일 이쁘게 만들기
 # WOW NOT : PRE 태그를 활용한 파이썬 소스 보여주기
 
-__istest__ = False
+__istest__ = True
 
 import os
 import sys
@@ -27,7 +18,7 @@ print(my_lhome,my_src_file)
 #sys.exit()
 
 os = os.name
-# REAL &amp; NOT Home (여기서는 안돼요)
+# REAL & NOT Home (여기서는 안돼요)
 if (__istest__==False) and (os!="nt") :
   print("-"*50)
   print("Not Allowed : Real Mode")
@@ -37,7 +28,7 @@ if (__istest__==False) and (os!="nt") :
 elif (__istest__==False) and (os=="nt") :
   my_src_dir = my_lhome
   my_desc_dir = my_home
-  my_desc_file = '/my_schedule_output.html'
+  my_desc_file = '/../pyhtml/my_schedule_output.html'
 # TEST Home / Full Version
 elif  (__istest__==True) and (os=="nt") :
   my_src_dir = my_lhome
@@ -47,7 +38,7 @@ elif  (__istest__==True) and (os=="nt") :
 elif  (__istest__==True) and (os!="nt") :
   my_src_dir = my_home
   my_desc_dir = my_home
-  my_desc_file = '/my_schedule_output2.html'
+  my_desc_file = '/../pyhtml/my_schedule_output2.html'
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta  # 윤년 고려
@@ -77,7 +68,7 @@ class DataFrameApp:
 
         self.tree.pack(fill=tk.BOTH, expand=True)
 
-        self.tree.bind("&lt;ButtonRelease-1&gt;", self.on_row_click)
+        self.tree.bind("<ButtonRelease-1>", self.on_row_click)
 
         self.info_frame = tk.Frame(self.frame)
         self.info_frame.pack(fill=tk.X, expand=True)
@@ -144,7 +135,7 @@ dfy = dfy.copy()
 
 # 연간 플랜 수립
 def update_year(row):
-  if row['Date'] &gt;= today:
+  if row['Date'] >= today:
     return row['Date'], "This Year"
   else:
     return row['Date'] + relativedelta(years=row['Num']), "Next " + str(row['Num']) + " Year(s)"
@@ -228,7 +219,7 @@ print(df)
 
 
 # WOW 240620_mapping : pandas 기능. 간단하게 매핑에 유용하게 활용, apply 함수는 복잡한 경우 활용
-# Define &amp; Apply the mapping
+# Define & Apply the mapping
 cycle_mapping = {
     "W": "Weekly",
     "M": "Monthly",
@@ -242,7 +233,7 @@ df["Cycle"] = df["Cycle"].map(cycle_mapping)
 
 
 
-# 제목 설정 : 현재 모드 출력 : Test &amp; Not Test
+# 제목 설정 : 현재 모드 출력 : Test & Not Test
 if __istest__ :
   title = "일정관리 (Test Mode)"
 else :
@@ -253,41 +244,41 @@ else :
 
 # Warning 
 title_0 = "Warning"
-df_0 = df[ df['Date'] &lt; today ].copy()
+df_0 = df[ df['Date'] < today ].copy()
 df_0['Date'] = df_0['Date'].dt.strftime('%Y-%m-%d')
 
 # This Month
 title_1 = "이번달(" + today.strftime('%Y-%m') + ") 일정"
-df_1 = df[ (df['Date'].dt.year == today.year) &amp; (df['Date'].dt.month == today.month) ].copy()
+df_1 = df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ].copy()
 df_1['Date'] = df_1['Date'].dt.strftime('%Y-%m-%d')
 
 # Next Month
 nextm_day = today + relativedelta(months=1)
 title_2 = "다음달(" + nextm_day.strftime('%Y-%m') + ") 일정"
-df_2 = df[ (df['Date'].dt.year == nextm_day.year) &amp; (df['Date'].dt.month == nextm_day.month) ].copy()
+df_2 = df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ].copy()
 df_2['Date'] = df_2['Date'].dt.strftime('%Y-%m-%d')
 
 # 이후 일정
 title_3 = "이후 일정"
-df_3 = df[ (df['Date'].dt.year &gt; nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) &amp; (df['Date'].dt.month &gt; nextm_day.month) ].sort_values(by=["Date"], ascending=[True]).copy()
+df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Date"], ascending=[True]).copy()
 df_3['Date'] = df_3['Date'].dt.strftime('%Y-%m-%d')
 
 # HTML로 변환
 def gen_title(title):
   return f"""
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;{title}&lt;/title&gt;
-    &lt;style&gt;
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <style>
         table {{ width: 100%; border-collapse: collapse; }}
         th, td {{ border: 1px solid black; text-align: center; }}
         th[colspan="5"] {{ text-align: center; color: red;}}
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;table&gt;
+    </style>
+</head>
+<body>
+  <table>
 """
 
 ### WOW NOT colspan 5
@@ -297,33 +288,33 @@ def gen_title(title):
 ### zip : zip 함수를 사용하여 간결하게 표현, 리스트를 묶어서 처리
 def gen_table(title, df, col_width):
   html = f"""
-    &lt;tr&gt;
-        &lt;th colspan="5"&gt;{title}&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
+    <tr>
+        <th colspan="5">{title}</th>
+    </tr>
+    <tr>
     """
-### WOW.240619 f-string, zip : END
 
   for width, col in zip(col_width, df.columns):
-    html += f'&lt;th style="width:{width}%; border: 1px solid black;"&gt;{col}&lt;/th&gt;\n'
+    html += f'<th style="width:{width}%; border: 1px solid black;">{col}</th>\n'
+### WOW.240619 f-string, zip : END
 
-  html +=  "&lt;/tr&gt;\n"
+  html +=  "</tr>\n"
 
   # 데이터 행 추가
   for row in df.itertuples(index=False):
-      html += "&lt;tr&gt;"
+      html += "<tr>"
       for value in row:
-          html += f'&lt;td style="border: 1px solid black;"&gt;{value}&lt;/td&gt;'
-      html += "&lt;/tr&gt;\n"
+          html += f'<td style="border: 1px solid black;">{value}</td>'
+      html += "</tr>\n"
 
   return html
 
 
 def gen_tail():
   return f"""
-  &lt;/table&gt;
-  &lt;/body&gt;
-  &lt;/html&gt;
+  </table>
+  </body>
+  </html>
   """
 
 # 열 넓이 비율
@@ -333,7 +324,7 @@ col_width = [14,5,11,40,30]
 html = gen_title(title)
 # Warning (선택)
 if (__istest__==True) and (os=="nt"):
-  if not df[ df['Date'] &lt; today ].empty:
+  if not df[ df['Date'] < today ].empty:
     html += gen_table(title_0, df_0, col_width)
 # 당월 (필수)
 html += gen_table(title_1, df_1, col_width)
@@ -354,6 +345,4 @@ with open(my_desc_dir + my_desc_file, "w", encoding="utf-8") as file:
 
 # 24.06.18 잠시 이 기능은 막습니다. tkinter로 df 표출, 변경, 저장
 # 데이터프레임 GUI 화면 출력
-# show_df_window( df[ (df['Date'].dt.year == nextm_day.year) &amp; (df['Date'].dt.month == nextm_day.month) ])  </pre>
-</body>
-</html>
+# show_df_window( df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ])
