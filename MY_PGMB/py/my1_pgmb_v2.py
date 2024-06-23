@@ -57,7 +57,7 @@ dc_shape = dc.shape
 with open(my_dir + "/input_index.txt", 'r', encoding='utf-8') as fi_index:
   fi_index_lines = fi_index.readlines()
 # 1.2 파일 열고, HTML 앞부분 공통 내역 쓰기
-fmyindex = open(my_dir + "/index.html", 'w', encoding='utf-8')
+fmyindex = open(my_dir + "/../pyhtml/index.html", 'w', encoding='utf-8')
 fmyindex.writelines(fi_index_lines)
 # 2. 본문 쓰기
 for n_row in range(df_shape[0]):                    # 1줄씩 읽으려고 함
@@ -84,7 +84,7 @@ for n_row in range(dc_shape[0]):                    # 1줄씩 읽으려고 함
       fw.write("</body>\n</html>\n") 
       fw.close()
     # NEW Open & Write Init
-    fw = open(my_dir + "/" + dc.loc[n_row,"gKey"] + ".html", 'w', encoding='utf-8')
+    fw = open(my_dir + "/../pyhtml/" + dc.loc[n_row,"gKey"] + ".html", 'w', encoding='utf-8')
     fw.writelines(fi_index_lines)
     my_gKey = dc.loc[n_row,"gKey"]
     fw_cnt += 1
