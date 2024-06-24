@@ -2,8 +2,6 @@
 # WOW NOT : LUNAR
 # WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
-# WOW NOT : HTML 파일 이쁘게 만들기
-# WOW NOT : PRE 태그를 활용한 파이썬 소스 보여주기
 
 __istest__ = True
 
@@ -245,23 +243,35 @@ else :
 # Warning 
 title_0 = "Warning"
 df_0 = df[ df['Date'] < today ].copy()
-df_0['Date'] = df_0['Date'].dt.strftime('%Y-%m-%d')
+#df_0['Date'] = df_0['Date'].dt.strftime('%Y-%m-%d')
 
 # This Month
 title_1 = "이번달(" + today.strftime('%Y-%m') + ") 일정"
 df_1 = df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ].copy()
-df_1['Date'] = df_1['Date'].dt.strftime('%Y-%m-%d')
+#df_1['Date'] = df_1['Date'].dt.strftime('%Y-%m-%d')
 
 # Next Month
 nextm_day = today + relativedelta(months=1)
 title_2 = "다음달(" + nextm_day.strftime('%Y-%m') + ") 일정"
 df_2 = df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ].copy()
-df_2['Date'] = df_2['Date'].dt.strftime('%Y-%m-%d')
+#df_2['Date'] = df_2['Date'].dt.strftime('%Y-%m-%d')
 
 # 이후 일정
 title_3 = "이후 일정"
 df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Date"], ascending=[True]).copy()
-df_3['Date'] = df_3['Date'].dt.strftime('%Y-%m-%d')
+#df_3['Date'] = df_3['Date'].dt.strftime('%Y-%m-%d')
+
+
+day_mapping = {
+    0: '월',
+    1: '화',
+    2: '수',
+    3: '목',
+    4: '금',
+    5: '토',
+    6: '일'
+}
+
 
 # HTML로 변환
 def gen_title(title):
@@ -281,15 +291,13 @@ def gen_title(title):
   <table>
 """
 
-### WOW NOT colspan 5
-
 ### WOW.240619 f-string, zip 
-### f-string : {}를 사용하여 string에 변수 추가하여 만들 수 있는 가능
-### zip : zip 함수를 사용하여 간결하게 표현, 리스트를 묶어서 처리
+### WOW : f-string : {}를 사용하여 string에 변수 추가하여 만들 수 있는 가능
+### WOW : zip : zip 함수를 사용하여 간결하게 표현, 리스트를 묶어서 처리
 def gen_table(title, df, col_width):
   html = f"""
     <tr>
-        <th colspan="5">{title}</th>
+        <th colspan="{len(df.columns)}">{title}</th>
     </tr>
     <tr>
     """
@@ -303,8 +311,18 @@ def gen_table(title, df, col_width):
   # 데이터 행 추가
   for row in df.itertuples(index=False):
       html += "<tr>"
-      for value in row:
+
+      # WOW : enumerate, 요일 표시
+      # WOW : enumerate : 반복문을 통해 컬렉션(리스트, 튜플 등)의 요소를 순회할 때, 요소와 함께 해당 요소의 인덱스도 동시에 필요할 때 매우 유용
+      # WOW : 날짜, 요일 : strftime, weekday / 요일매핑(별도정의) 사용
+      for idx, value in enumerate(row):
+        if idx == 0:
+          new_date = value.strftime('%Y-%m-%d')  + f'({day_mapping[value.weekday()]})'
+          html += f'<td style="border: 1px solid black;">{new_date}</td>'
+        else:
           html += f'<td style="border: 1px solid black;">{value}</td>'
+      # WOW : enumerate, 요일 표시 : END
+      
       html += "</tr>\n"
 
   return html

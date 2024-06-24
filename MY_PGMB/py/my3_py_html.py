@@ -59,14 +59,22 @@ for file_name in my_pyname:
   pyhtml = gen_title("Python Source")
 
 # WOW.240623 
-# : pre tag : html 문서에서 텍스트 문서를 표출할 때 사용
-# : import html : html.escape를 사용하여 문제가 되는 부분들 제거하여 소스 다 보이게 함. 변수명으로 html을 사용하여 충돌나니깐 변수명 바꾸어 줄었음
-  pyhtml += "  <pre>"\
+# WOW : pre tag : html 문서에서 텍스트 문서를 표출할 때 사용, pre tag를 조절해서 WOW가 있는 줄만 강조해서 보이게 조정함
+# WOW : import html : html.escape를 사용하여 문제가 되는 부분들 제거하여 소스 다 보이게 함. 변수명으로 html을 사용하여 충돌나니깐 변수명 바꾸어 줄었음
   # READ python source file
   with open(my_home + '/' + file_name + '.py', 'r', encoding='utf-8') as file:
-    html_read = file.read()
-    pyhtml += escape_html(html_read)
-  pyhtml += "  </pre>"
+    lines = file.readlines()
+
+  # 각 줄을 확인하고 특정 문자가 포함된 줄을 강조합니다. "W O W"
+  pyhtml += "  <pre>\n"
+  for line in lines:
+    if 'WOW' in line  and  "'WOW'" not in line:
+        pyhtml += '</pre>\n'
+        pyhtml += f'<span style="color:red;">{line}</span>\n'
+        pyhtml += '<pre>\n'
+    else:
+        pyhtml += escape_html(line)
+  pyhtml += "  </pre>\n"
 # WOW.240623 : END
 
   pyhtml += gen_tail()
@@ -74,3 +82,5 @@ for file_name in my_pyname:
   # HTML 내용을 파일로 저장
   with open(my_home + '/../pyhtml/' + file_name + '.html', "w", encoding="utf-8") as file:
     file.write(pyhtml)
+
+
