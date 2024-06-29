@@ -356,9 +356,9 @@ if (__istest__==True) and (os=="nt"):
     html += gen_table(title_3, df_3, col_width)
   
 # 마무리 (필수)
-html += "  </table>\n"
-html += '        <p> <a href="./index.html">MY PGM BLOG 2</a> </p>\n'
-
+html += "  </table>\n\n"
+html += '  <li> <p> <a href="./index.html">MY PGM BLOG 2</a> </p></li>\n'
+html += '  <li> <p> <a href="../../index.html">MY BLOG</a> </p></li>\n\n'
 html += gen_tail()
 
 
