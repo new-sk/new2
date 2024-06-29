@@ -284,6 +284,7 @@ def gen_title_html(title):
     <style>
         table {{ width: 100%; border-collapse: collapse; }}
         th, td {{ border: 1px solid black; text-align: center; }}
+        h3 {{ color: blue;}}
         th[colspan="5"] {{ text-align: center; color: red;}}
     </style>
 </head>
