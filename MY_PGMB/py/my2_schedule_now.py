@@ -273,8 +273,8 @@ day_mapping = {
 }
 
 
-# HTML로 변환
-def gen_title(title):
+# HTML 상단 Title
+def gen_title_html(title):
   return f"""
 <!DOCTYPE html>
 <html lang="ko">
@@ -288,6 +288,13 @@ def gen_title(title):
     </style>
 </head>
 <body>
+"""
+
+# Table 상단 Title
+def gen_title_table(title):
+  return f"""
+<h3>{title}</h3>
+  <table>
 """
 
 ### WOW.240619 f-string, zip 
@@ -334,31 +341,30 @@ def gen_tail():
 """
 
 # 열 넓이 비율
-col_width = [14,5,11,40,30]  
+col_width = [18,5,11,40,26]  
 
-# 타이틀 (필수)
-html = gen_title(title)
-html += "  <table>\n"
+# HTML : 필수 : 타이틀
+html = gen_title_html(title)
 
-# 필수 : 당월, 익월
-# 당월 
-html += gen_table(title_1, df_1, col_width)
-# 익월
-html += gen_table(title_2, df_2, col_width)
-html += "  </table>\n  <table>\n"
+# HTML : 필수표 : 당월, 익월
+html += gen_title_table("필수 일정")           # 일정
+html += gen_table(title_1, df_1, col_width)  # 당월
+html += gen_table(title_2, df_2, col_width)  # 익월
+html += "  </table>\n  <br><br>\n"
 
-# 선택 테이블 : Warning, 이후
-if (__istest__==True) and (os=="nt"):
+# HTML : 선택표 : Warning, 이후
+html += gen_title_table("선택 일정")           # 일정
+if (__istest__==True):  # and (os=="nt"):
   # Warning (선택)
   if not df[ df['Date'] < today ].empty:
     html += gen_table(title_0, df_0, col_width)
   # 이후 (선택)
     html += gen_table(title_3, df_3, col_width)
   
-# 마무리 (필수)
-html += "  </table>\n\n"
+# HTML : 필수 : 마무리
+html += "  </table>\n  <br>\n"
 html += '  <li> <p> <a href="./index.html">MY PGM BLOG 2</a> </p></li>\n'
-html += '  <li> <p> <a href="../../index.html">MY BLOG</a> </p></li>\n\n'
+html += '  <li> <p> <a href="../../index.html">MY BLOG</a> </p></li>\n'
 html += gen_tail()
 
 
