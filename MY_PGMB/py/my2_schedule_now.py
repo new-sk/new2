@@ -288,7 +288,6 @@ def gen_title(title):
     </style>
 </head>
 <body>
-  <table>
 """
 
 ### WOW.240619 f-string, zip 
@@ -330,28 +329,36 @@ def gen_table(title, df, col_width):
 
 def gen_tail():
   return f"""
-  </table>
-  </body>
-  </html>
-  """
+</body>
+</html>
+"""
 
 # 열 넓이 비율
 col_width = [14,5,11,40,30]  
 
 # 타이틀 (필수)
 html = gen_title(title)
-# Warning (선택)
+html += "  <table>\n"
+
+# 필수 : 당월, 익월
+# 당월 
+html += gen_table(title_1, df_1, col_width)
+# 익월
+html += gen_table(title_2, df_2, col_width)
+html += "  </table>\n  <table>\n"
+
+# 선택 테이블 : Warning, 이후
 if (__istest__==True) and (os=="nt"):
+  # Warning (선택)
   if not df[ df['Date'] < today ].empty:
     html += gen_table(title_0, df_0, col_width)
-# 당월 (필수)
-html += gen_table(title_1, df_1, col_width)
-# 익월 (필수)
-html += gen_table(title_2, df_2, col_width)
-# 이후 (선택)
-if (__istest__==True) and (os=="nt"):
-  html += gen_table(title_3, df_3, col_width)
+  # 이후 (선택)
+    html += gen_table(title_3, df_3, col_width)
+  
 # 마무리 (필수)
+html += "  </table>\n"
+html += '        <p> <a href="./index.html">MY PGM BLOG 2</a> </p>\n'
+
 html += gen_tail()
 
 
