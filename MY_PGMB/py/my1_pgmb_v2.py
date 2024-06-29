@@ -13,9 +13,10 @@ my_dir, my_file = os.path.split(__file__)
 
 import pandas as pd
 
-# CSV 파일을 읽어서 데이터프레임에 저장
-df = pd.read_csv(my_dir + '/input_group.txt',    dtype={'Key' : str})
-dc = pd.read_csv(my_dir + '/input_contents.txt', dtype={'gKey': str})
+### WOW.number->string : CSV 파일 읽기 (숫자 컬럼이지만, 문자로 읽을 수 있음)
+df = pd.read_csv(my_dir + '/my1_input_group.txt',    dtype={'Key' : str})
+dc = pd.read_csv(my_dir + '/my1_input_contents.txt', dtype={'gKey': str})
+### WOW.number->string : END
 
 # 컬럼 Order에서 중복된 값이 있는지 여부 확인 (group)
 has_duplicates = df['Order'].duplicated().any()
