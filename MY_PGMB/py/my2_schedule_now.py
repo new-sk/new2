@@ -348,14 +348,14 @@ col_width = [18,5,11,40,26]
 html = gen_title_html(title)
 
 # HTML : 필수표 : 당월, 익월
-html += gen_title_table("필수 일정")           # 일정
+html += gen_title_table("필수 일정")          # 일정
 html += gen_table(title_1, df_1, col_width)  # 당월
 html += gen_table(title_2, df_2, col_width)  # 익월
 html += "  </table>\n  <br><br>\n"
 
 # HTML : 선택표 : Warning, 이후
-html += gen_title_table("선택 일정")           # 일정
 if (__istest__==True):  # and (os=="nt"):
+  html += gen_title_table("선택 일정")           # 일정
   # Warning (선택)
   if not df[ df['Date'] < today ].empty:
     html += gen_table(title_0, df_0, col_width)
