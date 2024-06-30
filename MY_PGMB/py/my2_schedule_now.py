@@ -3,7 +3,7 @@
 # WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
 
-__istest__ = True
+__istest__ = False
 
 import os
 import sys
@@ -360,12 +360,14 @@ if (__istest__==True):  # and (os=="nt"):
   if not df[ df['Date'] < today ].empty:
     html += gen_table(title_0, df_0, col_width)
   # 이후 (선택)
-    html += gen_table(title_3, df_3, col_width)
+  html += gen_table(title_3, df_3, col_width)
   
 # HTML : 필수 : 마무리
 html += "  </table>\n  <br>\n"
-html += '  <li> <p> <a href="./index.html">MY PGM BLOG 2</a> </p></li>\n'
-html += '  <li> <p> <a href="../../index.html">MY BLOG</a> </p></li>\n'
+html += '  <p> <a href="https://new-sk.github.io/new2/MY_PGMB/pyhtml/index.html">MY PGM BLOG 2</a> </p>\n'
+html += '  <p> <a href="https://new-sk.github.io/new2/">MY BLOG</a> </p>\n'
+if (__istest__==True) and (os=="nt"):
+  html += '  <p> <a href="../MyBlogLocalHome.html">MY Local BLOG</a> </p>\n'
 html += gen_tail()
 
 
