@@ -3,7 +3,7 @@
 # WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
 
-__istest__ = False
+__istest__ = True
 
 import os
 import sys
@@ -219,11 +219,11 @@ print(df)
 # WOW 240620_mapping : pandas 기능. 간단하게 매핑에 유용하게 활용, apply 함수는 복잡한 경우 활용
 # Define & Apply the mapping
 cycle_mapping = {
-    "W": "Weekly",
-    "M": "Monthly",
-    "Y": "Yearly",
-    "O": "One-Time",
-    "X": "Irregular"
+    "W": "Weekly",     # 주간
+    "M": "Monthly",    # 월간
+    "Y": "Yearly",     # 년간
+    "O": "One-Time",   # 1회성
+    "X": "Irregular"   # 비공식 활동
 }
 
 df["Cycle"] = df["Cycle"].map(cycle_mapping)
@@ -242,23 +242,23 @@ else :
 
 # Warning 
 title_0 = "Warning"
-df_0 = df[ df['Date'] < today ].copy()
+df_0 = df[ (df['Date'] < today)].copy()
 #df_0['Date'] = df_0['Date'].dt.strftime('%Y-%m-%d')
 
 # This Month
 title_1 = "이번달(" + today.strftime('%Y-%m') + ") 일정"
-df_1 = df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month) ].copy()
+df_1 = df[ (df['Date'].dt.year == today.year) & (df['Date'].dt.month == today.month)].copy()
 #df_1['Date'] = df_1['Date'].dt.strftime('%Y-%m-%d')
 
 # Next Month
 nextm_day = today + relativedelta(months=1)
 title_2 = "다음달(" + nextm_day.strftime('%Y-%m') + ") 일정"
-df_2 = df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month) ].copy()
+df_2 = df[ (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month == nextm_day.month)].copy()
 #df_2['Date'] = df_2['Date'].dt.strftime('%Y-%m-%d')
 
 # 이후 일정
 title_3 = "이후 일정"
-df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month) ].sort_values(by=["Date"], ascending=[True]).copy()
+df_3 = df[ (df['Date'].dt.year > nextm_day.year)  |  (df['Date'].dt.year == nextm_day.year) & (df['Date'].dt.month > nextm_day.month)].sort_values(by=["Date"], ascending=[True]).copy()
 #df_3['Date'] = df_3['Date'].dt.strftime('%Y-%m-%d')
 
 
