@@ -1,7 +1,7 @@
 # 보완 필요사항
 # WOW NOT : LUNAR
-# WOW NOT : 소스 별도 보관 : 소스, 인풋, 아웃풋
-# WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른)
+# WOW NOT : 표가 아닌 달력으로 표기하면 어떻까?
+# WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른) : DataFrameApp과 연동
 
 __istest__ = True
 
@@ -9,7 +9,7 @@ import os
 import sys
 my_home, my_file = os.path.split(__file__)
 my_lhome = 'D:\MY_BLOG_LOCAL_HOME\py'
-my_src_file = '/my_schedule_input.txt'
+my_src_file = '/my2_schedule_input.txt'
 
 print(my_home, my_file)
 print(my_lhome,my_src_file)
@@ -26,17 +26,17 @@ if (__istest__==False) and (os!="nt") :
 elif (__istest__==False) and (os=="nt") :
   my_src_dir = my_lhome
   my_desc_dir = my_home
-  my_desc_file = '/../pyhtml/my_schedule_output.html'
+  my_desc_file = '/../pyhtml/my2_schedule_output.html'
 # TEST Home / Full Version
 elif  (__istest__==True) and (os=="nt") :
   my_src_dir = my_lhome
   my_desc_dir = my_lhome
-  my_desc_file = '/my_schedule_output2.html'
+  my_desc_file = '/my2_schedule_output2.html'
 # TEST Not Home / Short Version
 elif  (__istest__==True) and (os!="nt") :
   my_src_dir = my_home
   my_desc_dir = my_home
-  my_desc_file = '/../pyhtml/my_schedule_output2.html'
+  my_desc_file = '/../pyhtml/my2_schedule_output2.html'
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta  # 윤년 고려
@@ -45,7 +45,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
-# DataFrameApp은 챗GPT로 작성
+# WOW : DataFrameApp은 챗GPT로 작성
 class DataFrameApp:
     def __init__(self, root, df):
         self.root = root
@@ -114,7 +114,7 @@ def show_df_window(df):
 
 import pandas as pd
 # CSV 파일을 읽어서 데이터프레임에 저장
-#df = pd.read_csv(my_dir + '/my_schedule_input.txt')
+#df = pd.read_csv(my_dir + '/my2_schedule_input.txt')
 df = pd.read_csv(my_src_dir + my_src_file, converters={'Date': lambda x: pd.to_datetime(x, format='%Y.%m.%d')})
 df['CycleMemo'] = ''
 print(type(df), df)
@@ -202,13 +202,19 @@ dfw = pd.concat([dfw,dfw2])
 #print(dfw)
 
 
-# ONE-Time, Irregular PLAN
-# 있는 그대로 복사
-print("ONE-Time, Irregular Plan")
-dfone = df[(df['Cycle'] == 'O') | (df['Cycle'] == 'X' )]
+# ONE-Time PLAN : 있는 그대로 복사
+print("ONE-Time Plan")
+dfone = df[(df['Cycle'] == 'O')]
 
 
-### TOTAL
+# Irregular PLAN : 있는 그대로 복사
+# 별도 분리 생성
+print("Irregular Plan")
+title_x = "Irregular : 비공식 일정"
+df_x = df[(df['Cycle'] == 'X')].copy()
+
+
+### TOTAL : X(Irregular 제외)
 df = pd.concat([dfy,dfm,dfw,dfone])
 df = df.sort_values("Date")
 df = df.reset_index(drop=True)   # re-index
@@ -223,7 +229,7 @@ cycle_mapping = {
     "M": "Monthly",    # 월간
     "Y": "Yearly",     # 년간
     "O": "One-Time",   # 1회성
-    "X": "Irregular"   # 비공식 활동
+    "X": "X"           # 비공식 활동 (이놈만 안 바꿈, 이후에도 X값을 활용하여 처리중)
 }
 
 df["Cycle"] = df["Cycle"].map(cycle_mapping)
@@ -241,8 +247,8 @@ else :
 
 
 # Warning 
-title_0 = "Warning"
-df_0 = df[ (df['Date'] < today)].copy()
+title_0 = "Warning : 이전 일정"
+df_0 = df[ (df['Date'] < today) & (df['Cycle'] != 'X')].copy()
 #df_0['Date'] = df_0['Date'].dt.strftime('%Y-%m-%d')
 
 # This Month
@@ -357,8 +363,11 @@ html += "  </table>\n  <br><br>\n"
 if (__istest__==True):  # and (os=="nt"):
   html += gen_title_table("선택 일정")           # 일정
   # Warning (선택)
-  if not df[ df['Date'] < today ].empty:
+  if not df_0.empty:
     html += gen_table(title_0, df_0, col_width)
+  # Irregular (선택)
+  if not df_x.empty:
+    html += gen_table(title_x, df_x, col_width)
   # 이후 (선택)
   html += gen_table(title_3, df_3, col_width)
   
