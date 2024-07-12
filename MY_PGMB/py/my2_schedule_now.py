@@ -3,7 +3,7 @@
 # WOW NOT : 표가 아닌 달력으로 표기하면 어떻까?
 # WOW NOT : 실적 파일 별도 관리 (아웃품과 또 다른) : DataFrameApp과 연동
 
-__istest__ = True
+__istest__ = False
 
 import os
 import sys
