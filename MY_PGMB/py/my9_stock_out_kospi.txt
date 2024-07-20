@@ -1,4 +1,4 @@
-sName,Date,Price
+sCode,Date,Price
 KOSPI,2024.07.19,"2,795.46"
 KOSPI,2024.07.18,"2,824.35"
 KOSPI,2024.07.17,"2,843.29"
