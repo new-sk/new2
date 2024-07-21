@@ -10,8 +10,19 @@ import re
 
 import pandas as pd
 
+
 import os
+import sys
 my_dir, my_file = os.path.split(__file__)
+my_sfile = '/my9_stock_input.txt'
+
+my_ldir = 'D:\MY_BLOG_LOCAL_HOME\py'
+os = os.name
+
+# False
+if (os == "nt") :
+  my_dir = my_ldir
+
 
 
 def get_all(sCode):
@@ -157,9 +168,30 @@ def get_all(sCode):
   df.to_csv(my_dir + my9_fname, index=False)
 
 
+"""  #1 
 ### MAIN
-df = pd.read_csv(my_dir + '/my9_stock_in.txt', dtype={'sCode': str})
+df = pd.read_csv(my_dir + '/my9_stock_input.txt', dtype={'sCode': str})
 
 for sCode in df['sCode']:
   get_all(sCode)   
-  print(sCode)
+  print(sCode) 
+"""
+
+df = pd.read_csv(my_dir + '/my9_stock_input.txt', dtype={'sCode': str})
+
+my9_fname = '/my9_stock_out_KOSPI.txt'
+dfall = pd.read_csv(my_dir + my9_fname)
+dfall = dfall[(dfall['Date'] == '2024.07.12') | (dfall['Date'] == '2024.07.19')]
+#print(dfall)
+#print(dfall.info())
+
+for sCode in df['sCode']:
+  my9_fname = '/my9_stock_out_' + sCode + '.txt'
+  #print(my_dir + my9_fname)
+  dfs = pd.read_csv(my_dir + my9_fname, dtype={'sCode': str})
+  dfs = dfs[(dfs['Date'] == '2024.07.12') | (dfs['Date'] == '2024.07.19')]
+  #print(dfs)
+  #print(dfs.info())
+  dfall = pd.concat([dfall, dfs], ignore_index=True)
+
+dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
