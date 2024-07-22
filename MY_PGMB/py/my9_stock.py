@@ -22,17 +22,21 @@ os = os.name
 # False
 if (os == "nt") :
   my_dir = my_ldir
+  max_loop = 0  # 전체 가져오기
+else :
+  # my_dir = 소스가 있는 여기
+  max_loop = 3  # 2페이지만 가져오기 (1,2)
 
 
 
-def get_all(sCode):
+def get_all(sCode, oType):
   # 초기화 : 비어있는 배열
   result_date = []
   result_index = []
 
   is_first = True
   c_pnum = 0       # 다음 페이지부터 처리함
-  l_pnum = c_pnum + 1 # 최소 1페이지 처리
+  max_pnum = c_pnum + 1 # 최소 1페이지 처리
   # sCode = "KOSPI"
   # sCode = "005930"  # 삼성전자
 
@@ -46,17 +50,20 @@ def get_all(sCode):
   n_loop = 0
 
   # 페이지는 1번부터
-  while (c_pnum+1) <= l_pnum:
+  while (c_pnum+1) <= max_pnum:
     c_pnum += 1
     n_loop += 1
-    # 읽어야 하는 곳 (KOSPI)
-    # basic_url = "https://finance.naver.com/sise/sise_index_day.naver?code=KOSPI&page=" + str(c_pnum)
 
-    if n_loop == 3: # 2(1개만처리), 3(2개만 처리), 마지막만 처리 : 테스트용
+    if n_loop == max_loop: # 2(1개만처리), 3(2개만 처리), 마지막만 처리 : 테스트용
       break  
 
-    # 읽어야 하는 곳 (삼성전자)
-    basic_url = "https://finance.naver.com/item/sise_day.naver?code=" + sCode + "&page=" + str(c_pnum)
+    # 읽어야 할 페이지
+    #   : KOSPI
+    if sCode == "KOSPI":
+      basic_url = "https://finance.naver.com/sise/sise_index_day.naver?code=KOSPI&page=" + str(c_pnum)
+    #   : 개별종목
+    else:
+      basic_url = "https://finance.naver.com/item/sise_day.naver?code=" + sCode + "&page=" + str(c_pnum)
     #print(basic_url)               
                 
     # 웹 페이지 열기 / SOUP까지 수행
@@ -71,8 +78,8 @@ def get_all(sCode):
 
     soup = BeautifulSoup(source, 'html.parser')
 
-    
-    # 첫번째 페이지 열고서 하는 작업들
+    ##########################
+    # 첫번째 페이지에서만 하는 작업 : 마지막 페이지 확인 (max_pnum)
     if is_first == True:
       print(c_pnum)
       #print(source)
@@ -89,9 +96,9 @@ def get_all(sCode):
               # 페이지 번호 추출 (예: "/sise/sise_index_day.naver?code=KOSPI&page=1492")
               match = re.search(r'page=(\d+)', href)
               if match:
-                  l_pnum = int(match.group(1))
-                  #print(type(l_pnum))
-                  print("맨뒤의 페이지 번호는:", l_pnum)
+                  max_pnum = int(match.group(1))
+                  #print(type(max_pnum))
+                  print("맨뒤의 페이지 번호는:", max_pnum)
               else:
                   print("페이지 번호를 찾을 수 없습니다.")
           else:
@@ -99,6 +106,8 @@ def get_all(sCode):
       else:
           print("클래스가 'pgRR'인 <td> 태그를 찾을 수 없습니다.")
 
+    ##########################
+    # 공통내역 : KOSPI
     if sCode == "KOSPI":
       # soup를 2번하다. 날짜 / 숫자값
       # 1. 날짜
@@ -113,6 +122,8 @@ def get_all(sCode):
       index_extract = list(range(0, len(text_index), 4))
       # 새로운 배열에 추출된 값 저장
       text_index = [text_index[i] for i in index_extract]
+
+    # 공통내역 : 개별종목
     else:
       # soup를 2번하다. 날짜 / 숫자값
       # 1. TR 전체를 읽어들임
@@ -135,15 +146,16 @@ def get_all(sCode):
           #print(row_date.text, row_index.text)
       
 
-    # 마지막 페이지 빈칸들 제거
-    if c_pnum == l_pnum:
+    # 한 페이지 다 읽은 후 : 마지막 페이지 빈칸들 제거
+    if c_pnum == max_pnum:
       text_date = list(filter(None, text_date))
       text_index = list(filter(None, text_index))
 
-    # 100페이지마다 
+    # 한 페이지 다 읽은 후 : 100페이지마다 메시지 : 잘 실행되고 있어요 
     if (c_pnum % 100) == 0:
       print(c_pnum, " ", datetime.now())
 
+    # 한 페이지 다 읽은 후 : 결과값 추가
     if not result_date:
       result_date = text_date
       result_index = text_index
@@ -152,10 +164,6 @@ def get_all(sCode):
       result_index += text_index
 
     
-  # 배열 출력 : for문 밖에서
-  # print(result_date)
-  # print(result_index)
-
   # 데이터프레임 생성
   df = pd.DataFrame({
       'sCode': sCode,
@@ -163,20 +171,22 @@ def get_all(sCode):
       'Price': result_index
   })
 
-  # 데이터프레임을 CSV 파일로 저장
-  my9_fname = '/my9_stock_out_' + sCode + '.txt'
-  df.to_csv(my_dir + my9_fname, index=False)
+  if oType == 'FILE':
+    # 데이터프레임을 CSV 파일로 저장
+    my9_fname = '/my9_stock_out_' + sCode + '.txt'
+    df.to_csv(my_dir + my9_fname, index=False)
 
 
-"""  #1 
+"""  #1 : 특정 종목 전체 기간 데이터 가져오기
 ### MAIN
-df = pd.read_csv(my_dir + '/my9_stock_input.txt', dtype={'sCode': str})
+df = pd.read_csv(my_dir + '/my9_stock_inall.txt', dtype={'sCode': str})
 
 for sCode in df['sCode']:
-  get_all(sCode)   
-  print(sCode) 
+  get_all(sCode, 'FILE')   
+  print("get_all : ", sCode) 
 """
 
+#""" #2 : 전체 종목 최근 정보 가져오기
 df = pd.read_csv(my_dir + '/my9_stock_input.txt', dtype={'sCode': str})
 
 my9_fname = '/my9_stock_out_KOSPI.txt'
@@ -195,3 +205,4 @@ for sCode in df['sCode']:
   dfall = pd.concat([dfall, dfs], ignore_index=True)
 
 dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
+# """
