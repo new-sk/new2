@@ -1,4 +1,0 @@
-sCode,sName
-KOSPI,KOSPI
-005930,삼성전자
-005935,삼성전자우
