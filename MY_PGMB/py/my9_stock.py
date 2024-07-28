@@ -14,6 +14,8 @@ import pandas as pd
 import os
 import sys
 
+import configparser  # 24.07.28 추가 : INI 설정
+
 
 # 클래스 변수 초기화
 sMode = "Test"
@@ -276,12 +278,15 @@ def get_one(sCode):
 
 
 ### 1. set mode
-# 1.1 mode 설정
-#Mode = "Test"
-sMode = "Real"
-
+# 1.1 INI파일에서 mode 설정
 my_dir, my_file = os.path.split(__file__)
 my_os = os.name
+
+# 설정 파일 
+config_file = my_file.rsplit('.', 1)[0] + '.ini'
+config = configparser.ConfigParser()  # 객체 생성
+config.read(my_dir + '/' + config_file)  # 설정 파일 읽기 (파일 위치)
+sMode = config.get('mode', 'smode')
 
 # 1.2 filename 설정
 my_sfile = '/my9_stock_input.txt'
@@ -295,7 +300,7 @@ elif sMode == "Real":
   max_loop = 0  # 전체 가져오기
   if my_os == "nt":
     my_dir = 'D:\MY_BLOG_LOCAL_HOME\py'
-  else:  # NT에서는 종료
+  else:  # NT가 아니면 종료
     print("여기서는 Real Mode가 안됩니다.")
     exit()
 
