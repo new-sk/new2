@@ -277,8 +277,8 @@ def get_one(sCode):
 
 ### 1. set mode
 # 1.1 mode 설정
-sMode = "Test"
-#sMode = "Real"
+#Mode = "Test"
+sMode = "Real"
 
 my_dir, my_file = os.path.split(__file__)
 my_os = os.name
@@ -319,23 +319,19 @@ for sCode in df['sCode']:
     print(sCode + " : 파일을 새로 만들었습니다")
 
 
-""" #2 : 전체 종목 최근 정보 가져오기
-df = pd.read_csv(my_dir + '/my9_stock_input.txt', dtype={'sCode': str})
+### 3 : 특정 날짜 데이터 취합하기 
+df = pd.read_csv(my_dir + my_sfile, dtype={'sCode': str})
 
-my9_fname = '/my9_stock_out_KOSPI.txt'
-dfall = pd.read_csv(my_dir + my9_fname)
-dfall = dfall[(dfall['Date'] == '2024.07.12') | (dfall['Date'] == '2024.07.19')]
-#print(dfall)
-#print(dfall.info())
+dfall = pd.DataFrame() # 초기화
 
 for sCode in df['sCode']:
+  # 종목명 정보 읽어오기
   my9_fname = '/my9_stock_out_' + sCode + '.txt'
-  #print(my_dir + my9_fname)
   dfs = pd.read_csv(my_dir + my9_fname, dtype={'sCode': str})
-  dfs = dfs[(dfs['Date'] == '2024.07.12') | (dfs['Date'] == '2024.07.19')]
-  #print(dfs)
-  #print(dfs.info())
+  # 특정 날짜 정보만 취합하기
+  dfs = dfs[dfs['Date'].isin(['2024.07.26','2024.07.26'])]
   dfall = pd.concat([dfall, dfs], ignore_index=True)
 
+# 취합정보 출력
+print(dfall)
 dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
-"""
