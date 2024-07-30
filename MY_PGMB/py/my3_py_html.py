@@ -42,9 +42,8 @@ my_pydesc = ["일정관리","블로그만들기","소스보기","투자관리"]
 ### 파이썬 소스 index file
 pyhtml = gen_title("Python Source")
 
-pyhtml += "<p><a href=\"" + "../pyhtml/" + my_pyname[0] + ".html\">" + my_pydesc[0] +"</a></p>\n"
-pyhtml += "<p><a href=\"" + "../pyhtml/" + my_pyname[1] + ".html\">" + my_pydesc[1] +"</a></p>\n"
-pyhtml += "<p><a href=\"" + "../pyhtml/" + my_pyname[2] + ".html\">" + my_pydesc[2] +"</a></p>\n"
+for i in range(len(my_pyname)):
+  pyhtml += "<p><a href=\"" + "../pyhtml/" + my_pyname[i] + ".html\">" + my_pydesc[i] +"</a></p>\n"
 
 pyhtml += gen_tail()
 
