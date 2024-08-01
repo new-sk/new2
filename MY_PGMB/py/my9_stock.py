@@ -21,6 +21,7 @@ import configparser  # 24.07.28 추가 : INI 설정
 sMode = "Test"
 my_dir = ""
 my_sfile = ""
+my_xfile = ""
 max_loop = 3
 
 
@@ -289,6 +290,19 @@ config = configparser.ConfigParser()  # 객체 생성
 config.read(my_dir + '/' + config_file)  # 설정 파일 읽기 (파일 위치)
 sMode = config.get('mode', 'smode')
 
+# 엑셀 파일에서 읽기 (테스트중)
+# 엑셀 파일 경로
+my_xfile = '/my9_stock_sData.xlsx'
+my_xfile_sname = 'sData'
+# 데이터프레임으로 읽어오기
+df = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols='N:P')
+
+# 결과 출력
+print(df)
+
+### 이름영역으로 읽기 : sAccount
+
+'''
 # 1.2 filename 설정
 my_sfile = '/my9_stock_input.txt'
 
@@ -341,3 +355,4 @@ for sCode in df['sCode']:
 # 취합정보 출력
 print(dfall)
 dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
+'''
