@@ -290,6 +290,8 @@ config = configparser.ConfigParser()  # 객체 생성
 config.read(my_dir + '/' + config_file)  # 설정 파일 읽기 (파일 위치)
 sMode = config.get('mode', 'smode')
 
+
+'''
 # 엑셀 파일에서 읽기 (테스트중)
 # 엑셀 파일 경로
 my_xfile = '/my9_stock_sData.xlsx'
@@ -300,9 +302,9 @@ df = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols='N:P')
 # 결과 출력
 print(df)
 
-### 이름영역으로 읽기 : sAccount
-
+### 이름영역으로 읽기 : sAccount, sPrice
 '''
+
 # 1.2 filename 설정
 my_sfile = '/my9_stock_input.txt'
 
@@ -349,10 +351,9 @@ for sCode in df['sCode']:
   my9_fname = '/my9_stock_out_' + sCode + '.txt'
   dfs = pd.read_csv(my_dir + my9_fname, dtype={'sCode': str})
   # 특정 날짜 정보만 취합하기
-  dfs = dfs[dfs['Date'].isin(['2024.07.26','2024.07.26'])]
+  dfs = dfs[dfs['Date'].isin(['2024.08.02'])]
   dfall = pd.concat([dfall, dfs], ignore_index=True)
 
 # 취합정보 출력
 print(dfall)
 dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
-'''
