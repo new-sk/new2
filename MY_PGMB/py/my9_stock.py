@@ -290,45 +290,6 @@ config = configparser.ConfigParser()  # 객체 생성
 config.read(my_dir + '/' + config_file)  # 설정 파일 읽기 (파일 위치)
 sMode = config.get('mode', 'smode')
 
-
-#''' 테스트 영역
-# 엑셀 파일에서 읽기 (테스트중)
-# 엑셀 파일 경로
-my_xfile = '/my9_stock_sData.xlsx'
-my_xfile_sname = 'sData'
-
-# WOW : 엑셀 특정 시트/열만 읽기
-df = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols='N:P')
-
-# WOW 추후 활용
-# uescols = ['컬럼1','컬럼2'] # 컬럼명으로도 조작 가능
-# skiprows = 2 # 처음 2줄은 안 사용하는 거예요
-
-# 결과 출력
-print(df)
-
-
-# 엑셀 파일 경로
-# file_path = 'example.xlsx'
-
-# 엑셀 파일을 불러오고 특정 이름 영역 데이터를 읽기
-df = pd.read_excel(my_dir + my_xfile, engine='openpyxl', sheet_name=None)
-
-# 이름 영역 가져오기
-named_range_name = 'sPrice'  # 이름 영역 이름
-
-# 엑셀 시트에서 이름 영역 읽기
-if named_range_name in df:
-    df_named_range = pd.DataFrame(df[named_range_name])
-    print(df_named_range)
-else:
-    print(f"Named range '{named_range_name}' not found in the sheet.")
-
-### 이름영역으로 읽기 : sAccount, sPrice
-#'''
-
-
-'''  이쪽이 진짜, 위쪽은 테스트 중
 # 1.2 filename 설정
 my_sfile = '/my9_stock_input.txt'
 
@@ -351,6 +312,34 @@ else:
   exit()
 
 
+
+#''' 테스트 영역
+# 엑셀 파일에서 읽기 (테스트중)
+# 엑셀 파일 경로
+my_xfile = '/my9_stock_sData.xlsx'
+my_xfile_sname = 'sData'
+
+# WOW : 엑셀 읽기 : 
+#     : 파일명, 시트명(sheet_name)
+#     : 열명(usecols) : 컬럼영문알파벳, 인덱스(숫자0부터), 컬럼명  : 'A:E', range(0,4), ['saAccount','saName'] 
+# WOW : 데이터타입(dtype) 숫자로 지정해도 엑셀에 저장된 값이 float이면 intger로 변환되지 않는다고 함 : 음... 엑셀에서 int로 변환한것도 float로 저장되는데, 
+df = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols='A:E', na_values=["N/A", "NA", "-", "", "none"])
+df = df.dropna()
+print(df)
+
+stockName = ['dfi','dfa']
+
+for sName in stockName:
+  startN = df.loc[df['spName'] == sName, 'spStart'].iloc[0].astype('int32')
+  endN   = df.loc[df['spName'] == sName, 'spEnd'].iloc[0].astype('int32')
+  print(startN, ' : ', endN)
+  dfa = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=2)
+  print(dfa)
+#'''
+
+
+
+'''  이쪽이 진짜, 위쪽은 테스트 중
 ### 2. 데이터 전체 가져오기
 df = pd.read_csv(my_dir + my_sfile, dtype={'sCode': str})
 
