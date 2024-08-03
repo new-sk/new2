@@ -291,20 +291,44 @@ config.read(my_dir + '/' + config_file)  # 설정 파일 읽기 (파일 위치)
 sMode = config.get('mode', 'smode')
 
 
-'''
+#''' 테스트 영역
 # 엑셀 파일에서 읽기 (테스트중)
 # 엑셀 파일 경로
 my_xfile = '/my9_stock_sData.xlsx'
 my_xfile_sname = 'sData'
-# 데이터프레임으로 읽어오기
+
+# WOW : 엑셀 특정 시트/열만 읽기
 df = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols='N:P')
+
+# WOW 추후 활용
+# uescols = ['컬럼1','컬럼2'] # 컬럼명으로도 조작 가능
+# skiprows = 2 # 처음 2줄은 안 사용하는 거예요
 
 # 결과 출력
 print(df)
 
-### 이름영역으로 읽기 : sAccount, sPrice
-'''
 
+# 엑셀 파일 경로
+# file_path = 'example.xlsx'
+
+# 엑셀 파일을 불러오고 특정 이름 영역 데이터를 읽기
+df = pd.read_excel(my_dir + my_xfile, engine='openpyxl', sheet_name=None)
+
+# 이름 영역 가져오기
+named_range_name = 'sPrice'  # 이름 영역 이름
+
+# 엑셀 시트에서 이름 영역 읽기
+if named_range_name in df:
+    df_named_range = pd.DataFrame(df[named_range_name])
+    print(df_named_range)
+else:
+    print(f"Named range '{named_range_name}' not found in the sheet.")
+
+### 이름영역으로 읽기 : sAccount, sPrice
+#'''
+
+
+'''  이쪽이 진짜, 위쪽은 테스트 중
 # 1.2 filename 설정
 my_sfile = '/my9_stock_input.txt'
 
@@ -357,3 +381,4 @@ for sCode in df['sCode']:
 # 취합정보 출력
 print(dfall)
 dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
+'''
