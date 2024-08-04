@@ -18,11 +18,12 @@ import configparser  # 24.07.28 추가 : INI 설정
 
 
 # 클래스 변수 초기화
-sMode = "Test"
-my_dir = ""
-my_sfile = ""
-my_xfile = ""
-max_loop = 3
+sMode = "Test"                      # INI
+max_loop = 3                        # Test Mode인 경우 3페이지만 가져옴
+my_dir = ""                         # os
+my_sfile = '/my9_stock_input.txt'   # xfile에서 읽는 것으로 변경 필요
+my_xfile = '/my9_stock_sData.xlsx'  # excel file
+my_xfile_sname = 'sData'            # excel file sheet name
 
 
 def get_all(sCode, oType):
@@ -291,7 +292,7 @@ config.read(my_dir + '/' + config_file)  # 설정 파일 읽기 (파일 위치)
 sMode = config.get('mode', 'smode')
 
 # 1.2 filename 설정
-my_sfile = '/my9_stock_input.txt'
+# my_sfile = '/my9_stock_input.txt'
 
 # 1.3.1 Test 모드 (2페이지만 가져오기)
 if sMode == "Test":
@@ -316,8 +317,8 @@ else:
 #''' 테스트 영역
 # 엑셀 파일에서 읽기 (테스트중)
 # 엑셀 파일 경로
-my_xfile = '/my9_stock_sData.xlsx'
-my_xfile_sname = 'sData'
+# my_xfile = '/my9_stock_sData.xlsx'
+# my_xfile_sname = 'sData'
 
 # WOW : 엑셀 읽기 : 
 #     : 파일명, 시트명(sheet_name)
@@ -327,23 +328,27 @@ df = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols='A:E', 
 df = df.dropna()
 print(df)
 
-stockName = ['dfi','dfa']
-
-for sName in stockName:
+for sName in df['spName']:
   startN = df.loc[df['spName'] == sName, 'spStart'].iloc[0].astype('int32')
   endN   = df.loc[df['spName'] == sName, 'spEnd'].iloc[0].astype('int32')
   print(startN, ' : ', endN)
-  dfa = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=2)
-  print(dfa)
+  dfx = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=2)
+  print(dfx)
+  # WOW : global 변수 이름에 해당 데이터 저장 : sName에 저장된 값으로 변수를 만들어서 저장
+  globals()[sName] = dfx
+
+print('global dfx : dfi')
+print(dfi)
 #'''
 
 
 
-'''  이쪽이 진짜, 위쪽은 테스트 중
-### 2. 데이터 전체 가져오기
-df = pd.read_csv(my_dir + my_sfile, dtype={'sCode': str})
 
-for sCode in df['sCode']:
+#'''  이쪽이 진짜, 위쪽은 테스트 중
+### 2. 데이터 전체 가져오기
+#df = pd.read_csv(my_dir + my_sfile, dtype={'sCode': str})
+
+for sCode in dfi['siCode']:
   # 파일 존재 여부 확인
   my_filename = my_dir + '/my9_stock_out_' + sCode + '.txt' 
   if os.path.exists(my_filename):
@@ -355,11 +360,11 @@ for sCode in df['sCode']:
 
 
 ### 3 : 특정 날짜 데이터 취합하기 
-df = pd.read_csv(my_dir + my_sfile, dtype={'sCode': str})
+# df = pd.read_csv(my_dir + my_sfile, dtype={'sCode': str})
 
 dfall = pd.DataFrame() # 초기화
 
-for sCode in df['sCode']:
+for sCode in dfi['siCode']:
   # 종목명 정보 읽어오기
   my9_fname = '/my9_stock_out_' + sCode + '.txt'
   dfs = pd.read_csv(my_dir + my9_fname, dtype={'sCode': str})
@@ -370,4 +375,4 @@ for sCode in df['sCode']:
 # 취합정보 출력
 print(dfall)
 dfall.to_csv(my_dir + '/my9_stock_out_all.txt', index=False)
-'''
+#'''
