@@ -332,15 +332,14 @@ for sName in df['spName']:
   startN = df.loc[df['spName'] == sName, 'spStart'].iloc[0].astype('int32')
   endN   = df.loc[df['spName'] == sName, 'spEnd'].iloc[0].astype('int32')
   print(startN, ' : ', endN)
-  dfx = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=2)
+  dfx = pd.read_excel(my_dir + my_xfile, sheet_name=my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=2, na_values=["N/A", "NA", "-", "", "none"])
+  # WOW : 모든 값이 na인 경우에만 행을 삭제하도록 개선
+  # dfx = dfx.dropna()
+  all_na_rows = dfx.isna().all(axis=1) # 모든 값이 NaN인 행을 식별
+  dfx = dfx[~all_na_rows]  # 모든 값이 NaN인 행만 제거
   print(dfx)
   # WOW : global 변수 이름에 해당 데이터 저장 : sName에 저장된 값으로 변수를 만들어서 저장
   globals()[sName] = dfx
-
-print('global dfx : dfi')
-print(dfi)
-#'''
-
 
 
 
