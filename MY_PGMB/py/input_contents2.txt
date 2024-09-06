@@ -331,4 +331,4 @@ Order,Key,gKey,Name
 990,../book/book_0090.html,26,090. 내가 사랑한 책
 120,./pyhtml/my_pysource.html,27,MY Python Source
 100,./conhtml/C0000001.html,28,안과
-110,./conhtml/C0000001.html,28,노인내과
+110,./conhtml/C0000002.html,28,노인내과
