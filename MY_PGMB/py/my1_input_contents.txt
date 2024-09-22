@@ -28,12 +28,33 @@ Order,Key,gKey,Name
 108,../docu/docu_0007.html,28,Doc0007. 100세 쇼크 (EBS 다큐프라임) (17.08.31)
 109,../docu/docu_0008.html,28,Doc0008. 언어발달의 수수께끼 (EBS 다큐프라임) (14.03.23)
 110,../docu/docu_0009.html,28,Doc0009. 거대한 균열 (2022 KBS신년특집) (22.01.10)
-115,./pyhtml/my_pysource.html,27,MY Python Source
-120,A0000001,11,파이썬 프로그래밍 기초
-125,A0000002,11,변수 및 연산자
-130,A0000003,11,데이터타입
-135,A0000004,11,기본제어구조(선택 및 반복)
-140,A0000006,11,리스트
+111,../news/news_0001.html,28,News0001. 자바전쟁
+112,../news/news_0002.html,28,News0002. AI와 암묵지
+113,../news/news_0003.html,28,News0003. 코털
+114,../news/news_0004.html,28,News0004. 짐로저스
+115,../news/news_0005.html,28,News0005. 하버드생 달력
+116,../news/news_0006.html,28,News0006. 인도인구
+117,../news/news_0007.html,28,News0007. 저물가종료
+118,../news/news_0008.html,28,News0008. 셧다운제
+119,../news/news_0009.html,28,News0009. 그린플레이션
+110,../news/news_0010.html,28,News0010. 등대공장
+121,../news/news_0011.html,28,News0011. 자산거품
+122,../news/news_0012.html,28,News0012. 가계부채:금융안정보고서(21.9)
+123,../news/news_0013.html,28,News0013. 인증서
+124,../etc/etc_7004.html,28,Etc7004. 내부회계
+125,../etc/etc_8001.html,28,Etc8001. 리더진단
+126,../etc/etc_8002.html,28,Etc8002. 필수교육
+127,../etc/etc_8003.html,28,Etc8003. 안전
+128,../etc/etc_9003.html,28,Etc9003. FP
+129,../etc/etc_9004.html,28,Etc9004. KUDU
+130,../etc/etc_9005.html,28,Etc9005. P2E
+131,../etc/etc_9006.html,28,Etc9006. 개인정보
+140,./pyhtml/my_pysource.html,27,MY Python Source
+141,A0000001,11,파이썬 프로그래밍 기초
+142,A0000002,11,변수 및 연산자
+143,A0000003,11,데이터타입
+144,A0000004,11,기본제어구조(선택 및 반복)
+145,A0000006,11,리스트
 150,A0000007,11,튜플 / 딕셔너리
 160,A0000008,11,함수 1
 170,A0000009,11,함수 2
