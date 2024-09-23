@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>비전공자를 위한 첫 코딩 챌린지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div> 
+        <h3>08. CSS 배치 속성과 반응형 웹</h3>
+        <p>block  vs  inline-level element  </p>
+        <p>h1, span { border : 3px solid red; }    &lt;!-- h1, span 태그에서 경계선을 지정함 --> </p>
+        <p>h1 : block (block은 줄바꿈 일어남,  inline은 요소 크기만큼 공간 차지하여 가로 줄 차면 줄바꿈 이루어짐) </p>
+        <p>span : inline (속성만 잠시 바꿀 때) </p>
+        <p>display 속성을 변경하여 강제로 변경할 수도 있음  { display: inline; } </p>
+         
+        <p>박스 모델 </p>
+        <p>모든 HTML 요소에서 적용됨 </p>
+        <p>요소(element),  패딩(padding),  테두리(border),  마진(margin)  : 패딩과 마진은 투명색 </p>
+         
+        <p>브라우저 검사 기능을 통하여 속성 확인 가능함  (F12,  도구더보기-개발자도구) </p>
+         
+        <p>반응형 페이지 : 미디어쿼리 사용 : 접속하는 기기 해상도에 따라서 HTML과 CSS가 바뀌는 웹을 반응형 웹이라고 함 </p>
+        <p>@media (max-width: 1280px) { body { background-color: pink } }  &lt;!-- 너비가 1280px 이하인 경우 배경색이 핑크 --> </p>
+        <p>@media (max-width: 600px) { body { background-color: pink } }  &lt;!-- 위에서부터 적용, 위는 600~1280, 여기는 600이하 --> </p>
+    </div>
+
+</body>
+</html>

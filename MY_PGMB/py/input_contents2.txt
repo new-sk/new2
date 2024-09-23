@@ -371,3 +371,63 @@ Order,Key,gKey,Name
 470,../etc/etc_9004.html,28,Etc9004. KUDU
 480,../etc/etc_9005.html,28,Etc9005. P2E
 490,../etc/etc_9006.html,28,Etc9006. 개인정보
+3720,../movie/movie_0001.html,29,MOV0001. 20.12.27 찰리와 초콜릿 공장 (2005)
+3730,../movie/movie_0002.html,29,MOV0002. 20.12.31 베트맨 (1989)
+3740,../movie/movie_0003.html,29,MOV0003. 20.12.31 베트맨2 (1992)
+3750,../movie/movie_0004.html,29,MOV0004. 21.01.01 베트맨3 - 베트맨 포에버 (1995)
+3760,../movie/movie_0005.html,29,MOV0005. 21.01.04 베트맨4 - 베트맨 & 로빈 (1997)
+3770,../movie/movie_0006.html,29,MOV0006. 20.01.17 마녀를 잡아라 (2020)
+3780,../movie/movie_0007.html,29,MOV0007. 20.01.17 오 루시 (2017)
+3790,../movie/movie_0008.html,29,MOV0008. 20.01.30 스타 이즈 본 디 오리지널 (1954)
+3800,../movie/movie_0009.html,29,MOV0009. 20.01.30 어바웃 타임 (2013)
+3810,../movie/movie_0010.html,29,MOV0010. 20.05.21 나미야 잡화점의 기적 (2018)
+3820,../movie/movie_0011.html,29,MOV0011. 21.06.18 소울 (2020)
+3830,../movie/movie_0012.html,29,MOV0012. 21.06.18 My Girl (1991)
+3840,../movie/movie_0013.html,29,MOV0013. 21.10.16 신과함께 - 죄와벌 (2017)
+3850,../movie/movie_0014.html,29,MOV0014. 17.08.14 마션 (2015)
+3860,../movie/movie_0015.html,29,MOV0015. 22.02.21 인턴 (2015)
+3870,../movie/movie_0016.html,29,MOV0016. 20.10.20 날씨의 아이 (2019)
+3880,../movie/movie_0017.html,29,MOV0017. 22.11.09 서울역 (2016)
+3890,../movie/movie_0018.html,29,MOV0018. 22.11.13 알리타 (2018)
+3900,../movie/movie_0019.html,29,MOV0019. 22.11.14 아이 _ 로봇 (2004)        
+3910,../movie/movie_0020.html,29,MOV0020. 20.11.15 공각기동대 (1995)
+3920,../movie/movie_0021.html,29,MOV0021. 20.11.17 반도 (2020)
+3930,../movie/movie_0022.html,29,MOV0022. 20.11.11 부산행 (2016)
+3940,../movie/movie_0023.html,29,MOV0023. 20.12.07 카센터 (2019)
+3950,../movie/movie_0024.html,29,MOV0024. 20.12.07 인셉션 (2010)
+3960,../movie/movie_0025.html,29,MOV0025. 20.12.10 그래비티 (2013) 
+3970,../movie/movie_0026.html,29,MOV0026. 20.12.13 레미 : 집 없는 아이 (2018)
+3980,../movie/movie_0027.html,29,MOV0027. 20.12.25 Her (2013)
+3990,../movie/movie_0028.html,29,MOV0028. 20.12.25 라라랜드 (2016)
+4000,../movie/movie_0029.html,29,MOV0029. 20.12.25 크리스마스 캐롤 (1951)        
+4010,../movie/movie_0030.html,29,MOV0030. 21.02.13 베일리 어게인 (2017)        
+4020,../movie/movie_0031.html,29,MOV0031. 20.10.23 이상한 나라의 앨리스 (2010) / 거울나라 (2016)        
+4030,../study/study_0051.html,30,Study0051. DB
+4040,../study/study_0052.html,30,Study0052. VSC
+4050,https://openai.com/blog/chatgpt/,30,챗GPT
+4060,../MY_PGMB/pyhtml/index.html,30,MY PGM BLOG 2
+4070,../MY_PGMB/pyhtml/my2_schedule_output.html,30,MY Schedule
+4080,../MY_PGMB/pyhtml/my2_schedule_output2.html,30,MY Test Schedule
+4090,../my/my_0100.html,30,MY0100. MY 금융
+4100,../my/my_0110.html,30,MY0110. 금융
+4110,../my/my_0120.html,30,MY0120. 부동산
+4120,../my/my_0130.html,30,MY0130. 투자
+4130,../my/my_9997.html,30,MY9997. 투자원칙
+4140,../my/my_0200.html,30,MY0200. 노래
+4150,../my/my_0300.html,30,MY0300. 10분 요리
+4160,../my/my_0400.html,30,MY0400. MY BLOG
+4170,../my/my_0500.html,30,MY0500. 국어사전
+4180,../my/my_9998.html,30,MY9998. 무작정 기타 정리
+4190,../my/my_9999.html,30,MY9999. 무작정 경제 정리
+4200,../must/must_0098.html,31,Must0098. 하다보니
+4210,../must/must_0099.html,31,Must0099. 여기저기서
+4220,../must/must_0012.html,31,Must0012. CSS 애니메이션 만들기
+4230,../must/must_0001.html,31,Must0001. 나만의 코딩 목표 세우기
+4240,../must/must_0011.html,31,Must0011. 가상 선택자와 클래스
+4250,../must/must_0005.html,31,Must0005. HTML 특징 분석하기
+4260,../must/must_0010.html,31,Must0010. CSS 레이아웃 : 위치 지정
+4270,../must/must_0004.html,31,Must0004. 태그로 웹페이지 만들기
+4280,../must/must_0007.html,31,Must0007. CSS가 뭐지?
+4290,../must/must_0008.html,31,Must0008. CSS 배치 속성과 반응형 웹
+4300,../must/must_0009.html,31,Must0009. CSS 레이아웃 : 플렉스박스
+4310,../must/must_0013.html,31,Must0013. 깃/깃허브 배우기

@@ -96,7 +96,10 @@ for n_row in range(dc_shape[0]):                    # 1줄씩 읽으려고 함
   # 2. 중간 제목인 경우 : "T"로 시작하는 경우 (T 제외하게 출력함)            
   elif dc.loc[n_row,"Key"][0] == 'T':
     fw.write("<br>\n<h4>" + dc.loc[n_row,"Key"][1:] + "</h4>\n")                
-  # 3. 나머지는 PDF 파일로 생각함
+  # 3. 시작 http
+  elif dc.loc[n_row,"Key"][:4] == 'http':
+    fw.write("<p><a href=\"" + dc.loc[n_row,"Key"] + "\">" + dc.loc[n_row,"Name"] +"</a></p>\n")  
+  # 4. 나머지는 PDF 파일로 생각함
   else:
     fw.write("<p><a href=\"../contensts/" + dc.loc[n_row,"Key"] + ".pdf\">" + dc.loc[n_row,"Key"] + ". " + dc.loc[n_row,"Name"] +"</a></p>\n")  # PDF URL
 

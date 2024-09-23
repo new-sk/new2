@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>비전공자를 위한 첫 코딩 챌린지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div>
+        <h3>07. CSS가 뭐지?</h3>
+        <p>HTML과 CSS를 분리하는 이유 : 가동성과 효율성 높이기 위해서 </p>
+        <p>CSS 만들기</p>
+        <p>- 간단할 경우 : &lt;style> &lt;/style> 태그로 꾸미기 할 영역 지정</p>    
+        <p>- 대부분 별도 CSS 파일 만듦 : &lt;link rel="stylesheet" href="style.css"></p>
+        <br>
+        <p>&lt;style>  p { color: red; } &lt;/style></p>
+        <p>&lt;p style="color:red">난 빨간색이야 &lt;/p></p>   <!-- 이렇게 지정할 수도 있지만, 100개 라면, 1000개라면,,, -->
+        <br>
+        <p>구글링을 통해서 찾아서 하세요.</p>
+        <p> h1 {
+        <br>    font-size: 100px;
+        <br>    font-align: center;
+        <br>}   &lt;!-- h1의 글자는 크기가 100px인 가운데정렬 --> </p>
+ 
+        <br>
+        <p>CSS 선택자 </p>
+        <p><span class="sk_r">전체</span> 선택자 (*)
+        <br>   * { color: red; }  &lt;!-- 모든 내용을 빨간색으로 만듦 --> </p>
+        <p><span class="sk_r">유형</span> 선택자 (태그명칭) : 일반적으로 사용하는 것 
+        <br>    h1 { color: red; }  &lt;!-- h1만 빨간 글자로 --> </p>
+        <p><span class="sk_r">아이디(#) vs 클래스(.)</span> : 아이디는 고유한 값을 가짐 vs  하나의 클래스에 여러 태그 지정 가능, 하나의 태그에 여러 클래스 지정 가능
+        <br>    .my_class1 { color: red; }
+        <br>    &lt;p class="my_class1 my_class2">여러 태그를 하나의 클래스로 묶을 수 있고,  태그 하나에 여러 클래스 적용 가능&lt;/p> </p>
+        <p><span class="sk_r">복합</span> 선택자
+        <br>    조상자손선택자 (조상태그명칭 자손태그명칭)
+        <br>    div p { color: red }   &lt;!-- div 태그의 자손인 p 태그의 색깔을 빨간색으로 지정 --> </p>
+    </div>
+
+</body>
+</html>

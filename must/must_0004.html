@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>비전공자를 위한 첫 코딩 챌린지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div> 
+        <h3>04. 태그로 웹페이지 만들기 (1)</h3>
+        <p>- 시작/종료 태그 : &lt;태그명>  요소  &lt;/태그명></p>    
+        <p>- 시작 태그만   :  &lt;태그명  요소></p>
+        <br>
+        <p>h,  br/p/div/span,  link,  img,  form,  button,  ol/ul</p>
+        <p>- h1 ~ h6 : &lt:h1>&lt;/h1>, 6단계, 1은 하나만</p>
+        <P>- br : &lt;br> : 문단 내 줄바꿈 : 시작태그만</P>
+        <p>- p : 문단 나누기 : &lt:p>&lt;/p> </p>
+        <p>- div : 영역 나누기 : &lt:div>&lt;/div> </p> 
+        <p>- span : 줄바꾸지 않고 속성 바꿀 영역 지정 : &lt:span>&lt;/span> </p>
+        <p>- oi, ui : 순서 유무에 따라 : &lt;ol></ol>  /  &lt;ul> </ul> </p>
+        <br>
+        <p>- link : &lt;link rel="속성" href="파일 경로"> CSS나 PNG 파일 등과 현재 HTML 문서와의 관계 정의 </p>
+        <p>- a : &lt;a href="https://www.google.com">visit google&lt;/a> </p>
+        <p>- img : &lt;img src="경로" alt="설명" width="폭" height="높이">  원본의 축소보다는 썸네일 활용후 필요시 고화질 사용 : alt 스크린리더가 화면 글 읽을 때 사용 </p>
+    </div>
+
+    <div> 
+        <h3>04. 태그로 웹페이지 만들기 (2)</h3>
+        <p> <span class="sk_b">form</span> 사용자 입력 양식 </p>
+          index.html
+          <br>&lt;form action="myform.html> 
+          <br>&lt;label for="fname">First Name &lt;/label> 
+          <br>&lt;input type="text" id="fname">
+          <br>&lt;input type="submit">
+          <!-- 실제 코드 -->
+          <form action="myform.html"> 
+          <label for="fname">First Name</label> 
+          <input type="text" id="fname">
+          <input type="submit">
+          <br>
+          <br>myform.html
+          <br>&lt;p>제출되었습니다</p>
+          <br>
+        <p><span class="sk_b">button</span></p>
+        <p>  . type : button(누를 수 있는 버튼),  submit(form을 제출하는 버튼),  reset(form의 입력값을 초기화) </p>
+        <p>  . (submit 기능 유사하나) button 태그가 input 태그보다 스타일링에 더 자유로움 </p>
+            &lt;button type="submit" value="submit">Submit&lt;/button>
+          <!-- 실제 코드 -->
+          <br><button type="submit" value="submit">Submit</button>
+        
+    </div>
+
+</body>
+</html>
