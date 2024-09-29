@@ -364,7 +364,7 @@ for sCode in dfi['siCode']:
   my9_fname = '/my9_stock_out_' + sCode + '.txt'
   dfs = pd.read_csv(my_dir + my9_fname, dtype={'sCode': str})
   # 특정 날짜 정보만 취합하기
-  dfs = dfs[dfs['Date'].isin(['2024.09.06'])]
+  dfs = dfs[dfs['Date'].isin(['2024.09.27'])]
   dfall = pd.concat([dfall, dfs], ignore_index=True)
 
 # 취합정보 출력
