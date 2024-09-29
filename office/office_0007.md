@@ -5,6 +5,8 @@
 - 실행중으로 삭제가 안될때
   - Finder - 응용프로그램 - 유틸리티 - 활성상태보기 - CPU - [해당 프로그램 종료]
 
+<br>
+ 
 ## 화면캡처
  - Shift  +  Command  + 3  :  화면 전체 캡처
  - Shitf  +  Command  + 4. :  부분 화면 캡처
@@ -19,36 +21,28 @@
  
 ## 특수문자,  한자
 
-  -  특수문자 
-
-    . command + control + space 
+-  특수문자 
+    - command + control + space 
 
   - 한자 
-
-    . 한글 입력 : [caps lock]
-
-    . 한자 입력 : [option] + [Enter]
+    - 한글 입력 : [caps lock]
+    - 한자 입력 : [option] + [Enter]
 
 <br>
  
 ## 방향키, Copy&Paster
-    - Copy & Paste (19.04.16)
 
-      . command + x/c/v : cut/Copy/paste
+  - Copy & Paste (19.04.16)
+    - command + x/c/v : cut/Copy/paste
 
-    - 방향키 활용 (19.04.11)
+  - 방향키 활용 (19.04.11)
+    - fn + 방향키 : home, end, pgup, pgdown
 
-      . fn + 방향키 : home, end, pgup, pgdown
-
-    - 단어 삭제
-
-      . fn + delete : forward delete
-
-      . option + delete : 단어 삭제
-
-      . fn + option + delete : forward 단어 삭제
-
-      . command + delete : 한 줄 삭제
+  - 단어 삭제
+    - fn + delete : forward delete
+    - option + delete : 단어 삭제
+    - fn + option + delete : forward 단어 삭제
+    - command + delete : 한 줄 삭제
 
 <br>
  

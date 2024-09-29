@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>&#xb9e5; OS</title>
-            <style>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#xb9e5; OS</title>
+        <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -11,14 +11,47 @@
  *--------------------------------------------------------------------------------------------*/
 
 .vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only],
-.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
-.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+.vscode-light img[src$=\#gh-dark-mode-only] {
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
-            
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -39,106 +72,10 @@
     pointer-events: none;
 }
 </style>
-<style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
-}
-
-</style>
-<style>
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
-  }
-}
-
-</style>
-<style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
-}
-
-.markdown-alert>:first-child {
-  margin-top: 0
-}
-
-.markdown-alert>:last-child {
-  margin-bottom: 0
-}
-
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
-}
-
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
-
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
-}
-
-</style>
         
-        </head>
-        <body class="vscode-body vscode-light">
-            <h1 id="맥-os">맥 OS</h1>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="맥-os">맥 OS</h1>
 <h2 id="프로그램-삭제">프로그램 삭제</h2>
 <ul>
 <li>Finder - 응용프로그램 - [삭제할 응용프로그램 선택] - 마우스오른쪽/휴지통으로 이동</li>
@@ -148,6 +85,7 @@
 </ul>
 </li>
 </ul>
+<br>
 <h2 id="화면캡처">화면캡처</h2>
 <ul>
 <li>Shift  +  Command  + 3  :  화면 전체 캡처</li>
@@ -161,37 +99,45 @@
 <br>
 <h2 id="특수문자--한자">특수문자,  한자</h2>
 <ul>
-<li>특수문자</li>
-</ul>
-<pre><code>. command + control + space 
-</code></pre>
+<li>
+<p>특수문자</p>
 <ul>
+<li>command + control + space</li>
+</ul>
+</li>
 <li>
 <p>한자</p>
-<p>. 한글 입력 : [caps lock]</p>
-<p>. 한자 입력 : [option] + [Enter]</p>
+<ul>
+<li>한글 입력 : [caps lock]</li>
+<li>한자 입력 : [option] + [Enter]</li>
+</ul>
 </li>
 </ul>
 <br>
 <h2 id="방향키-copypaster">방향키, Copy&amp;Paster</h2>
-<pre><code>- Copy &amp; Paste (19.04.16)
-
-  . command + x/c/v : cut/Copy/paste
-
-- 방향키 활용 (19.04.11)
-
-  . fn + 방향키 : home, end, pgup, pgdown
-
-- 단어 삭제
-
-  . fn + delete : forward delete
-
-  . option + delete : 단어 삭제
-
-  . fn + option + delete : forward 단어 삭제
-
-  . command + delete : 한 줄 삭제
-</code></pre>
+<ul>
+<li>
+<p>Copy &amp; Paste (19.04.16)</p>
+<ul>
+<li>command + x/c/v : cut/Copy/paste</li>
+</ul>
+</li>
+<li>
+<p>방향키 활용 (19.04.11)</p>
+<ul>
+<li>fn + 방향키 : home, end, pgup, pgdown</li>
+</ul>
+</li>
+<li>
+<p>단어 삭제</p>
+<ul>
+<li>fn + delete : forward delete</li>
+<li>option + delete : 단어 삭제</li>
+<li>fn + option + delete : forward 단어 삭제</li>
+<li>command + delete : 한 줄 삭제</li>
+</ul>
+</li>
+</ul>
 <br>
 <h2 id="기타등등">기타등등</h2>
 <p>방문사용자 없애기 : 시스템 환경설정 - 사용자및그룹 - 왼쪽 하단 자물쇠 - 방문사용자에서 설정 변경 - 왼쪽 하단 자물쇠 원상태</p>
@@ -208,7 +154,7 @@
 손가락 세개로 좌/우 창 이동
 </code></pre>
 
-            
-            
-        </body>
-        </html>
+        
+        
+    </body>
+    </html>
