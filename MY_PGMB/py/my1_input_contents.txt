@@ -9,6 +9,7 @@ Order,Key,gKey,Name
 70,../office/office_0007.html,10,맥OS
 80,./conhtml/mpb_0001.html,11,인공지능의 역사
 90,./conhtml/mpb_0002.html,11,인공지능의 요소기술
+91,./conhtml/C2409291.html,28,MY PGM 
 92,./conhtml/C0000001.html,28,안과
 93,./conhtml/C0000002.html,28,노인내과
 94,./conhtml/C0000003.html,28,한국의 잃어버릴 30년 (박석중)

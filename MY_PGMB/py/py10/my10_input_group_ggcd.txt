@@ -1,4 +1,4 @@
-"Key","Name"
+"ggKey","ggName"
 "GG11","My STUDY"
 "GG12","기본 컴퓨터"
 "GG13","개발언어 "
