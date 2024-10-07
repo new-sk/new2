@@ -139,7 +139,6 @@ Order,Key,gKey,Name
 1110,../book/book_0107.html,26,107. The ART of 소울
 1260,../book/book_0090.html,26,090. 내가 사랑한 책
 850,T2024년,19,
-854,../book/book_0138.html,19,137. 아직도 악어와 악어새 이야기를 믿어
 855,../book/book_0137.html,19,137. 아직도 악어와 악어새 이야기를 믿어
 856,../book/book_0136.html,19,136. 주식투자 ETF로 시작하라 (작성중)
 857,../book/book_0135.html,19,135. 수학의 힘 (작성중)
@@ -433,3 +432,5 @@ Order,Key,gKey,Name
 3209,../must/must_0008.html,31,Must0008. CSS 배치 속성과 반응형 웹
 3210,../must/must_0009.html,31,Must0009. CSS 레이아웃 : 플렉스박스
 3211,../must/must_0013.html,31,Must0013. 깃/깃허브 배우기
+3131,A0000026,25,디지털전환_변화의 선두에 서다 (유덕수)
+854,../book/book_0138.html,19,138. 한권으로 읽는 나의 문화유산답사기

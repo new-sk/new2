@@ -6,7 +6,7 @@ Order,Key,gKey,Name
 40,../office/office_0004.html,10,파워포인트
 50,../office/office_0005.html,10,Sticky Notes
 60,../office/office_0006.html,10,윈도우
-3720,T메롱,10,
+3730,T메롱,10,
 70,../office/office_0007.html,10,맥OS
 80,./conhtml/mpb_0001.html,11,인공지능의 역사
 90,./conhtml/mpb_0002.html,11,인공지능의 요소기술
@@ -93,238 +93,240 @@ Order,Key,gKey,Name
 1320,../book/book_0118.html,18,118. 무조건 당신편
 1330,../book/book_0117.html,18,117. 너는 사람들을 도와주며 살고 싶니?
 1390,T2024년,19,
-1400,../book/book_0137.html,19,137. 아직도 악어와 악어새 이야기를 믿어
-1410,../book/book_0136.html,19,136. 주식투자 ETF로 시작하라 (작성중)
-1420,../book/book_0135.html,19,135. 수학의 힘 (작성중)
-1430,../book/book_0134.html,19,134. 미술관 출입증 (작성중)
-1440,../book/book_0133.html,19,133. 알고 가면 미술관엔 그림이 있다
-1450,../book/book_0132.html,19,132. 더 플로
-1460,../book/book_0131.html,19,131. 격차사회
-1470,../book/book_0130.html,19,130. 미술관에 간 심리학
-1480,../book/book_0129.html,19,129. AI시대의 고등교육
-1490,T2023년5월이후,19,
-1500,../book/book_0128.html,19,128. 10대를 위한 공정하다는 착각
-1510,../book/book_0127.html,19,127. 화가가 사랑한 나무들
-1520,../book/book_0126.html,19,126. 중학생 필독 시 (작성중)
-1530,../book/book_0125.html,19,125. 현명한 투자자 해제
-1540,../book/book_0124.html,19,124. 주식하는 마음
-1550,../book/book_0123.html,19,123. 거인의 어깨 2
-1560,../book/book_0122.html,19,122. 꼭 읽어야 할 시 369 (윤동주)
-1570,../book/book_0121.html,19,121. 거인의 어깨 1 
-1580,../book/book_0120.html,19,120. 세상의 모든 법칙
-1590,../book/book_0119.html,19,119. 너도 작가가 되고 싶니?
-1600,../book/book_0118.html,19,118. 무조건 당신편
-1610,../book/book_0117.html,19,117. 너는 사람들을 도와주며 살고 싶니?
-1620,T기존(2023.04 이전),19,
-1630,../book/book_0116.html,19,116. 그러니까 아무말도 하지마세요 (...)
-1640,../book/book_0115.html,19,115. 아인슈타인이 들려주는 상대성원리 이야기
-1650,../book/book_0114.html,19,114. 나는 누구 인가
-1660,../book/book_0111.html,19,111. 쫌 이상한 사람들
-1670,../book/book_0110.html,19,110. 새로운 가난이 온다
-1680,../book/book_0109.html,19,109. 함께 사는 세상 - 우리 아파트 이야기
-1690,../book/book_0107.html,19,107. The ART of 소울
-1700,../book/book_0106.html,19,106. 김유정
-1710,../book/book_0105.html,19,105. 하케의 동물 이야기 ###
-1720,../book/book_0104.html,19,104. 오감도 권태
-1730,../book/book_0103.html,19,103. 그 많던 싱아는 누가 다 먹었을까
-1740,../book/book_0101.html,19,101. 슬로리딩 _ 생각을 키우는 힘
-1750,../book/book_0100.html,19,100. 아들이 당신을 필요로 할 때
-1760,../book/book_0099.html,19,099. 슬로리딩 ###
-1770,../book/book_0098.html,19,098. 주머니 속의 가을
-1780,../book/book_0097.html,19,097. 잘했어요 노트 ###
-1790,../book/book_0096.html,19,096. 그림 그리는 새
-1800,../book/book_0094.html,19,094. 논어 _ 직장인의 미래를 논하다
-1810,../book/book_0093.html,19,093. 내 여자의 열매
-1820,../book/book_0092.html,19,092. 나는 프로그래머다 2
-1830,../book/book_0091.html,19,091. 나는 프로그래머다
-1840,../book/book_0090.html,19,090. 내가 사랑한 책
-1850,../book/book_0089.html,19,089. 책등에 베이다
-1860,../book/book_0088.html,19,088. 뇌 _ 인간을 읽다
-1870,../book/book_0087.html,19,087. 같은 말도 듣기 좋게
-1880,../book/book_0086.html,19,086. 그렇게 물어보면 원하는 답을 들을 수 없습니다
-1890,../book/book_0085.html,19,085. 공자 _ 최후의 20년
-1900,../book/book_0084.html,19,084. 낭송 사자소학
-1910,../book/book_0083.html,19,083. 아빠의 인성교육
-1920,../book/book_0082.html,19,082. 소리치지 않고 때리지 않고 ###
-1930,../book/book_0081.html,19,081. 생각에 관한 생각 - 2. 휴리스틱과 편향 (‘Heuristics and Biases)
-1940,../book/book_0080.html,19,080. 생각에 관한 생각 - 1.두 가지 시스템
-1950,../book/book_0079.html,19,079. 블랙리스트
-1960,../book/book_0078.html,19,078. 자전거 못 타는 아이
-1970,../book/book_0077.html,19,077. 얼굴 빨개지는 아이
-1980,../book/book_0076.html,19,076. 타나토노트 2
-1990,../book/book_0075.html,19,075. 타나토노트 1
-2000,../book/book_0074.html,19,074. 가난의 힘
-2010,../book/book_0073.html,19,073. 중학교과서 고전읽기 1/2
-2020,../book/book_0072.html,19,072. 중학교과서 고전읽기 2/2
-2030,../book/book_0071.html,19,071. 국어시간에 수필 읽기 3
-2040,../book/book_0070.html,19,070. 보수주의자의 양심
-2050,../book/book_0069.html,19,069. 나는 왜 네가 힘들까 괜찮아
-2060,../book/book_0068.html,19,068. 미움받아도 괜찮아 ###
-2070,../book/book_0067.html,19,067. 인공지능에 도덕엔진을 탑재하는 법
-2080,../book/book_0066.html,19,066. 독도고래
-2090,../book/book_0065.html,19,065. 질문이 있는 식탁 유대인 교육의 비밀
-2100,../book/book_0064.html,19,064. 국어 시간에 수필 읽기 2
-2110,../book/book_0063.html,19,063. 초격차
-2120,../book/book_0062.html,19,062. 사축일기
-2130,../book/book_0061.html,19,061. 국어 시간에 수필 읽기 1
-2140,../book/book_0060.html,19,060. 폭풍의 언덕
-2150,../book/book_0059.html,19,059. 아버지는 그렇게 작아져간다
-2160,../book/book_0058.html,19,058. 소멸세계
-2170,../book/book_0057.html,19,057. 편의점 인간
-2180,../book/book_0056.html,19,056. 은색의 노래
-2190,../book/book_0055.html,19,055. 어린이를 위한 그리스 신화 교실
-2200,../book/book_0053.html,19,053. 엄마는 파업중
-2210,../book/book_0052.html,19,052. 보노보노처럼 살다니 다행이야
-2220,../book/book_0051.html,19,051. 행복도 선택이다
-2230,../book/book_0050.html,19,050. 82년생 김지영
-2240,../book/book_0048.html,19,048. 사람은 누구나 폭탄이다
-2250,../book/book_0047.html,19,047. 그렇습니까? 기린입니다.
-2260,../book/book_0046.html,19,046. 처음 인문학
-2270,../book/book_0045.html,19,045. 거북이는 왜 달리기 경주를 했을까?
-2280,../book/book_0044.html,19,044. 다섯개의 사다리
-2290,../book/book_0043.html,19,043. 데이터과학과 알고리즘
-2300,../book/book_0042.html,19,042. 통계적으로 생각하기
-2310,../book/book_0041.html,19,041. 나도 노벨상이 타고 싶다
-2320,../book/book_0040.html,19,040. 저녁까지만 거짓말하기로 한 날
-2330,../book/book_0039.html,19,039. 세상에서 가장 슬픈 여행자 _ 난민
-2340,../book/book_0038.html,19,038. 포기하지마
-2350,../book/book_0037.html,19,037. 꽃할배
-2360,../book/book_0036.html,19,036. 굿바이 내비
-2370,../book/book_0035.html,19,035. 우동한그릇
-2380,../book/book_0034.html,19,034. 한국인은 미쳤다
-2390,../book/book_0033.html,19,033. 느려도 좋아 _ 달라도 좋아
-2400,../book/book_0032.html,19,032. 빅데이터를 지배하는 통계의 힘
-2410,../book/book_0031.html,19,031. 당신이 있어 행복합니다
-2420,../book/book_0030.html,19,030. 지적 대화를 위한 넓고 얕은 지식
-2430,../book/book_0029.html,19,029. 데이터가 보인다
-2440,../book/book_0028.html,19,028. 와우프로젝트
-2450,../book/book_0025.html,19,025. 치유의 인문학
-2460,../book/book_0024.html,19,024. 고함쟁이 엄마
-2470,../book/book_0023.html,19,023. 괴짜처럼 생각하라
-2480,../book/book_0022.html,19,022. 사람을 읽는 힘 DiSC
-2490,../book/book_0021.html,19,021. 위대한 개츠비
-2500,../book/book_0020.html,19,020. When the Future Belongs
-2510,../book/book_0018.html,19,018. 평사원 리더
-2520,../book/book_0017.html,19,017. 빚더미가 몰려온다
-2530,../book/book_0016.html,19,016. 불황10년
-2540,../book/book_0015.html,19,015. 신뢰의 속도
-2550,../book/book_0014.html,19,014. 동물농장
-2560,../book/book_0013.html,19,013. 목표관리&실행
-2570,../book/book_0012.html,19,012. 경영학 콘서트
-2580,../book/book_0011.html,19,011. 일본을 통해본 부동산 10년 대폭락 시나리오
-2590,../book/book_0010.html,19,010. 육아는 과학이다
-2600,../book/book_0009.html,19,009. 이코노미스트 2010 세계경제전망
-2610,../book/book_0008.html,19,008. 세계에서 빈곤을 없애는 30가지 방법
-2620,../book/book_0007.html,19,007. 경제성장이 안되면 우리는 풍요롭지 못할 것인가
-2630,../book/book_0006.html,19,006. 망각의 힘
-2640,../book/book_0005.html,19,005. 실용주의 프로그래머
-2650,../book/book_0004.html,19,004. 커피와 샌드위치
-2660,../book/book_0003.html,19,003. 성취심리
-2670,../book/book_0002.html,19,002. 메모의 기술
-2680,../book/book_0001.html,19,001. 칭찬은 고래를 춤추게 한다
-2690,../study/study_0101.html,20,23년 시험일정
-2700,T1장 전사아키텍처 이해,20,
-2710,../study/study_0102.html,20,1-1 전사아키텍처 개요
-2720,../study/study_0103.html,20,1-2 전사아키텍처 구축
-2730,../study/study_0104.html,20,1-3 전사아키텍처 관리 및 활용
-2740,T2장 데이터 품질 관리 이해 (DAP),20,
-2750,../study/study_0115.html,20,2-1. 데이터 이해
-2760,../study/study_0116.html,20,2-2. 데이터 구조 이해
-2770,../study/study_0117.html,20,2-3. 데이터 관리 프로세스 이해
-2780,T3장 데이터 요건 분석,20,
-2790,../study/study_0118.html,20,3-1. 정보 요구 사항 개요
-2800,../study/study_0119.html,20,3-2. 정보 요구 사항 조사
-2810,../study/study_0120.html,20,3-3. 정보 요구 사항 분석
-2820,../study/study_0121.html,20,3-4. 정보 요구 검증
-2830,T4장 데이터 표준화,20,
-2840,../study/study_0112.html,20,4-1. 데이터 표준화 개요
-2850,../study/study_0113.html,20,4-2. 데이터 표준 수립
-2860,../study/study_0114.html,20,4-3. 데이터 표준 관리
-2870,T5장 데이터 모델링,20,
-2880,../study/study_0108.html,20,5-1. 데이터 모델링 이해
-2890,../study/study_0109.html,20,5-2. 개념 데이터 모델링
-2900,../study/study_0110.html,20,5-3. 논리 데이터 모델링
-2910,../study/study_0111.html,20,5-4. 물리 데이터 모델링
-2920,T6장 데이터베이스 설계와 이용 (DAP),20,
-2930,../study/study_0105.html,20,6-1. 데이터베이스 설계
-2940,../study/study_0106.html,20,6-2. 데이터베이스 이용
-2950,../study/study_0107.html,20,6-3. 데이터베이스 성능 개선
-2960,../study/study_0001.html,21,0.소프트웨어 자산관리사 개괄 (SW자산관리사)
-2970,../study/study_0002.html,21,0.1 SW백문백답 (SW자산관리사)
-2980,../study/study_0003.html,21,1. 소프트웨어 일반 (SW자산관리사)
-2990,../study/study_0004.html,21,2. SW라이선스 (SW자산관리사)
-3000,../study/study_0005.html,21,2.X 주요기업 라이선스 정책 (작성중 2/6) (SW자산관리사)
-3010,../study/study_0006.html,21,3.1 SW의 법적 보호 (SW자산관리사)
-3020,../study/study_0007.html,21,3.2 저작물과 저작자 (SW자산관리사)
-3030,../study/study_0008.html,21,3.3 저작권의 보호와 이용 (SW자산관리사)
-3040,../study/study_0009.html,21,3.4 저작권의 제한과 공정한 이용 (SW자산관리사)
-3050,../study/study_0010.html,21,3.5 저작권의 침해와 구제 (SW자산관리사)
-3060,../study/study_0011.html,21,4.1 소프트웨어 자산관리 일반 (SW자산관리사)
-3070,../study/study_0012.html,21,4.2 SAM의 구현 (SW자산관리사)
-3080,../study/study_0013.html,21,4.3 SAM 프로세스 (SW자산관리사)
-3090,../study/study_0014.html,21,4.4 SAM 라이프사이클 (SW자산관리사)
-3100,../study/study_0015.html,21,4.5 SAM의 적용 서식 (SW자산관리사)
-3110,../study/study_0031.html,22,hello world
-3120,../study/study_0032.html,22,기초문법 (h / a / img / ul / ol / li)
-3130,../study/study_0033.html,22,구조
-3140,../study/study_0034.html,22,css
-3150,../study/study_0035.html,22,선택자
-3160,../study/study_0036.html,22,css 상속
-3170,../study/study_0037.html,22,css 우선순위
-3180,../study/study_0038.html,22,css 주요속성
-3190,../study/study_0039.html,22,Transform
-3200,../study/study_0040.html,22,Transition
-3210,../study/study_0041.html,22,Animation changeWidth
-3220,../study/study_0042.html,22,Animation rotation
-3230,../study/study_0043.html,22,3-5
-3240,../study/study_0044.html,22,3-6
-3250,../study/study_0045.html,22,미디어쿼리
-3260,../study/study_0046.html,22,뷰포트
-3270,../study/study_0081.html,23,git / github
-3280,../study/study_0082.html,23,Git / GitHub 첫 사용하기
-3290,../study/study_0083.html,23,웹호스팅
-3300,../study/study_0084.html,23,Git 통합중 : 삭제 예정
-3310,../study/study_0085.html,23,Git Study : 0.빠른 실습
-3320,../study/study_0086.html,23,Git Study : 1. ~ (작성중)
-3330,../study/study_0087.html,23,Git Study : 6. 기본 명령어 CLI
-3340,../study/study_0088.html,23,Git Study : 7. 브랜치 CLI
-3350,../study/study_0089.html,23,Git File
-3360,TR restart 2019,24,
-3370,../study/study_0061.html,24,R 리스타트
-3380,../study/study_0062.html,24,R 마크다운출력
-3390,../study/study_0063.html,24,일정관리1
-3400,../study/study_0064.html,24,일정관리2
-3410,../study/study_0065.html,24,igraph in R
-3420,../study/study_0066.html,24,R Markdown my graph
-3430,T빅데이터 분석도구 R프로그래밍,24,
-3440,../big/big_0011.html,24,1장 시작하기
-3450,../big/big_0012.html,24,2장 벡터
-3460,../big/big_0013.html,24,3장 행렬과 배열
-3470,../big/big_0014.html,24,4장 리스트
-3480,../big/big_0015.html,24,5장 데이터프레임
-3490,../big/big_0006.html,24,6장 팩터와 테이블
-3500,../big/big_0017.html,24,7장 R프로그래밍구조
-3510,../big/big_0018.html,24,8장 R에서 수학과 시뮬레이션하기
-3520,TDoR,24,
-3530,../big/big_0021.html,24,DoR 01.안녕R
-3540,../big/big_0022.html,24,DoR 04.데이터프레임
-3550,../big/big_0023.html,24,DoR 06.자유자재로 데이터 가공하기
-3560,../big/big_0024.html,24,DoR 07.데이터정제
-3570,T빅데이터 2,24,
-3580,../big/big_0031.html,24,2장 T검정 및 비모수검정
-3590,../big/big_0032.html,24,3장 게으른 학습 최근접 이웃을 사용한 분류
-3600,../big/big_0033.html,24,4장 확률론적 학습 나이브 베이즈를 사용한 분류
-3610,../big/big_0034.html,24,5장 분할정복 결정트리와 규칙을 사용한 분류
-3620,../big/big_0035.html,24,10.11장 모델 성능 평가 및 향상
-3630,../docu/docu_0003.html,25,4차인간 (EBS 다큐프라임) (18.06.09) 
-3640,../docu/docu_0004.html,25,4차 산업혁명시대 교육대혁명 (EBS 다큐프라임) (17.09.18) 
-3650,../etc/etc_7001.html,25,4차산업혁명 심리학으로 말하다
-3660,../etc/etc_7002.html,25,자동화 공장 사람이 사라진 공장
-3670,../etc/etc_7003.html,25,인공지능을 넘어 초지능으로
-3680,../etc/etc_7005.html,25,처음 시작하는 데이터분석 _ 엑셀
-3690,../etc/etc_7006.html,25,디지털 리터러시
-3700,../etc/etc_9001.html,25,R함수
-3710,../etc/etc_9002.html,25,RPA세미나 (19.03.12)
+1400,../book/book_0138.html,19,138. 한권으로 읽는 나의 문화유산답사기
+1410,../book/book_0137.html,19,137. 아직도 악어와 악어새 이야기를 믿어
+1420,../book/book_0136.html,19,136. 주식투자 ETF로 시작하라 (작성중)
+1430,../book/book_0135.html,19,135. 수학의 힘 (작성중)
+1440,../book/book_0134.html,19,134. 미술관 출입증 (작성중)
+1450,../book/book_0133.html,19,133. 알고 가면 미술관엔 그림이 있다
+1460,../book/book_0132.html,19,132. 더 플로
+1470,../book/book_0131.html,19,131. 격차사회
+1480,../book/book_0130.html,19,130. 미술관에 간 심리학
+1490,../book/book_0129.html,19,129. AI시대의 고등교육
+1500,T2023년5월이후,19,
+1510,../book/book_0128.html,19,128. 10대를 위한 공정하다는 착각
+1520,../book/book_0127.html,19,127. 화가가 사랑한 나무들
+1530,../book/book_0126.html,19,126. 중학생 필독 시 (작성중)
+1540,../book/book_0125.html,19,125. 현명한 투자자 해제
+1550,../book/book_0124.html,19,124. 주식하는 마음
+1560,../book/book_0123.html,19,123. 거인의 어깨 2
+1570,../book/book_0122.html,19,122. 꼭 읽어야 할 시 369 (윤동주)
+1580,../book/book_0121.html,19,121. 거인의 어깨 1 
+1590,../book/book_0120.html,19,120. 세상의 모든 법칙
+1600,../book/book_0119.html,19,119. 너도 작가가 되고 싶니?
+1610,../book/book_0118.html,19,118. 무조건 당신편
+1620,../book/book_0117.html,19,117. 너는 사람들을 도와주며 살고 싶니?
+1630,T기존(2023.04 이전),19,
+1640,../book/book_0116.html,19,116. 그러니까 아무말도 하지마세요 (...)
+1650,../book/book_0115.html,19,115. 아인슈타인이 들려주는 상대성원리 이야기
+1660,../book/book_0114.html,19,114. 나는 누구 인가
+1670,../book/book_0111.html,19,111. 쫌 이상한 사람들
+1680,../book/book_0110.html,19,110. 새로운 가난이 온다
+1690,../book/book_0109.html,19,109. 함께 사는 세상 - 우리 아파트 이야기
+1700,../book/book_0107.html,19,107. The ART of 소울
+1710,../book/book_0106.html,19,106. 김유정
+1720,../book/book_0105.html,19,105. 하케의 동물 이야기 ###
+1730,../book/book_0104.html,19,104. 오감도 권태
+1740,../book/book_0103.html,19,103. 그 많던 싱아는 누가 다 먹었을까
+1750,../book/book_0101.html,19,101. 슬로리딩 _ 생각을 키우는 힘
+1760,../book/book_0100.html,19,100. 아들이 당신을 필요로 할 때
+1770,../book/book_0099.html,19,099. 슬로리딩 ###
+1780,../book/book_0098.html,19,098. 주머니 속의 가을
+1790,../book/book_0097.html,19,097. 잘했어요 노트 ###
+1800,../book/book_0096.html,19,096. 그림 그리는 새
+1810,../book/book_0094.html,19,094. 논어 _ 직장인의 미래를 논하다
+1820,../book/book_0093.html,19,093. 내 여자의 열매
+1830,../book/book_0092.html,19,092. 나는 프로그래머다 2
+1840,../book/book_0091.html,19,091. 나는 프로그래머다
+1850,../book/book_0090.html,19,090. 내가 사랑한 책
+1860,../book/book_0089.html,19,089. 책등에 베이다
+1870,../book/book_0088.html,19,088. 뇌 _ 인간을 읽다
+1880,../book/book_0087.html,19,087. 같은 말도 듣기 좋게
+1890,../book/book_0086.html,19,086. 그렇게 물어보면 원하는 답을 들을 수 없습니다
+1900,../book/book_0085.html,19,085. 공자 _ 최후의 20년
+1910,../book/book_0084.html,19,084. 낭송 사자소학
+1920,../book/book_0083.html,19,083. 아빠의 인성교육
+1930,../book/book_0082.html,19,082. 소리치지 않고 때리지 않고 ###
+1940,../book/book_0081.html,19,081. 생각에 관한 생각 - 2. 휴리스틱과 편향 (‘Heuristics and Biases)
+1950,../book/book_0080.html,19,080. 생각에 관한 생각 - 1.두 가지 시스템
+1960,../book/book_0079.html,19,079. 블랙리스트
+1970,../book/book_0078.html,19,078. 자전거 못 타는 아이
+1980,../book/book_0077.html,19,077. 얼굴 빨개지는 아이
+1990,../book/book_0076.html,19,076. 타나토노트 2
+2000,../book/book_0075.html,19,075. 타나토노트 1
+2010,../book/book_0074.html,19,074. 가난의 힘
+2020,../book/book_0073.html,19,073. 중학교과서 고전읽기 1/2
+2030,../book/book_0072.html,19,072. 중학교과서 고전읽기 2/2
+2040,../book/book_0071.html,19,071. 국어시간에 수필 읽기 3
+2050,../book/book_0070.html,19,070. 보수주의자의 양심
+2060,../book/book_0069.html,19,069. 나는 왜 네가 힘들까 괜찮아
+2070,../book/book_0068.html,19,068. 미움받아도 괜찮아 ###
+2080,../book/book_0067.html,19,067. 인공지능에 도덕엔진을 탑재하는 법
+2090,../book/book_0066.html,19,066. 독도고래
+2100,../book/book_0065.html,19,065. 질문이 있는 식탁 유대인 교육의 비밀
+2110,../book/book_0064.html,19,064. 국어 시간에 수필 읽기 2
+2120,../book/book_0063.html,19,063. 초격차
+2130,../book/book_0062.html,19,062. 사축일기
+2140,../book/book_0061.html,19,061. 국어 시간에 수필 읽기 1
+2150,../book/book_0060.html,19,060. 폭풍의 언덕
+2160,../book/book_0059.html,19,059. 아버지는 그렇게 작아져간다
+2170,../book/book_0058.html,19,058. 소멸세계
+2180,../book/book_0057.html,19,057. 편의점 인간
+2190,../book/book_0056.html,19,056. 은색의 노래
+2200,../book/book_0055.html,19,055. 어린이를 위한 그리스 신화 교실
+2210,../book/book_0053.html,19,053. 엄마는 파업중
+2220,../book/book_0052.html,19,052. 보노보노처럼 살다니 다행이야
+2230,../book/book_0051.html,19,051. 행복도 선택이다
+2240,../book/book_0050.html,19,050. 82년생 김지영
+2250,../book/book_0048.html,19,048. 사람은 누구나 폭탄이다
+2260,../book/book_0047.html,19,047. 그렇습니까? 기린입니다.
+2270,../book/book_0046.html,19,046. 처음 인문학
+2280,../book/book_0045.html,19,045. 거북이는 왜 달리기 경주를 했을까?
+2290,../book/book_0044.html,19,044. 다섯개의 사다리
+2300,../book/book_0043.html,19,043. 데이터과학과 알고리즘
+2310,../book/book_0042.html,19,042. 통계적으로 생각하기
+2320,../book/book_0041.html,19,041. 나도 노벨상이 타고 싶다
+2330,../book/book_0040.html,19,040. 저녁까지만 거짓말하기로 한 날
+2340,../book/book_0039.html,19,039. 세상에서 가장 슬픈 여행자 _ 난민
+2350,../book/book_0038.html,19,038. 포기하지마
+2360,../book/book_0037.html,19,037. 꽃할배
+2370,../book/book_0036.html,19,036. 굿바이 내비
+2380,../book/book_0035.html,19,035. 우동한그릇
+2390,../book/book_0034.html,19,034. 한국인은 미쳤다
+2400,../book/book_0033.html,19,033. 느려도 좋아 _ 달라도 좋아
+2410,../book/book_0032.html,19,032. 빅데이터를 지배하는 통계의 힘
+2420,../book/book_0031.html,19,031. 당신이 있어 행복합니다
+2430,../book/book_0030.html,19,030. 지적 대화를 위한 넓고 얕은 지식
+2440,../book/book_0029.html,19,029. 데이터가 보인다
+2450,../book/book_0028.html,19,028. 와우프로젝트
+2460,../book/book_0025.html,19,025. 치유의 인문학
+2470,../book/book_0024.html,19,024. 고함쟁이 엄마
+2480,../book/book_0023.html,19,023. 괴짜처럼 생각하라
+2490,../book/book_0022.html,19,022. 사람을 읽는 힘 DiSC
+2500,../book/book_0021.html,19,021. 위대한 개츠비
+2510,../book/book_0020.html,19,020. When the Future Belongs
+2520,../book/book_0018.html,19,018. 평사원 리더
+2530,../book/book_0017.html,19,017. 빚더미가 몰려온다
+2540,../book/book_0016.html,19,016. 불황10년
+2550,../book/book_0015.html,19,015. 신뢰의 속도
+2560,../book/book_0014.html,19,014. 동물농장
+2570,../book/book_0013.html,19,013. 목표관리&실행
+2580,../book/book_0012.html,19,012. 경영학 콘서트
+2590,../book/book_0011.html,19,011. 일본을 통해본 부동산 10년 대폭락 시나리오
+2600,../book/book_0010.html,19,010. 육아는 과학이다
+2610,../book/book_0009.html,19,009. 이코노미스트 2010 세계경제전망
+2620,../book/book_0008.html,19,008. 세계에서 빈곤을 없애는 30가지 방법
+2630,../book/book_0007.html,19,007. 경제성장이 안되면 우리는 풍요롭지 못할 것인가
+2640,../book/book_0006.html,19,006. 망각의 힘
+2650,../book/book_0005.html,19,005. 실용주의 프로그래머
+2660,../book/book_0004.html,19,004. 커피와 샌드위치
+2670,../book/book_0003.html,19,003. 성취심리
+2680,../book/book_0002.html,19,002. 메모의 기술
+2690,../book/book_0001.html,19,001. 칭찬은 고래를 춤추게 한다
+2700,../study/study_0101.html,20,23년 시험일정
+2710,T1장 전사아키텍처 이해,20,
+2720,../study/study_0102.html,20,1-1 전사아키텍처 개요
+2730,../study/study_0103.html,20,1-2 전사아키텍처 구축
+2740,../study/study_0104.html,20,1-3 전사아키텍처 관리 및 활용
+2750,T2장 데이터 품질 관리 이해 (DAP),20,
+2760,../study/study_0115.html,20,2-1. 데이터 이해
+2770,../study/study_0116.html,20,2-2. 데이터 구조 이해
+2780,../study/study_0117.html,20,2-3. 데이터 관리 프로세스 이해
+2790,T3장 데이터 요건 분석,20,
+2800,../study/study_0118.html,20,3-1. 정보 요구 사항 개요
+2810,../study/study_0119.html,20,3-2. 정보 요구 사항 조사
+2820,../study/study_0120.html,20,3-3. 정보 요구 사항 분석
+2830,../study/study_0121.html,20,3-4. 정보 요구 검증
+2840,T4장 데이터 표준화,20,
+2850,../study/study_0112.html,20,4-1. 데이터 표준화 개요
+2860,../study/study_0113.html,20,4-2. 데이터 표준 수립
+2870,../study/study_0114.html,20,4-3. 데이터 표준 관리
+2880,T5장 데이터 모델링,20,
+2890,../study/study_0108.html,20,5-1. 데이터 모델링 이해
+2900,../study/study_0109.html,20,5-2. 개념 데이터 모델링
+2910,../study/study_0110.html,20,5-3. 논리 데이터 모델링
+2920,../study/study_0111.html,20,5-4. 물리 데이터 모델링
+2930,T6장 데이터베이스 설계와 이용 (DAP),20,
+2940,../study/study_0105.html,20,6-1. 데이터베이스 설계
+2950,../study/study_0106.html,20,6-2. 데이터베이스 이용
+2960,../study/study_0107.html,20,6-3. 데이터베이스 성능 개선
+2970,../study/study_0001.html,21,0.소프트웨어 자산관리사 개괄 (SW자산관리사)
+2980,../study/study_0002.html,21,0.1 SW백문백답 (SW자산관리사)
+2990,../study/study_0003.html,21,1. 소프트웨어 일반 (SW자산관리사)
+3000,../study/study_0004.html,21,2. SW라이선스 (SW자산관리사)
+3010,../study/study_0005.html,21,2.X 주요기업 라이선스 정책 (작성중 2/6) (SW자산관리사)
+3020,../study/study_0006.html,21,3.1 SW의 법적 보호 (SW자산관리사)
+3030,../study/study_0007.html,21,3.2 저작물과 저작자 (SW자산관리사)
+3040,../study/study_0008.html,21,3.3 저작권의 보호와 이용 (SW자산관리사)
+3050,../study/study_0009.html,21,3.4 저작권의 제한과 공정한 이용 (SW자산관리사)
+3060,../study/study_0010.html,21,3.5 저작권의 침해와 구제 (SW자산관리사)
+3070,../study/study_0011.html,21,4.1 소프트웨어 자산관리 일반 (SW자산관리사)
+3080,../study/study_0012.html,21,4.2 SAM의 구현 (SW자산관리사)
+3090,../study/study_0013.html,21,4.3 SAM 프로세스 (SW자산관리사)
+3100,../study/study_0014.html,21,4.4 SAM 라이프사이클 (SW자산관리사)
+3110,../study/study_0015.html,21,4.5 SAM의 적용 서식 (SW자산관리사)
+3120,../study/study_0031.html,22,hello world
+3130,../study/study_0032.html,22,기초문법 (h / a / img / ul / ol / li)
+3140,../study/study_0033.html,22,구조
+3150,../study/study_0034.html,22,css
+3160,../study/study_0035.html,22,선택자
+3170,../study/study_0036.html,22,css 상속
+3180,../study/study_0037.html,22,css 우선순위
+3190,../study/study_0038.html,22,css 주요속성
+3200,../study/study_0039.html,22,Transform
+3210,../study/study_0040.html,22,Transition
+3220,../study/study_0041.html,22,Animation changeWidth
+3230,../study/study_0042.html,22,Animation rotation
+3240,../study/study_0043.html,22,3-5
+3250,../study/study_0044.html,22,3-6
+3260,../study/study_0045.html,22,미디어쿼리
+3270,../study/study_0046.html,22,뷰포트
+3280,../study/study_0081.html,23,git / github
+3290,../study/study_0082.html,23,Git / GitHub 첫 사용하기
+3300,../study/study_0083.html,23,웹호스팅
+3310,../study/study_0084.html,23,Git 통합중 : 삭제 예정
+3320,../study/study_0085.html,23,Git Study : 0.빠른 실습
+3330,../study/study_0086.html,23,Git Study : 1. ~ (작성중)
+3340,../study/study_0087.html,23,Git Study : 6. 기본 명령어 CLI
+3350,../study/study_0088.html,23,Git Study : 7. 브랜치 CLI
+3360,../study/study_0089.html,23,Git File
+3370,TR restart 2019,24,
+3380,../study/study_0061.html,24,R 리스타트
+3390,../study/study_0062.html,24,R 마크다운출력
+3400,../study/study_0063.html,24,일정관리1
+3410,../study/study_0064.html,24,일정관리2
+3420,../study/study_0065.html,24,igraph in R
+3430,../study/study_0066.html,24,R Markdown my graph
+3440,T빅데이터 분석도구 R프로그래밍,24,
+3450,../big/big_0011.html,24,1장 시작하기
+3460,../big/big_0012.html,24,2장 벡터
+3470,../big/big_0013.html,24,3장 행렬과 배열
+3480,../big/big_0014.html,24,4장 리스트
+3490,../big/big_0015.html,24,5장 데이터프레임
+3500,../big/big_0006.html,24,6장 팩터와 테이블
+3510,../big/big_0017.html,24,7장 R프로그래밍구조
+3520,../big/big_0018.html,24,8장 R에서 수학과 시뮬레이션하기
+3530,TDoR,24,
+3540,../big/big_0021.html,24,DoR 01.안녕R
+3550,../big/big_0022.html,24,DoR 04.데이터프레임
+3560,../big/big_0023.html,24,DoR 06.자유자재로 데이터 가공하기
+3570,../big/big_0024.html,24,DoR 07.데이터정제
+3580,T빅데이터 2,24,
+3590,../big/big_0031.html,24,2장 T검정 및 비모수검정
+3600,../big/big_0032.html,24,3장 게으른 학습 최근접 이웃을 사용한 분류
+3610,../big/big_0033.html,24,4장 확률론적 학습 나이브 베이즈를 사용한 분류
+3620,../big/big_0034.html,24,5장 분할정복 결정트리와 규칙을 사용한 분류
+3630,../big/big_0035.html,24,10.11장 모델 성능 평가 및 향상
+3640,../docu/docu_0003.html,25,4차인간 (EBS 다큐프라임) (18.06.09) 
+3650,../docu/docu_0004.html,25,4차 산업혁명시대 교육대혁명 (EBS 다큐프라임) (17.09.18) 
+3660,../etc/etc_7001.html,25,4차산업혁명 심리학으로 말하다
+3670,../etc/etc_7002.html,25,자동화 공장 사람이 사라진 공장
+3680,../etc/etc_7003.html,25,인공지능을 넘어 초지능으로
+3690,../etc/etc_7005.html,25,처음 시작하는 데이터분석 _ 엑셀
+3700,../etc/etc_7006.html,25,디지털 리터러시
+3710,../etc/etc_9001.html,25,R함수
+3720,../etc/etc_9002.html,25,RPA세미나 (19.03.12)
+4340,A0000026,25,디지털전환_변화의 선두에 서다 (유덕수)
 1340,../book/book_0133.html,26,133. 알고 가면 미술관엔 그림이 있다
 1350,../book/book_0130.html,26,130. 미술관에 간 심리학
 1360,../book/book_0127.html,26,127. 화가가 사랑한 나무들
@@ -372,63 +374,63 @@ Order,Key,gKey,Name
 480,../etc/etc_9004.html,28,Etc9004. KUDU
 490,../etc/etc_9005.html,28,Etc9005. P2E
 500,../etc/etc_9006.html,28,Etc9006. 개인정보
-3730,../movie/movie_0001.html,29,MOV0001. 20.12.27 찰리와 초콜릿 공장 (2005)
-3740,../movie/movie_0002.html,29,MOV0002. 20.12.31 베트맨 (1989)
-3750,../movie/movie_0003.html,29,MOV0003. 20.12.31 베트맨2 (1992)
-3760,../movie/movie_0004.html,29,MOV0004. 21.01.01 베트맨3 - 베트맨 포에버 (1995)
-3770,../movie/movie_0005.html,29,MOV0005. 21.01.04 베트맨4 - 베트맨 & 로빈 (1997)
-3780,../movie/movie_0006.html,29,MOV0006. 20.01.17 마녀를 잡아라 (2020)
-3790,../movie/movie_0007.html,29,MOV0007. 20.01.17 오 루시 (2017)
-3800,../movie/movie_0008.html,29,MOV0008. 20.01.30 스타 이즈 본 디 오리지널 (1954)
-3810,../movie/movie_0009.html,29,MOV0009. 20.01.30 어바웃 타임 (2013)
-3820,../movie/movie_0010.html,29,MOV0010. 20.05.21 나미야 잡화점의 기적 (2018)
-3830,../movie/movie_0011.html,29,MOV0011. 21.06.18 소울 (2020)
-3840,../movie/movie_0012.html,29,MOV0012. 21.06.18 My Girl (1991)
-3850,../movie/movie_0013.html,29,MOV0013. 21.10.16 신과함께 - 죄와벌 (2017)
-3860,../movie/movie_0014.html,29,MOV0014. 17.08.14 마션 (2015)
-3870,../movie/movie_0015.html,29,MOV0015. 22.02.21 인턴 (2015)
-3880,../movie/movie_0016.html,29,MOV0016. 20.10.20 날씨의 아이 (2019)
-3890,../movie/movie_0017.html,29,MOV0017. 22.11.09 서울역 (2016)
-3900,../movie/movie_0018.html,29,MOV0018. 22.11.13 알리타 (2018)
-3910,../movie/movie_0019.html,29,MOV0019. 22.11.14 아이 _ 로봇 (2004)        
-3920,../movie/movie_0020.html,29,MOV0020. 20.11.15 공각기동대 (1995)
-3930,../movie/movie_0021.html,29,MOV0021. 20.11.17 반도 (2020)
-3940,../movie/movie_0022.html,29,MOV0022. 20.11.11 부산행 (2016)
-3950,../movie/movie_0023.html,29,MOV0023. 20.12.07 카센터 (2019)
-3960,../movie/movie_0024.html,29,MOV0024. 20.12.07 인셉션 (2010)
-3970,../movie/movie_0025.html,29,MOV0025. 20.12.10 그래비티 (2013) 
-3980,../movie/movie_0026.html,29,MOV0026. 20.12.13 레미 : 집 없는 아이 (2018)
-3990,../movie/movie_0027.html,29,MOV0027. 20.12.25 Her (2013)
-4000,../movie/movie_0028.html,29,MOV0028. 20.12.25 라라랜드 (2016)
-4010,../movie/movie_0029.html,29,MOV0029. 20.12.25 크리스마스 캐롤 (1951)        
-4020,../movie/movie_0030.html,29,MOV0030. 21.02.13 베일리 어게인 (2017)        
-4030,../movie/movie_0031.html,29,MOV0031. 20.10.23 이상한 나라의 앨리스 (2010) / 거울나라 (2016)        
-4040,../study/study_0051.html,30,Study0051. DB
-4050,../study/study_0052.html,30,Study0052. VSC
-4060,https://openai.com/blog/chatgpt/,30,챗GPT
-4070,../MY_PGMB/pyhtml/index.html,30,MY PGM BLOG 2
-4080,../MY_PGMB/pyhtml/my2_schedule_output.html,30,MY Schedule
-4090,../MY_PGMB/pyhtml/my2_schedule_output2.html,30,MY Test Schedule
-4100,../my/my_0100.html,30,MY0100. MY 금융
-4110,../my/my_0110.html,30,MY0110. 금융
-4120,../my/my_0120.html,30,MY0120. 부동산
-4130,../my/my_0130.html,30,MY0130. 투자
-4140,../my/my_9997.html,30,MY9997. 투자원칙
-4150,../my/my_0200.html,30,MY0200. 노래
-4160,../my/my_0300.html,30,MY0300. 10분 요리
-4170,../my/my_0400.html,30,MY0400. MY BLOG
-4180,../my/my_0500.html,30,MY0500. 국어사전
-4190,../my/my_9998.html,30,MY9998. 무작정 기타 정리
-4200,../my/my_9999.html,30,MY9999. 무작정 경제 정리
-4210,../must/must_0098.html,31,Must0098. 하다보니
-4220,../must/must_0099.html,31,Must0099. 여기저기서
-4230,../must/must_0012.html,31,Must0012. CSS 애니메이션 만들기
-4240,../must/must_0001.html,31,Must0001. 나만의 코딩 목표 세우기
-4250,../must/must_0011.html,31,Must0011. 가상 선택자와 클래스
-4260,../must/must_0005.html,31,Must0005. HTML 특징 분석하기
-4270,../must/must_0010.html,31,Must0010. CSS 레이아웃 : 위치 지정
-4280,../must/must_0004.html,31,Must0004. 태그로 웹페이지 만들기
-4290,../must/must_0007.html,31,Must0007. CSS가 뭐지?
-4300,../must/must_0008.html,31,Must0008. CSS 배치 속성과 반응형 웹
-4310,../must/must_0009.html,31,Must0009. CSS 레이아웃 : 플렉스박스
-4320,../must/must_0013.html,31,Must0013. 깃/깃허브 배우기
+3740,../movie/movie_0001.html,29,MOV0001. 20.12.27 찰리와 초콜릿 공장 (2005)
+3750,../movie/movie_0002.html,29,MOV0002. 20.12.31 베트맨 (1989)
+3760,../movie/movie_0003.html,29,MOV0003. 20.12.31 베트맨2 (1992)
+3770,../movie/movie_0004.html,29,MOV0004. 21.01.01 베트맨3 - 베트맨 포에버 (1995)
+3780,../movie/movie_0005.html,29,MOV0005. 21.01.04 베트맨4 - 베트맨 & 로빈 (1997)
+3790,../movie/movie_0006.html,29,MOV0006. 20.01.17 마녀를 잡아라 (2020)
+3800,../movie/movie_0007.html,29,MOV0007. 20.01.17 오 루시 (2017)
+3810,../movie/movie_0008.html,29,MOV0008. 20.01.30 스타 이즈 본 디 오리지널 (1954)
+3820,../movie/movie_0009.html,29,MOV0009. 20.01.30 어바웃 타임 (2013)
+3830,../movie/movie_0010.html,29,MOV0010. 20.05.21 나미야 잡화점의 기적 (2018)
+3840,../movie/movie_0011.html,29,MOV0011. 21.06.18 소울 (2020)
+3850,../movie/movie_0012.html,29,MOV0012. 21.06.18 My Girl (1991)
+3860,../movie/movie_0013.html,29,MOV0013. 21.10.16 신과함께 - 죄와벌 (2017)
+3870,../movie/movie_0014.html,29,MOV0014. 17.08.14 마션 (2015)
+3880,../movie/movie_0015.html,29,MOV0015. 22.02.21 인턴 (2015)
+3890,../movie/movie_0016.html,29,MOV0016. 20.10.20 날씨의 아이 (2019)
+3900,../movie/movie_0017.html,29,MOV0017. 22.11.09 서울역 (2016)
+3910,../movie/movie_0018.html,29,MOV0018. 22.11.13 알리타 (2018)
+3920,../movie/movie_0019.html,29,MOV0019. 22.11.14 아이 _ 로봇 (2004)        
+3930,../movie/movie_0020.html,29,MOV0020. 20.11.15 공각기동대 (1995)
+3940,../movie/movie_0021.html,29,MOV0021. 20.11.17 반도 (2020)
+3950,../movie/movie_0022.html,29,MOV0022. 20.11.11 부산행 (2016)
+3960,../movie/movie_0023.html,29,MOV0023. 20.12.07 카센터 (2019)
+3970,../movie/movie_0024.html,29,MOV0024. 20.12.07 인셉션 (2010)
+3980,../movie/movie_0025.html,29,MOV0025. 20.12.10 그래비티 (2013) 
+3990,../movie/movie_0026.html,29,MOV0026. 20.12.13 레미 : 집 없는 아이 (2018)
+4000,../movie/movie_0027.html,29,MOV0027. 20.12.25 Her (2013)
+4010,../movie/movie_0028.html,29,MOV0028. 20.12.25 라라랜드 (2016)
+4020,../movie/movie_0029.html,29,MOV0029. 20.12.25 크리스마스 캐롤 (1951)        
+4030,../movie/movie_0030.html,29,MOV0030. 21.02.13 베일리 어게인 (2017)        
+4040,../movie/movie_0031.html,29,MOV0031. 20.10.23 이상한 나라의 앨리스 (2010) / 거울나라 (2016)        
+4050,../study/study_0051.html,30,Study0051. DB
+4060,../study/study_0052.html,30,Study0052. VSC
+4070,https://openai.com/blog/chatgpt/,30,챗GPT
+4080,../MY_PGMB/pyhtml/index.html,30,MY PGM BLOG 2
+4090,../MY_PGMB/pyhtml/my2_schedule_output.html,30,MY Schedule
+4100,../MY_PGMB/pyhtml/my2_schedule_output2.html,30,MY Test Schedule
+4110,../my/my_0100.html,30,MY0100. MY 금융
+4120,../my/my_0110.html,30,MY0110. 금융
+4130,../my/my_0120.html,30,MY0120. 부동산
+4140,../my/my_0130.html,30,MY0130. 투자
+4150,../my/my_9997.html,30,MY9997. 투자원칙
+4160,../my/my_0200.html,30,MY0200. 노래
+4170,../my/my_0300.html,30,MY0300. 10분 요리
+4180,../my/my_0400.html,30,MY0400. MY BLOG
+4190,../my/my_0500.html,30,MY0500. 국어사전
+4200,../my/my_9998.html,30,MY9998. 무작정 기타 정리
+4210,../my/my_9999.html,30,MY9999. 무작정 경제 정리
+4220,../must/must_0098.html,31,Must0098. 하다보니
+4230,../must/must_0099.html,31,Must0099. 여기저기서
+4240,../must/must_0012.html,31,Must0012. CSS 애니메이션 만들기
+4250,../must/must_0001.html,31,Must0001. 나만의 코딩 목표 세우기
+4260,../must/must_0011.html,31,Must0011. 가상 선택자와 클래스
+4270,../must/must_0005.html,31,Must0005. HTML 특징 분석하기
+4280,../must/must_0010.html,31,Must0010. CSS 레이아웃 : 위치 지정
+4290,../must/must_0004.html,31,Must0004. 태그로 웹페이지 만들기
+4300,../must/must_0007.html,31,Must0007. CSS가 뭐지?
+4310,../must/must_0008.html,31,Must0008. CSS 배치 속성과 반응형 웹
+4320,../must/must_0009.html,31,Must0009. CSS 레이아웃 : 플렉스박스
+4330,../must/must_0013.html,31,Must0013. 깃/깃허브 배우기
