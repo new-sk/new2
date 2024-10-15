@@ -75,8 +75,11 @@ class cMy10pgmB:
   def gen_group(self):   
     # HTML header
     myhtml = self.gen_title("MY PGM HTML v3")
+
     # HTML original contencts
+    # 임시로 만든 것임 : 아직 V3로 변환이 안되어서
     myhtml += "<p><a href=\"./MY_PGMB/pyhtml/index.html\">Study</a></p>\n"
+    
     # HTML group contencts
     # DataFrame을 한 줄씩 읽어서 조건에 맞는 HTML 작성
     for n_row, row in self.dfgl.iterrows():  # iterrows() 사용
