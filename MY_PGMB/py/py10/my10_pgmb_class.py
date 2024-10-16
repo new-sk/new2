@@ -3,20 +3,20 @@
 import os
 import configparser 
 import pandas as pd
+import sys
 
 class cMy10pgmB:
     
   def __init__(self):
     self.my_dir = ""                # 현재 디렉토리
     self.my_fini = 'my10_pgmb.ini'  # INI FileName
-    self.my_fg  = ""                # Group FileName
-    self.my_fgg = ""
-    self.my_fgl = ""
-    self.dfg = pd.DataFrame()       # DF, from Read group file
-    self.dfgg = pd.DataFrame()       # DF, from Read group file
-    self.dfgl = pd.DataFrame()       # DF, from Read group file
+    self.fcd_str  = ""             # 파일명 String
+    self.fcd_list  = []              # 파일명 List
+    self.fcm_str  = ""             # 파일명 String
+    self.fcm_list  = []              # 파일명 List
+    self.dfcd = pd.DataFrame()       # DF, from Read group file
+    self.dfcm = pd.DataFrame()       # DF, from Read group file
     
-
     self.set_mode()
     # self.get_excel()
 
@@ -26,31 +26,61 @@ class cMy10pgmB:
     # 설정파일 읽고 변수에 저장
     config = configparser.ConfigParser()  # 객체 생성
     config.read(self.my_dir + '/' + self.my_fini)  # 설정 파일 읽기 (파일 위치)
-    self.my_fg = config.get('file', 'fg')
-    self.my_fgg = config.get('file', 'fgg')
-    self.my_fgl = config.get('file', 'fgl')
-    # print(self.my_fgl)
+    # 1번 설정값 읽기 : 코드 : 최초 문자열 -> List로 변경
+    self.fcd_str = config.get('file', 'fcd')
+    self.fcd_list = self.fcd_str.replace(' ', '').split(',')
+    # 2번 설정값 읽기 : 매핑 : 최초 문자열 -> List로 변경
+    self.fcm_str = config.get('file', 'fcm')
+    self.fcm_list = self.fcm_str.replace(' ', '').split(',')
+    
 
   def read_group(self):
-    # print(self.my_dir + '/' + self.my_fgl)
-    self.dfg = pd.read_csv(self.my_dir + '/' + self.my_fg)
-    self.dfgg = pd.read_csv(self.my_dir + '/' + self.my_fgg)
-    self.dfgl = pd.read_csv(self.my_dir + '/' + self.my_fgl)
-    # print(dfgl)
+    # 코드 읽기
+    for fcd in self.fcd_list:
+      #print(fcd)
+      df = pd.read_csv(self.my_dir + '/' + fcd)
+      #print(df)
+      self.dfcd = pd.concat([self.dfcd,df], ignore_index=True)
+      #print(self.dfcd)
+    # 매핑 읽기
+    for fcm in self.fcm_list:
+      # print(fcm)
+      df = pd.read_csv(self.my_dir + '/' + fcm)
+      # print(df)
+      self.dfcm = pd.concat([self.dfcm,df], ignore_index=True)
+      # print(self.dfcm)
 
-    ggl_only = set(self.dfg['gKey']) - set(self.dfgl['gKey'])
-    if ggl_only:
-      print('ggl_Only : ', ggl_only)
-    glg_only = set(self.dfgl['gKey']) - set(self.dfg['gKey'])
-    if glg_only:
-      print('glg_Only : ', glg_only)
-
-    gggl_only = set(self.dfgg['ggKey']) - set(self.dfgl['ggKey'])
-    if gggl_only:
-      print('gggl_only', gggl_only)
-    glgg_only = set(self.dfgl['ggKey']) - set(self.dfgg['ggKey'])
-    if glgg_only:
-      print('glgg_only', glgg_only)
+      # dfcd 데이터 정합성 확인
+      # "GG", "CG", "CC"로 시작하거나 "ROOT"가 아닌 것이 존재하면 멈춘다
+      invalid_keys = self.dfcd[~(self.dfcd['Key'].str.startswith(('GG', 'CG', 'CC')) | (self.dfcd['Key'] == 'ROOT'))]
+      if not invalid_keys.empty:
+          # 조건에 맞지 않는 값이 있을 경우 해당 키값 출력 후 프로그램 종료
+          print("조건에 맞지 않는 Key 값이 발견되었습니다:")
+          print(invalid_keys['Key'].unique())
+          sys.exit("잘못된 Key 값으로 인해 프로그램이 종료되었습니다.")
+      # Key 값이 중복이면 멈춘다
+      duplicated_keys = self.dfcd[self.dfcd.duplicated(subset='Key', keep=False)]        
+      if not duplicated_keys.empty:
+          # 중복된 값이 있을 경우 해당 키값 출력 후 프로그램 종료
+          print("중복된 Key 값이 발견되었습니다:")
+          print(duplicated_keys['Key'].unique())
+          sys.exit("중복된 Key 값으로 인해 프로그램이 종료되었습니다.")
+   
+      # dfcm 데이터 정합성 확인
+      # "GG", "CG", "CC"로 시작하거나 "ROOT"가 아닌 것이 존재하면 멈춘다
+      invalid_keys = self.dfcd[~(self.dfcd['Key'].str.startswith(('GG', 'CG', 'CC')) | (self.dfcd['Key'] == 'ROOT'))]
+      if not invalid_keys.empty:
+          # 조건에 맞지 않는 값이 있을 경우 해당 키값 출력 후 프로그램 종료
+          print("조건에 맞지 않는 Key 값이 발견되었습니다:")
+          print(invalid_keys['Key'].unique())
+          sys.exit("잘못된 Key 값으로 인해 프로그램이 종료되었습니다.")
+      # Key 값이 중복이면 멈춘다
+      duplicated_keys = self.dfcd[self.dfcd.duplicated(subset='Key', keep=False)]        
+      if not duplicated_keys.empty:
+          # 중복된 값이 있을 경우 해당 키값 출력 후 프로그램 종료
+          print("중복된 Key 값이 발견되었습니다:")
+          print(duplicated_keys['Key'].unique())
+          sys.exit("중복된 Key 값으로 인해 프로그램이 종료되었습니다.")
 
   # file header
   def gen_title(self, title):

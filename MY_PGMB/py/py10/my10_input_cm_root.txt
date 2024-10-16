@@ -1,0 +1,8 @@
+"gKey","cKey"
+"ROOT","CG11"
+"ROOT","CG12"
+"ROOT","CG13"
+"ROOT","CG14"
+"ROOT","CG15"
+"ROOT","CG16"
+"ROOT","CG17"
