@@ -6,3 +6,4 @@
 "ROOT","CG15"
 "ROOT","CG16"
 "ROOT","CG17"
+"ROOT","GG10"
