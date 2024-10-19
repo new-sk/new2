@@ -14,6 +14,8 @@ class cMy10pgmB:
     self.fcm_list  = []              # 파일명 List
     self.dflist = pd.DataFrame()       # DF, from Read group file
     self.dfgroup = pd.DataFrame()       # DF, from Read group file
+    self.ggdir = ""
+    self.ccdir = ""
     
     self.set_mode()
     # self.get_excel()
@@ -50,7 +52,6 @@ class cMy10pgmB:
       dfcm = pd.concat([dfcm,df], ignore_index=True)
       # print(dfcm)
 
-    print(dfcd)
     # dfcd 데이터 정합성 확인
     # "GG", "CG", "CC"로 시작하거나 "ROOT"가 아닌 것이 존재하면 멈춘다
     invalid_keys = dfcd[~(dfcd['Key'].str.startswith(('GG', 'CG', 'CC')) | (dfcd['Key'] == 'ROOT'))]
@@ -102,7 +103,7 @@ class cMy10pgmB:
     # 향후 조인시 인덱스 유지를 위해서 보관
     dfcm['orgIndex'] = dfcm.index
     # gKey를 기준으로 dfcd와 조인하여 gName을 가져옴
-    self.dflist = pd.merge(dfcm, dfcd, left_on='gKey', right_on='Key', how='left')
+    self.dflist = pd.merge(dfcm, dfcd[['Key','Name']], left_on='gKey', right_on='Key', how='left')
     self.dflist = self.dflist.rename(columns={'Name': 'gName'})  # gName으로 이름 변경
     self.dflist = self.dflist.drop(columns=['Key'])  # Key 컬럼 제거
     # cKey를 기준으로 다시 dfcd와 조인하여 cName을 가져옴
@@ -111,10 +112,15 @@ class cMy10pgmB:
     self.dflist = self.dflist.drop(columns=['Key'])  # Key 컬럼 제거
     # 원래 인덱스를 기준으로 다시 정렬 (순서 유지)
     self.dflist = self.dflist.sort_values(by=['gKey','orgIndex']).reset_index(drop=True)
+    print("print dflist")   
     print(self.dflist)
 
-    # MAKE dfgroup
+    # MAKE dfgroup 
+    #self.dfgroup = self.dflist[self.dflist['gKey'].str.startswith('GG')][['gKey', 'gName']].drop_duplicates()
     self.dfgroup = self.dflist[['gKey', 'gName']].drop_duplicates()
+
+    print("print dfgroup")   
+    print(self.dfgroup)
 
     
 
@@ -145,54 +151,45 @@ class cMy10pgmB:
     # 상수값 입력할 때 오류를 범하네 : GG, CG, CC 
     for n_row, row in self.dflist[self.dflist['gKey']==dfKey].iterrows():  # iterrows() 사용
       if row['cKey'].startswith('GG'):
-        myhtml += f"<p><a href=\"./pyhtml/{row['cKey']}.html\">{row['cName']}</a></p>\n"
+        myhtml += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CG'):
-        myhtml += self.gen_gc(row['cKey'],row['cName'])
-      
-    myhtml += self.gen_tail()
+        myhtml += self.gen_detail_gc(row['cKey'],row['cName'])
+      elif row['cKey'].startswith('CC'):
+        # 외부 사이트
+        if row['cURL'].startswith('http'):
+          myhtml += f"<p><a href=\"{row['cURL']}\">{row['cName']}</a></p>\n"  
+        # 내부 사이트
+        else:
+          myhtml += f"<p><a href=\"{self.ccdir}{row['cURL']}\">{row['cName']}</a></p>\n"  
 
+    myhtml += self.gen_tail()
     return myhtml
   
 
-  def gen_gc(self, rck,rcm):
+  def gen_detail_gc(self, rck,rcm):
     mygc_html = f"<br><h4>{rcm}</h4>\n"
     for n_row, row in self.dflist[self.dflist['gKey']==rck].iterrows():  # iterrows() 사용
-        mygc_html += f"<p><a href=\"./pyhtml/{row['cKey']}.html\">{row['cName']}</a></p>\n"
+        mygc_html += f"<p><a href=\"" + self.ggdir + "/{row['cKey']}.html\">{row['cName']}</a></p>\n"
     return mygc_html
 
-  def gen_group(self): 
 
+  def gen_group(self): 
     # MAKE ROOT
+    self.ggdir = "./pyhtml"
+    self.ccdir = "."
     myhtml = self.gen_gKey('ROOT')
+    print('print ROOT html')
     print(myhtml)
     # HTML file generate
     with open(self.my_dir + '/../../../index.html', "w", encoding="utf-8") as file:
       file.write(myhtml)
 
-    # distinct GG
-    print(self.dfgroup)
-    #for index, row in dfgroup:
-
-    # MAKE GG for loop
-    '''# HTML header
-    myhtml = self.gen_title("MY PGM HTML v3")
-
-    # HTML original contencts
-    # 임시로 만든 것임 : 아직 V3로 변환이 안되어서
-    myhtml += "<p><a href=\"./MY_PGMB/pyhtml/index.html\">Study</a></p>\n"
-    
-    # HTML group contencts
-    # DataFrame을 한 줄씩 읽어서 조건에 맞는 HTML 작성
-    for n_row, row in self.dfgl.iterrows():  # iterrows() 사용
-      if n_row == 0:
-        myhtml += f"<br><h4>{row['ggName']}</h4>\n"
-      elif row['ggKey'] != prev_ggKey:
-        myhtml += f"<br><h4>{row['ggName']}</h4>\n"
-      myhtml += f"<p><a href=\"./pyhtml/{row['gKey']}.html\">{row['gName']}</a></p>\n"
-      prev_ggKey = row['ggKey']
-    # HTML tail
-    myhtml += self.gen_tail()
-    # HTML file generate
-    with open(self.my_dir + '/../../../index.html', "w", encoding="utf-8") as file:
-      file.write(myhtml)
-  '''
+    # MAKE GG
+    self.ggdir = "."
+    self.ccdir = ".."
+    for n_row, row in self.dfgroup[self.dfgroup['gKey'].str.startswith('GG')].iterrows():  # iterrows() 사용
+      myhtml = self.gen_gKey(row['gKey'])
+      print('print GG html : ' + row['gKey'])
+      print(myhtml)
+      with open(self.my_dir + '/../../../pyhtml/' + row['gKey'] + '.html', "w", encoding="utf-8") as file:
+        file.write(myhtml)
