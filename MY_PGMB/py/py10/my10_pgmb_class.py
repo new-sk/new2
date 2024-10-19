@@ -169,7 +169,7 @@ class cMy10pgmB:
   def gen_detail_gc(self, rck,rcm):
     mygc_html = f"<br><h4>{rcm}</h4>\n"
     for n_row, row in self.dflist[self.dflist['gKey']==rck].iterrows():  # iterrows() 사용
-        mygc_html += f"<p><a href=\"" + self.ggdir + "/{row['cKey']}.html\">{row['cName']}</a></p>\n"
+        mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
     return mygc_html
 
 
