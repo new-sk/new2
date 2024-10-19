@@ -123,7 +123,6 @@ class cMy10pgmB:
     print(self.dfgroup)
 
     
-
   # file header
   def gen_title(self, title):
     return f"""
@@ -144,6 +143,7 @@ class cMy10pgmB:
 </html>
 """
   
+
   # generate file 
   def gen_gKey(self, dfKey):
     myhtml = self.gen_title(self.dfgroup[self.dfgroup['gKey']==dfKey]['gName'].values[0])
@@ -172,7 +172,7 @@ class cMy10pgmB:
       if row['cKey'].startswith('GG'):
         mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CC'):
-        mygc_html += f"<p><a href=\"{self.ccdir}{row['cURL']}.html\">{row['cName']}</a></p>\n"
+        mygc_html += f"<p><a href=\"{self.ccdir}{row['cURL']}\">{row['cName']}</a></p>\n"
       else:
         print('gen_detail_dc error : cKey')
     return mygc_html
