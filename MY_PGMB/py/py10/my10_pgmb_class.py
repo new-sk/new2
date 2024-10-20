@@ -20,6 +20,8 @@ class cMy10pgmB:
     self.set_mode()
     # self.get_excel()
 
+    self.read_group()
+
   def set_mode(self):
     # 현재 디렉토리 읽기
     self.my_dir, my_file = os.path.split(__file__)
@@ -33,7 +35,6 @@ class cMy10pgmB:
     fcm_str = config.get('file', 'fcm')
     self.fcm_list = fcm_str.replace(' ', '').split(',')
     
-
   def read_group(self):
     # 로컬변수 초기화
     dfcd = pd.DataFrame()
@@ -98,6 +99,31 @@ class cMy10pgmB:
         print("3.2 gKey와 cKey가 중복하는 행이 발견되었습니다:")
         print(duplicated_keys[['gKey', 'cKey']])
         sys.exit("gKey와 cKey가 중복되는 행이 있어 프로그램이 종료되었습니다.")
+
+    # 매핑내역에서 사용되지 않는 항목 찾기 (gKey)
+    dfcd_group = dfcd[dfcd['Key'].str.startswith(('GG', 'CG')) | (dfcd['Key'] == 'ROOT')]
+    # 4.1 : gKey : in dfcd and not in dfcm
+    dfcd_only = dfcd_group[~dfcd_group['Key'].isin(dfcm['gKey'])]
+    if not dfcd_only.empty:
+      print(f"4.1 dfcd에만 존재하고 매핑에는 존재하지 않는 gKey 값(GG,CG): {dfcd_only}")
+      sys.exit()
+    # 4.2 : gKey : in dfcm and not in dfcd
+    dfcm_only = dfcm[~dfcm['gKey'].isin(dfcd['Key'])]
+    if not dfcm_only.empty:
+      print(f"4.2 dfcm에만 존재하고 코드에는 존재하지 않는 gKey 값(GG,CG): {dfcm_only}")
+      sys.exit()
+    # 매핑내역에서 사용되지 않는 항목 찾기 (cKey)
+    dfcd_contents = dfcd[dfcd['Key'].str.startswith(('CG', 'CC'))]
+    # 4.3 : cKey : in dfcd and not in dfcm
+    dfcd_only = dfcd_contents[~dfcd_contents['Key'].isin(dfcm['cKey'])]
+    if not dfcd_only.empty:
+      print(f"4.3 dfcd에만 존재하고 매핑에는 존재하지 않는 cKey 값(CG,CC): {dfcd_only}")
+      sys.exit()
+    # 4.4 : cKey : in dfcm and not in dfcd
+    dfcm_only = dfcm[~dfcm['cKey'].isin(dfcd['Key'])]
+    if not dfcm_only.empty:
+      print(f"4.4 dfcm에만 존재하고 코드에는 존재하지 않는 cKey 값(CG,CC): {dfcm_only}")
+      sys.exit()
 
     # MAKE self.dflist
     # 향후 조인시 인덱스 유지를 위해서 보관
