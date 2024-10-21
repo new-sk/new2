@@ -224,3 +224,25 @@ class cMy10pgmB:
       print(myhtml)
       with open(self.my_dir + '/../../../pyhtml/' + row['gKey'] + '.html', "w", encoding="utf-8") as file:
         file.write(myhtml)
+
+
+  def search_group(self):
+    # 입력 받기
+    cName_value = input("찾고자 하는 값을 입력하세요: ")
+    print("cName : " + cName_value)
+    # DataFrame에서 cName 컬럼에 search_value가 포함된 DataFrame들만 필터링
+    print(self.dflist[self.dflist['cName'].str.contains(cName_value, case=False, na=False)])
+
+'''        
+    # 필터된 DataFrame이 없으면 메시지 출력
+    if not filtered_dfs:
+        print(f"'{cName_value}' 값을 가진 DataFrame이 없습니다.")
+    else:
+        # 필터된 DataFrame 출력
+        for idx, df in enumerate(filtered_dfs):
+            print(f"\nDataFrame {idx}:")
+            print(df)
+'''
+# 예시 사용
+# dflist: DataFrame들의 리스트가 있다고 가정
+# filter_dflist_by_cName(dflist)를 호출하여 실행
