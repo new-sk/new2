@@ -1,5 +1,6 @@
 # BLOG 만들기
 
+import subprocess
 import os
 import configparser 
 import pandas as pd
@@ -226,23 +227,65 @@ class cMy10pgmB:
         file.write(myhtml)
 
 
-  def search_group(self):
+  def input_command(self):
+    # 명령어 파심
+    input_msg = """명령어를 입력해 주세요 (명령어(1글자) 내용) : \r
+ - S : Search cName \r
+ - O : Open File cURL \r
+ - X : Exit
+ """
+    while 1==1:
+      # input
+      str_input = input(input_msg + "  : ")
+      # 입력값에서 앞부분 1자리 문자와 나머지 문자열을 분리
+      str_input = str_input.strip()  # 전체 입력 문자열의 양쪽 공백 제거
+      if len(str_input) < 2:
+          sys.exit("입력 값이 너무 짧습니다. 최소 2자리 이상의 문자열이어야 합니다.")
+
+      # 첫 번째 토큰: 첫 한 글자 (이미 전체 공백이 제거된 상태)
+      first_token = str_input[0].upper()
+
+      # 두 번째 토큰: 나머지 문자열 (이미 전체 공백이 제거된 상태)
+      second_token = str_input[1:].strip()  # 두 번째 토큰 자체에만 남아 있는 공백을 다시 제거
+
+      # 두 번째 토큰이 없을 경우 에러 처리
+      if not second_token:
+          sys.exit("두 번째 토큰이 존재하지 않습니다.")
+          
+      if first_token == "S":
+        self.search_group(second_token)
+      elif first_token == "O":
+        self.open_file()
+      elif first_token == "X":
+        print("정상 종료 ^^")
+      else:
+        print("명령어 시작 문자 오류")
+
+
+  def open_file(self):
+    print("Comming Soon : OPEN GG10.html")
+
+
+    # 열고 싶은 파일의 경로
+    file_name = 'my10_input_map_cg.txt'  # 원하는 파일의 이름 또는 경로로 수정하세요.
+
+    # VSCode의 경로 설정 (기본적으로 설치된 경로를 사용할 수 있음)
+    vscode_path = "/Applications/Visual Studio Code-2.app/Contents/Resources/app/bin/code",
+            #'code'  # VSCode가 PATH에 추가되어 있으면 'code'만으로도 가능
+    # 파일이 존재하는지 확인
+    print (self.my_dir, file_name)
+    if os.path.isfile(file_name):
+        # VSCode에서 파일 열기
+        subprocess.run([vscode_path, file_name])
+    else:
+        print("파일을 찾을 수 없습니다.")
+
+  # original search_group 
+  def search_group(self, cName_value):
     # 입력 받기
-    cName_value = input("찾고자 하는 값을 입력하세요: ")
-    print("cName : " + cName_value)
+    # cName_value = input("찾고자 하는 값을 입력하세요: ")
+    # print("cName : " + cName_value)
     # DataFrame에서 cName 컬럼에 search_value가 포함된 DataFrame들만 필터링
     print(self.dflist[self.dflist['cName'].str.contains(cName_value, case=False, na=False)])
 
-'''        
-    # 필터된 DataFrame이 없으면 메시지 출력
-    if not filtered_dfs:
-        print(f"'{cName_value}' 값을 가진 DataFrame이 없습니다.")
-    else:
-        # 필터된 DataFrame 출력
-        for idx, df in enumerate(filtered_dfs):
-            print(f"\nDataFrame {idx}:")
-            print(df)
-'''
-# 예시 사용
-# dflist: DataFrame들의 리스트가 있다고 가정
-# filter_dflist_by_cName(dflist)를 호출하여 실행
+

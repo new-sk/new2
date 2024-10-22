@@ -7,4 +7,4 @@ my10 = c10p.cMy10pgmB()
  
 
 # 찾아주세요.
-my10.search_group()
+my10.input_command()
