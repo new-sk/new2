@@ -239,41 +239,65 @@ class cMy10pgmB:
       str_input = input(input_msg + "  : ")
       # 입력값에서 앞부분 1자리 문자와 나머지 문자열을 분리
       str_input = str_input.strip()  # 전체 입력 문자열의 양쪽 공백 제거
-      if len(str_input) < 2:
-          sys.exit("입력 값이 너무 짧습니다. 최소 2자리 이상의 문자열이어야 합니다.")
+
+      if len(str_input) == 0:
+          print("입력 문자열이 억습니다. 최소 2자리 이상의 문자열이어야 합니다.")
+          continue
 
       # 첫 번째 토큰: 첫 한 글자 (이미 전체 공백이 제거된 상태)
       first_token = str_input[0].upper()
+      if first_token == "X":
+        sys.exit("정상 종료 ^^")
+      elif len(str_input) < 2:
+          print("입력 값이 너무 짧습니다. 최소 2자리 이상의 문자열이어야 합니다.")
+          continue
 
       # 두 번째 토큰: 나머지 문자열 (이미 전체 공백이 제거된 상태)
       second_token = str_input[1:].strip()  # 두 번째 토큰 자체에만 남아 있는 공백을 다시 제거
 
       # 두 번째 토큰이 없을 경우 에러 처리
       if not second_token:
-          sys.exit("두 번째 토큰이 존재하지 않습니다.")
-          
-      if first_token == "S":
+          print("두 번째 토큰이 존재하지 않습니다.")  
+          continue
+      elif first_token == "S":
         self.search_group(second_token)
       elif first_token == "O":
-        self.open_file()
-      elif first_token == "X":
-        print("정상 종료 ^^")
+        self.open_file(second_token)
       else:
         print("명령어 시작 문자 오류")
 
 
-  def open_file(self):
-    print("Comming Soon : OPEN GG10.html")
+  def open_file(self, ccName):
+    print(f"Comming Soon : OPEN file {ccName}")
+
+    ccName = ccName.strip()
+
+    if ccName.startswith('CC'):
+        # dflist에서 cKey가 input_values인 행을 찾음
+        matching_row = self.dflist[self.dflist['cKey'] == ccName]
+        print('matching_row : ', matching_row)
+        if matching_row.empty:
+            print(f"'{ccName}'에 해당하는 cKey가 없습니다.")
+            return
+        
+        # cURL 값을 가져옴
+        cURL = matching_row['cURL'].values[0]
+        print(f"CC 파일 '{cURL}'을 읽습니다.")
+        
+    elif ccName.startswith('GG'):
+        print(f"Comming Soon : GG 파일 '{ccName}'을 읽습니다.")
+    else:
+        print('not CC, not GG')
 
 
     # 열고 싶은 파일의 경로
-    file_name = 'my10_input_map_cg.txt'  # 원하는 파일의 이름 또는 경로로 수정하세요.
+    file_name = self.my_dir + '/../../..' + cURL
 
     # VSCode의 경로 설정 (기본적으로 설치된 경로를 사용할 수 있음)
-    vscode_path = "/Applications/Visual Studio Code-2.app/Contents/Resources/app/bin/code",
+    vscode_path = "/Applications/Visual Studio Code-2.app/Contents/Resources/app/bin/code"
             #'code'  # VSCode가 PATH에 추가되어 있으면 'code'만으로도 가능
     # 파일이 존재하는지 확인
-    print (self.my_dir, file_name)
+    print (file_name)
     if os.path.isfile(file_name):
         # VSCode에서 파일 열기
         subprocess.run([vscode_path, file_name])
