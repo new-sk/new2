@@ -180,7 +180,7 @@ class cMy10pgmB:
       if row['cKey'].startswith('GG'):
         myhtml += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CG'):
-        myhtml += self.gen_detail_gc(row['cKey'],row['cName'])
+        myhtml += self.gen_detail_cg(row['cKey'],row['cName'])
       elif row['cKey'].startswith('CC'):
         # 외부 사이트
         if row['cURL'].startswith('http'):
@@ -193,8 +193,8 @@ class cMy10pgmB:
     return myhtml
   
 
-  def gen_detail_gc(self, rck,rcm):
-    mygc_html = f"<br><h4>{rcm}</h4>\n"
+  def gen_detail_cg(self, rck, rcm):
+    mygc_html = f"<br><h4 id=\"{rck}\">{rcm}</h4>\n"
     for n_row, row in self.dflist[self.dflist['gKey']==rck].iterrows():  # iterrows() 사용
       if row['cKey'].startswith('GG'):
         mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
@@ -282,16 +282,19 @@ class cMy10pgmB:
         
         # cURL 값을 가져옴
         cURL = matching_row['cURL'].values[0]
-        print(f"CC 파일 '{cURL}'을 읽습니다.")
+        file_name = self.my_dir + '/../../..' + cURL
         
     elif ccName.startswith('GG'):
         print(f"Comming Soon : GG 파일 '{ccName}'을 읽습니다.")
+        file_name = self.my_dir + '/../../../pyhtml/' + ccName + '.html'
+
     else:
         print('not CC, not GG')
+        return
 
 
     # 열고 싶은 파일의 경로
-    file_name = self.my_dir + '/../../..' + cURL
+    
 
     # VSCode의 경로 설정 (기본적으로 설치된 경로를 사용할 수 있음)
     vscode_path = "/Applications/Visual Studio Code-2.app/Contents/Resources/app/bin/code"
@@ -310,6 +313,9 @@ class cMy10pgmB:
     # cName_value = input("찾고자 하는 값을 입력하세요: ")
     # print("cName : " + cName_value)
     # DataFrame에서 cName 컬럼에 search_value가 포함된 DataFrame들만 필터링
-    print(self.dflist[self.dflist['cName'].str.contains(cName_value, case=False, na=False)])
+    
+    # 기존 cName에서만 찾음
+    # print(self.dflist[self.dflist['cName'].str.contains(cName_value, case=False, na=False)])
 
+    print(self.dflist[self.dflist[['cName', 'gName', 'gKey', 'cKey']].apply(lambda col: col.str.contains(cName_value, case=False, na=False)).any(axis=1)])
 
