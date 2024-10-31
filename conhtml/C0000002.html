@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <style>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#xb178;&#xc778;&#xb0b4;&#xacfc; &lpar;&#xc815;&#xd76c;&#xc6d0; &colon; &#xc544;&#xc0b0;&#xbcd1;&#xc6d0;&rpar;</title>
+            <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -11,47 +11,14 @@
  *--------------------------------------------------------------------------------------------*/
 
 .vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only] {
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
 	display: none;
 }
 
-/* From extension ms-toolsai.jupyter */
-/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
-
-.alert {
-    width: auto;
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-.alert > *:last-child {
-    margin-bottom: 0;
-}
-#preview > .alert:last-child {
-    /* Prevent this being set to zero by the default notebook stylesheet */
-    padding-bottom: 1em;
-}
-
-.alert-success {
-    /* Note there is no suitable color available, so we just copy "info" */
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-info {
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-warning {
-    background-color: var(--theme-warning-background);
-    color: var(--theme-warning-foreground);
-}
-.alert-danger {
-    background-color: var(--theme-error-background);
-    color: var(--theme-error-foreground);
-}
-
 </style>
-        
+            
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -72,22 +39,162 @@
     pointer-events: none;
 }
 </style>
-        
-    </head>
-    <body class="vscode-body vscode-light">
-        <p>노인내과</p>
-<p><a href="https://www.youtube.com/watch?v=R-5iYqeGXYQ">https://www.youtube.com/watch?v=R-5iYqeGXYQ</a>  :  정희원, 서울아산병원 노년내과 교수</p>
-<p>60대부터는 근력운동
-60대이후 간헐적 단식 안된다 : 체중은 빠진다. 근손실로 이어진다</p>
-<p>노인냄새 : 지질의 변화
-국부만 씻기 (중성 바디워시)
-건조피부염 - 가려움증 (보습제)
-명상 (감각/호흡을 느끼고) (멘털측면)
-산림욕도 좋다 (굳이 맨발이 필요없다)
-스트레칭운동 / 밸런스운동 (건강보조식품에 돈쓰지말고 운동(전문가도움)하는 것에 돈쓰자)
-인간은 내러티브에 약하다 (숫자로 설명하는 것보다)</p>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
 
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
         
-        
-    </body>
-    </html>
+        </head>
+        <body class="vscode-body vscode-light">
+            <h2 id="노인내과-정희원--아산병원">노인내과 (정희원 : 아산병원)</h2>
+<h3 id="삼프로tv--240720"><a href="https://www.youtube.com/watch?v=R-5iYqeGXYQ">삼프로TV : 24.07.20</a></h3>
+<p>60대부터는 근력운동</p>
+<ul>
+<li>
+<p>60대이후 간헐적 단식 안된다 : 체중은 빠진다. 근손실로 이어진다</p>
+</li>
+<li>
+<p>노인냄새 : 지질의 변화</p>
+</li>
+<li>
+<p>국부만 씻기 (중성 바디워시)</p>
+</li>
+<li>
+<p>건조피부염 - 가려움증 (보습제)</p>
+</li>
+<li>
+<p>명상 (감각/호흡을 느끼고) (멘털측면)</p>
+</li>
+<li>
+<p>산림욕도 좋다 (굳이 맨발이 필요없다)</p>
+</li>
+<li>
+<p>스트레칭운동 / 밸런스운동 (건강보조식품에 돈쓰지말고 운동(전문가도움)하는 것에 돈쓰자)</p>
+</li>
+<li>
+<p>인간은 내러티브에 약하다 (숫자로 설명하는 것보다)</p>
+</li>
+</ul>
+<h3 id="매불쇼--240917"><a href="https://www.youtube.com/watch?v=SgQEZJPDYxU">매불쇼 : 24.09.17</a></h3>
+<p>저속노화식사법 : 책</p>
+<p>피부노화는 내재노화와 좀 다르다 : 겉모습의 젊은과 실제 젊음은 다르다</p>
+<p>건강수명 늘리자</p>
+<p>70% 생활습관, 30% 유전</p>
+<p>식습관, 운동, 수면, 스트레스, 술.담배, 중독, 사회적고립  (40세 기준 남섬 24년 차이)</p>
+<p>과식안한다. 붉은고기적게, 통곡물</p>
+<p>X</p>
+<ul>
+<li>튀김(씨앗기름류별루, 올리브유제외)</li>
+<li>단순당(콜라.사이다,쥬스)</li>
+<li>정제분(정제된곡물): 밥,빵,떡,국수</li>
+<li>액상과당 : 간에서흡수, 지방간/내장지방,,,</li>
+<li>적색 가공육 먹지 마라</li>
+</ul>
+<p>조금씩만 바꿔 보자
+1 - 간식을 바꾸자</p>
+<ul>
+<li>간식시간 : 견과류, 베리류 (1개 150~180칼로리)</li>
+<li>하루 당분 15그램/일(콜라 150ml), 서울시 50그램/일</li>
+<li>2~4주 정도 변경 기간 : 처음에는 친해져야 한다 (냄새만 맡는 것만으로도 좀 더 친밀해짐)</li>
+</ul>
+<p>2 - 밥을 바꾸자</p>
+<ul>
+<li>콩을 많이 넣자 : 렌틸 (서리태)  -  심한 포만감으로 다른 것 안 먹는 효과</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

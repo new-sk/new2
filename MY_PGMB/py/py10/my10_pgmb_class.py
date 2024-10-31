@@ -5,6 +5,7 @@ import os
 import configparser 
 import pandas as pd
 import sys
+from pathlib import Path  # OS별 패스 구분자 자동변환
 
 class cMy10pgmB:
     
@@ -282,11 +283,13 @@ class cMy10pgmB:
         
         # cURL 값을 가져옴
         cURL = matching_row['cURL'].values[0]
-        file_name = self.my_dir + '/../../..' + cURL
-        
+        # file_name = self.my_dir + '/../../..' + cURL
+        file_name = Path(self.my_dir).resolve().parents[2] / Path(cURL.lstrip('/'))
+
     elif ccName.startswith('GG'):
         print(f"Comming Soon : GG 파일 '{ccName}'을 읽습니다.")
-        file_name = self.my_dir + '/../../../pyhtml/' + ccName + '.html'
+        # file_name = self.my_dir + '/../../../pyhtml/' + ccName + '.html'
+        file_name = Path(self.my_dir).resolve().parents[2] / "pyhtml" / f"{ccName}.html"
 
     else:
         print('not CC, not GG')
