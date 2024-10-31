@@ -2,6 +2,7 @@
 
 import subprocess
 import os
+import platform
 import configparser 
 import pandas as pd
 import sys
@@ -300,8 +301,11 @@ class cMy10pgmB:
     
 
     # VSCode의 경로 설정 (기본적으로 설치된 경로를 사용할 수 있음)
-    vscode_path = "/Applications/Visual Studio Code-2.app/Contents/Resources/app/bin/code"
-            #'code'  # VSCode가 PATH에 추가되어 있으면 'code'만으로도 가능
+    if platform.system() == "Windows":
+      vscode_path = r'C:\Users\ICTUSER\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd'
+    else:
+      vscode_path = "/Applications/Visual Studio Code-2.app/Contents/Resources/app/bin/code"
+    #'code'  # VSCode가 PATH에 추가되어 있으면 'code'만으로도 가능
     # 파일이 존재하는지 확인
     print (file_name)
     if os.path.isfile(file_name):
