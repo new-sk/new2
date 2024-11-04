@@ -61,7 +61,7 @@ class cMy9Stock:
       startN = df.loc[df['spName'] == sName, 'spStart'].iloc[0].astype('int32')
       endN   = df.loc[df['spName'] == sName, 'spEnd'].iloc[0].astype('int32')
       # print(startN, ' : ', endN)
-      dfx = pd.read_excel(self.my_dir + self.my_xfile, sheet_name=self.my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=2, na_values=["N/A", "NA", "-", "", "none"])
+      dfx = pd.read_excel(self.my_dir + self.my_xfile, sheet_name=self.my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=3, na_values=["N/A", "NA", "-", "", "none"])
       # WOW : 모든 값이 na인 경우에만 행을 삭제하도록 개선
       # dfx = dfx.dropna()
       all_na_rows = dfx.isna().all(axis=1) # 모든 값이 NaN인 행을 식별
@@ -70,6 +70,43 @@ class cMy9Stock:
       print(dfx)
       # WOW : global 변수 이름에 해당 데이터 저장 : sName에 저장된 값으로 변수를 만들어서 저장
       globals()[sName] = dfx
+
+
+    # 데이터타입 지정
+    df9y["syYear"] = df9y["syYear"].astype(str)
+    df9y["syYield"] = df9y["syYield"].astype(float)
+    df9y["syDesc"] = df9y["syDesc"].astype(str)
+
+    df9i["siName"] = df9i["siName"].astype(str)
+    df9i["siCode"] = df9i["siCode"].astype(str)
+    df9i["siNameF"] = df9i["siNameF"].astype(str)
+
+    df9o["soName"] = df9o["soName"].astype(str)
+    df9o["soCode"] = df9o["soCode"].astype(str)
+    df9o["sozAmt"] = df9o["sozAmt"].astype(float)
+    df9o["sozDate"] = df9o["sozDate"].astype(str)
+    df9o["sosPrice"] = df9o["sosPrice"].astype(float)
+    df9o["sosDate"] = df9o["sosDate"].astype(str)
+    df9o["sobPrice"] = df9o["sobPrice"].astype(float)
+    df9o["sobDate"] = df9o["sobDate"].astype(str)
+    df9o["soDesc"] = df9o["soDesc"].astype(str)
+
+    df9d["sdName"] = df9d["sdName"].astype(str)
+    df9d["sdCode"] = df9d["sdCode"].astype(str)
+    df9d["sdAccount"] = df9d["sdAccount"].astype(str)
+    df9d["sdDate"] = df9d["sdDate"].astype(str)
+    df9d["sdAmt"] = df9d["sdAmt"].astype(float)
+
+    df9a["saAccount"] = df9a["saAccount"].astype(str)
+    df9a["saName"] = df9a["saName"].astype(str)
+    df9a["saAmt"] = df9a["saAmt"].astype(float)
+
+    df9dw["sdwAccount"] = df9dw["sdwAccount"].astype(str)
+    df9dw["sdwDate"] = df9dw["sdwDate"].astype(str)
+    df9dw["sdwType"] = df9dw["sdwType"].astype(str)
+    df9dw["sdwAmt"] = df9dw["sdwAmt"].astype(float)
+    df9dw["sdwDesc"] = df9dw["sdwDesc"].astype(str)
+
 
   def get_all(self, sCode, oType):
     # 초기화 : 비어있는 배열
@@ -324,7 +361,7 @@ class cMy9Stock:
       os.remove(self.my_dir + my9_fname2)
 
   def get_stocks(self):
-    for sCode in dfi['siCode']:
+    for sCode in df9i['siCode']:
       # 파일 존재 여부 확인
       my_filename = self.my_dir + '/my9_stock_out_' + sCode + '.txt' 
       if os.path.exists(my_filename):
@@ -337,7 +374,7 @@ class cMy9Stock:
   def xyz(self):
     dfall = pd.DataFrame() # 초기화
 
-    for sCode in dfi['siCode']:
+    for sCode in df9i['siCode']:
       # 종목명 정보 읽어오기
       my9_fname = '/my9_stock_out_' + sCode + '.txt'
       dfs = pd.read_csv(self.my_dir + my9_fname, dtype={'sCode': str})
@@ -349,5 +386,36 @@ class cMy9Stock:
     print(dfall)
     dfall.to_csv(self.my_dir + '/my9_stock_out_all.txt', index=False)
 
+    print(df9o)
 
-    print(dfo)
+
+  def ssStdAmt(self):
+    # dfall = pd.DataFrame() # 초기화
+
+
+
+    # Initialize an empty list to store results
+    result = []
+
+    # Loop through each row in df9o to apply filters
+    for _, row in df9o.iterrows():
+        my9_fname = f"/my9_stock_out_{row['soCode']}.txt"
+        dfs = pd.read_csv(self.my_dir + my9_fname, dtype={'sCode': str})
+        dfs["Price"] = dfs["Price"].str.replace(",", "").astype(float)
+
+        # Filter dfs based on conditions without date conversion
+        matched_dfs = dfs[
+            (dfs['sCode'] == str(row['soCode'])) &                                  # 종목코드 동일하고
+            ((dfs['Date'] >= row['sozDate']) | (dfs['Date'] >= row['sozDate'])) &     # 기준일자보다 크거나 같고
+            ((dfs['Date'] <= row['sosDate']) | (dfs['Date'] <= row['sobDate'])) &     # 종료일자보다는 작거나 같고
+            ((dfs['Price'] >= row['sosPrice']) | (dfs['Price'] <= row['sobPrice']))   # 목표가 이상(이하)
+        ]
+        # Append matched data to result list
+        result.append(matched_dfs)
+
+    # Concatenate results into a single DataFrame if any matches are found
+    filtered_result = pd.concat(result) if result else pd.DataFrame()
+
+    # Display the result
+    print(filtered_result)
+
