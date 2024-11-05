@@ -17,7 +17,6 @@ class cMy9Stock:
     self.max_loop = 3                        # Test Mode인 경우 3페이지만 가져옴
     self.my_dir = ""                         # os
     self.my_xfile = '/my9_stock_sData.xlsx'  # excel file
-    self.my_xfile_sname = 'sData'            # excel file sheet name
 
     self.set_mode()
     self.get_excel()
@@ -53,23 +52,28 @@ class cMy9Stock:
     #     : 파일명, 시트명(sheet_name)
     #     : 열명(usecols) : 컬럼영문알파벳, 인덱스(숫자0부터), 컬럼명  : 'A:E', range(0,4), ['saAccount','saName'] 
     # WOW : 데이터타입(dtype) 숫자로 지정해도 엑셀에 저장된 값이 float이면 intger로 변환되지 않는다고 함 : 음... 엑셀에서 int로 변환한것도 float로 저장되는데, 
-    df = pd.read_excel(self.my_dir + self.my_xfile, sheet_name=self.my_xfile_sname, usecols='A:E', na_values=["N/A", "NA", "-", "", "none"])
-    df = df.dropna()
-    print(df)
 
-    for sName in df['spName']:
-      startN = df.loc[df['spName'] == sName, 'spStart'].iloc[0].astype('int32')
-      endN   = df.loc[df['spName'] == sName, 'spEnd'].iloc[0].astype('int32')
-      # print(startN, ' : ', endN)
-      dfx = pd.read_excel(self.my_dir + self.my_xfile, sheet_name=self.my_xfile_sname, usecols=range(startN-1, startN+endN-1), header=3, na_values=["N/A", "NA", "-", "", "none"])
-      # WOW : 모든 값이 na인 경우에만 행을 삭제하도록 개선
-      # dfx = dfx.dropna()
-      all_na_rows = dfx.isna().all(axis=1) # 모든 값이 NaN인 행을 식별
-      dfx = dfx[~all_na_rows]  # 모든 값이 NaN인 행만 제거
-      print(sName, " : ", df.loc[df['spName'] == sName, 'spDescK'])
-      print(dfx)
-      # WOW : global 변수 이름에 해당 데이터 저장 : sName에 저장된 값으로 변수를 만들어서 저장
-      globals()[sName] = dfx
+    sheet_names = ["sData", "sData.so"]  # 사용할 시트 이름들을 여기에 추가
+
+    # 모든 시트에 대해 반복 실행
+    for sheet in sheet_names:
+      df = pd.read_excel(self.my_dir + self.my_xfile, sheet_name=sheet, usecols='A:E', na_values=["N/A", "NA", "-", "", "none"])
+      df = df.dropna()
+      print(df)
+
+      for sName in df['spName']:
+        startN = df.loc[df['spName'] == sName, 'spStart'].iloc[0].astype('int32')
+        endN   = df.loc[df['spName'] == sName, 'spEnd'].iloc[0].astype('int32')
+        # print(startN, ' : ', endN)
+        dfx = pd.read_excel(self.my_dir + self.my_xfile, sheet_name=sheet, usecols=range(startN-1, startN+endN-1), header=3, na_values=["N/A", "NA", "-", "", "none"])
+        # WOW : 모든 값이 na인 경우에만 행을 삭제하도록 개선
+        # dfx = dfx.dropna()
+        all_na_rows = dfx.isna().all(axis=1) # 모든 값이 NaN인 행을 식별
+        dfx = dfx[~all_na_rows]  # 모든 값이 NaN인 행만 제거
+        print(sName, " : ", df.loc[df['spName'] == sName, 'spDescK'])
+        print(dfx)
+        # WOW : global 변수 이름에 해당 데이터 저장 : sName에 저장된 값으로 변수를 만들어서 저장
+        globals()[sName] = dfx
 
 
     # 데이터타입 지정
@@ -379,7 +383,7 @@ class cMy9Stock:
       my9_fname = '/my9_stock_out_' + sCode + '.txt'
       dfs = pd.read_csv(self.my_dir + my9_fname, dtype={'sCode': str})
       # 특정 날짜 정보만 취합하기
-      dfs = dfs[dfs['Date'].isin(['2024.11.01'])]
+      dfs = dfs[dfs['Date'].isin(['2024.11.05'])]
       dfall = pd.concat([dfall, dfs], ignore_index=True)
 
     # 취합정보 출력
@@ -398,7 +402,7 @@ class cMy9Stock:
     result = []
 
     # Loop through each row in df9o to apply filters
-    for _, row in df9o.iterrows():
+    for _, row in df9o[df9o['soUseYN'] == "Y"].iterrows():
         my9_fname = f"/my9_stock_out_{row['soCode']}.txt"
         dfs = pd.read_csv(self.my_dir + my9_fname, dtype={'sCode': str})
         dfs["Price"] = dfs["Price"].str.replace(",", "").astype(float)
@@ -410,12 +414,19 @@ class cMy9Stock:
             ((dfs['Date'] <= row['sosDate']) | (dfs['Date'] <= row['sobDate'])) &     # 종료일자보다는 작거나 같고
             ((dfs['Price'] >= row['sosPrice']) | (dfs['Price'] <= row['sobPrice']))   # 목표가 이상(이하)
         ]
-        # Append matched data to result list
-        result.append(matched_dfs)
 
-    # Concatenate results into a single DataFrame if any matches are found
-    filtered_result = pd.concat(result) if result else pd.DataFrame()
+        # matched_dfs에 row의 데이터 추가
+        # row를 DataFrame으로 변환하고, matched_dfs의 행 개수만큼 반복
+        selected_row = row[['soName', 'sobPrice', 'sosPrice', 'soDesc']]  # 원하는 컬럼만 선택
+        row_df = pd.DataFrame([selected_row] * len(matched_dfs), index=matched_dfs.index)
 
-    # Display the result
-    print(filtered_result)
+        # row와 matched_dfs를 수평으로 결합 (열 방향으로 합침)
+        joined_df = pd.concat([matched_dfs, row_df], axis=1)
+
+        # 결합된 결과를 result에 추가
+        result.append(joined_df)
+
+    # 결과를 하나의 DataFrame으로 결합
+    final_result = pd.concat(result, ignore_index=True)
+    print(final_result)
 
