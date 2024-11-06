@@ -125,8 +125,31 @@ class cMy10pgmB:
     # 4.4 : cKey : in dfcm and not in dfcd
     dfcm_only = dfcm[~dfcm['cKey'].isin(dfcd['Key'])]
     if not dfcm_only.empty:
-      print(f"4.4 dfcm에만 존재하고 코드에는 존재하지 않는 cKey 값(CG,CC): {dfcm_only}")
-      sys.exit()
+      # cKey에 # 없는 값이 존재하는지 확인
+      if not dfcm_only['cKey'].str.contains('#').all():
+        print(f"4.4.1 dfcm에만 존재하고 코드에는 존재하지 않는 cKey 값(CG,CC): {dfcm_only}")
+        sys.exit()
+      else:
+        # #을 기준으로 split
+        df_sharp = dfcm_only['cKey'].str.split('#', expand=True)
+        df_sharp.columns = ['cKey.fg', 'cKey.bc']  # 분리된 컬럼 이름 지정
+        df_sharp = pd.concat([dfcm_only, df_sharp], axis=1)
+        
+        # 조건에 맞지 않는 행을 필터링
+        df_invalid = df_sharp[~(df_sharp['cKey.fg'].str.startswith('GG') & df_sharp['cKey.bc'].str.startswith('CG'))]
+        # 조건에 맞지 않는 행이 있는 경우 해당 행만 출력
+        if not df_invalid.empty:
+          print("4.4.2 조건에 맞지 않는 값이 있습니다.(GGxx#CGyy) : {df_invalid}")
+          print(df_invalid)
+          sys.exit()
+
+        if not all(df_sharp['cKey.fg'].isin(dfcm['gKey'])) or not all(df_sharp['cKey.bc'].isin(dfcm['cKey'])):
+          print("4.4.3 cKey.fg와 cKey.bc 값이 gKey와 cKey에 포함되지 않습니다. 종료합니다.")
+          sys.exit()
+        
+        print(df_sharp)
+        print("4.4.4 Comming Soon")
+        sys.exit()
 
     # MAKE self.dflist
     # 향후 조인시 인덱스 유지를 위해서 보관
