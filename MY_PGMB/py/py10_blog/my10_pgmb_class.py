@@ -139,17 +139,18 @@ class cMy10pgmB:
         df_invalid = df_sharp[~(df_sharp['cKey.fg'].str.startswith('GG') & df_sharp['cKey.bc'].str.startswith('CG'))]
         # 조건에 맞지 않는 행이 있는 경우 해당 행만 출력
         if not df_invalid.empty:
-          print("4.4.2 조건에 맞지 않는 값이 있습니다.(GGxx#CGyy) : {df_invalid}")
-          print(df_invalid)
-          sys.exit()
-
-        if not all(df_sharp['cKey.fg'].isin(dfcm['gKey'])) or not all(df_sharp['cKey.bc'].isin(dfcm['cKey'])):
-          print("4.4.3 cKey.fg와 cKey.bc 값이 gKey와 cKey에 포함되지 않습니다. 종료합니다.")
+          print(f"4.4.2 조건에 맞지 않는 값이 있습니다.(GGxx#CGyy) : {df_invalid}")
           sys.exit()
         
-        print(df_sharp)
-        print("4.4.4 Comming Soon")
-        sys.exit()
+        # df_sharp와 dfcm을 (cKey.fg, cKey.bc)와 (gKey, cKey) 쌍으로 비교하기 위해 merge
+        merged   = df_sharp.merge(dfcm, left_on=['cKey.fg', 'cKey.bc'], right_on=['gKey', 'cKey'], how='left', indicator=True)
+        # 조건에 맞지 않는 행만 필터링
+        df_invalid = merged[merged['_merge'] == 'left_only'].drop(columns=['gKey_y', 'cKey_y', '_merge'])
+
+        # 조건에 맞지 않는 행이 있는 경우 출력하고 종료
+        if not df_invalid.empty:
+          print(f"조건에 맞지 않는 값이 있습니다 (cg mapping에 없네): {df_invalid}")
+          sys.exit()
 
     # MAKE self.dflist
     # 향후 조인시 인덱스 유지를 위해서 보관
@@ -222,7 +223,11 @@ class cMy10pgmB:
     mygc_html = f"<br><h4 id=\"{rck}\">{rcm}</h4>\n"
     for n_row, row in self.dflist[self.dflist['gKey']==rck].iterrows():  # iterrows() 사용
       if row['cKey'].startswith('GG'):
-        mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
+        if '#' in row['cKey']:
+          file_part, anchor_part = row['cKey'].split('#', 1)
+          mygc_html += f"<p><a href=\"{self.ggdir}/{file_part}.html#{anchor_part}\">{row['cName']}</a></p>\n"
+        else:
+          mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CC'):
         mygc_html += f"<p><a href=\"{self.ccdir}{row['cURL']}\">{row['cName']}</a></p>\n"
       else:
