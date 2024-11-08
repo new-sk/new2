@@ -159,6 +159,7 @@ class cMy10pgmB:
     self.dflist = pd.merge(dfcm, dfcd[['Key','Name']], left_on='gKey', right_on='Key', how='left')
     self.dflist = self.dflist.rename(columns={'Name': 'gName'})  # gName으로 이름 변경
     self.dflist = self.dflist.drop(columns=['Key'])  # Key 컬럼 제거
+
     # cKey를 기준으로 다시 dfcd와 조인하여 cName을 가져옴
     # '#'이 포함된 경우와 그렇지 않은 경우로 dflist를 분리
     dflist_with_hash = self.dflist[self.dflist['cKey'].str.contains('#', na=False)]
@@ -171,9 +172,7 @@ class cMy10pgmB:
     # 두 결과를 다시 결합하여 최종 결과 생성
     self.dflist = pd.concat([merged_with_hash, merged_without_hash], ignore_index=True)
     self.dflist = self.dflist.rename(columns={'Name': 'cName'})  # cName으로 이름 변경
-    #self.dflist = pd.merge(self.dflist, dfcd, left_on='cKey', right_on='Key', how='left')
-    #self.dflist = self.dflist.rename(columns={'Name': 'cName'})  # cName으로 이름 변경
-    #self.dflist = self.dflist.drop(columns=['Key'])  # Key 컬럼 제거
+
     # 원래 인덱스를 기준으로 다시 정렬 (순서 유지)
     self.dflist = self.dflist.sort_values(by=['gKey','orgIndex']).reset_index(drop=True)
     print("print dflist")   

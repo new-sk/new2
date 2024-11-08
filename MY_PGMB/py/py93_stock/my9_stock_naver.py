@@ -383,7 +383,7 @@ class cMy9Stock:
       my9_fname = '/my9_stock_out_' + sCode + '.txt'
       dfs = pd.read_csv(self.my_dir + my9_fname, dtype={'sCode': str})
       # 특정 날짜 정보만 취합하기
-      dfs = dfs[dfs['Date'].isin(['2024.11.05'])]
+      dfs = dfs[dfs['Date'].isin(['2024.11.08'])]
       dfall = pd.concat([dfall, dfs], ignore_index=True)
 
     # 취합정보 출력
