@@ -1,0 +1,27 @@
+/* 기본 글자 크기와 줄 간격 설정 */
+body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* 제목 태그 기본 크기 설정 */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.1rem; }
+  h6 { font-size: 1rem; }
+  
+  /* 모바일 화면에서 일괄적인 확대 적용 */
+  @media (max-width: 600px) {
+    body {
+      font-size: 1.1rem; /* 본문 글자 크기 약간 증가 */
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-size: calc(1em + 0.5rem); /* 모든 제목 글자 크기를 약간 증가 */
+    }
+  }
