@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>&#xc800;&#xc18d;&#xb178;&#xd654; &#xc2dd;&#xc0ac;&#xbc95;</title>
-        <style>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#xc800;&#xc18d;&#xb178;&#xd654; &#xc2dd;&#xc0ac;&#xbc95;</title>
+            <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -11,48 +11,23 @@
  *--------------------------------------------------------------------------------------------*/
 
 .vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only] {
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
 	display: none;
 }
 
-/* From extension ms-toolsai.jupyter */
-/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
-
-.alert {
-    width: auto;
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-.alert > *:last-child {
-    margin-bottom: 0;
-}
-#preview > .alert:last-child {
-    /* Prevent this being set to zero by the default notebook stylesheet */
-    padding-bottom: 1em;
-}
-
-.alert-success {
-    /* Note there is no suitable color available, so we just copy "info" */
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-info {
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-warning {
-    background-color: var(--theme-warning-background);
-    color: var(--theme-warning-foreground);
-}
-.alert-danger {
-    background-color: var(--theme-error-background);
-    color: var(--theme-error-foreground);
-}
-
 </style>
-        
-        
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
         <style>
 .task-list-item {
     list-style-type: none;
@@ -64,38 +39,106 @@
     pointer-events: none;
 }
 </style>
-        <style>
-/* 기본 글자 크기와 줄 간격 설정 */
-body {
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-  }
-  
-  /* 제목 태그 기본 크기 설정 */
-  h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0.5rem !important;
-  }
-  
-  h1 { font-size: 2rem !important; }
-  h2 { font-size: 1.75rem !important; }
-  h3 { font-size: 1.5rem !important; }
-  h4 { font-size: 1.25rem !important; }
-  h5 { font-size: 1.1rem !important; }
-  h6 { font-size: 1rem !important; }
-  
-  /* 모바일 화면에서 일괄적인 확대 적용 */
-  /* @media (max-width: 600px) {                                                       
-  /*   body {
-  /*     font-size: 1.1rem !important; /* 본문 글자 크기 약간 증가 */
-  /*   }
-  /*   h1, h2, h3, h4, h5, h6 {
-  /*     font-size: calc(1em + 0.5rem) !important; /* 모든 제목 글자 크기를 약간 증가 */
-  /*   } 
-  /*} */
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
 </style>
-    </head>
-    <body class="vscode-body vscode-light">
-        <h1 id="저속노화-식사법">저속노화 식사법</h1>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="저속노화-식사법">저속노화 식사법</h1>
 <ul>
 <li>초판 5쇄 발행일 2024.10.21,  지은이:정희원  펴낸곳:(주)문학동네</li>
 <li>PULS GPT</li>
@@ -106,7 +149,8 @@ body {
 <li>알면서도 그것을 놓치고 나서야 깨닫는다. 나도 한 끼 떼운다는 생각으로 살았던 것 같은데,,,</li>
 </ul>
 <br>
-<h2 id="밥만-바꿔도-느리게-나이들-수-있다-저속노화-식사법이란-무엇인가">밥만 바꿔도 느리게 나이들 수 있다 (저속노화 식사법이란 무엇인가)</h2>
+<h2 id="1-밥만-바꿔도-느리게-나이들-수-있다-저속노화-식사법이란-무엇인가">1. 밥만 바꿔도 느리게 나이들 수 있다 (저속노화 식사법이란 무엇인가)</h2>
+<h3 id="우리는-지금-노화의-액셀러레이터를-밟고-있다">우리는 지금 노화의 액셀러레이터를 밟고 있다</h3>
 <p>022 인류는 진화적으로 단맛과 짠맛, 지방맛을 좋아하도록 설계되었다.</p>
 <ul>
 <li><strong>단맛</strong>은 에너지의 주요 공급원인 탄수화물, 특히 과일이나 꿀처럼 자연적으로 당이 풍부한 음식을 찾는 데 도움이 되었어.</li>
@@ -231,19 +275,89 @@ body {
 <li>충분한 수면과 스트레스 관리도 인슐린 민감성을 유지하는 데 도움이 돼.</li>
 </ul>
 <p>034 오늘날 보통의 젊은 성인들은 부모 세대보다 일찍 만성질환을 겪으며 보다 오랜 기간 병을 앓을 가능성이 높다</p>
+<h3 id="100세-시대-핵심은-뇌-건강이다">100세 시대, 핵심은 뇌 건강이다</h3>
+<p>039 지중해식 식사 : 지중해 연안 국가인 그리스, 이탈리아, 스페인, 프랑스 등의 전통적인 식습관</p>
+<ul>
+<li>암, 심장질환, 당뇨병, 고혈압, 뇌졸증, 치매 등 만성질환의 위험을 감소, 적정 체중 유지 도움</li>
+<li>복합탄수화물, 식물성 단백질, 올리브오일 강조, 붉은 고기 피함</li>
+</ul>
+<p>040 대시 식사 : 고협압 예방 식단</p>
+<ul>
+<li>칼륨이 품부한 과일과 채소 권장, 나트륨 제한</li>
+</ul>
+<p>042 저속노화 식사 (MIND)</p>
+<ul>
+<li>지중해식과 다른 점 : 베리류, 푸른잎채소 권장</li>
+<li>MIND 식사에서는 모든 과일을 자주 섭취할 것을 강조하지는 않고, 베리류오 ㅏ푸른잎채소의 섭취를 강조</li>
+<li>지줌해식 식사 + 올리브오일 보충 : 인지기능 개선 효과</li>
+</ul>
+<h3 id="나이에-상관없이-젊음을-유지하고-싶다면">나이에 상관없이 젊음을 유지하고 싶다면</h3>
+<p>052 MIND 식사법 점수표 (15점 만점)</p>
+<ul>
+<li>1점 높을 때마다 전체 치매와 알츠하이머 치매의 위험성이 10% 이상 감소</li>
+<li>뇌 건강에 좋은 식품 (자주 섭취 권장)
+<ul>
+<li>잎채소 (케일, 시금치 등): 주 6회 이상</li>
+<li>기타 채소: 하루 1회 이상</li>
+<li>견과류: 주 5회 이상</li>
+<li>베리류 (블루베리, 딸기 등): 주 2회 이상</li>
+<li>통곡물 (귀리, 퀴노아, 현미 등): 하루 3회 이상</li>
+<li>생선: 주 1회 이상</li>
+<li>콩류 (렌틸콩, 병아리콩 등): 주 4회 이상</li>
+<li>가금류 (닭, 칠면조 등): 주 2회 이상</li>
+<li>올리브유: 주로 사용하는 식용유로 사용</li>
+<li>적포도주: 하루 1잔 (선택 사항)</li>
+</ul>
+</li>
+<li>피해야 할 식품 (섭취 제한 권장)
+<ul>
+<li>붉은 고기 (소고기, 돼지고기): 주 3회 이하</li>
+<li>버터와 마가린: 하루 1스푼 이하</li>
+<li>치즈: 주 1회 이하</li>
+<li>패스트푸드/초가공식품: 주 1회 이하</li>
+<li>튀긴 음식: 주 1회 이하</li>
+</ul>
+</li>
+</ul>
+<p>055 단순당, 정제곡물, 붉은 고기 모두 인슐린 분비를 유발하면 노화의 가속페달인 엠토르를 활성화한다</p>
+<ul>
+<li>
+<p>콩으로 식물성 단백질을 많이 섭취하는 것으로 엠트로 억제 가능</p>
+</li>
+<li>
+<p>1형 당뇨병 : 인슐린 분비가 되지 않아서</p>
+</li>
+<li>
+<p>2형 당뇨병 : 인슐린 저항성으로 인해 혈당이 오르는 경우</p>
+</li>
+<li>
+<p>3형 당뇨병(?) : 치매 (치매의 위험성 2~5배 상승)</p>
+</li>
+</ul>
+<h3 id="식욕조절부터-혈당관리까지">식욕조절부터 혈당관리까지</h3>
+<p>062 비만의 탄수화물-인슐린 모델</p>
+<ul>
+<li>높은 혈당 피크를 만드는 식품은 인슐린 분비를 일으키고 인슐린이 과도한 에너지를 지방으로 밀어넣는다</li>
+<li>인슐린 분비로 인해 혈당은 시작점보다 더 많이 떨어지는 현상이 발생하는데, 이때 스트레스 호르몬, 글루카곤 등이 역할을 수행하며 식욕은 폭발한다</li>
+</ul>
+<p>당지수 vs 당부하</p>
+<ul>
+<li>당지수 : 포도당 50g 섭취시 혈당 상승 속도 100, 특정 식품의 탄수화물을 같은 양으로 섭취한 후,,,</li>
+<li>당부하 : 당지수 * 1회 섭취량</li>
+</ul>
 <br>
-<h2 id="작은-차이가-큰-변화를-만든다-저속노화식-간단-실천법">작은 차이가 큰 변화를 만든다 (저속노화식 간단 실천법)</h2>
+<h2 id="2-작은-차이가-큰-변화를-만든다-저속노화식-간단-실천법">2. 작은 차이가 큰 변화를 만든다 (저속노화식 간단 실천법)</h2>
 <br>
-<h2 id="노화의-가속페달을-멈추는-올바른-탄단지-가이드-잘-먹어야-약이-된다">노화의 가속페달을 멈추는, 올바른 탄.단.지 가이드 (잘 먹어야 약이 된다)</h2>
+<h2 id="3-노화의-가속페달을-멈추는-올바른-탄단지-가이드-잘-먹어야-약이-된다">3. 노화의 가속페달을 멈추는, 올바른 탄.단.지 가이드 (잘 먹어야 약이 된다)</h2>
 <br>
-<h2 id="저속노화-식사법-완전-정복-사람들이-가장-궁금해한-qa-30">저속노화 식사법 완전 정복 (사람들이 가장 궁금해한 Q&amp;A 30)</h2>
+<h2 id="4-저속노화-식사법-완전-정복-사람들이-가장-궁금해한-qa-30">4. 저속노화 식사법 완전 정복 (사람들이 가장 궁금해한 Q&amp;A 30)</h2>
 <br>
-<h2 id="건강하게-맛있는-일주일-저속노화-레시피-자연-재료를-활용한-건강-밥상-21">건강하게 맛있는 일주일 저속노화 레시피 (자연 재료를 활용한 건강 밥상 21)</h2>
+<h2 id="5-건강하게-맛있는-일주일-저속노화-레시피-자연-재료를-활용한-건강-밥상-21">5. 건강하게 맛있는 일주일 저속노화 레시피 (자연 재료를 활용한 건강 밥상 21)</h2>
 <ul>
 <li>이건 참자.. ^^</li>
 </ul>
 
-        
-        
-    </body>
-    </html>
+            
+            
+        </body>
+        </html>
