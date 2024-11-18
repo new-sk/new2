@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import ssl
 import re
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 import configparser  # 24.07.28 추가 : INI 설정
 import sys
@@ -394,8 +394,28 @@ class cMy9Stock:
 
 
   def ssStdAmt(self):
-    # dfall = pd.DataFrame() # 초기화
 
+    # 날짜가 지난 조건을 찾아서 출력해줌 : 바꿔 주세요.
+    # 오늘
+    today = datetime.now()
+    # 주말이면 금요일
+    if today.weekday() == 5:  # 토요일
+        result_date = today - timedelta(days=1)  # 금요일
+    elif today.weekday() == 6:  # 일요일
+        result_date = today - timedelta(days=2)  # 금요일
+    else:
+        result_date = today  # 평일은 오늘 날짜 그대로
+    # YYYY.MM.DD 형식으로 출력
+    wDate = result_date.strftime("%Y.%m.%d")
+
+    filtered_df = df9o[
+        (df9o['soUseYN'] == "Y") &
+        ((df9o['sosDate'] < wDate) | (df9o['sobDate'] < wDate))
+    ]
+
+    # Display the filtered rows
+    print("목표관리 기준일자가 초과되었습니다. 새로 만들어 주세요.:")
+    print(filtered_df)   
 
 
     # Initialize an empty list to store results
@@ -428,5 +448,6 @@ class cMy9Stock:
 
     # 결과를 하나의 DataFrame으로 결합
     final_result = pd.concat(result, ignore_index=True)
+    print("조건에 부합하였습니다. 확인후 조치부탁합니다.:")
     print(final_result)
 
