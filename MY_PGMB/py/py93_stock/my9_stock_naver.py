@@ -414,8 +414,11 @@ class cMy9Stock:
     ]
 
     # Display the filtered rows
-    print("목표관리 기준일자가 초과되었습니다. 새로 만들어 주세요.:")
-    print(filtered_df)   
+    if filtered_df.empty:
+      print("목표관리 기준일자를 초과한 내역이 없습니다.")
+    else:
+      print("목표관리 기준일자가 초과되었습니다. 새로 만들어 주세요.:")
+      print(filtered_df)   
 
 
     # Initialize an empty list to store results
@@ -448,6 +451,9 @@ class cMy9Stock:
 
     # 결과를 하나의 DataFrame으로 결합
     final_result = pd.concat(result, ignore_index=True)
-    print("조건에 부합하였습니다. 확인후 조치부탁합니다.:")
-    print(final_result)
+    if final_result.empty:
+      print("목표 기준에 도달한 내역이 없습니다.")
+    else:
+      print("목표 기준에 부합한 내역이 있습니다. 확인후 조치부탁합니다.:")
+      print(final_result)
 
