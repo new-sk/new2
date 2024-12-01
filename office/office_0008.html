@@ -15,18 +15,45 @@
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -38,7 +65,35 @@
     pointer-events: none;
 }
 </style>
-        
+        <style>
+/* 기본 글자 크기와 줄 간격 설정 */
+body {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* 제목 태그 기본 크기 설정 */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.75rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  h4 { font-size: 1.25rem !important; }
+  h5 { font-size: 1.1rem !important; }
+  h6 { font-size: 1rem !important; }
+  
+  /* 모바일 화면에서 일괄적인 확대 적용 */
+  /* @media (max-width: 600px) {                                                       
+  /*   body {
+  /*     font-size: 1.1rem !important; /* 본문 글자 크기 약간 증가 */
+  /*   }
+  /*   h1, h2, h3, h4, h5, h6 {
+  /*     font-size: calc(1em + 0.5rem) !important; /* 모든 제목 글자 크기를 약간 증가 */
+  /*   } 
+  /*} */
+</style>
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="엑셀-수식">엑셀 수식</h1>
@@ -47,8 +102,17 @@
 <li><a href="./office_0008.html">엑셀 수식</a></li>
 </ul>
 <br>
-<h2 id="230321-매크로"><strong>23.03.21 매크로</strong></h2>
-<h3 id="1-매크로-삭제">1. 매크로 삭제</h3>
+<h2 id="241201-새창"><strong>24.12.01 새창</strong></h2>
+<h2 id="2411xx-하이퍼링크---이름"><strong>24.11.XX 하이퍼링크 - 이름</strong></h2>
+<br>
+<h3 id="-창을-여러-개-띄워-놓고-작업하기"><strong>○ 창을 여러 개 띄워 놓고 작업하기</strong></h3>
+<ul>
+<li>하나의 엑셀 파일에서 여러 개의 시트를 띄워 놓고 작업하기</li>
+<li><strong>새창</strong> 띄우기</li>
+<li>창들 이쁘게 배열해서 작업하면 됨, 각 창에서 다른 시트 보면서 작업하면 됨, 동일한 시트 보고 있으면 동시에 바뀜</li>
+</ul>
+<br>
+<h3 id="1-매크로-삭제"><strong>1. 매크로 삭제</strong></h3>
 <ul>
 <li>
 <p>매크로 소스 보기 : <strong>Alt + F11</strong></p>
@@ -66,26 +130,27 @@
 <p><img src="./img/f0008_2.JPG" alt="매크로 RD"></p>
 </li>
 </ul>
-<h3 id="2-매크로-만들기-007">2. 매크로 만들기 (007)</h3>
+<br>
+<h3 id="2-매크로-만들기-007"><strong>2. 매크로 만들기 (007)</strong></h3>
 <ul>
 <li>보기 - 매크로 - 매크로 기억 [매크로명, 단축키(ctrl+영문자) ]</li>
 <li>잡다한 작업들,,,</li>
 <li>보기 - 매크로 - 매크로 종료</li>
 </ul>
 <br>
-<h2 id="012-그룹-묶음처리--숨김처리-22-01-29"><strong>012. 그룹 (묶음처리 : 숨김처리) (22. 01. 29)</strong></h2>
+<h2 id="012-그룹-묶음처리--숨김처리"><strong>012. 그룹 (묶음처리 : 숨김처리)</strong></h2>
 <p>. 데이터 - 그룹  (선택하면 만들면, 그 다음 줄(열)에 ± 버튼이 생김</p>
 <br>
-<h2 id="011-sumifs-countifs-21-04-17"><strong>011. sumifs, countifs (21. 04. 17)</strong></h2>
+<h2 id="011-sumifs-countifs"><strong>011. sumifs, countifs</strong></h2>
 <p>. 주위에서 사용하는 것을 보고 관심이 가지게 된 함수</p>
 <p>. 기존 조건절을 여러 개를 사용할 수 있게 된 것임</p>
 <br>
-<h2 id="010-이름정의-20-11-10"><strong>010. 이름정의 (20. 11. 10)</strong></h2>
+<h2 id="010-이름정의"><strong>010. 이름정의</strong></h2>
 <p>. 영역을 특정한 이름으로 정의하여 관리</p>
 <p>. 셀속성에서 이름 정의</p>
 <p>.  &lt;수식 - 이름관리자&gt;에서 수정 가능</p>
 <br>
-<h2 id="009-offset-20-11-10"><strong>009. offset (20. 11. 10)</strong></h2>
+<h2 id="009-offset"><strong>009. offset</strong></h2>
 <p>. 지정한 위치에서 이동</p>
 <p>. offset(영역, row, col)</p>
 <br>
@@ -94,8 +159,11 @@
 <p>주의) 여러줄 적용시 $ 값 잘 사용합시다 ^^</p>
 <br>
 <h2 id="005-hyperlink-함수를-활용해서-하이퍼링크-만들기"><strong>005. hyperlink (함수를 활용해서 하이퍼링크 만들기)</strong></h2>
-<p>. hyperlink (&quot;URL&quot;, &quot;텍스트명&quot;)</p>
-<p>. hyperlink (&quot;#'시트명'!A1&quot;, &quot;바로가기&quot;) : 현재 열려져 있는 파일의 하이퍼링크</p>
+<ul>
+<li>hyperlink (&quot;URL&quot;, &quot;텍스트명&quot;)</li>
+<li>hyperlink (&quot;#'시트명'!A1&quot;, &quot;바로가기&quot;) : 현재 열려져 있는 파일의 하이퍼링크</li>
+<li>이름영역도 동일하게 사용하면 됨 &quot;#N이름&quot;</li>
+</ul>
 <br>
 <h2 id="004-indirect-주소값을-활용하여-셀-값-가져오기"><strong>004. indirect (주소값을 활용하여 셀 값 가져오기)</strong></h2>
 <p>. indirect( 셀주소 ) : &quot;TASK_LIST!C&quot; &amp; A4</p>

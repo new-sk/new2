@@ -52,15 +52,7 @@
 
 </style>
         
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -72,7 +64,35 @@
     pointer-events: none;
 }
 </style>
-        
+        <style>
+/* 기본 글자 크기와 줄 간격 설정 */
+body {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* 제목 태그 기본 크기 설정 */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.75rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  h4 { font-size: 1.25rem !important; }
+  h5 { font-size: 1.1rem !important; }
+  h6 { font-size: 1rem !important; }
+  
+  /* 모바일 화면에서 일괄적인 확대 적용 */
+  /* @media (max-width: 600px) {                                                       
+  /*   body {
+  /*     font-size: 1.1rem !important; /* 본문 글자 크기 약간 증가 */
+  /*   }
+  /*   h1, h2, h3, h4, h5, h6 {
+  /*     font-size: calc(1em + 0.5rem) !important; /* 모든 제목 글자 크기를 약간 증가 */
+  /*   } 
+  /*} */
+</style>
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="엑셀-셀">엑셀 셀</h1>
@@ -106,6 +126,12 @@
 <h2 id="014-수식인지-여부-isformula"><strong>014. 수식인지 여부 (isformula)</strong></h2>
 <ul>
 <li>관련함수 다수 : isblank, iserror, isodd,,,</li>
+</ul>
+<br>
+<h2 id="014-2-수식에-사용된-문자-연구--241201"><strong>014-2. 수식에 사용된 문자 연구</strong>  (24.12.01)</h2>
+<ul>
+<li><strong>formulatext</strong> : 수식에 사용된 문자열을 문자열 함수를 통해서 다룸</li>
+<li>문자열 다루는 함수가 수식에서는 사용하지 못함</li>
 </ul>
 <br>
 <h2 id="013-날짜-계산-datedif--workday"><strong>013. 날짜 계산 (datedif,  workday)</strong></h2>
