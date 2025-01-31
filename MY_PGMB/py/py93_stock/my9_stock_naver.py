@@ -53,7 +53,7 @@ class cMy9Stock:
     #     : 열명(usecols) : 컬럼영문알파벳, 인덱스(숫자0부터), 컬럼명  : 'A:E', range(0,4), ['saAccount','saName'] 
     # WOW : 데이터타입(dtype) 숫자로 지정해도 엑셀에 저장된 값이 float이면 intger로 변환되지 않는다고 함 : 음... 엑셀에서 int로 변환한것도 float로 저장되는데, 
 
-    sheet_names = ["sData", "sData.so"]  # 사용할 시트 이름들을 여기에 추가
+    sheet_names = ["sData", "4.sData.so"]  # 사용할 시트 이름들을 여기에 추가
 
     # 모든 시트에 대해 반복 실행
     for sheet in sheet_names:
@@ -414,6 +414,7 @@ class cMy9Stock:
     ]
 
     # Display the filtered rows
+    print()
     if filtered_df.empty:
       print("목표관리 기준일자를 초과한 내역이 없습니다.")
     else:
@@ -434,7 +435,7 @@ class cMy9Stock:
         matched_dfs = dfs[
             (dfs['sCode'] == str(row['soCode'])) &                                  # 종목코드 동일하고
             ((dfs['Date'] >= row['sozDate']) | (dfs['Date'] >= row['sozDate'])) &     # 기준일자보다 크거나 같고
-            ((dfs['Date'] <= row['sosDate']) | (dfs['Date'] <= row['sobDate'])) &     # 종료일자보다는 작거나 같고
+          #  ((dfs['Date'] <= row['sosDate']) | (dfs['Date'] <= row['sobDate'])) &     # 종료일자는 체크 안하는 것으로, 24.12.26
             ((dfs['Price'] >= row['sosPrice']) | (dfs['Price'] <= row['sobPrice']))   # 목표가 이상(이하)
         ]
 
@@ -451,9 +452,11 @@ class cMy9Stock:
 
     # 결과를 하나의 DataFrame으로 결합
     final_result = pd.concat(result, ignore_index=True)
+    print()
     if final_result.empty:
       print("목표 기준에 도달한 내역이 없습니다.")
     else:
       print("목표 기준에 부합한 내역이 있습니다. 확인후 조치부탁합니다.:")
-      print(final_result)
+      with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+        print(final_result)  # 설정이 이 블록 안에서만 적용됨
 
