@@ -269,7 +269,7 @@ class cMy10pgmB:
     for n_row, row in self.dfgroup[self.dfgroup['gKey'].str.startswith('GG')].iterrows():  # iterrows() 사용
       myhtml = self.gen_gKey(row['gKey'])
       print('print GG html : ' + row['gKey'])
-      print(myhtml)
+      #print(myhtml)
       with open(self.my_dir + '/../../../pyhtml/' + row['gKey'] + '.html', "w", encoding="utf-8") as file:
         file.write(myhtml)
 
