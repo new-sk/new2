@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>&#xbcf4;&#xb178;&#xbcf4;&#xb178;&#xcc98;&#xb7fc; &#xc0b4;&#xb2e4;&#xb2c8; &#xb2e4;&#xd589;&#xc774;&#xc57c; &lpar;XXX&rpar;</title>
-            <style>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#xbcf4;&#xb178;&#xbcf4;&#xb178;&#xcc98;&#xb7fc; &#xc0b4;&#xb2e4;&#xb2c8; &#xb2e4;&#xd589;&#xc774;&#xc57c; &lpar;v3&comma; 25&period;02&period;09&rpar;</title>
+        <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -11,23 +11,48 @@
  *--------------------------------------------------------------------------------------------*/
 
 .vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only],
-.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
-.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+.vscode-light img[src$=\#gh-dark-mode-only] {
 	display: none;
 }
 
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
 </style>
-            
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+        
+        
         <style>
 .task-list-item {
     list-style-type: none;
@@ -39,112 +64,44 @@
     pointer-events: none;
 }
 </style>
-<style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
-}
-
-</style>
-<style>
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
+        <style>
+/* 기본 글자 크기와 줄 간격 설정 */
+body {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
   }
-}
-
+  
+  /* 제목 태그 기본 크기 설정 */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.75rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  h4 { font-size: 1.25rem !important; }
+  h5 { font-size: 1.1rem !important; }
+  h6 { font-size: 1rem !important; }
+  
+  /* 모바일 화면에서 일괄적인 확대 적용 */
+  /* @media (max-width: 600px) {                                                       
+  /*   body {
+  /*     font-size: 1.1rem !important; /* 본문 글자 크기 약간 증가 */
+  /*   }
+  /*   h1, h2, h3, h4, h5, h6 {
+  /*     font-size: calc(1em + 0.5rem) !important; /* 모든 제목 글자 크기를 약간 증가 */
+  /*   } 
+  /*} */
 </style>
-<style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
-}
-
-.markdown-alert>:first-child {
-  margin-top: 0
-}
-
-.markdown-alert>:last-child {
-  margin-bottom: 0
-}
-
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
-}
-
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
-
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
-}
-
-</style>
-        
-        </head>
-        <body class="vscode-body vscode-light">
-            <h1 id="보노보노처럼-살다니-다행이야-xxx">보노보노처럼 살다니 다행이야 (XXX)</h1>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="보노보노처럼-살다니-다행이야-v3-250209">보노보노처럼 살다니 다행이야 (v3, 25.02.09)</h1>
 <ul>
 <li>
 <p>초판 4쇄 발행일 2017.04.26,  지은이:김신회,  그린이:이가라시 미키오  펴낸곳:다산북스</p>
 </li>
 <li>
-<p>버전3. 25.02.09 : 불현듯 보노보노를 보고 싶다는 (3장까지만 하고 XXX하다)</p>
+<p>버전3. 25.02.09 : 불현듯 보노보노를 보고 싶다는 (3장까지만 하고 멈추다)</p>
 </li>
 <li>
 <p>버전2. 18.08.03 : 나머지 반</p>
@@ -203,7 +160,7 @@
 <li>308 베르톨트 브레히트 &quot;인간은 예술을 통해 삶을 즐기고 즐거움은 삶의 의지를 강화시킨다&quot;</li>
 </ul>
 
-            
-            
-        </body>
-        </html>
+        
+        
+    </body>
+    </html>
