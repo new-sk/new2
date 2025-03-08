@@ -47,75 +47,22 @@ class cMy11pgmB:
 
     # 4️⃣ SQLite 데이터베이스 연결
     conn = sqlite3.connect(self.my_dir + '/' + "my_blog.db")
+    
     dfcd = pd.read_sql("SELECT * FROM tb_blog_code ", conn)
     print(dfcd)
+    
+    dfcm = pd.read_sql("""
+select gKey, tbc1.Name gName, cKey, tbc2.Name gName, seq
+from tb_blog_map tbm, tb_blog_code tbc1, tb_blog_code tbc2
+where tbm.gKey = tbc1."Key" and tbm.cKey = tbc2."Key"
+order by gKey, seq
+""", conn)
+    print(dfcm)
+
     conn.close()
 
     return
   
-    # 매핑 읽기
-    for fcm in self.fcm_list:
-      # print(fcm)
-      df = pd.read_csv(self.my_dir + '/' + fcm)
-      # print(df)
-      dfcm = pd.concat([dfcm,df], ignore_index=True)
-      # print(dfcm)
-
-
-    # 매핑내역에서 사용되지 않는 항목 찾기 (gKey)
-    dfcd_group = dfcd[dfcd['Key'].str.startswith(('GG', 'CG')) | (dfcd['Key'] == 'ROOT')]
-    # 4.1 : gKey : in dfcd and not in dfcm
-    dfcd_gKey_empty = dfcd_group[~dfcd_group['Key'].isin(dfcm['gKey'])]
-    if not dfcd_gKey_empty.empty:
-      print(f"4.1.1 dfcd에만 존재하고 매핑에는 존재하지 않는 gKey 값(GG,CG): {dfcd_gKey_empty}")
-      sys.exit()
-    '''    dfcd_cKey_empty = dfcd_group[~dfcd_group['Key'].isin(dfcm['cKey'])]
-    if not dfcd_cKey_empty.empty:
-      print(f"4.1.2 dfcd에만 존재하고 매핑에는 존재하지 않는 cKey 값(GG,CG): {dfcd_cKey_empty}")
-      sys.exit()
-    '''
-    # 4.2 : gKey : in dfcm and not in dfcd
-    dfcm_only = dfcm[~dfcm['gKey'].isin(dfcd['Key'])]
-    if not dfcm_only.empty:
-      print(f"4.2 dfcm에만 존재하고 코드에는 존재하지 않는 gKey 값(GG,CG): {dfcm_only}")
-      sys.exit()
-    # 매핑내역에서 사용되지 않는 항목 찾기 (cKey)
-    dfcd_contents = dfcd[dfcd['Key'].str.startswith(('CG', 'CC'))]
-    # 4.3 : cKey : in dfcd and not in dfcm
-    dfcd_only = dfcd_contents[~dfcd_contents['Key'].isin(dfcm['cKey'])]
-    if not dfcd_only.empty:
-      print(f"4.3 dfcd에만 존재하고 매핑에는 존재하지 않는 cKey 값(CG,CC): {dfcd_only}")
-      sys.exit()
-    # 4.4 : cKey : in dfcm and not in dfcd
-    dfcm_only = dfcm[~dfcm['cKey'].isin(dfcd['Key'])]
-    if not dfcm_only.empty:
-      # cKey에 # 없는 값이 존재하는지 확인
-      if not dfcm_only['cKey'].str.contains('#').all():
-        print(f"4.4.1 dfcm에만 존재하고 코드에는 존재하지 않는 cKey 값(CG,CC): {dfcm_only}")
-        sys.exit()
-      else:
-        # #을 기준으로 split
-        df_sharp = dfcm_only['cKey'].str.split('#', expand=True)
-        df_sharp.columns = ['cKey.fg', 'cKey.bc']  # 분리된 컬럼 이름 지정
-        df_sharp = pd.concat([dfcm_only, df_sharp], axis=1)
-        
-        # 조건에 맞지 않는 행을 필터링
-        df_invalid = df_sharp[~(df_sharp['cKey.fg'].str.startswith('GG') & df_sharp['cKey.bc'].str.startswith('CG'))]
-        # 조건에 맞지 않는 행이 있는 경우 해당 행만 출력
-        if not df_invalid.empty:
-          print(f"4.4.2 조건에 맞지 않는 값이 있습니다.(GGxx#CGyy) : {df_invalid}")
-          sys.exit()
-        
-        # df_sharp와 dfcm을 (cKey.fg, cKey.bc)와 (gKey, cKey) 쌍으로 비교하기 위해 merge
-        merged   = df_sharp.merge(dfcm, left_on=['cKey.fg', 'cKey.bc'], right_on=['gKey', 'cKey'], how='left', indicator=True)
-        # 조건에 맞지 않는 행만 필터링
-        df_invalid = merged[merged['_merge'] == 'left_only'].drop(columns=['gKey_y', 'cKey_y', '_merge'])
-
-        # 조건에 맞지 않는 행이 있는 경우 출력하고 종료
-        if not df_invalid.empty:
-          print(f"조건에 맞지 않는 값이 있습니다 (cg mapping에 없네): {df_invalid}")
-          sys.exit()
-
     # MAKE self.dflist
     # 향후 조인시 인덱스 유지를 위해서 보관
     dfcm['orgIndex'] = dfcm.index
