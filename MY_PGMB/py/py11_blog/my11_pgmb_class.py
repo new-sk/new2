@@ -29,6 +29,7 @@ class cMy11pgmB:
   def set_mode(self):
     # 현재 디렉토리 읽기
     self.my_dir, my_file = os.path.split(__file__)
+
     # 설정파일 읽고 변수에 저장
     config = configparser.ConfigParser()  # 객체 생성
     config.read(self.my_dir + '/' + self.my_fini)  # 설정 파일 읽기 (파일 위치)
@@ -60,52 +61,6 @@ class cMy11pgmB:
       dfcm = pd.concat([dfcm,df], ignore_index=True)
       # print(dfcm)
 
-    # dfcd 데이터 정합성 확인
-    # "GG", "CG", "CC"로 시작하거나 "ROOT"가 아닌 것이 존재하면 멈춘다
-    invalid_keys = dfcd[~(dfcd['Key'].str.startswith(('GG', 'CG', 'CC')) | (dfcd['Key'] == 'ROOT'))]
-    if not invalid_keys.empty:
-        # 조건에 맞지 않는 값이 있을 경우 해당 키값 출력 후 프로그램 종료
-        print("1.1 조건에 맞지 않는 Key 값이 발견되었습니다: (GG, CG, CC, ROOT)")
-        print(invalid_keys['Key'].unique())
-        sys.exit("잘못된 Key 값으로 인해 프로그램이 종료되었습니다.")
-    # Key 값이 중복이면 멈춘다
-    duplicated_keys = dfcd[dfcd.duplicated(subset='Key', keep=False)]        
-    if not duplicated_keys.empty:
-        # 중복된 값이 있을 경우 해당 키값 출력 후 프로그램 종료
-        print("1.2 중복된 Key 값이 발견되었습니다:")
-        print(duplicated_keys['Key'].unique())
-        sys.exit("중복된 Key 값으로 인해 프로그램이 종료되었습니다.")
-  
-    # dfcm 데이터 정합성 확인
-    # gKey : "GG", "CG"로 시작하거나 "ROOT"가 아닌 것이 존재하면 멈춘다
-    invalid_keys = dfcm[~(dfcm['gKey'].str.startswith(('GG', 'CG')) | (dfcm['gKey'] == 'ROOT'))]
-    if not invalid_keys.empty:
-        # 조건에 맞지 않는 값이 있을 경우 해당 키값 출력 후 프로그램 종료
-        print("2.1 조건에 맞지 않는 Key 값이 발견되었습니다: (GG, CG, ROOT)")
-        print(invalid_keys['gKey'].unique())
-        sys.exit("잘못된 Key 값으로 인해 프로그램이 종료되었습니다.")
-    # cKey : "GG", "CG", "CC"로 시작하거나 "ROOT"가 아닌 것이 존재하면 멈춘다
-    invalid_keys = dfcm[~(dfcm['cKey'].str.startswith(('GG', 'CG', 'CC')) | (dfcm['cKey'] == 'ROOT'))]
-    if not invalid_keys.empty:
-        # 조건에 맞지 않는 값이 있을 경우 해당 키값 출력 후 프로그램 종료
-        print("2.2 조건에 맞지 않는 Key 값이 발견되었습니다: (GG, CG, CC, ROOT)")
-        print(invalid_keys['cKey'].unique())
-        sys.exit("잘못된 Key 값으로 인해 프로그램이 종료되었습니다.")
-
-    # dfcm 데이터 정합성 체크 2 : gKey & cKey
-    # 둘 다 CG로 시작하는 경우
-    both_cg_keys = dfcm[(dfcm['gKey'].str.startswith('CG')) & (dfcm['cKey'].str.startswith('CG'))]
-    if not both_cg_keys.empty:
-        # gKey와 cKey가 모두 "CG"로 시작하는 경우 종료
-        print("3.1 gKey와 cKey가 모두 'CG'로 시작하는 행이 발견되었습니다:")
-        print(both_cg_keys[['gKey', 'cKey']])
-        sys.exit("gKey와 cKey가 모두 'CG'로 시작하는 행이 있어 프로그램이 종료되었습니다.")
-    # 두 키가 모두 중복된 경우 확인
-    duplicated_keys = dfcm[dfcm.duplicated(subset=['gKey', 'cKey'], keep=False)]
-    if not duplicated_keys.empty:
-        print("3.2 gKey와 cKey가 중복하는 행이 발견되었습니다:")
-        print(duplicated_keys[['gKey', 'cKey']])
-        sys.exit("gKey와 cKey가 중복되는 행이 있어 프로그램이 종료되었습니다.")
 
     # 매핑내역에서 사용되지 않는 항목 찾기 (gKey)
     dfcd_group = dfcd[dfcd['Key'].str.startswith(('GG', 'CG')) | (dfcd['Key'] == 'ROOT')]
