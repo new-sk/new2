@@ -28,6 +28,7 @@ class cMy11pgmB:
 
     self.read_group()
 
+
   ###
   ### INI 파일에서 기초 정보 읽어오기
   ### 1. 디렉토리 확인 : global 변수에 저장
@@ -47,9 +48,9 @@ class cMy11pgmB:
     fcm_str = config.get('file', 'fcm')
     self.fcm_list = fcm_str.replace(' ', '').split(',')
 
+
   ###
   ### 데이터 읽어서 향후 활용할 DF 변수에 저장
-  ### dfcd/dfcm은 임시변수,  dflist/dfgroup이 진짜 (global변수)
   ### 1. dflist 생성
   ### 2. dfgroup 생성
   ###   
@@ -59,56 +60,26 @@ class cMy11pgmB:
     # SQLite 데이터베이스 연결
     conn = sqlite3.connect(self.my_dir + '/' + "my_blog.db")
     
-    dfcd = pd.read_sql("SELECT * FROM tb_blog_code ", conn)
-    print(dfcd)
-    
-    dfcm = pd.read_sql("""
-select gKey, tbc1.Name gName, cKey, tbc2.Name gName, seq
+    self.dflist = pd.read_sql("""
+select gKey, tbc1.Name gName, cKey, tbc2.Name cName, tbc2.cURL, seq
 from tb_blog_map tbm, tb_blog_code tbc1, tb_blog_code tbc2
 where tbm.gKey = tbc1."Key" and tbm.cKey = tbc2."Key"
-order by gKey, seq
+order by tbc1.cdOrder, gKey, seq
 """, conn)
-    print(dfcm)
-
-    conn.close()
-
-    return
-  
-    # MAKE self.dflist
-    # 향후 조인시 인덱스 유지를 위해서 보관
-    dfcm['orgIndex'] = dfcm.index
-    # gKey를 기준으로 dfcd와 조인하여 gName을 가져옴
-    self.dflist = pd.merge(dfcm, dfcd[['Key','Name']], left_on='gKey', right_on='Key', how='left')
-    self.dflist = self.dflist.rename(columns={'Name': 'gName'})  # gName으로 이름 변경
-    self.dflist = self.dflist.drop(columns=['Key'])  # Key 컬럼 제거
-
-    # cKey를 기준으로 다시 dfcd와 조인하여 cName을 가져옴
-    # '#'이 포함된 경우와 그렇지 않은 경우로 dflist를 분리
-    dflist_with_hash = self.dflist[self.dflist['cKey'].str.contains('#', na=False)]
-    dflist_without_hash = self.dflist[~self.dflist['cKey'].str.contains('#', na=False)]
-    # '#'이 포함된 경우, # 뒤의 값으로 조인
-    dflist_with_hash['cKey_clean'] = dflist_with_hash['cKey'].apply(lambda x: x.split('#')[1])
-    merged_with_hash = pd.merge(dflist_with_hash, dfcd, left_on='cKey_clean', right_on='Key', how='left').drop(columns=['Key', 'cKey_clean'])
-    # '#'이 없는 경우, 전체 cKey로 조인
-    merged_without_hash = pd.merge(dflist_without_hash, dfcd, left_on='cKey', right_on='Key', how='left').drop(columns=['Key'])
-    # 두 결과를 다시 결합하여 최종 결과 생성
-    self.dflist = pd.concat([merged_with_hash, merged_without_hash], ignore_index=True)
-    self.dflist = self.dflist.rename(columns={'Name': 'cName'})  # cName으로 이름 변경
-
-    # 원래 인덱스를 기준으로 다시 정렬 (순서 유지)
-    self.dflist = self.dflist.sort_values(by=['gKey','orgIndex']).reset_index(drop=True)
-    print("print dflist")   
     print(self.dflist)
 
-    # MAKE dfgroup 
-    #self.dfgroup = self.dflist[self.dflist['gKey'].str.startswith('GG')][['gKey', 'gName']].drop_duplicates()
-    self.dfgroup = self.dflist[['gKey', 'gName']].drop_duplicates()
-
-    print("print dfgroup")   
+    self.dfgroup = pd.read_sql("""
+select distinct gKey, tbc.Name gName
+from tb_blog_map tbm, tb_blog_code tbc
+where tbm.gKey = tbc."Key" 
+""", conn)
     print(self.dfgroup)
+    conn.close()
 
     
-  # file header
+  ###
+  ### HTML Header 생성 : title 패러미터
+  ###   
   def gen_title(self, title):
     return f"""
 <!DOCTYPE html>
@@ -123,6 +94,10 @@ order by gKey, seq
 
   """
 
+
+  ###
+  ### HTML Tail 생성 
+  ###   
   # file tail
   def gen_tail(self):
     return f"""
@@ -133,10 +108,12 @@ order by gKey, seq
 
   # generate file 
   def gen_gKey(self, dfKey):
-    myhtml = self.gen_title(self.dfgroup[self.dfgroup['gKey']==dfKey]['gName'].values[0])
+    myhtml = self.gen_title(self.dfgroup.loc[self.dfgroup['gKey'] == dfKey, 'gName'].values[0])
     
+
     # 상수값 입력할 때 오류를 범하네 : GG, CG, CC 
     for n_row, row in self.dflist[self.dflist['gKey']==dfKey].iterrows():  # iterrows() 사용
+      # print(row['gKey'], row['gName'], row['cKey'], row['cName'])
       if row['cKey'].startswith('GG'):
         myhtml += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CG'):
@@ -205,24 +182,24 @@ order by gKey, seq
       str_input = str_input.strip()  # 전체 입력 문자열의 양쪽 공백 제거
 
       if len(str_input) == 0:
-          print("입력 문자열이 억습니다. 최소 2자리 이상의 문자열이어야 합니다.")
-          continue
+        print("입력 문자열이 억습니다. 최소 2자리 이상의 문자열이어야 합니다.")
+        continue
 
       # 첫 번째 토큰: 첫 한 글자 (이미 전체 공백이 제거된 상태)
       first_token = str_input[0].upper()
       if first_token == "X":
         sys.exit("정상 종료 ^^")
       elif len(str_input) < 2:
-          print("입력 값이 너무 짧습니다. 최소 2자리 이상의 문자열이어야 합니다.")
-          continue
+        print("입력 값이 너무 짧습니다. 최소 2자리 이상의 문자열이어야 합니다.")
+        continue
 
       # 두 번째 토큰: 나머지 문자열 (이미 전체 공백이 제거된 상태)
       second_token = str_input[1:].strip()  # 두 번째 토큰 자체에만 남아 있는 공백을 다시 제거
 
       # 두 번째 토큰이 없을 경우 에러 처리
       if not second_token:
-          print("두 번째 토큰이 존재하지 않습니다.")  
-          continue
+        print("두 번째 토큰이 존재하지 않습니다.")  
+        continue
       elif first_token == "S":
         self.search_group(second_token)
       elif first_token == "O":

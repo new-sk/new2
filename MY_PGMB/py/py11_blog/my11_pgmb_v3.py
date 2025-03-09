@@ -4,12 +4,12 @@
 
 import my11_pgmb_class as c11p
 
-#생성자만 실행후 종료1
+# 1. 초기화 
 my11 = c11p.cMy11pgmB()
 
-# 전체 파일 새로 만들기
-#생성자만 실행후 종료2 my11.gen_group()
+# 2. BLOG 만들기 : 동일하게 생성된 것 확인
+my11.gen_group()
  
 
-# 찾아주세요.
-#생성자만 실행후 종료3 my11.input_command()
+# 3. 텍스트입력모드 : 조회하고 변경하고
+my11.input_command()
