@@ -1,4 +1,6 @@
 # BLOG 만들기
+# MY11 : text file에서 sqlite를 활용하는 것으로 변경 (with dbeaver)
+#      : my10 만든지 오래되어 어떻게 만들었는지 기억나지 않는다.
 
 import subprocess
 import os
@@ -12,12 +14,12 @@ import sqlite3
 class cMy11pgmB:
     
   def __init__(self):
-    self.my_dir = ""                # 현재 디렉토리
     self.my_fini = 'my11_pgmb.ini'  # INI FileName
-    self.fcd_list  = []              # 파일명 List
-    self.fcm_list  = []              # 파일명 List
-    self.dflist = pd.DataFrame()       # DF, from Read group file
-    self.dfgroup = pd.DataFrame()       # DF, from Read group file
+    self.my_dir  = ""               # 현재 디렉토리
+    self.fcd_list  = []             # 파일명 List : 미활용
+    self.fcm_list  = []             # 파일명 List : 미활용
+    self.dflist = pd.DataFrame()    # DF, from Read group file
+    self.dfgroup = pd.DataFrame()   # DF, from Read group file
     self.ggdir = ""
     self.ccdir = ""
     
@@ -26,11 +28,16 @@ class cMy11pgmB:
 
     self.read_group()
 
+  ###
+  ### INI 파일에서 기초 정보 읽어오기
+  ### 1. 디렉토리 확인 : global 변수에 저장
+  ### 2. INI파일 읽기 : my10에서만 사용 (어떤 파일 읽을지 결정)
+  ###
   def set_mode(self):
-    # 현재 디렉토리 읽기
+    ### 1. 현재 디렉토리 읽기
     self.my_dir, my_file = os.path.split(__file__)
 
-    # 설정파일 읽고 변수에 저장
+    ### 2. 설정파일 읽고 변수에 저장
     config = configparser.ConfigParser()  # 객체 생성
     config.read(self.my_dir + '/' + self.my_fini)  # 설정 파일 읽기 (파일 위치)
     # 1번 설정값 읽기 : 코드 : 최초 문자열 -> List로 변경
@@ -39,13 +46,17 @@ class cMy11pgmB:
     # 2번 설정값 읽기 : 매핑 : 최초 문자열 -> List로 변경
     fcm_str = config.get('file', 'fcm')
     self.fcm_list = fcm_str.replace(' ', '').split(',')
-    
-  def read_group(self):
-    # 로컬변수 초기화
-    dfcd = pd.DataFrame()
-    dfcm = pd.DataFrame()
 
-    # 4️⃣ SQLite 데이터베이스 연결
+  ###
+  ### 데이터 읽어서 향후 활용할 DF 변수에 저장
+  ### dfcd/dfcm은 임시변수,  dflist/dfgroup이 진짜 (global변수)
+  ### 1. dflist 생성
+  ### 2. dfgroup 생성
+  ###   
+  def read_group(self):
+    ### 1. dfcd/dfcm에 데이터 입력
+
+    # SQLite 데이터베이스 연결
     conn = sqlite3.connect(self.my_dir + '/' + "my_blog.db")
     
     dfcd = pd.read_sql("SELECT * FROM tb_blog_code ", conn)
