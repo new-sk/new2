@@ -11,10 +11,15 @@ import sys
 from pathlib import Path  # OS별 패스 구분자 자동변환
 import sqlite3
 
+#sys.path.append("../py00_util")  # 상대경로로 추가
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../py00_util")))
+from py00_utils import load_sql_query  # 새로운 버전 사용
+
 class cMy11pgmB:
     
   def __init__(self):
     self.my_fini = 'my11_pgmb.ini'  # INI FileName
+    self.my_fsql = 'my11_pgmb_query.sql' # SQL FileName
     self.my_dir  = ""               # 현재 디렉토리
     self.fcd_list  = []             # 파일명 List : 미활용
     self.fcm_list  = []             # 파일명 List : 미활용
@@ -173,6 +178,7 @@ where tbm.gKey = tbc."Key"
     input_msg = """명령어를 입력해 주세요 (명령어(1글자) 내용) : \r
  - S : Search cName \r
  - O : Open File cURL \r
+ - T : Find Tree \r
  - X : Exit
  """
     while 1==1:
@@ -204,6 +210,8 @@ where tbm.gKey = tbc."Key"
         self.search_group(second_token)
       elif first_token == "O":
         self.open_file(second_token)
+      elif first_token == "T":
+        self.find_tree(second_token)
       else:
         print("명령어 시작 문자 오류")
 
@@ -253,6 +261,7 @@ where tbm.gKey = tbc."Key"
     else:
         print("파일을 찾을 수 없습니다.")
 
+
   # original search_group 
   def search_group(self, cName_value):
     # 입력 받기
@@ -265,3 +274,28 @@ where tbm.gKey = tbc."Key"
 
     print(self.dflist[self.dflist[['cName', 'gName', 'gKey', 'cKey']].apply(lambda col: col.str.contains(cName_value, case=False, na=False)).any(axis=1)])
 
+
+  def find_tree(self, ccName):
+
+    # 데이터베이스 연결
+    conn = sqlite3.connect(self.my_dir + '/' + "my_blog.db")
+    cursor = conn.cursor()
+
+    # 실행할 쿼리 선택
+    query_name = "101.find_tree"  # 실행할 SQL 이름
+    sql_query = load_sql_query(self.my_dir + '/' + self.my_fsql, query_name)
+
+    print(ccName)
+
+    if sql_query:
+        cursor.execute(sql_query, (ccName,))
+        results = cursor.fetchall()
+
+        # 결과 출력
+        for row in results:
+            print(row)
+    else:
+        print(f"쿼리 '{query_name}'를 찾을 수 없습니다.")
+
+    # 연결 종료
+    conn.close()
