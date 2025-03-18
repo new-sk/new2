@@ -29,9 +29,10 @@ class cMy11pgmB:
     self.ccdir = ""
     
     self.set_mode()
-    # self.get_excel()
-
+    
     self.read_group()
+
+    self.check_dflist()
 
 
   ###
@@ -81,7 +82,72 @@ where tbm.gKey = tbc."Key"
     print(self.dfgroup)
     conn.close()
 
+
+  ###
+  ### dflist의 데이터 정합성 확인
+  ###  
+  def check_dflist(self):
+    # cdlist 추출
+    conn = sqlite3.connect(self.my_dir + '/' + "my_blog.db")    
+    cdlist = pd.read_sql("select Key, cdOrder from tb_blog_code", conn)
+    conn.close()
+
+    ### cclist, gglist(gg+cg) 생성
+    # cclist: cdOrder가 4인 Key
+    cclist = cdlist.loc[cdlist['cdOrder'] == 4, 'Key'].tolist()
+    # gglist: cdOrder가 2 또는 3인 Key
+    gglist = cdlist.loc[cdlist['cdOrder'].isin([2, 3]), 'Key'].tolist()
+
+    # 1. gKey에 'ROOT'가 있는가?
+    is_root_present = 'ROOT' in self.dflist['gKey'].values
+    if not is_root_present:
+      print("""
+###################
+gKey에 'ROOT'가 없어요
+###################""")
+      
+    # 2. cclist에 있는 값 중에서 cKey에 없는 것이 있는가?
+    missing_in_cKey = set(cclist) - set(self.dflist['cKey'])
+    if missing_in_cKey:
+      print(f"""
+###################
+cKey에 {missing_in_cKey}가 존재하지 않습니다.
+###################""")
+
+    # 3. cglist 및 gglist 중에서 gKey에도 없고 cKey에도 없는 것이 있는가?
+    all_keys = set(self.dflist['gKey']).union(set(self.dflist['cKey']))
+    missing_in_all = set(gglist) - all_keys
+    if missing_in_all:
+      print(f"""
+###################
+{missing_in_all}가 gKey / cKey 모두에서 사용되지 않았습니다.
+###################""")
+
+
+    # 1. depth 컬럼 초기화
+    self.dflist['depth'] = None
+    # 2. ROOT의 자식들 depth = 1 설정
+    self.dflist.loc[self.dflist['gKey'] == 'ROOT', 'depth'] = 1
+    # 3. 루프를 사용해 depth를 증가시키며 설정
+    current_depth = 1  # 초기 depth
+    while True:
+        # 현재 depth를 가진 cKey 목록 찾기
+        depth_keys = self.dflist.loc[self.dflist['depth'] == current_depth, 'cKey'].tolist()
+        # 다음 depth를 설정할 대상 찾기 (depth_keys가 gKey로 있는 경우)
+        updated_rows = self.dflist['gKey'].isin(depth_keys) & self.dflist['depth'].isna()
+        if not updated_rows.any():  # 더 이상 업데이트할 것이 없으면 종료
+            break
+        # 다음 depth로 설정
+        self.dflist.loc[updated_rows, 'depth'] = current_depth + 1
+        current_depth += 1  # depth 증가
+    # 4. depth가 None인 항목 찾기 (ROOT까지 도달하지 못한 항목)
+    unreachable_nodes = self.dflist[self.dflist['depth'].isna()]
+    # 5. 결과 출력
+    if not unreachable_nodes.empty:
+        print(unreachable_nodes)
+
     
+
   ###
   ### HTML Header 생성 : title 패러미터
   ###   
@@ -157,7 +223,7 @@ where tbm.gKey = tbc."Key"
     self.ccdir = "."
     myhtml = self.gen_gKey('ROOT')
     print('print ROOT html')
-    print(myhtml)
+    #print(myhtml)
     # HTML file generate
     with open(self.my_dir + '/../../../index.html', "w", encoding="utf-8") as file:
       file.write(myhtml)
