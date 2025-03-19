@@ -67,9 +67,19 @@ class cMy11pgmB:
     conn = sqlite3.connect(self.my_dir + '/' + "my_blog.db")
     
     self.dflist = pd.read_sql("""
-select gKey, tbc1.Name gName, cKey, tbc2.Name cName, tbc2.cURL, seq
-from tb_blog_map tbm, tb_blog_code tbc1, tb_blog_code tbc2
-where tbm.gKey = tbc1."Key" and tbm.cKey = tbc2."Key"
+SELECT 
+    tbm.gKey, 
+    tbc1.Name AS gName, 
+    tbm.cKey, 
+    tbc2.Name AS cName, 
+    tbm.seq, 
+    tbm.sharp, 
+    tbc3.Name AS sName, 
+    tbc2.cURL
+FROM tb_blog_map tbm
+JOIN tb_blog_code tbc1 ON tbm.gKey = tbc1."Key"
+JOIN tb_blog_code tbc2 ON tbm.cKey = tbc2."Key"
+LEFT JOIN tb_blog_code tbc3 ON tbm.sharp = tbc3."Key"
 order by tbc1.cdOrder, gKey, seq
 """, conn)
     print(self.dflist)
@@ -144,9 +154,12 @@ cKey에 {missing_in_cKey}가 존재하지 않습니다.
     unreachable_nodes = self.dflist[self.dflist['depth'].isna()]
     # 5. 결과 출력
     if not unreachable_nodes.empty:
-        print(unreachable_nodes)
+        print(f"""
+###################
+사용되지 않은 매핑 내역이 존재합니다.
+{unreachable_nodes}
+###################""")
 
-    
 
   ###
   ### HTML Header 생성 : title 패러미터
@@ -205,9 +218,11 @@ cKey에 {missing_in_cKey}가 존재하지 않습니다.
     mygc_html = f"<br><h4 id=\"{rck}\">{rcm}</h4>\n"
     for n_row, row in self.dflist[self.dflist['gKey']==rck].iterrows():  # iterrows() 사용
       if row['cKey'].startswith('GG'):
-        if '#' in row['cKey']:
-          file_part, anchor_part = row['cKey'].split('#', 1)
-          mygc_html += f"<p><a href=\"{self.ggdir}/{file_part}.html#{anchor_part}\">{row['cName']}</a></p>\n"
+        #if '#' in row['cKey']:
+        #  file_part, anchor_part = row['cKey'].split('#', 1)
+        #  mygc_html += f"<p><a href=\"{self.ggdir}/{file_part}.html#{anchor_part}\">{row['cName']}</a></p>\n"
+        if pd.notnull(row['sharp']):  # 25.03.19 : #처리변경
+          mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html#{row['sharp']}\">{row['sName']}</a></p>\n"
         else:
           mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CC'):
@@ -233,7 +248,7 @@ cKey에 {missing_in_cKey}가 존재하지 않습니다.
     self.ccdir = ".."
     for n_row, row in self.dfgroup[self.dfgroup['gKey'].str.startswith('GG')].iterrows():  # iterrows() 사용
       myhtml = self.gen_gKey(row['gKey'])
-      print('print GG html : ' + row['gKey'])
+      #print('print GG html : ' + row['gKey'])
       #print(myhtml)
       with open(self.my_dir + '/../../../pyhtml/' + row['gKey'] + '.html', "w", encoding="utf-8") as file:
         file.write(myhtml)
