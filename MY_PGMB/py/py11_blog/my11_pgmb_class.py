@@ -221,8 +221,8 @@ cKey에 {missing_in_cKey}가 존재하지 않습니다.
         #if '#' in row['cKey']:
         #  file_part, anchor_part = row['cKey'].split('#', 1)
         #  mygc_html += f"<p><a href=\"{self.ggdir}/{file_part}.html#{anchor_part}\">{row['cName']}</a></p>\n"
-        if pd.notnull(row['sharp']):  # 25.03.19 : #처리변경
-          mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html#{row['sharp']}\">{row['sName']}</a></p>\n"
+        if row['sharp']:  # 25.03.19 : #처리변경 : notnull에서 바꿈 (null, '' 동시 대응 위해)
+          mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html#{row['sharp']}\">{row['cName']} - {row['sName']}</a></p>\n"
         else:
           mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CC'):
