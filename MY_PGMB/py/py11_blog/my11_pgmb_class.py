@@ -198,10 +198,10 @@ cKey에 {missing_in_cKey}가 존재하지 않습니다.
     # 상수값 입력할 때 오류를 범하네 : GG, CG, CC 
     for n_row, row in self.dflist[self.dflist['gKey']==dfKey].iterrows():  # iterrows() 사용
       # print(row['gKey'], row['gName'], row['cKey'], row['cName'])
-      if row['cKey'].startswith('GG'):
-        myhtml += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
-      elif row['cKey'].startswith('CG'):
+      if row['cKey'].startswith('CG') or (row['cKey'].startswith('GG') and row['sharp'] == "#"):
         myhtml += self.gen_detail_cg(row['cKey'],row['cName'])
+      elif row['cKey'].startswith('GG'):
+        myhtml += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
       elif row['cKey'].startswith('CC'):
         # 외부 사이트
         if row['cURL'].startswith('http'):
@@ -221,7 +221,7 @@ cKey에 {missing_in_cKey}가 존재하지 않습니다.
         #if '#' in row['cKey']:
         #  file_part, anchor_part = row['cKey'].split('#', 1)
         #  mygc_html += f"<p><a href=\"{self.ggdir}/{file_part}.html#{anchor_part}\">{row['cName']}</a></p>\n"
-        if row['sharp']:  # 25.03.19 : #처리변경 : notnull에서 바꿈 (null, '' 동시 대응 위해)
+        if row['sharp'] and row['sharp'] != "#":  # 25.03.19 : #처리변경 : notnull에서 바꿈 (null, '' 동시 대응 위해)
           mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html#{row['sharp']}\">{row['cName']} - {row['sName']}</a></p>\n"
         else:
           mygc_html += f"<p><a href=\"{self.ggdir}/{row['cKey']}.html\">{row['cName']}</a></p>\n"
