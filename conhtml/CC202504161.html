@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>FP &#xc815;&#xb9ac;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        
+        
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        <style>
+/* 기본 글자 크기와 줄 간격 설정 */
+body {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* 제목 태그 기본 크기 설정 */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.75rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  h4 { font-size: 1.25rem !important; }
+  h5 { font-size: 1.1rem !important; }
+  h6 { font-size: 1rem !important; }
+  
+  /* 모바일 화면에서 일괄적인 확대 적용 */
+  /* @media (max-width: 600px) {                                                       
+  /*   body {
+  /*     font-size: 1.1rem !important; /* 본문 글자 크기 약간 증가 */
+  /*   }
+  /*   h1, h2, h3, h4, h5, h6 {
+  /*     font-size: calc(1em + 0.5rem) !important; /* 모든 제목 글자 크기를 약간 증가 */
+  /*   } 
+  /*} */
+</style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h2 id="fp-정리">FP 정리</h2>
+<p>기능별 5가지 요소</p>
+<ul>
+<li>데이터 : ILF(내부<strong>논리</strong>파일), EIF(외부<strong>인터페이스</strong>파일)</li>
+<li>트랜잭션 : EI(입력), EO(출력), EQ(조회)</li>
+</ul>
+<p>가중치</p>
+<p>SW의 기능적 요구사항을 사용자 관점에서 객관적으로 측정하여 프로젝트의 크기와 복잡성을 평가하고 관리 및 예측을 용이하게 하는 도구</p>
+<ul>
+<li>개발 / 개선 / 지원&amp;유지보수 : 어떤 형식인지 확인
+<ul>
+<li>개선 : 변경된 기능만 집중 평가</li>
+<li>제외 : Task, UX/UI, EAI, 표준화</li>
+</ul>
+</li>
+<li>경계식별 : 시스템 범위를 명확하게 정의</li>
+<li>FP산정 - 가중치조정
+<ul>
+<li>외부사용자/시스템에서 EI, EO, EQ</li>
+<li>시스템 내부 사용하는 파일 (ILF)</li>
+</ul>
+</li>
+<li>데이터 : 논리적 개념 단위
+<ul>
+<li>내부에 저장하는지 여부</li>
+<li>RET(논리테이블), DET(항목) : 중복배제, 시스템 내부용 항목 제외</li>
+<li>FTR(트랜잭션) : ILF, EIF 총합</li>
+</ul>
+</li>
+<li>평균
+<ul>
+<li>ILF : 7.5</li>
+<li>EIF : 5.4</li>
+<li>EI  : 4.0</li>
+<li>EO  : 5.2</li>
+<li>EQ  : 3.9</li>
+</ul>
+</li>
+</ul>
+<p>EO vs EQ</p>
+<ul>
+<li>EO : 데이터 처리의 복잡성, 비즈니스 규칙 적용</li>
+<li>EQ : 단순한 데이터 변환</li>
+</ul>
+<p>DET 식별 기준</p>
+<ul>
+<li>중복 표출 : 1개만 인정</li>
+<li>버튼 여러개 : 1개만 인정</li>
+<li>화면상 고정된 메시지 : 관리용으로 인정안함</li>
+<li>여러 개 구분 가능한 항목이 하나로 보이면 : 보이는 것 기준으로 항목 갯수 인정</li>
+<li>시스템 메시지 : 여러 개 묶어서 1개로만 인정</li>
+</ul>
+<p>데이터 식별 기준</p>
+<ul>
+<li>종속성 있는 것을 하나로 묶는다 (논리 기준)</li>
+<li>단순한 코드 테이블 인정 안함</li>
+<li>사용자 요구 없이 기술적으로 처리하는 것은 인정 안함</li>
+<li>외래키만 있는 테이블 인정안함</li>
+</ul>
+<p>FP vs 정규화</p>
+<ul>
+<li>FP : 논리적 단위</li>
+<li>정규화 : 데이터 구초 명확화, 데이터 관리 일관성위해서 정규화 수행함</li>
+</ul>
+<p>단위 프로세스</p>
+<ul>
+<li>사용자 관점, 완전한 기능, 독립성</li>
+<li>C/R/U/D : 각각 사용자 입장에서는 별도의 기능이기 때문에 각각 산정 (내부적으로 유사하더라도)</li>
+</ul>
+
+        
+        
+    </body>
+    </html>

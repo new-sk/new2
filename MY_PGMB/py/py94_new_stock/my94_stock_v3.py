@@ -4,7 +4,7 @@ my94 = c94s.cMy94Stock()
 
 # 실제 작업은 다 막아
 my94.get_stocks()
-my94.xyz(['2025.04.11'])
+my94.xyz(['2025.04.16'])
 
 # 목표가 확인
 # my94.ssStdAmt()
