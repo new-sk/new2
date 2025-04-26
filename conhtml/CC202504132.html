@@ -139,7 +139,7 @@
         </head>
         <body class="vscode-body vscode-light">
             <h2 id="chatgpt-업무혁신-바이블">ChatGPT 업무혁신 바이블</h2>
-<h3 id="1-intro">1. INTRO</h3>
+<h3 id="0-intro">0. INTRO</h3>
 <ul>
 <li>영화 : 인타임 (시간이 돈이다. 디스토피아. 돈을 벌어서 시간을 사다)</li>
 <li>보안이 있는 상황에서도 활용할 수 있는 방법</li>
@@ -166,7 +166,73 @@
 <li>매개변수 줄이려는 시도 중</li>
 <li>폐쇄망에서도 수행됨</li>
 <li>Pre-Trained : Fine Tunning 거침</li>
-<li>환각효과(Hallucination)을 줄이기 위해 RAG(검색증강)을 활용 : 알고리즘의 특성상 100%는 안됨</li>
+<li>환각효과(Hallucination)을 줄이기 위해 RAG(검색증강)을 활용 : 알고리즘의 특성상 100%는 안됨
+<br></li>
+</ul>
+<h3 id="2-nocode--생각의-확장">2. NoCode : 생각의 확장</h3>
+<ul>
+<li>프롬프트 엔지니어링에 대한 논문 : 2022.11.30 ChatGPT가 나온 이후에 만든 논문이 대부분</li>
+<li>명령어 + 맥락 + 입력물 + 출력물</li>
+<li>앤드류 응 : 4대 AI 석학
+<ul>
+<li>명확한 지시</li>
+<li>zero / few shot은 다르다</li>
+<li>role을 부여하라 : 점차 의미 감소함 (다른 기능들로 해결됨)</li>
+<li>Fine-Tunning</li>
+<li>COT(충분한 시간)</li>
+</ul>
+</li>
+<li>공식문서로 확인
+<ul>
+<li>명확한 지시</li>
+<li>예시와 맥락 : 참조 텍스트</li>
+<li>복잡한 작업 분배
+<ul>
+<li>영문으로 요약해줘</li>
+<li>요약한 영문을 한글로 번역해줘</li>
+</ul>
+</li>
+<li>생각할 시간을 제공 : 제한된 컴퓨팅 파워를 추가적으로 사용하는 것</li>
+<li>외부도구 활용 : 참조 텍스트 제공과 유사한 방식</li>
+<li>체계적인 테스트</li>
+</ul>
+</li>
+<li>3가지로 요약됨 : <strong>명확한 지시, Few Shot, COT</strong></li>
+<li>Few Shot 예시
+<ul>
+<li>Prompt (입력문):
+영어 문장을 한국어로 번역해줘.
+예시:
+I love you → 나는 너를 사랑해.
+How are you? → 어떻게 지내?
+Good night → 잘 자.
+(이제 이 문장을 번역해줘)
+See you tomorrow</li>
+<li>AI가 생각하는 흐름: &quot;아~ 앞에서 영어 → 한국어 번역하는 거구나! 스타일도 비슷하게 해야겠네.&quot;</li>
+<li>AI 답변:
+내일 봐.</li>
+</ul>
+</li>
+<li>COT : Chain of Thought (생각의 흐름)
+<ul>
+<li>AI가 정답을 바로 찍는 게 아니라, 생각 과정을 천천히 글로 풀면서 답을 찾게 하는 방법이야.</li>
+<li>문제:
+사과가 3개 있고, 친구가 2개 더 줬어요. 사과는 모두 몇 개가 되었나요?
+<ul>
+<li>Zero-shot (생각 과정 없이 바로 답) : 5개</li>
+<li>COT (Chain of Thought) :
+&quot;처음에 사과가 3개 있었고, 친구가 2개를 더 줬어.
+그러니까 3 + 2 = 5.
+따라서 모두 5개야.&quot;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AI 업체들은 당분간은 살아남기 위해서 무료로 풀고 있다
+<ul>
+<li>바퀴를 만들려고 하지 마라 : 만들어진 것을 그냥 활용하지</li>
+</ul>
+</li>
 </ul>
 
             
