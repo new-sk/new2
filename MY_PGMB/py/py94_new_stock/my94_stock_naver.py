@@ -65,7 +65,8 @@ SELECT tso.*, tsc.siCode soCode,
        cast(((100 + tso.sobRate) / 100 * tso.soAmt) as integer)  sobPrice,
        cast(((100 + tso.sosRate) / 100 * tso.soAmt) as integer)  sosPrice
 FROM tb_stock_obj tso, tb_stock_code tsc 
-where tso.soName = tsc.siName       
+where tso.soName = tsc.siName 
+and soDelYN <> 'Y'      
 """, conn)
     print(self.df9o)
     
