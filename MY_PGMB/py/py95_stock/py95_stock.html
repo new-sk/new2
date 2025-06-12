@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>class 명 : my95_stock</p>
+<p>파일의 위치 : 원칙적으로 파이썬 소스코드가 있는 곳에 기본적으로 위치하고, 상대 경로임</p>
+<ul>
+<li>환경 변수에서 정의되는 DB 파일과 엑셀 파일이 존재하고</li>
+<li>환경 설정 파일 : my95_stock.ini</li>
+<li>실행 파일 : my95_stock.py (클래스 함수를 제외한 메인 영역)</li>
+</ul>
+<p>환경설정 파일 변수 :</p>
+<ul>
+<li>테스트모드 여부 : 테스트모드(디폴트값) 또는 실행모드</li>
+<li>DB 명 : 디폴트는 my_stock_2.db</li>
+<li>엑셀파일 명 : 디폴트는 my_stock_excel.xlsx</li>
+<li>파일 위치 : 디폴트는 D:\my_stock\</li>
+</ul>
+<p>생성자 함수</p>
+<ul>
+<li>OS가 무엇인지 확인</li>
+<li>맥이면 무조건 테스트 모드</li>
+<li>파일의 위치는 테스트 모드일 경우에는 파이썬 소스 코드가 있는 곳</li>
+<li>open_db 함수 호출</li>
+</ul>
+<p>디비 오픈 및 기본 SQL문 수행 함수 : open_db</p>
+<ul>
+<li>디비를 오픈 : 에러가 발생하면 종료</li>
+<li>run_select 실행해서 결과값을 저장
+<ul>
+<li>예제</li>
+<li>sql문 저장하는 변수 : sql_dfi</li>
+<li>함수 호출 후 결과 값 저장 변수 : self.dfi</li>
+</ul>
+</li>
+</ul>
+<p>sql문을 실행하고 결과값을 데이터프레임으로 만들어 리턴해 줌 : run_select</p>
+<ul>
+<li>입력값은 sql문이야</li>
+<li>입력값 중에 하나는 결과값이 empty 허용 여부야</li>
+<li>sql문이 오류가 발생하면 종료해줘</li>
+<li>empty를 허용하지 않는데, 결과값이 empty이면 종료해줘</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

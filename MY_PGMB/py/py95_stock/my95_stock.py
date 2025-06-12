@@ -30,6 +30,19 @@ class my95_stock:
         self.conn = None
         self.db_name = 'my_stock_2.db'
         self.excel_name = 'my_stock_excel.xlsx'
+        self.dfi = []
+        self.dfo = []
+
+        sql_df9i = "SELECT * FROM tb_stock_code"
+        sql_df9o = """
+SELECT tso.*, tsc.siCode soCode,
+       cast(((100 + tso.sobRate) / 100 * tso.soAmt) as integer)  sobPrice,
+       cast(((100 + tso.sosRate) / 100 * tso.soAmt) as integer)  sosPrice
+FROM tb_stock_obj tso, tb_stock_code tsc 
+where tso.soName = tsc.siName 
+and soDelYN <> 'Y'      
+"""
+
 
         if self.os_name == 'Windows':
             # 테스트 기간 동안에는 동일하게 사용 : 맥과 윈도우의 디렉토리 
@@ -45,7 +58,6 @@ class my95_stock:
         self.excel_path = os.path.join(base_dir, self.excel_name)
 
 
-    def connect_db(self):
         """
         SQLite DB에 연결, 연결 안되면 오류 출력 후 프로그램 종료.
         """
@@ -54,7 +66,6 @@ class my95_stock:
             sys.exit(1)
 
         self.conn = sqlite3.connect(self.db_path)
-        cursor = self.conn.cursor()
 
     
     def save_table_to_excel(self, sheet_name=None):
